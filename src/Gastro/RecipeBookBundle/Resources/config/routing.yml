@@ -1,0 +1,3 @@
+gastro_recipe_book_homepage:
+    pattern:  /recipe-book
+    defaults: { _controller: GastroRecipeBookBundle:Default:index }

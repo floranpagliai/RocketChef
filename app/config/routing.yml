@@ -1,0 +1,8 @@
+gastro_recipe_book:
+    resource: "@GastroRecipeBookBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gastro_data:
+    resource: "@GastroDataBundle/Resources/config/routing.yml"
+    prefix:   /
+
