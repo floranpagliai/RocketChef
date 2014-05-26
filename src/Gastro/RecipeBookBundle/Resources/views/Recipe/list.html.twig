@@ -1,3 +1,17 @@
-{% for recipe in recipes %}
-    {{ recipe.name }}
-{% endfor %}
+{% extends '::base.html.twig' %}
+{% block body %}
+    <table class="table-hover">
+        <tbody>
+        {% for recipe in recipes %}
+            <tr>
+                <td>
+                    {{ recipe.name }}
+                </td>
+                <td>
+                    Edit
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
