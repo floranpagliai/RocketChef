@@ -21,24 +21,6 @@
 .dropdown-submenu:focus > a > [class*=" icon-"] {
   background-image: url(../../bundles/gastroutilstwig/images/glyphicons-halflings-white.png);
 }
-.btn {
-  border: none;
-  background: #BDC3C7;
-  color: white;
-  font-size: 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-decoration: none;
-  text-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -o-transition: 0.25s;
-  transition: 0.25s;
-  -webkit-backface-visibility: hidden;
-}
 #wrapper {
   padding-left: 250px;
   transition: all 0.4s ease 0s;

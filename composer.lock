@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "03b7c567b5f59ece565184a4c228449d",
+    "hash": "f84d835c43c7e5cebb0686c9a083de59",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1619,30 +1619,51 @@
         },
         {
             "name": "twitter/bootstrap",
-            "version": "v2.3.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "b4c4072679943773a7582daa63f545ba818fa627"
+                "reference": "8e568a8e3652e48e6af23c1aedce2b63dbd2fa9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/b4c4072679943773a7582daa63f545ba818fa627",
-                "reference": "b4c4072679943773a7582daa63f545ba818fa627",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8e568a8e3652e48e6af23c1aedce2b63dbd2fa9e",
+                "reference": "8e568a8e3652e48e6af23c1aedce2b63dbd2fa9e",
                 "shasum": ""
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
-            "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
-            "homepage": "http://twbs.github.com/bootstrap/",
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
             "keywords": [
-                "bootstrap",
-                "css"
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
             ],
-            "time": "2013-07-27 06:36:38"
+            "time": "2014-05-23 22:49:13"
         }
     ],
     "packages-dev": [
@@ -1653,6 +1674,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "twitter/bootstrap": 20,
         "leafo/lessphp": 20
     },
     "platform": {
