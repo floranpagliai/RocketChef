@@ -1,3 +1,0 @@
-gastro_utils_twig_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GastroUtilsTwigBundle:Default:index }

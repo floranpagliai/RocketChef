@@ -37,9 +37,15 @@ assetic:
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
-        lessphp:
-            file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
-            appy_to: "\.less$"
+        less:
+          node: /usr/local/bin/node
+          node_paths: [/usr/local/lib/node_modules]
+          apply_to: "\.less$"
+
+braincrafted_bootstrap:
+    less_filter: less
+    assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
+    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.10.2.js
 
 # Doctrine Configuration
 doctrine:
