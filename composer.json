@@ -21,6 +21,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.0.*",
+        "components/font-awesome": "dev-master",
         "jquery/jquery":  "1.10.*"
     },
     "repositories": [

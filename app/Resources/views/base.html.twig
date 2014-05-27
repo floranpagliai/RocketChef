@@ -4,16 +4,20 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-
-    {% stylesheets '%kernel.root_dir%/Resources/css/*' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
     {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+
+    {% stylesheets
+    '%kernel.root_dir%/Resources/css/style.css'
+        filter='cssrewrite' %}
+    <link href="{{ asset_url }}" rel="stylesheet"  media="screen"/>
+    {% endstylesheets %}
+
 </head>
 <body>
 {% block body %}
     <div id="wrapper"><!-- Wrapper -->
+        <i class="fa fa-file-audio-o"></i>
 
         <div id="sidebar-wrapper"><!-- Sidebar -->
             <ul class="sidebar-nav">
