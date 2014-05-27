@@ -18,8 +18,24 @@
         "sensio/distribution-bundle": "~2.3",
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+		"jquery/jquery": "1.9.1",
+		"twitter/bootstrap": "2.3.*",
+		"leafo/lessphp": "dev-master"
     },
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "jquery/jquery",
+				"version": "1.9.1",
+				"dist": {
+					"url": "http://code.jquery.com/jquery-1.9.1.min.js",
+					"type": "file"
+				}
+			}
+		}
+	],
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
