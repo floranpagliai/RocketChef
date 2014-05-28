@@ -58,6 +58,27 @@
 
             <div class="page-content"><!-- Page content -->
                 <div class="row-fluid">
+                        {% block page_widgets %}
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="circle-tile">
+                            <a href="#">
+                                <div class="circle-tile-heading blue">
+                                    <i class="fa fa-cutlery fa-fw fa-3x"></i>
+                                </div>
+                            </a>
+                            <div class="circle-tile-content blue">
+                                <div class="circle-tile-description text-faded">
+                                    Recipes
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    2
+                                </div>
+                                {#<a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>#}
+                            </div>
+                        </div>
+                        {% endblock %}
+                </div>
+                <div class="row-fluid">
                     <div class="col-md-12">
                         {% include 'BraincraftedBootstrapBundle::flash.html.twig' with { 'close': true } %}
                         {% block page_content %}

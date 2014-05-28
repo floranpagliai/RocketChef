@@ -27,7 +27,14 @@
         <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state line="1" column="28" selection-start="85" selection-end="85" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="425">
-              <folding />
+              <folding>
+                <marker date="1401288862274" expanded="true" signature="126:598" placeholder="..." />
+                <marker date="1401288862274" expanded="true" signature="146:235" placeholder="..." />
+                <marker date="1401288862274" expanded="true" signature="163:214" placeholder="..." />
+                <marker date="1401288862274" expanded="true" signature="255:581" placeholder="..." />
+                <marker date="1401288862274" expanded="true" signature="316:535" placeholder="..." />
+                <marker date="1401288862274" expanded="true" signature="341:513" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,7 +71,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="1746" vertical-scroll-proportion="0.0" vertical-offset="1989" max-vertical-offset="3570">
+            <state line="274" column="1" selection-start="3678" selection-end="3678" vertical-scroll-proportion="0.0" vertical-offset="4059" max-vertical-offset="4760">
               <folding />
             </state>
           </provider>
@@ -91,7 +98,7 @@
       <file leaf-file-name="base.html.twig" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="2" selection-start="2323" selection-end="2364" vertical-scroll-proportion="0.5881384" vertical-offset="663" max-vertical-offset="1785">
+            <state line="72" column="39" selection-start="3004" selection-end="3004" vertical-scroll-proportion="0.41186163" vertical-offset="974" max-vertical-offset="2142">
               <folding />
             </state>
           </provider>
@@ -142,8 +149,8 @@
         <option value="$PROJECT_DIR$/src/Gastro/DataBundle/Service/RecipeProvider.php" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/show.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/css/style.css" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig" />
       </list>
     </option>
@@ -210,6 +217,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gastro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gastro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -843,7 +868,14 @@
     <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="12" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="374">
-          <folding />
+          <folding>
+            <marker date="1401288862274" expanded="true" signature="126:598" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="146:235" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="163:214" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="255:581" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="316:535" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="341:513" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1088,23 +1120,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1746" vertical-scroll-proportion="0.0" vertical-offset="1989" max-vertical-offset="3570">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="28" selection-start="85" selection-end="85" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="425">
+          <folding>
+            <marker date="1401288862274" expanded="true" signature="126:598" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="146:235" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="163:214" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="255:581" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="316:535" placeholder="..." />
+            <marker date="1401288862274" expanded="true" signature="341:513" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="274" column="1" selection-start="3678" selection-end="3678" vertical-scroll-proportion="0.0" vertical-offset="4059" max-vertical-offset="4760">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="2" selection-start="2323" selection-end="2364" vertical-scroll-proportion="0.5881384" vertical-offset="663" max-vertical-offset="1785">
+        <state line="72" column="39" selection-start="3004" selection-end="3004" vertical-scroll-proportion="0.41186163" vertical-offset="974" max-vertical-offset="2142">
           <folding />
         </state>
       </provider>
