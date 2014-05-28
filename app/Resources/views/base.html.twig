@@ -10,6 +10,7 @@
 
     {% stylesheets
     '%kernel.root_dir%/Resources/css/style.css'
+    '%kernel.root_dir%/Resources/css/pace-flash.css'
         filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet"  media="screen"/>
     {% endstylesheets %}
@@ -26,10 +27,10 @@
                         <a href="#">Gastro</a>
                     </li>
                     <li>
-                        <a href="#">Dashboard</a>
+                        <a href="#"><i class="fa fa-tachometer "></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#">Recipe Book</a>
+                        <a href="#"><i class="fa fa-book "></i> Recipe Book</a>
                     </li>
                 {% endblock %}
             </ul>
@@ -40,7 +41,7 @@
         <div id="page-content-wrapper"><!-- Page-content_wrapper -->
             <div class="content-header"><!-- Page content header -->
                 <h1>
-                    <button id="menu-toggle" href="#" class="btn"><i class="fa fa-android"></i></button>
+                    <button id="menu-toggle" href="#" class="btn"><i class="fa fa-bars"></i></button>
                     {% block page_content_header %}
                         Simple Sidebar
                     {% endblock %}
@@ -49,7 +50,7 @@
             <div class="row-fluid">
                 <div class="col-md-12">
                     <ol class="breadcrumb">
-                        <li class="active">Dashboard</li>
+                        <li class="active"><i class="fa fa-tachometer "></i> Dashboard</li>
                     </ol>
                 </div>
             </div>
@@ -80,6 +81,7 @@
 
 <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
 <script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/pace.min.js') }}"></script>
 <!-- Include all JavaScripts, compiled by Assetic -->
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 

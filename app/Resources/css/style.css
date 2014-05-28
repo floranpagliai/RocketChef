@@ -72,6 +72,10 @@
 	background: none;
 }
 
+.sidebar-nav .side-nav li i.fa {
+	padding-right: 10px;
+}
+
 .content-header {
 	height: 65px;
 	line-height: 65px;
