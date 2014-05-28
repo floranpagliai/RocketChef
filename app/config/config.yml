@@ -38,9 +38,19 @@ assetic:
     filters:
         cssrewrite: ~
         less:
-          node: /usr/local/bin/node
-          node_paths: [/usr/local/lib/node_modules]
+#          node: /usr/local/bin/node
+#          node_paths: [/usr/local/lib/node_modules]
+          node: C:\Program Files (x86)\nodejs\node.exe
+          node_paths: [C:\Users\Utilisateur\AppData\Roaming\npm\node_modules]
           apply_to: "\.less$"
+    assets:
+        fontawesome_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/components/font-awesome/less/font-awesome.less
+            filters:
+                - less
+                - cssrewrite
+            output: css/font-awesome.css
 
 braincrafted_bootstrap:
     less_filter: less

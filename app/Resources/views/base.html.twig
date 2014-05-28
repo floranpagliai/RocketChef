@@ -5,6 +5,7 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet" media="screen">
     {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
 
     {% stylesheets
@@ -17,16 +18,18 @@
 <body>
 {% block body %}
     <div id="wrapper"><!-- Wrapper -->
-        <i class="fa fa-file-audio-o"></i>
 
         <div id="sidebar-wrapper"><!-- Sidebar -->
             <ul class="sidebar-nav">
                 {% block sidebar %}
-                    <li class="sidebar-brand"><a href="#">Gastro</a>
+                    <li class="sidebar-brand">
+                        <a href="#">Gastro</a>
                     </li>
-                    <li><a href="#">Dashboard</a>
+                    <li>
+                        <a href="#">Dashboard</a>
                     </li>
-                    <li><a href="#">Recipe Book</a>
+                    <li>
+                        <a href="#">Recipe Book</a>
                     </li>
                 {% endblock %}
             </ul>
@@ -37,8 +40,7 @@
         <div id="page-content-wrapper"><!-- Page-content_wrapper -->
             <div class="content-header"><!-- Page content header -->
                 <h1>
-                    <button id="menu-toggle" href="#" class="btn"><span
-                                class="glyphicon glyphicon-align-justify gl"></span></button>
+                    <button id="menu-toggle" href="#" class="btn"><i class="fa fa-android"></i></button>
                     {% block page_content_header %}
                         Simple Sidebar
                     {% endblock %}
