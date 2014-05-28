@@ -1,0 +1,51 @@
+.tile {
+    margin-bottom: 15px;
+    padding: 15px;
+    overflow: hidden;
+    color: #fff;
+}
+
+.tile h1,
+.tile h2,
+.tile h3,
+.tile h4,
+.tile h5,
+.tile h6 {
+    margin: 0;
+}
+
+.tile h1 a,
+.tile h2 a,
+.tile h3 a,
+.tile h4 a,
+.tile h5 a,
+.tile h6 a {
+    color: #fff;
+}
+
+.tile-img {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.9);
+}
+
+.time-widget {
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.75em;
+}
+
+.time-widget-heading {
+    text-transform: uppercase;
+    font-size: .5em;
+    font-weight: 400;
+}
+
+@media(min-width:768px) {
+    .tile {
+        margin-bottom: 30px;
+    }
+
+    .circle-tile {
+        margin-bottom: 30px;
+    }
+}

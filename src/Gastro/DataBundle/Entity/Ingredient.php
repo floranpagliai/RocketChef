@@ -53,7 +53,7 @@ class Ingredient {
     protected $endMonthSeason;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Recipe", inversedBy="ingredients", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="Recipe", inversedBy="ingredients", cascade={"persist"})
      * @ORM\JoinTable(name="ingredients_recipes")
      **/
     protected $recipes;

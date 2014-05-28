@@ -10,3 +10,4 @@ gastro_data:
     resource: "@GastroDataBundle/Resources/config/routing.yml"
     prefix:   /
 
+

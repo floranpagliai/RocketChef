@@ -1,0 +1,27 @@
+<div class="col-lg-3 col-sm-6">
+    <div class="circle-tile">
+        {% if link != '#' %}
+        <a href="{{ path(link) }}">
+            {% endif %}
+            <div class="circle-tile-heading {{ color }}">
+                <i class="fa {{ icon }} fa-fw fa-3x"></i>
+            </div>
+            {% if link != '#' %}
+        </a>
+        {% endif %}
+
+        <div class="circle-tile-content {{ color }}">
+            <div class="circle-tile-description {{ textcolor }}">
+                {{ name }}
+            </div>
+            <div class="circle-tile-number {{ textcolor }}">
+                {{ value }}
+            </div>
+            {% if link != '#' %}
+                <a href="{{ path(link) }}" class="circle-tile-footer">See <i class="fa fa-chevron-circle-right"></i></a>
+            {% else %}
+                <a class="circle-tile-footer"><i class="fa"></i></a>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -29,7 +29,7 @@ class Recipe {
     protected $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Ingredient", mappedBy="recipes", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="Ingredient", mappedBy="recipes", cascade={"persist"})
      **/
     protected $ingredients;
 

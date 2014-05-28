@@ -5,9 +5,70 @@
     <li><a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book "></i> Recipe book</a></li></a>
     <li class="active">{{ recipe.name }}</li></a>
 {% endblock %}
+{% block page_content %}
+    <div class="col-lg-12">
+        <div class="portlet portlet-default">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>{{ recipe.name }}</h4>
+                </div>
+                <div class="portlet-widgets">
+                    <span class="label green">Label</span>
+                    <span class="divider"/>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#defaultPortlet" class="">
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
+                <div class="portlet-body">
+                    <p>Hover over the links below to see tooltips:</p>
 
-    {% block page_content %}
-<div class="col-md-12">
-        <h2>{{ recipe.name }}</h2>
+                    <div class="tooltip-demo">
+                        <p>Tight pants next level keffiyeh <a href="#" data-toggle="tooltip" title="Default tooltip">you
+                                probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan
+                            messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit
+                            american apparel <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> terry
+                            richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu
+                            biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic
+                            artisan, scenester farm-to-table banksy Austin <a href="#" data-toggle="tooltip"
+                                                                              title="The last tip!">twitter handle</a>
+                            freegan cred raw denim single-origin coffee viral.</p>
+                    </div>
+                    <h3>Tooltip Directions</h3>
+
+                    <div class="tooltip-demo">
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left"
+                                title="Tooltip on left">Tooltip on left
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top"
+                                title="Tooltip on top">Tooltip on top
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom"
+                                title="Tooltip on bottom">Tooltip on bottom
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+                                title="Tooltip on right">Tooltip on right
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    {% endblock %}
+    <div class="col-lg-4">
+        <div class="tile dark-blue">
+            <h4>Dark Blue/Default Tile</h4>
+            <br>
+            <p>Tile Classes:
+                <code>.tile</code>
+                <code>.dark-blue</code>
+                Alternate:
+                <code>.tile</code>
+                <code>.default</code>
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tempus libero. Aliquam et dui at augue aliquet gravida at at est. Curabitur mattis sem sed dolor sagittis blandit. Nulla facilisi. Praesent eget nibh nisl. Sed scelerisque ligula sed justo lobortis, at pharetra ipsum ornare. Pellentesque non nisl sit amet erat venenatis semper tincidunt sit amet erat.</p>
+        </div>
+    </div>
+    <!-- /.col-lg-4 -->
+{% endblock %}

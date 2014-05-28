@@ -28,4 +28,12 @@ class RecipeProvider {
         return $this->em->findOneBy(array('id' => $id));
     }
 
+    public function getRecipesCount()
+    {
+        return $this->em->createQueryBuilder('r')
+            ->select('COUNT(r)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 } 

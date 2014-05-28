@@ -1,0 +1,5 @@
+services:
+    widget.generator:
+        class: Utils\WidgetBundle\Service\WidgetService
+        tags:
+            - { name: widget.generator }
