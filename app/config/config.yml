@@ -34,7 +34,6 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:        [ ]
-    #java: /usr/bin/java
     filters:
         cssrewrite: ~
         less:
@@ -43,6 +42,8 @@ assetic:
           node: C:\Program Files (x86)\nodejs\node.exe
           node_paths: [C:\Users\Utilisateur\AppData\Roaming\npm\node_modules]
           apply_to: "\.less$"
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor.jar"
     assets:
         fontawesome_css:
             inputs:
@@ -51,7 +52,7 @@ assetic:
                 - less
                 - cssrewrite
             output: css/font-awesome.css
-        pace_flash:
+        pace_js:
             inputs:
                 - %kernel.root_dir%/Resources/js/pace.min.js
             output: js/pace.min.js

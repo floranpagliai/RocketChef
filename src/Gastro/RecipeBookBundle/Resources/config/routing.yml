@@ -1,3 +1,7 @@
-gastro_recipe_book_homepage:
+gastro_recipe_book:
     pattern:  /recipe-book
     defaults: { _controller: GastroRecipeBookBundle:Default:index }
+
+gastro_recipe_book_show:
+    pattern:  /recipe-book/{recipeId}-{recipeName}
+    defaults: { _controller: GastroRecipeBookBundle:Default:show }

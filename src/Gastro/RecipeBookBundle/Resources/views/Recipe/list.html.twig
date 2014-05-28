@@ -1,9 +1,4 @@
-{% extends '::base.html.twig' %}
-
-{% block page_content_header %}
-    Recipe Book
-{% endblock %}
-
+{% extends 'GastroRecipeBookBundle::layout.html.twig' %}
     {% block page_content %}
         <table class="table table-hover">
             <thead>
@@ -15,10 +10,7 @@
             {% for recipe in recipes %}
                 <tr>
                     <td>
-                        {{ recipe.name }}
-                    </td>
-                    <td>
-                        Edit
+                        <a href="{{ path('gastro_recipe_book_show', {'recipeId' : recipe.id, recipeName : recipe.name}) }}">{{ recipe.name }}</a>
                     </td>
                 </tr>
             {% endfor %}

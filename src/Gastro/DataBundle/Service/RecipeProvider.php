@@ -20,8 +20,12 @@ class RecipeProvider {
 
     public function getAllRecipes()
     {
-        $recipes = $this->em->findAll();
-        return $recipes;
+        return $this->em->findAll();
+    }
+
+    public function getRecipeById($id)
+    {
+        return $this->em->findOneBy(array('id' => $id));
     }
 
 } 

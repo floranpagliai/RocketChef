@@ -1,0 +1,13 @@
+{% extends 'GastroRecipeBookBundle::layout.html.twig' %}
+
+{% block page_content_breadcrumb %}
+    <li><a href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> Dashboard</a></li>
+    <li><a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book "></i> Recipe book</a></li></a>
+    <li class="active">{{ recipe.name }}</li></a>
+{% endblock %}
+
+    {% block page_content %}
+<div class="col-md-12">
+        <h2>{{ recipe.name }}</h2>
+    </div>
+    {% endblock %}

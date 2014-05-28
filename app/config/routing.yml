@@ -1,3 +1,7 @@
+gastro_dashboard:
+    resource: "@GastroDashboardBundle/Resources/config/routing.yml"
+    prefix:   /
+
 gastro_recipe_book:
     resource: "@GastroRecipeBookBundle/Resources/config/routing.yml"
     prefix:   /

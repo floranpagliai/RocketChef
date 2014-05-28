@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new Gastro\DataBundle\GastroDataBundle(),
             new Gastro\RecipeBookBundle\GastroRecipeBookBundle(),
+            new Gastro\DashboardBundle\GastroDashboardBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

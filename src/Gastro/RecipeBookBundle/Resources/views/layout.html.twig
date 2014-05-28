@@ -1,0 +1,10 @@
+{% extends ':WebApp:base.html.twig' %}
+
+{% block page_content_header %}
+    Recipe Book
+{% endblock %}
+
+{% block page_content_breadcrumb %}
+    <li><a href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> Dashboard</a></li>
+    <li class="active"><i class="fa fa-book "></i> Recipe book</li></a>
+{% endblock %}
