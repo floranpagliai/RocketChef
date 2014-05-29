@@ -17,11 +17,11 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
 
             new Gastro\DataBundle\GastroDataBundle(),
             new Gastro\RecipeBookBundle\GastroRecipeBookBundle(),
             new Gastro\DashboardBundle\GastroDashboardBundle(),
+            new Gastro\UserBundle\GastroUserBundle(),
 
             new Utils\WidgetBundle\WidgetBundle(),
         );

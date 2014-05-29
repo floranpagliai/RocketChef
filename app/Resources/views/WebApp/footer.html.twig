@@ -1,0 +1,51 @@
+<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+<script src="{{ asset('js/jquery.js') }}"></script>
+<!-- Include all JavaScripts, compiled by Assetic -->
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('js/jquery.easypiechart.min.js') }}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        {% block document_ready %}{% endblock %}
+    });
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+
+    //Portlet Icon Toggle
+    $(".portlet-widgets .fa-chevron-down, .portlet-widgets .fa-chevron-up").click(function() {
+        $(this).toggleClass("fa-chevron-down fa-chevron-up");
+    });
+    $(document).ready(function () {
+        $('#dataTable').dataTable({
+            "paging": false,
+            "info": false
+        });
+    });
+    $(function() {
+        $('#easy-pie-1, #easy-pie-2, #easy-pie-3, #easy-pie-4').easyPieChart({
+            barColor: "rgba(255,255,255,.5)",
+            trackColor: "rgba(255,255,255,.5)",
+            scaleColor: "rgba(255,255,255,.5)",
+            lineWidth: 20,
+            animate: 1500,
+            size: 180,
+            onStep: function(from, to, percent) {
+                $(this.el).find('.percent').text(Math.round(percent));
+            }
+        });
+
+    });
+    $(function() {
+
+        // Tooltips for sidebar toggle and sidebar logout button
+        $('.tooltip-sidebar-toggle, .tooltip-sidebar-logout').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        })
+
+    })
+</script>
+</html>
