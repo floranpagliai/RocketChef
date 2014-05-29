@@ -7,15 +7,65 @@ h1, h2, h3, h4, h5, h6 {
     font-weight:400;
 }
 
-#wrapper #content-header h1 {
+a, a:hover, a:active, a:focus {
+    color:#34495E;
+}
+
+.content-header h1 {
     font-size:26px;
     margin:0 0 15px;
+}
+
+#wrapper #content-header h1 {
+    font-size:26px;
 }
 
 #wrapper {
 	padding-left: 250px;
 	transition: all 0.4s ease 0s;
 
+}
+
+.sidebar-nav .side-user {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.sidebar-nav li.side-user {
+    display: block;
+    width: 100%;
+    text-indent: 0;
+    line-height: 0px;
+    text-align: center;
+}
+
+.sidebar-nav .side-user img {
+    display: block;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+.sidebar-nav .side-user .welcome {
+    margin: 0;
+    font-style: italic;
+    color: #9aa4af;
+}
+
+.sidebar-nav .side-user .welcome .fa {
+    padding-right: 0;
+}
+
+.sidebar-nav .side-user .name {
+    margin: 0;
+    font-family: "Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #ccd1d7;
+}
+
+.sidebar-nav .side-user .name .last-name {
+    font-weight: 400;
+    color: #fff;
 }
 
 #sidebar-wrapper {
@@ -54,31 +104,40 @@ h1, h2, h3, h4, h5, h6 {
 	border-top: 1px solid #54677A;
 }
 
-.sidebar-nav li a {
+.sidebar-nav li.sidebar-btn a,
+.sidebar-nav li.sidebar-brand a{
 	color: #fff;
 	display: block;
 	text-decoration: none;
 }
 
-.sidebar-nav li a:hover {
+.sidebar-nav li.sidebar-btn a:hover {
 	color: #fff;
 	background: rgba(255,255,255,0.2);
 	text-decoration: none;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.sidebar-nav li.sidebar-brand a:hover {
+    opacity: 0.7;
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -moz-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
+    text-decoration: none;
+}
+
+.sidebar-nav li.sidebar-btn a:active,
+.sidebar-nav li.sidebar-btn a:focus {
 	text-decoration: none;
 	outline: medium none;
 }
 
-.sidebar-nav  li i.fa {
+.sidebar-nav  li.sidebar-btn i.fa {
     padding-right:10px;
 }
 
 .sidebar-nav > .sidebar-brand {
-	height: 65px;
-	line-height: 60px;
+
+
 	font-size: 18px;
 	text-indent: 0;
 	text-align: center;

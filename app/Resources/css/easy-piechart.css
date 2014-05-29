@@ -1,0 +1,39 @@
+.easy-pie-chart {
+    display: inline-block;
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.easy-pie-chart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.percent {
+    display: inline-block;
+    z-index: 2;
+    line-height: 110px;
+}
+
+.percent:after {
+    content: '%';
+    margin-left: 0.1em;
+    font-size: .8em;
+}
+
+.easy-pie-chart {
+    width: 175px;
+    height: 175px;
+    margin: 15px 0 0;
+}
+
+.percent {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 175px;
+    color: rgba(255,255,255,.7);
+}

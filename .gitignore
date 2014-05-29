@@ -2,17 +2,19 @@
 /web/css/
 /web/js/
 /web/fonts/
+web/img/
+
 /app/bootstrap.php.cache
-/app/cache/*
+/app/cache/
 /app/config/parameters.yml
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+/app/logs/
+
 /build/
 /vendor/
 /bin/
 /composer.phar
-.idea/*
-.idea/workspace.xml
+
+.idea/
 
 web/js/
+web/img/

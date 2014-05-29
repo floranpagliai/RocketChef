@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -57,6 +57,15 @@ assetic:
             inputs:
                 - %kernel.root_dir%/Resources/js/pace.min.js
             output: js/pace.min.js
+        datatables_js:
+            inputs:
+                - %kernel.root_dir%/Resources/js/jquery.dataTables.min.js
+            output: js/jquery.dataTables.min.js
+        piechart_js:
+            inputs:
+                - %kernel.root_dir%/Resources/js/jquery.easypiechart.min.js
+            output: js/jquery.easypiechart.min.js
+
 
 braincrafted_bootstrap:
     less_filter: less
@@ -88,3 +97,8 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Gastro\DataBundle\Entity\User
