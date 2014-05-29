@@ -34,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="security.yml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="security.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/security.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="75" selection-start="370" selection-end="370" vertical-scroll-proportion="0.49492386" vertical-offset="0" max-vertical-offset="675">
+            <state line="13" column="75" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="User.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Gastro/UserBundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="5" selection-start="1095" selection-end="1095" vertical-scroll-proportion="-7.625" vertical-offset="642" max-vertical-offset="3315">
+            <state line="37" column="71" selection-start="749" selection-end="749" vertical-scroll-proportion="0.57567567" vertical-offset="342" max-vertical-offset="3315">
               <folding>
                 <element signature="e#6#64#0" expanded="true" />
                 <element signature="e#103#135#0" expanded="true" />
@@ -170,9 +170,9 @@
         <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Entity/Role.php" />
         <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Entity/User.php" />
       </list>
     </option>
   </component>
@@ -1249,16 +1249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gastro/UserBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="5" selection-start="1095" selection-end="1095" vertical-scroll-proportion="-7.625" vertical-offset="642" max-vertical-offset="3315">
-          <folding>
-            <element signature="e#6#64#0" expanded="true" />
-            <element signature="e#103#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="107" selection-start="927" selection-end="927" vertical-scroll-proportion="-6.875" vertical-offset="165" max-vertical-offset="1395">
@@ -1268,8 +1258,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="75" selection-start="370" selection-end="370" vertical-scroll-proportion="0.49492386" vertical-offset="0" max-vertical-offset="675">
+        <state line="13" column="75" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gastro/UserBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="71" selection-start="749" selection-end="749" vertical-scroll-proportion="0.57567567" vertical-offset="342" max-vertical-offset="3315">
+          <folding>
+            <element signature="e#6#64#0" expanded="true" />
+            <element signature="e#103#135#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

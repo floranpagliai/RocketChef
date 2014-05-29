@@ -35,7 +35,7 @@ class User implements  UserInterface {
     protected $lastname;
 
     /**
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     protected $email;
 
