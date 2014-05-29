@@ -1,7 +1,7 @@
-/web/bundles/
-/web/css/
-/web/js/
-/web/fonts/
+web/bundles/
+web/css/
+web/js/
+web/fonts/
 web/img/
 
 /app/bootstrap.php.cache
@@ -9,12 +9,12 @@ web/img/
 /app/config/parameters.yml
 /app/logs/
 
-/build/
-/vendor/
-/bin/
-/composer.phar
-
-.idea/
+build/
+vendor/
+bin/
+composer.phar
 
 web/js/
 web/img/
+
+.idea/*
