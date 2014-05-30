@@ -10,9 +10,10 @@ security:
     logged_in_as: "Connecté en tant que"
     logout: "Déconnexion"
     login:
-        title: 'Connexion'
-        username: "Nom d'utilisateur :"
-        password: "Mot de passe :"
+        title: "Connexion"
+        email: "Email"
+        username: "Nom d'utilisateur"
+        password: "Mot de passe"
         remember_me: "Se souvenir de moi"
         submit: "Connexion"
         forgot: "Mot de passe oublié ?"

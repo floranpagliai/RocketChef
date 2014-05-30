@@ -7,7 +7,7 @@
                         <h4></h4>
                     </div>
                     <div class="portlet-widgets">
-                        <a class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Recipe</a>
+                        <a href="{{ path('gastro_recipe_book_add') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Recipe</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -16,16 +16,24 @@
                         <table id="dataTable" class="table table-hover">
                             <thead>
                             <tr>
-                                <th>
+                                <th width="90%">
                                     Name
                                 </th>
+                                <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             {% for recipe in recipes %}
                                 <tr>
                                     <td>
-                                        <a href="{{ path('gastro_recipe_book_show', {'recipeId' : recipe.id, recipeName : recipe.name}) }}">{{ recipe.name|capitalize }}</a>
+                                        <a href="{{ path('gastro_recipe_book_show', {'recipeId' : recipe.id, 'recipeName' : recipe.name}) }}">{{ recipe.name|capitalize }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-red"><i class="fa fa-times"></i> Delete</a>
                                     </td>
                                 </tr>
                             {% endfor %}

@@ -261,3 +261,7 @@ fieldset[disabled] .btn-dark-blue.active {
 		padding: 15px;
 	}
 }
+
+.table-recipe-infos {
+	text-align: center;
+}

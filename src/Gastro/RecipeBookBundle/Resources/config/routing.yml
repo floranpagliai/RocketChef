@@ -5,3 +5,15 @@ gastro_recipe_book:
 gastro_recipe_book_show:
     pattern:  /recipe-book/{recipeId}-{recipeName}
     defaults: { _controller: GastroRecipeBookBundle:Default:show }
+
+gastro_recipe_book_add:
+    pattern:  /recipe-book/add
+    defaults: { _controller: GastroRecipeBookBundle:Default:add }
+
+gastro_recipe_book_edit:
+    pattern:  /recipe-book/edit/{recipeId}-{recipeName}
+    defaults: { _controller: GastroRecipeBookBundle:Default:edit }
+
+gastro_recipe_book_delete:
+    pattern:  /recipe-book/delete/{recipeId}
+    defaults: { _controller: GastroRecipeBookBundle:Default:delete }

@@ -27,7 +27,7 @@ class SecurityController extends Controller
 
         return $this->render('GastroUserBundle:Security:login.html.twig', array(
             // last username entered by the user
-            'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+            'last_username' => $lastUsername,
             'error'         => $error,
         ));
     }

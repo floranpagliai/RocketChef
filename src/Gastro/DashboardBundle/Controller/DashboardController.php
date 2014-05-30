@@ -8,13 +8,14 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
+        $user = $this->container->get('security.context')->getToken()->getUser();
         $widgetService = $this->get('widget.generator');
         $recipeProvider = $this->get('gastro_data.recipe.provider');
 
         $widgetService->addWidget(array(
             'link' => 'gastro_recipe_book',
             'name' => 'Recipes',
-            'value' => $recipeProvider->getRecipesCount(),
+            'value' => $recipeProvider->getUserRecipesCount($user->getId()),
             'color' => 'blue',
             'textcolor' => 'text-faded',
             'icon' =>'fa-cutlery'));

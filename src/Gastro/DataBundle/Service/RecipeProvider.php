@@ -37,4 +37,14 @@ class RecipeProvider {
             ->getSingleScalarResult();
     }
 
+    public function getUserRecipesCount($userId)
+    {
+        return $this->em->createQueryBuilder('r')
+            ->select('COUNT(r)')
+            ->where('r.user = :user_id')
+            ->setParameter('user_id', $userId)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 } 
