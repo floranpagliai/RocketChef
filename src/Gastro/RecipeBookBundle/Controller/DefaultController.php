@@ -24,9 +24,13 @@ class DefaultController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
 
-        if ($recipe && $recipe->getUser() == $user)
-            $paramsRender = array('recipe' => $recipe);
-        else
+        if ($recipe && $recipe->getUser() == $user) {
+            $ingredients = $recipe->getIngredients();
+            $paramsRender = array(
+                'recipe' => $recipe,
+                'ingredients' => $ingredients);
+            var_dump($ingredients);exit;
+        } else
             throw $this->createNotFoundException('Recette introuvable');
 
         return $this->render('GastroRecipeBookBundle:Recipe:show.html.twig', $paramsRender);

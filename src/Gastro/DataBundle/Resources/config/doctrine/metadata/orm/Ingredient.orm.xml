@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ingredient" table="ingredient">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="100" nullable="false"/>
+    <field name="pricebyunit" type="decimal" column="priceByUnit" precision="10" scale="0" nullable="false"/>
+    <field name="unit" type="smallint" column="unit" nullable="false"/>
+    <field name="startmonthseason" type="date" column="startMonthSeason" nullable="true"/>
+    <field name="endmonthseason" type="date" column="endMonthSeason" nullable="true"/>
+    <many-to-many field="recipe" target-entity="Recipe" inversed-by="ingredient">
+      <join-table name="ingredients_recipes">
+        <join-columns>
+          <join-column name="ingredient_id" referenced-column-name="id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="recipe_id" referenced-column-name="id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
