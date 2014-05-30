@@ -23,6 +23,7 @@ class RecipeProvider {
         return $this->em->findAll();
     }
 
+
     public function getRecipeById($id)
     {
         return $this->em->findOneBy(array('id' => $id));

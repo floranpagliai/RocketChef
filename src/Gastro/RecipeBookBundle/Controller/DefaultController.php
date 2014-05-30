@@ -4,12 +4,13 @@ namespace Gastro\RecipeBookBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $recipes = $this->get('gastro_data.recipe.provider')->getAllRecipes();
+        $recipes = $this->container->get('security.context')->getToken()->getUser()->getRecipes();
 
         $paramsRender = array('recipes' => $recipes);
 //        $flash = $this->get('braincrafted_bootstrap.flash');
@@ -20,8 +21,12 @@ class DefaultController extends Controller
     public function showAction($recipeId)
     {
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
+        $user = $this->container->get('security.context')->getToken()->getUser();
 
-        $paramsRender = array('recipe' => $recipe);
+        if ($recipe && $recipe->getUser() == $user)
+            $paramsRender = array('recipe' => $recipe);
+        else
+            throw $this->createNotFoundException('Recette introuvable');
 
         return $this->render('GastroRecipeBookBundle:Recipe:show.html.twig', $paramsRender);
     }

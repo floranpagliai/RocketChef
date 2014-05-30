@@ -7,6 +7,7 @@
 
 namespace Gastro\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -49,8 +50,14 @@ class User implements  UserInterface {
      */
     protected $salt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Gastro\DataBundle\Entity\Recipe", mappedBy="user")
+     */
+    protected $recipes;
+
     public function __construct()
     {
+        $this->recipes = new ArrayCollection();
         $this->isActive = true;
         $this->salt = md5(uniqid(null, true));
     }
@@ -150,6 +157,23 @@ class User implements  UserInterface {
     {
         return $this->username;
     }
+
+    /**
+     * @param mixed $recipes
+     */
+    public function setRecipes($recipes)
+    {
+        $this->recipes = $recipes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecipes()
+    {
+        return $this->recipes;
+    }
+
 
 
     /**

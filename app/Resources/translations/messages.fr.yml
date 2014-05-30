@@ -1,3 +1,23 @@
-'Dashboard': 'Tableau de Bord'
+global:
+    appname: "Karrot"
+
+dashboard:
+    title: "Tableau de Bord"
+    comment: "Aperçu de la Cuisinne"
+
+
+security:
+    logged_in_as: "Connecté en tant que"
+    logout: "Déconnexion"
+    login:
+        title: 'Connexion'
+        username: "Nom d'utilisateur :"
+        password: "Mot de passe :"
+        remember_me: "Se souvenir de moi"
+        submit: "Connexion"
+        forgot: "Mot de passe oublié ?"
+
+"Bad credentials": Nom d'utilisateur ou mot de passe incorrect
+
 'Recipe Book': 'Livre de Recette'
 'Kitchen Overview': 'Aperçu de la Cuisine'

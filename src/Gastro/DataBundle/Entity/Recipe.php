@@ -34,6 +34,12 @@ class Recipe {
     protected $ingredients;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -106,4 +112,22 @@ class Recipe {
     {
         return $this->name;
     }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+
 }

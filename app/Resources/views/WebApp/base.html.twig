@@ -12,20 +12,20 @@
             <ul class="sidebar-nav">
                 {% block sidebar %}
                     <li class="sidebar-brand">
-                        <a href="#">{{ word_appName }}</a>
+                        <a href="#">{{ 'global.appname'|trans }}</a>
                     </li>
                     <li class="side-user hidden-xs">
                         <p class="welcome">
-                            <i class="fa fa-key"></i> Logged in as
+                            <i class="fa fa-key"></i> {{ 'security.logged_in_as'|trans }}
                         </p>
                         <p class="name tooltip-sidebar-logout">
                             Floran <span class="last-name">Pagliai</span>
-                            <a style="color: inherit" class="logout_open" href="{{ path('gastro_user_logout') }}" data-toggle="tooltip" data-placement="top" title="Logout"><i class="fa fa-sign-out"></i></a>
+                            <a style="color: inherit" class="logout_open" href="{{ path('gastro_user_logout') }}" data-toggle="tooltip" data-placement="top" title="{{ 'security.logout'|trans }}"><i class="fa fa-sign-out"></i></a>
                         </p>
                         <div class="clearfix"></div>
                     </li>
                     <li class="sidebar-btn">
-                        <a class="active" href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> {{ word_dashboard }}</a>
+                        <a class="active" href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
                     </li>
                     <li class="sidebar-btn">
                         <a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book "></i> {{ word_recipeBook }}</a>

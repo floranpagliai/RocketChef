@@ -18,6 +18,7 @@
         <service id="gastro_data.recipe.provider"
                  class="%gastro_data.recipe.provider.class%">
             <argument type="service" id="gastro_data.recipe.repository" />
+            <argument type="service" id="gastro_data.recipe.repository" />
         </service>
     </services>
 </container>
