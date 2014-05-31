@@ -38,12 +38,12 @@ class Recipe {
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Ingredient", mappedBy="recipes", cascade={"persist"})
-     **/
-    protected $ingredients;
+     * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="recipe", cascade={"persist"}, orphanRemoval=TRUE)
+     */
+    protected $recipeIngredients;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User", inversedBy="recipes")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
@@ -63,41 +63,24 @@ class Recipe {
      */
     public function __construct()
     {
-        $this->ingredients = new ArrayCollection();
+        $this->recipeIngredients = new ArrayCollection();
     }
 
-    /**
-     * Add ingredients
-     *
-     * @param \Gastro\DataBundle\Entity\Ingredient $ingredients
-     * @return Recipe
-     */
-    public function addIngredient(\Gastro\DataBundle\Entity\Ingredient $ingredients)
+    public function addIngredient(RecipeIngredient $ingredient)
     {
-        $this->ingredients[] = $ingredients;
+        if (!$this->recipeIngredients->contains($ingredient)) {
+            $this->recipeIngredients->add($ingredient);
+            $ingredient->setRecipe($this);
+        }
 
         return $this;
     }
 
-    /**
-     * Remove ingredients
-     *
-     * @param \Gastro\DataBundle\Entity\Ingredient $ingredients
-     */
-    public function removeIngredient(\Gastro\DataBundle\Entity\Ingredient $ingredients)
+    public function getRecipeIngredients()
     {
-        $this->ingredients->removeElement($ingredients);
+        return $this->recipeIngredients;
     }
 
-    /**
-     * Get ingredients
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIngredients()
-    {
-        return $this->ingredients;
-    }
 
     /**
      * Set name

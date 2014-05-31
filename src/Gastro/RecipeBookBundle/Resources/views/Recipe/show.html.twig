@@ -17,7 +17,7 @@
         <div class="portlet portlet-default">
             <div class="portlet-heading">
                 <div class="portlet-title">
-                    <h4>Recipe</h4>
+                    <h4>{{ recipe.name|capitalize }}</h4>
                 </div>
                 <div class="portlet-widgets">
                     <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Edit Recipe</a>
@@ -32,13 +32,12 @@
                         <img class="img-rounded img-responsive" src="{{ asset(recipe.image)}}" >
                     </div>
                     <div class="col-lg-8 col-md-6">
-                        <h3>{{ recipe.name|capitalize }}</h3>
                         <table class="table table-bordered table-recipe-infos">
                             <tr>
                                 {% set HTcost = 19.86 %}
-                                {% set HTPcost = HTcost/4 %}
-                                {% set price = 9 %}
-                                {% set margin = ((price - HTPcost)/HTPcost) * 100 %}
+                                {% set HTPcost = HTcost/2 %}
+                                {% set price = 123 %}
+                                {% set margin = ((price - HTPcost)/price) * 100 %}
                                 <td>
                                     <strong>HT cost for 4 people</strong><br>
                                    {{ HTcost }}$
@@ -109,13 +108,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                    {% for ingredient in ingredients %}
+                    {% for recipeIngredient in recipeIngredients %}
                         <tr>
                             <td>
-                                {{ ingredient.name }}
+                                {{ recipeIngredient.ingredient.name }}
                             </td>
                             <td>
-                                {{ ingredient.priceByUnit  }}{{ ingredient.unit }}
+                                {{ recipeIngredient.qte  }} gr
+                            </td>
+                            <td>
+                                {{ recipeIngredient.ingredient.priceByUnit }} $/
+                                {% if recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_UNITARY') %}
+                                    Unit
+                                {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
+                                    Kg
+                                {% endif %}
                             </td>
                         </tr>
 

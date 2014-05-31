@@ -25,11 +25,10 @@ class DefaultController extends Controller
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
 
         if ($recipe && $recipe->getUser() == $user) {
-            $ingredients = $recipe->getIngredients();
+            $recipeIngredients = $recipe->getRecipeIngredients();
             $paramsRender = array(
                 'recipe' => $recipe,
-                'ingredients' => $ingredients);
-            var_dump($ingredients);exit;
+                'recipeIngredients' => $recipeIngredients);
         } else
             throw $this->createNotFoundException('Recette introuvable');
 

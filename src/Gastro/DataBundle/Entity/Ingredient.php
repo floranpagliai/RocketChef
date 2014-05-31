@@ -53,9 +53,8 @@ class Ingredient {
     protected $endMonthSeason;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Recipe", inversedBy="ingredients", cascade={"persist"})
-     * @ORM\JoinTable(name="ingredients_recipes")
-     **/
+     * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="ingredient", cascade={"persist"}, orphanRemoval=TRUE)
+     */
     protected $recipes;
 
     /**
@@ -194,36 +193,23 @@ class Ingredient {
         return $this->endMonthSeason;
     }
 
-    /**
-     * Add recipes
-     *
-     * @param \Gastro\DataBundle\Entity\Recipe $recipes
-     * @return Ingredient
-     */
-    public function addRecipe(\Gastro\DataBundle\Entity\Recipe $recipes)
+    public function addIngredient(RecipeIngredient $ingredient)
     {
-        $this->recipes[] = $recipes;
+        if (!$this->recipes->contains($ingredient)) {
+            $this->recipes->add($ingredient);
+            $ingredient->setRecipe($this);
+        }
 
         return $this;
     }
 
-    /**
-     * Remove recipes
-     *
-     * @param \Gastro\DataBundle\Entity\Recipe $recipes
-     */
-    public function removeRecipe(\Gastro\DataBundle\Entity\Recipe $recipes)
+    public function getIngredient()
     {
-        $this->recipes->removeElement($recipes);
-    }
-
-    /**
-     * Get recipes
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getRecipes()
-    {
-        return $this->recipes;
+        return array_map(
+            function ($ingredient) {
+                return $ingredient->getIngredient();
+            },
+            $this->ingredient->toArray()
+        );
     }
 }
