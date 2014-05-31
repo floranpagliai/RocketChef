@@ -13,6 +13,15 @@ class DefaultController extends Controller
     {
         $recipes = $this->container->get('security.context')->getToken()->getUser()->getRecipes();
 
+        foreach ($recipes as $recipe)
+        {
+            $recipe->setCost($this->get('gastro_data.recipe.provider')->calculateCost($recipe));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($recipe);
+            $em->flush();
+        }
+
         $paramsRender = array('recipes' => $recipes);
 //        $flash = $this->get('braincrafted_bootstrap.flash');
 //        $flash->alert('This is an alert flash message.');

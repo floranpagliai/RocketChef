@@ -13,74 +13,77 @@
 
 {% block page_content %}
     <div class="row-fluid">
-    <div class="col-lg-10">
-        <div class="portlet portlet-default">
-            <div class="portlet-heading">
-                <div class="portlet-title">
-                    <h4>{{ recipe.name|capitalize }}</h4>
+        <div class="col-lg-10">
+            <div class="portlet portlet-default">
+                <div class="portlet-heading">
+                    <div class="portlet-title">
+                        <h4>{{ recipe.name|capitalize }}</h4>
+                    </div>
+                    <div class="portlet-widgets">
+                        <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"
+                           class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Edit Recipe</a>
+                        <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}"
+                           class="btn btn-sm btn-red"><i class="fa fa-times"></i> Delete Recipe</a>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="portlet-widgets">
-                    <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Edit Recipe</a>
-                    <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-red"><i class="fa fa-times"></i> Delete Recipe</a>
+                <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                {#<img class="img-rounded img-responsive" src="{{ asset(recipe.image) }}">#}
+                            </div>
+                            <div class="col-lg-8 col-md-6">
+                                <table class="table table-bordered table-recipe-infos">
+                                    <tr>
+                                        {% set margin = 50 %}
+                                        <td>
+                                            <strong>HT cost for {{ recipe.portions }} people</strong><br>
+                                            {{ recipe.cost }}$
+                                        </td>
+                                        <td>
+                                            <strong>TTC minimal price</strong><br>
+
+
+                                        </td>
+                                        <td>
+                                            <strong>HT réel price</strong><br>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>HT cost per portion</strong><br>
+                                            {{ cost/recipe.portions }}$
+                                        </td>
+                                        <td>
+                                            <strong>HT minimal price</strong><br>
+                                            {{ (cost/recipe.portions)*3 }}$
+
+                                        </td>
+                                        <td>
+                                            <strong>Ratio HT cost / HT price</strong><br>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="clearfix"></div>
             </div>
-            <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
-                <div class="portlet-body">
-                    <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <img class="img-rounded img-responsive" src="{{ asset(recipe.image)}}" >
-                    </div>
-                    <div class="col-lg-8 col-md-6">
-                        <table class="table table-bordered table-recipe-infos">
-                            <tr>
-                                {% set margin = 50 %}
-                                <td>
-                                    <strong>HT cost for {{ recipe.portions }} people</strong><br>
-                                   {{ cost }}$
-                                </td>
-                                <td>
-                                    <strong>TTC minimal price</strong><br>
+        </div>
 
+        <div class="col-lg-2">
+            <div class="tile {% if margin > 42 %}green{% else %}red{% endif %}">
+                <h4><i class="fa fa-cloud fa-fw"></i> Margin</h4>
 
-                                </td>
-                                <td>
-                                    <strong>HT réel price</strong><br>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>HT cost per portion</strong><br>
-                                    {{ cost/recipe.portions }}$
-                                </td>
-                                <td>
-                                    <strong>HT minimal price</strong><br>
-                                    {{ (cost/recipe.portions)*3 }}$
-
-                                </td>
-                                <td>
-                                    <strong>Ratio HT cost / HT price</strong><br>
-
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    </div>
-
+                <div id="easy-pie-1" class="easy-pie-chart" data-percent="{{ margin }}">
+                    <span class="percent"></span>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-lg-2">
-        <div class="tile {% if margin > 42 %}green{% else %}red{% endif %}">
-            <h4><i class="fa fa-cloud fa-fw"></i> Margin</h4>
-            <div id="easy-pie-1" class="easy-pie-chart" data-percent="{{ margin }}">
-                <span class="percent"></span>
-            </div>
-        </div>
-    </div>
     </div>
 
     <div class="col-lg-12">
@@ -107,25 +110,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                    {% for recipeIngredient in recipeIngredients %}
-                        <tr>
-                            <td>
-                                {{ recipeIngredient.ingredient.name }}
-                            </td>
-                            <td>
-                                {{ recipeIngredient.qte  }}
-                            </td>
-                            <td>
-                                {{ recipeIngredient.ingredient.priceByUnit }} $/
-                                {% if recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_UNITARY') %}
-                                    Unit
-                                {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
-                                    Kg
-                                {% endif %}
-                            </td>
-                        </tr>
+                        {% for recipeIngredient in recipeIngredients %}
+                            <tr>
+                                <td>
+                                    {{ recipeIngredient.ingredient.name }}
+                                </td>
+                                <td>
+                                    {{ recipeIngredient.qte }}
+                                </td>
+                                <td>
+                                    {{ recipeIngredient.ingredient.priceByUnit }} $/
+                                    {% if recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_UNITARY') %}
+                                        Unit
+                                    {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
+                                        Kg
+                                    {% endif %}
+                                </td>
+                            </tr>
 
-                    {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -138,6 +141,7 @@
         <div class="tile dark-blue">
             <h4>Dark Blue/Default Tile</h4>
             <br>
+
             <p>Tile Classes:
                 <code>.tile</code>
                 <code>.dark-blue</code>
@@ -145,7 +149,11 @@
                 <code>.tile</code>
                 <code>.default</code>
             </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tempus libero. Aliquam et dui at augue aliquet gravida at at est. Curabitur mattis sem sed dolor sagittis blandit. Nulla facilisi. Praesent eget nibh nisl. Sed scelerisque ligula sed justo lobortis, at pharetra ipsum ornare. Pellentesque non nisl sit amet erat venenatis semper tincidunt sit amet erat.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tempus libero. Aliquam et dui at augue
+                aliquet gravida at at est. Curabitur mattis sem sed dolor sagittis blandit. Nulla facilisi. Praesent
+                eget nibh nisl. Sed scelerisque ligula sed justo lobortis, at pharetra ipsum ornare. Pellentesque non
+                nisl sit amet erat venenatis semper tincidunt sit amet erat.</p>
         </div>
     </div>
 {% endblock %}

@@ -31,13 +31,6 @@ class Recipe {
     protected $name;
 
     /**
-     * @var string $image
-     * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
-     */
-    private $image;
-
-    /**
      * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="recipe", cascade={"persist"}, orphanRemoval=TRUE)
      */
     protected $recipeIngredients;
@@ -46,6 +39,11 @@ class Recipe {
      * @ORM\Column(type="smallint")
      */
     protected $portions;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $cost;
 
     /**
      * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User", inversedBy="recipes")
@@ -160,49 +158,6 @@ class Recipe {
     }
 
     /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function uploadImage() {
-        // the file property can be empty if the field is not required
-        if (null === $this->image) {
-            return;
-        }
-        if(!$this->id){
-            $this->image->move($this->getTmpUploadRootDir(), $this->image->getClientOriginalName());
-        }else{
-            $this->image->move($this->getUploadRootDir(), $this->image->getClientOriginalName());
-        }
-        $this->setImage($this->image->getClientOriginalName());
-    }
-
-    /**
-     * @ORM\PostPersist()
-     */
-    public function moveImage()
-    {
-        if (null === $this->image) {
-            return;
-        }
-        if(!is_dir($this->getUploadRootDir())){
-            mkdir($this->getUploadRootDir());
-        }
-        copy($this->getTmpUploadRootDir().$this->image, $this->getFullImagePath());
-        unlink($this->getTmpUploadRootDir().$this->image);
-    }
-
-    /**
-     * @ORM\PreRemove()
-     */
-    public function removeImage()
-    {
-        if ($this->image) {
-            unlink($this->getFullImagePath());
-            rmdir($this->getUploadRootDir());
-        }
-    }
-
-    /**
      * @param mixed $portions
      */
     public function setPortions($portions)
@@ -218,5 +173,20 @@ class Recipe {
         return $this->portions;
     }
 
+    /**
+     * @param mixed $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
 
 }

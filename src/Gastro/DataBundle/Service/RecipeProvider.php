@@ -67,4 +67,23 @@ class RecipeProvider {
         return $cost;
     }
 
+    public function getUserAverageCost($userId)
+    {
+        $recipes =  $this->em->createQueryBuilder('r')
+        ->select('r')
+        ->where('r.user = :user_id')
+        ->setParameter('user_id', $userId)
+        ->getQuery()
+        ->getResult();
+
+        $cost = 0;
+        $i = 0;
+        foreach ($recipes as $recipe)
+        {
+            $cost += $this->calculateCost($recipe);
+            $i++;
+        }
+        return $cost/$i;
+    }
+
 } 
