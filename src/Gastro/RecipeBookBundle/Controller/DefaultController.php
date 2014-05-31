@@ -26,9 +26,11 @@ class DefaultController extends Controller
 
         if ($recipe && $recipe->getUser() == $user) {
             $recipeIngredients = $recipe->getRecipeIngredients();
+            $cost = $this->get('gastro_data.recipe.provider')->calculateCost($recipe);
             $paramsRender = array(
                 'recipe' => $recipe,
-                'recipeIngredients' => $recipeIngredients);
+                'recipeIngredients' => $recipeIngredients,
+                'cost' => $cost);
         } else
             throw $this->createNotFoundException('Recette introuvable');
 
@@ -42,7 +44,6 @@ class DefaultController extends Controller
         $recipe = new Recipe();
         $form = $this->createFormBuilder($recipe)
             ->add('name', 'text')
-            ->add('image')
             ->add('save', 'submit')
             ->getForm();
 

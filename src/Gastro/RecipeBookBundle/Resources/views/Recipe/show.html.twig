@@ -34,35 +34,34 @@
                     <div class="col-lg-8 col-md-6">
                         <table class="table table-bordered table-recipe-infos">
                             <tr>
-                                {% set HTcost = 19.86 %}
-                                {% set HTPcost = HTcost/2 %}
-                                {% set price = 123 %}
-                                {% set margin = ((price - HTPcost)/price) * 100 %}
+                                {% set margin = 50 %}
                                 <td>
-                                    <strong>HT cost for 4 people</strong><br>
-                                   {{ HTcost }}$
+                                    <strong>HT cost for {{ recipe.portions }} people</strong><br>
+                                   {{ cost }}$
                                 </td>
                                 <td>
                                     <strong>TTC minimal price</strong><br>
-                                    15 $
+
+
                                 </td>
                                 <td>
                                     <strong>HT réel price</strong><br>
-                                    {{ price }}$
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <strong>HT cost per portion</strong><br>
-                                    {{ HTPcost }}$
+                                    {{ cost/recipe.portions }}$
                                 </td>
                                 <td>
                                     <strong>HT minimal price</strong><br>
-                                    15 $
+                                    {{ (cost/recipe.portions)*3 }}$
+
                                 </td>
                                 <td>
                                     <strong>Ratio HT cost / HT price</strong><br>
-                                    {{ price / HTPcost }}
+
                                 </td>
                             </tr>
                         </table>
@@ -103,8 +102,8 @@
                             <th>
                                 Name
                             </th>
-                            <th></th>
-                            <th></th>
+                            <th>Quantity</th>
+                            <th>Price</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -114,7 +113,7 @@
                                 {{ recipeIngredient.ingredient.name }}
                             </td>
                             <td>
-                                {{ recipeIngredient.qte  }} gr
+                                {{ recipeIngredient.qte  }}
                             </td>
                             <td>
                                 {{ recipeIngredient.ingredient.priceByUnit }} $/

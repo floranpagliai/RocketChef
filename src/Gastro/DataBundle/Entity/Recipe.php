@@ -33,7 +33,7 @@ class Recipe {
     /**
      * @var string $image
      * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -41,6 +41,11 @@ class Recipe {
      * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="recipe", cascade={"persist"}, orphanRemoval=TRUE)
      */
     protected $recipeIngredients;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    protected $portions;
 
     /**
      * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User", inversedBy="recipes")
@@ -196,4 +201,22 @@ class Recipe {
             rmdir($this->getUploadRootDir());
         }
     }
+
+    /**
+     * @param mixed $portions
+     */
+    public function setPortions($portions)
+    {
+        $this->portions = $portions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPortions()
+    {
+        return $this->portions;
+    }
+
+
 }

@@ -33,7 +33,7 @@ class Ingredient {
     protected $name;
 
     /**
-     * @ORM\Column(type="decimal")
+     * @ORM\Column(type="float")
      */
     protected $priceByUnit;
 
@@ -60,10 +60,19 @@ class Ingredient {
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(Ingredient $ingredient = null)
     {
-        $this->recipes = new \Doctrine\Common\Collections\ArrayCollection();
+        if ($ingredient){
+            $this->id = $ingredient->getId();
+            $this->name = $ingredient->getName();
+            $this->priceByUnit = $ingredient->getPriceByUnit();
+            $this->unit = $ingredient->getUnit();
+
+            $this->recipes = $ingredient->getRecipes();
+        } else
+            $this->recipes = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
 
     /**
      * Get id
@@ -212,4 +221,22 @@ class Ingredient {
             $this->ingredient->toArray()
         );
     }
+
+    /**
+     * @param mixed $recipes
+     */
+    public function setRecipes($recipes)
+    {
+        $this->recipes = $recipes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecipes()
+    {
+        return $this->recipes;
+    }
+
+
 }

@@ -7,6 +7,9 @@
 
 namespace Gastro\DataBundle\Service;
 
+use Gastro\DataBundle\Entity\Ingredient;
+use Gastro\DataBundle\Entity\Recipe;
+use Gastro\DataBundle\Entity\RecipeIngredient;
 use Gastro\DataBundle\Entity\RecipeRepository;
 
 class RecipeProvider {
@@ -45,6 +48,23 @@ class RecipeProvider {
             ->setParameter('user_id', $userId)
             ->getQuery()
             ->getSingleScalarResult();
+    }
+
+    public function calculateCost(Recipe $recipe)
+    {
+        $recipeIngredients = $recipe->getRecipeIngredients();
+        $cost = 0;
+
+        foreach ($recipeIngredients as $recipeIngredient)
+        {
+            $ingredient = new Ingredient($recipeIngredient->getIngredient());
+            if ($ingredient->getUnit() == Ingredient::UNIT_UNITARY)
+                $cost += $recipeIngredient->getQte() * $ingredient->getPriceByUnit();
+            else
+                $cost += ($recipeIngredient->getQte()/1000) * $ingredient->getPriceByUnit();
+        }//TODO prendre en compte les unités (unité donnée et unité de prix)
+
+        return $cost;
     }
 
 } 
