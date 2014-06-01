@@ -9,6 +9,9 @@ dashboard:
 recipebook:
     title: "Livre de Recette"
     recipe: "Recette"
+    add:
+        new: "Nouvelle recette"
+        comment: "Ajouter une nouvelle recette"
 
 security:
     logged_in_as: "Connecté en tant que"

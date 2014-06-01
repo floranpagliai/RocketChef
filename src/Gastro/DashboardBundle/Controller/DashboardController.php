@@ -21,7 +21,7 @@ class DashboardController extends Controller
             'icon' =>'fa-cutlery'));
         $widgetService->addWidget(array(
             'name' => 'Average cost',
-            'value' =>  $recipeProvider->getUserAverageCost($user->getId()) . ' €',
+            'value' =>  round($recipeProvider->getUserAverageCost($user->getId()), 2) . ' €',
             'color' => 'blue',
             'textcolor' => 'text-faded',
             'icon' => 'fa-money'));

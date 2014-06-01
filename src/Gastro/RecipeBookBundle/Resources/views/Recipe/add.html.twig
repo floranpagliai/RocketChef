@@ -1,15 +1,15 @@
 {% extends 'GastroRecipeBookBundle::layout.html.twig' %}
 
 {% block page_content_header %}
-    Recipe Book
-    <small>Add a new recipe</small>
+    {{ 'recipebook.title'|trans }}
+    <small>{{ 'recipebook.add.comment'|trans }}</small>
 {% endblock %}
 
 {% block page_content_breadcrumb %}
     <li><a href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
     </li>
-    <li><a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book"></i> Recipe book</a></li></a>
-    <li class="active"><i class="fa fa-cutlery"></i> New</li></a>
+    <li><a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book"></i> {{ 'recipebook.title'|trans }}</a></li></a>
+    <li class="active"><i class="fa fa-cutlery"></i> {{ 'recipebook.add.new'|trans }}</li></a>
 {% endblock %}
 
 {% block page_content %}
@@ -17,11 +17,7 @@
         <div class="portlet portlet-default">
             <div class="portlet-heading">
                 <div class="portlet-title">
-                    <h4>Add a new recipe</h4>
-                </div>
-                <div class="portlet-widgets">
-                    <a href="{{ path('gastro_recipe_book_add') }}" class="btn btn-sm btn-primary"><i
-                                class="fa fa-plus"></i> Add Recipe</a>
+                    <h4>{{ 'recipebook.add.comment'|trans }}</h4>
                 </div>
                 <div class="clearfix"></div>
             </div>
