@@ -15,11 +15,7 @@ class DefaultController extends Controller
 
         foreach ($recipes as $recipe)
         {
-            $recipe->setCost($this->get('gastro_data.recipe.provider')->calculateCost($recipe));
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($recipe);
-            $em->flush();
+            $this->updateRecipe($recipe);
         }
 
         $paramsRender = array('recipes' => $recipes);
@@ -35,11 +31,10 @@ class DefaultController extends Controller
 
         if ($recipe && $recipe->getUser() == $user) {
             $recipeIngredients = $recipe->getRecipeIngredients();
-            $cost = $this->get('gastro_data.recipe.provider')->calculateCost($recipe);
+            $this->updateRecipe($recipe);
             $paramsRender = array(
                 'recipe' => $recipe,
-                'recipeIngredients' => $recipeIngredients,
-                'cost' => $cost);
+                'recipeIngredients' => $recipeIngredients);
         } else
             throw $this->createNotFoundException('Recette introuvable');
 
@@ -89,5 +84,14 @@ class DefaultController extends Controller
         }
 
         return $this->redirect($this->generateUrl('gastro_recipe_book'));
+    }
+
+    public function updateRecipe(Recipe $recipe)
+    {
+        $recipe->setCost($this->get('gastro_data.recipe.provider')->calculateCost($recipe));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($recipe);
+        $em->flush();
     }
 }

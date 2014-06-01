@@ -58,10 +58,12 @@ class RecipeProvider {
         foreach ($recipeIngredients as $recipeIngredient)
         {
             $ingredient = new Ingredient($recipeIngredient->getIngredient());
-            if ($ingredient->getUnit() == Ingredient::UNIT_UNITARY)
-                $cost += $recipeIngredient->getQte() * $ingredient->getPriceByUnit();
+            if ($recipeIngredient->getUnit() == RecipeIngredient::UNIT_UNITARY)
+                $cost += $recipeIngredient->getQte() * $ingredient->getPriceForUnit();
+            elseif ($recipeIngredient->getUnit() == RecipeIngredient::UNIT_GR || $recipeIngredient->getUnit() == RecipeIngredient::UNIT_CLITER)
+                $cost += ($recipeIngredient->getQte()/1000) * $ingredient->getPriceForUnit();
             else
-                $cost += ($recipeIngredient->getQte()/1000) * $ingredient->getPriceByUnit();
+                $cost += $recipeIngredient->getQte() * $ingredient->getPriceForUnit();
         }//TODO prendre en compte les unités (unité donnée et unité de prix)
 
         return $cost;

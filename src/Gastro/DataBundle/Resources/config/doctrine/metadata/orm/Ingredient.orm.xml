@@ -5,7 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="name" type="string" column="name" length="100" nullable="false"/>
-    <field name="pricebyunit" type="decimal" column="priceByUnit" precision="10" scale="0" nullable="false"/>
+    <field name="pricebyunit" type="decimal" column="priceForUnit" precision="10" scale="0" nullable="false"/>
     <field name="unit" type="smallint" column="unit" nullable="false"/>
     <field name="startmonthseason" type="date" column="startMonthSeason" nullable="true"/>
     <field name="endmonthseason" type="date" column="endMonthSeason" nullable="true"/>

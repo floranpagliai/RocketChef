@@ -35,7 +35,7 @@ class Ingredient {
     /**
      * @ORM\Column(type="float")
      */
-    protected $priceByUnit;
+    protected $priceForUnit;
 
     /**
      * @ORM\Column(type="smallint")
@@ -65,7 +65,7 @@ class Ingredient {
         if ($ingredient){
             $this->id = $ingredient->getId();
             $this->name = $ingredient->getName();
-            $this->priceByUnit = $ingredient->getPriceByUnit();
+            $this->priceForUnit = $ingredient->getPriceForUnit();
             $this->unit = $ingredient->getUnit();
 
             $this->recipes = $ingredient->getRecipes();
@@ -113,9 +113,9 @@ class Ingredient {
      * @param string $priceByUnit
      * @return Ingredient
      */
-    public function setPriceByUnit($priceByUnit)
+    public function setPriceForUnit($priceByUnit)
     {
-        $this->priceByUnit = $priceByUnit;
+        $this->priceForUnit = $priceByUnit;
 
         return $this;
     }
@@ -125,9 +125,9 @@ class Ingredient {
      *
      * @return string 
      */
-    public function getPriceByUnit()
+    public function getPriceForUnit()
     {
-        return $this->priceByUnit;
+        return $this->priceForUnit;
     }
 
     /**

@@ -4,6 +4,8 @@
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/jquery.easypiechart.min.js') }}"></script>
+<script src="{{ asset('js/raphael.min.js') }}"></script>
+<script src="{{ asset('js/morris.min.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -47,5 +49,13 @@
         })
 
     })
+    Morris.Donut({
+        element: 'morris-chart-donut',
+        data: [
+            {label: "Download Sales", value: 12},
+            {label: "In-Store Sales", value: 30},
+            {label: "Mail-Order Sales", value: 20}
+        ]
+    });
 </script>
 </html>

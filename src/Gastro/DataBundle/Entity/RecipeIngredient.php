@@ -14,6 +14,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="recipeIngredient")
  */
 class RecipeIngredient {
+
+    const UNIT_UNITARY  = 0;
+    const UNIT_KG       = 1;
+    const UNIT_LITER    = 2;
+    const UNIT_GR       = 3;
+    const UNIT_CLITER   = 4;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -37,6 +44,11 @@ class RecipeIngredient {
      * @ORM\Column(type="integer")
      */
     protected $qte;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    protected $unit;
 
     /**
      * @param mixed $id
@@ -101,6 +113,23 @@ class RecipeIngredient {
     {
         return $this->recipe;
     }
+
+    /**
+     * @param mixed $unit
+     */
+    public function setUnit($unit)
+    {
+        $this->unit = $unit;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
 
 
 } 
