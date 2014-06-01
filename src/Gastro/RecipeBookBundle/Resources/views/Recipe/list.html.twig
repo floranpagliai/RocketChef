@@ -29,7 +29,7 @@
                                         <a href="{{ path('gastro_recipe_book_show', {'recipeId' : recipe.id, 'recipeName' : recipe.name}) }}">{{ recipe.name|capitalize }}</a>
                                     </td>
                                     <td>
-                                        {{ recipe.cost/recipe.portions }} $
+                                        {{ (recipe.cost/recipe.portions)|round(2, 'common') }} $
                                     </td>
                                     <td>
                                         <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Edit</a>

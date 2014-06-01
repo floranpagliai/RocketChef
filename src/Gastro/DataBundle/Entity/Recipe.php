@@ -46,6 +46,11 @@ class Recipe {
     protected $cost;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    protected $price;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User", inversedBy="recipes")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
@@ -84,77 +89,36 @@ class Recipe {
         return $this->recipeIngredients;
     }
 
-
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Recipe
+     * @param mixed $cost
      */
-    public function setName($name)
+    public function setCost($cost)
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
+        $this->cost = $cost;
     }
 
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getCost()
     {
-        return $this->user;
+        return $this->cost;
     }
 
     /**
-     * @param string $image
+     * @param mixed $name
      */
-    public function setImage($image)
+    public function setName($name)
     {
-        $this->image = $image;
+        $this->name = $name;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getImage()
+    public function getName()
     {
-        if ($this->image != null)
-            return 'upload/' . $this->id . '/' . $this->image;
-        else
-            return 'upload/test.jpg';
-    }
-
-    public function getFullImagePath() {
-        return null === $this->image ? null : $this->getUploadRootDir(). $this->image;
-    }
-
-    protected function getUploadRootDir() {
-        // the absolute directory path where uploaded documents should be saved
-        return $this->getTmpUploadRootDir().$this->getId()."/";
-    }
-
-    protected function getTmpUploadRootDir() {
-        // the absolute directory path where uploaded documents should be saved
-        return __DIR__ . '/../../../../web/upload/';
+        return $this->name;
     }
 
     /**
@@ -174,19 +138,35 @@ class Recipe {
     }
 
     /**
-     * @param mixed $cost
+     * @param mixed $price
      */
-    public function setCost($cost)
+    public function setPrice($price)
     {
-        $this->cost = $cost;
+        $this->price = $price;
     }
 
     /**
      * @return mixed
      */
-    public function getCost()
+    public function getPrice()
     {
-        return $this->cost;
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
 }

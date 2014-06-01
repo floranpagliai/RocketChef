@@ -1,19 +1,21 @@
 {% extends 'GastroRecipeBookBundle::layout.html.twig' %}
 
 {% block page_content_header %}
-    Recipe Book
-    <small>Recipe</small>
+    {{ 'recipebook.title'|trans }}
+    <small>{{ 'recipebook.recipe'|trans }}</small>
 {% endblock %}
 
 {% block page_content_breadcrumb %}
-    <li><a href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> Dashboard</a></li>
-    <li><a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book "></i> Recipe book</a></li></a>
+    <li><a href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
+    </li>
+    <li><a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book "></i> {{ 'recipebook.title'|trans }}</a>
+    </li></a>
     <li class="active"><i class="fa fa-cutlery"></i> {{ recipe.name|capitalize }}</li></a>
 {% endblock %}
 
 {% block page_content %}
     <div class="row-fluid">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <div class="portlet portlet-default">
                 <div class="portlet-heading">
                     <div class="portlet-title">
@@ -36,10 +38,10 @@
                             <div class="col-lg-8 col-md-6">
                                 <table class="table table-bordered table-recipe-infos">
                                     <tr>
-                                        {% set margin = 50 %}
+                                        {% set margin = 100-((recipe.cost/recipe.portions)*100/6) %}
                                         <td>
-                                            <strong>HT cost for {{ recipe.portions }} people</strong><br>
-                                            {{ recipe.cost }}$
+                                            <strong>HT cost for {{ recipe.portions }} portion(s)</strong><br>
+                                            {{ recipe.cost|round(2, 'common') }}{{ 'global.currency'|trans }}
                                         </td>
                                         <td>
                                             <strong>TTC minimal price</strong><br>
@@ -48,22 +50,22 @@
                                         </td>
                                         <td>
                                             <strong>HT réel price</strong><br>
-
+                                            {{ recipe.price }}{{ 'global.currency'|trans }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <strong>HT cost per portion</strong><br>
-                                            {{ recipe.cost/recipe.portions }}$
+                                            {{ (recipe.cost/recipe.portions)|round(2, 'common') }}{{ 'global.currency'|trans }}
                                         </td>
                                         <td>
                                             <strong>HT minimal price</strong><br>
-                                            {{ (recipe.cost/recipe.portions)*3 }}$
+                                            {{ ((recipe.cost/recipe.portions)*3)|round(2, 'common') }}{{ 'global.currency'|trans }}
 
                                         </td>
                                         <td>
                                             <strong>Ratio HT cost / HT price</strong><br>
-
+                                            {{ (recipe.price/(recipe.cost/recipe.portions))|round(1, 'common') }}
                                         </td>
                                     </tr>
                                 </table>
@@ -74,6 +76,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-2">
+            <div class="tile {% if margin > 40 %}green {% else %}red{% endif %}">
+                <h4><i class="fa fa-circle-o-notch fa-fw"></i> {{ 'term.rate.margin'|trans }}</h4>
+
+                <div id="easy-pie-1" class="easy-pie-chart" data-percent="{{ margin }}">
+                    <span class="percent"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <div class="col-lg-12">
         <div class="portlet portlet-default">
@@ -119,11 +133,13 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    {{ recipeIngredient.ingredient.priceForUnit }} $/
+                                    {{ recipeIngredient.ingredient.priceForUnit }}
                                     {% if recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_UNITARY') %}
-                                        Unit
+                                        {{ 'global.currency'|trans }}/Pce
                                     {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
-                                        Kg
+                                        {{ 'global.currency'|trans }}/Kg
+                                    {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_Liter') %}
+                                        {{ 'global.currency'|trans }}/L
                                     {% endif %}
                                 </td>
                             </tr>

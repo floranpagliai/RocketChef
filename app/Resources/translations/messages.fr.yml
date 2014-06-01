@@ -1,10 +1,14 @@
 global:
     appname: "Karrot"
+    currency: "€"
 
 dashboard:
     title: "Tableau de Bord"
     comment: "Aperçu de la Cuisinne"
 
+recipebook:
+    title: "Livre de Recette"
+    recipe: "Recette"
 
 security:
     logged_in_as: "Connecté en tant que"
@@ -18,7 +22,8 @@ security:
         submit: "Connexion"
         forgot: "Mot de passe oublié ?"
 
-"Bad credentials": Nom d'utilisateur ou mot de passe incorrect
+term:
+    rate:
+        margin: "Taux de marge"
 
-'Recipe Book': 'Livre de Recette'
-'Kitchen Overview': 'Aperçu de la Cuisine'
+"Bad credentials": Nom d'utilisateur ou mot de passe incorrect

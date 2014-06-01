@@ -1,10 +1,6 @@
 {% include ':WebApp:header.html.twig' %}
 <body>
 
-{% set word_appName = 'Kapra' %}
-{% set word_dashboard = 'Dashboard'|trans %}
-{% set word_recipeBook = 'Recipe Book'|trans %}
-
 {% block body %}
     <div id="wrapper"><!-- Wrapper -->
 
@@ -28,7 +24,7 @@
                         <a class="active" href="{{ path('gastro_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
                     </li>
                     <li class="sidebar-btn">
-                        <a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book "></i> {{ word_recipeBook }}</a>
+                        <a href="{{ path('gastro_recipe_book') }}"><i class="fa fa-book "></i> {{ 'recipebook.title'|trans }}</a>
                     </li>
                 {% endblock %}
             </ul>

@@ -23,50 +23,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RecipeIngredient.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/RecipeIngredient.php">
+      <file leaf-file-name="list.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="0" selection-start="2204" selection-end="2204" vertical-scroll-proportion="-82.5" vertical-offset="0" max-vertical-offset="2100">
-              <folding>
-                <element signature="e#6#64#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="8" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="1695">
+            <state line="31" column="91" selection-start="1691" selection-end="1691" vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="825">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Recipe.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/Recipe.php">
+      <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="20" selection-start="612" selection-end="612" vertical-scroll-proportion="4.375" vertical-offset="495" max-vertical-offset="2910">
-              <folding>
-                <element signature="e#103#151#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ingredient.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/Ingredient.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="327" selection-end="413" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="3645">
+            <state line="10" column="36" selection-start="313" selection-end="341" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1335">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Controller/DefaultController.php">
+      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="57" selection-start="1337" selection-end="1337" vertical-scroll-proportion="-15.875" vertical-offset="114" max-vertical-offset="1500">
+            <state line="3" column="4" selection-start="76" selection-end="106" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="255">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.fr.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.fr.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="17" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
@@ -75,10 +62,17 @@
       <file leaf-file-name="show.html.twig" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="29" selection-start="579" selection-end="579" vertical-scroll-proportion="0.63380283" vertical-offset="0" max-vertical-offset="2475">
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="141" column="70" selection-start="7638" selection-end="7638" vertical-scroll-proportion="0.8798883" vertical-offset="1800" max-vertical-offset="2715">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="color-helper.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/css/color-helper.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="18" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1110">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,8 +86,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="s assetic:dump " />
-      <command text="s assets:install " />
       <command text="s assetic:dump " />
       <command text="s assets:install " />
       <command text="s assetic:dump " />
@@ -117,6 +109,8 @@
       <command text="s doctrine:schema:update" />
       <command text="s doctrine:schema:update --force " />
       <command text="s assetic:dump " />
+      <command text="s doctrine:schema:update --force " />
+      <command text="s cache:clear" />
     </commandsHistory>
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -131,7 +125,6 @@
         <option value="$PROJECT_DIR$/src/Utils/WidgetBundle/Service/WidgetService.php" />
         <option value="$PROJECT_DIR$/app/Resources/css/portlet.css" />
         <option value="$PROJECT_DIR$/app/Resources/css/circle-tile.css" />
-        <option value="$PROJECT_DIR$/app/Resources/css/color-helper.css" />
         <option value="$PROJECT_DIR$/app/Resources/css/datatable.css" />
         <option value="$PROJECT_DIR$/web/css/da1ede7_datatable_9.css" />
         <option value="$PROJECT_DIR$/app/Resources/css/dataTables.css" />
@@ -152,22 +145,16 @@
         <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error404.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" />
         <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/Gastro/UserBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Form/Type/RecipeType.php" />
-        <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/add.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/css/tile.css" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/Resources/css/style.css" />
-        <option value="$PROJECT_DIR$/src/Gastro/DataBundle/Entity/Recipe.php" />
-        <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig" />
         <option value="$PROJECT_DIR$/src/Gastro/DashboardBundle/Controller/DashboardController.php" />
         <option value="$PROJECT_DIR$/src/Gastro/DataBundle/Entity/Ingredient.php" />
         <option value="$PROJECT_DIR$/src/Gastro/DataBundle/Entity/RecipeIngredient.php" />
-        <option value="$PROJECT_DIR$/src/Gastro/DataBundle/Service/RecipeProvider.php" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/js/raphael-min.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/WebApp/header.html.twig" />
@@ -175,6 +162,13 @@
         <option value="$PROJECT_DIR$/app/Resources/views/WebApp/footer.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/css/easy-piechart.css" />
         <option value="$PROJECT_DIR$/app/Resources/css/morris.css" />
+        <option value="$PROJECT_DIR$/src/Gastro/DataBundle/Entity/Recipe.php" />
+        <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig" />
+        <option value="$PROJECT_DIR$/src/Gastro/DataBundle/Service/RecipeProvider.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/css/color-helper.css" />
+        <option value="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" />
         <option value="$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/show.html.twig" />
       </list>
     </option>
@@ -258,36 +252,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -413,154 +377,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RecipeBookBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DashboardBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DashboardBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -627,7 +443,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="translations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -650,24 +466,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gastro" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -841,7 +639,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="1" selection-start="145" selection-end="145" vertical-scroll-proportion="0.39951575" vertical-offset="0" max-vertical-offset="413" />
+        <state line="11" column="1" selection-start="145" selection-end="145" vertical-scroll-proportion="0.39951575" vertical-offset="0" max-vertical-offset="413">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
@@ -883,7 +683,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/css/portlet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="1" selection-start="2446" selection-end="2446" vertical-scroll-proportion="1.8044164" vertical-offset="1372" max-vertical-offset="2618" />
+        <state line="148" column="1" selection-start="2446" selection-end="2446" vertical-scroll-proportion="1.8044164" vertical-offset="1372" max-vertical-offset="2618">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/RecipeRepository.php">
@@ -900,7 +702,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/css/bouton.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="1" selection-start="5683" selection-end="5683" vertical-scroll-proportion="6.569401" vertical-offset="0" max-vertical-offset="4267" />
+        <state line="245" column="1" selection-start="5683" selection-end="5683" vertical-scroll-proportion="6.569401" vertical-offset="0" max-vertical-offset="4267">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error404.html.twig">
@@ -918,11 +722,6 @@
         <state line="25" column="10" selection-start="36" selection-end="922" vertical-scroll-proportion="0.74823946" vertical-offset="0" max-vertical-offset="568" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/css/color-helper.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="4" selection-start="687" selection-end="716" vertical-scroll-proportion="0.8123028" vertical-offset="624" max-vertical-offset="1258" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/twbs/bootstrap/dist/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="782" column="0" selection-start="9938" selection-end="10265" vertical-scroll-proportion="0.5394958" vertical-offset="12973" max-vertical-offset="121091">
@@ -932,12 +731,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/css/circle-tile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="3" selection-start="1131" selection-end="1158" vertical-scroll-proportion="0.5977918" vertical-offset="675" max-vertical-offset="1309" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.fr.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="24" selection-start="272" selection-end="272" vertical-scroll-proportion="0.3753943" vertical-offset="0" max-vertical-offset="634" />
+        <state line="62" column="3" selection-start="1131" selection-end="1158" vertical-scroll-proportion="0.5977918" vertical-offset="675" max-vertical-offset="1309">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Gastro/DashboardBundle/Resources/views/layout.html.twig">
@@ -974,11 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="11" selection-start="99" selection-end="99" vertical-scroll-proportion="0.1118421" vertical-offset="0" max-vertical-offset="608" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/IngredientRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634" />
@@ -986,7 +777,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/css/tile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="111" selection-end="111" vertical-scroll-proportion="0.1340694" vertical-offset="0" max-vertical-offset="969" />
+        <state line="5" column="23" selection-start="111" selection-end="111" vertical-scroll-proportion="0.1340694" vertical-offset="0" max-vertical-offset="969">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/css/style.css">
@@ -1027,50 +820,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="40" selection-start="935" selection-end="935" vertical-scroll-proportion="-3.6666667" vertical-offset="182" max-vertical-offset="825">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Gastro/DashboardBundle/Controller/DashboardController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="44" selection-start="835" selection-end="835" vertical-scroll-proportion="-13.833333" vertical-offset="13" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Service/RecipeProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="5" selection-start="542" selection-end="542" vertical-scroll-proportion="-0.875" vertical-offset="369" max-vertical-offset="1380">
-          <folding>
-            <element signature="e#104#144#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/Recipe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="20" selection-start="612" selection-end="612" vertical-scroll-proportion="4.375" vertical-offset="495" max-vertical-offset="2910">
-          <folding>
-            <element signature="e#103#151#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/RecipeIngredient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="0" selection-start="2204" selection-end="2204" vertical-scroll-proportion="-82.5" vertical-offset="0" max-vertical-offset="2100">
-          <folding>
-            <element signature="e#6#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="57" selection-start="1337" selection-end="1337" vertical-scroll-proportion="-15.875" vertical-offset="114" max-vertical-offset="1500">
           <folding />
         </state>
       </provider>
@@ -1094,13 +846,6 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/views/WebApp/header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="55" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.7681564" vertical-offset="40" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="114" selection-start="1350" selection-end="1379" vertical-scroll-proportion="0.041899443" vertical-offset="390" max-vertical-offset="1395">
           <folding />
         </state>
       </provider>
@@ -1140,12 +885,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/RecipeIngredient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="0" selection-start="2204" selection-end="2204" vertical-scroll-proportion="-56.25" vertical-offset="630" max-vertical-offset="2100">
+          <folding>
+            <element signature="e#6#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Entity/Recipe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="5" selection-start="3001" selection-end="3001" vertical-scroll-proportion="5.5669293" vertical-offset="414" max-vertical-offset="2670">
+          <folding>
+            <element signature="e#6#64#0" expanded="true" />
+            <element signature="e#103#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gastro/DataBundle/Service/RecipeProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="74" selection-start="2415" selection-end="2415" vertical-scroll-proportion="-9.0" vertical-offset="984" max-vertical-offset="1380">
+          <folding>
+            <element signature="e#104#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="57" selection-start="1337" selection-end="1337" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="91" selection-start="1691" selection-end="1691" vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="4" selection-start="76" selection-end="106" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/css/color-helper.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="18" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/WebApp/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="36" selection-start="313" selection-end="341" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Gastro/RecipeBookBundle/Resources/views/Recipe/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="29" selection-start="579" selection-end="579" vertical-scroll-proportion="0.63380283" vertical-offset="0" max-vertical-offset="2475">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="141" column="70" selection-start="7638" selection-end="7638" vertical-scroll-proportion="0.8798883" vertical-offset="1800" max-vertical-offset="2715">
+          <folding />
         </state>
       </provider>
     </entry>
