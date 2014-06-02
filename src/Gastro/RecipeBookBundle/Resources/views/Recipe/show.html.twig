@@ -22,12 +22,25 @@
                         <h4>{{ recipe.name|capitalize }}</h4>
                     </div>
                     <div class="portlet-widgets">
-                        <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}"
-                           class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add to menu</a>
-                        <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"
-                           class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Edit Recipe</a>
-                        <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}"
-                           class="btn btn-sm btn-red"><i class="fa fa-times"></i> Delete Recipe</a>
+                        <button type="button" class="btn btn-toolbar dropdown-toggle" data-toggle="dropdown">
+                            Actions
+                            <span class="caret"/>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}"
+                                   <i class="fa fa-plus"></i> Add to menu</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"
+                                   <i class="fa fa-pencil"></i> Edit Recipe</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}"
+                                   <i class="fa fa-times"></i> Delete Recipe</a>
+                            </li>
+                        </ul>
+
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -40,7 +53,7 @@
                             <div class="col-lg-8 col-md-6">
                                 <table class="table table-bordered table-recipe-infos">
                                     <tr>
-                                        {% set margin = 100-((recipe.cost/recipe.portions)*100/6) %}
+
                                         <td>
                                             <strong>HT cost for {{ recipe.portions }} portion(s)</strong><br>
                                             {{ recipe.cost|round(2, 'common') }}{{ 'global.currency'|trans }}
@@ -67,7 +80,9 @@
                                         </td>
                                         <td>
                                             <strong>Ratio</strong><br>
-                                            {{ (recipe.price/(recipe.cost/recipe.portions))|round(1, 'common') }}
+                                            {% if  recipe.cost != 0%}
+                                                {{ (recipe.price/(recipe.cost/recipe.portions))|round(1, 'common') }}
+                                            {% endif %}
                                         </td>
                                     </tr>
                                 </table>

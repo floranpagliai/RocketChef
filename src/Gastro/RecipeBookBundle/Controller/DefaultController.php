@@ -32,9 +32,14 @@ class DefaultController extends Controller
         if ($recipe && $recipe->getUser() == $user) {
             $recipeIngredients = $recipe->getRecipeIngredients();
             $this->updateRecipe($recipe);
+            if ($recipe->getCost() > 0)
+                $margin = 100-(($recipe->getCost()/$recipe->getPortions())*100/6);
+            else
+                $margin = 0;
             $paramsRender = array(
                 'recipe' => $recipe,
-                'recipeIngredients' => $recipeIngredients);
+                'recipeIngredients' => $recipeIngredients,
+                'margin' => $margin);
         } else
             throw $this->createNotFoundException('Recette introuvable');
 
