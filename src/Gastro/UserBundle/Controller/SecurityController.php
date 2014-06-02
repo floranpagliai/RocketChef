@@ -11,6 +11,8 @@ class SecurityController extends Controller
 {
     public function loginAction(Request $request)
     {
+        if ($this->get('security.context')->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('gastro_dashboard'));
         $session = $request->getSession();
 
         // get the login error if there is one

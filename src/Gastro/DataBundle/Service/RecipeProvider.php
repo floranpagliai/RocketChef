@@ -82,7 +82,7 @@ class RecipeProvider {
         $i = 0;
         foreach ($recipes as $recipe)
         {
-            $cost += $this->calculateCost($recipe)/ (!$recipe->getPortions() == 0) ? 1 : $recipe->getPortions();
+            $cost += $this->calculateCost($recipe)/ $recipe->getPortions();
             $i++;
         }
         return $cost/$i;

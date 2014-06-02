@@ -1,16 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>An Error Occurred: {{ status_text }}</title>
-</head>
+{% include ':WebApp:header.html.twig' %}
 <body>
-<h1>Oops! An Error Occurred</h1>
-<h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
-<div>
-    Something is broken. Please e-mail us at [email] and let us know
-    what you were doing when this error occurred. We will fix it as soon
-    as possible. Sorry for any inconvenience caused.
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <h1 class="error-title">404</h1>
+        <h4 class="error-msg"><i class="fa fa-warning text-red"></i> Page Not Found</h4>
+        <p class="lead">The page you've requested could not be found on the server. Please contact your webmaster, or use the back button in your browser to navigate back to your most recent active page.</p>
+
+        <ul class="list-inline">
+            <li>
+                <a class="btn btn-default" href="index.html">Back to Dashboard</a>
+            </li>
+            <li>
+                <a class="logout_open btn btn-red" href="#logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.col-lg-6 -->
 </div>
 </body>
 </html>
