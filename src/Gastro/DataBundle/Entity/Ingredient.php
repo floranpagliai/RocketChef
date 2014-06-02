@@ -202,24 +202,14 @@ class Ingredient {
         return $this->endMonthSeason;
     }
 
-    public function addIngredient(RecipeIngredient $ingredient)
+    public function addIngredient(RecipeIngredient $recipeIngredient)
     {
-        if (!$this->recipes->contains($ingredient)) {
-            $this->recipes->add($ingredient);
-            $ingredient->setRecipe($this);
+        if (!$this->recipes->contains($recipeIngredient)) {
+            $this->recipes->add($recipeIngredient);
+            $recipeIngredient->setIngredient($this);
         }
 
         return $this;
-    }
-
-    public function getIngredient()
-    {
-        return array_map(
-            function ($ingredient) {
-                return $ingredient->getIngredient();
-            },
-            $this->ingredient->toArray()
-        );
     }
 
     /**

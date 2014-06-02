@@ -29,13 +29,13 @@ class RecipeIngredient {
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ingredient", inversedBy="recipes")
+     * @ORM\ManyToOne(targetEntity="Ingredient", inversedBy="recipes", cascade={"persist"})
      * @ORM\JoinColumn(name="ingredient_id", referencedColumnName="id", nullable=FALSE)
      */
     protected $ingredient;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Recipe", inversedBy="recipeIngredients")
+     * @ORM\ManyToOne(targetEntity="Recipe", inversedBy="recipeIngredients", cascade={"persist"})
      * @ORM\JoinColumn(name="recipe_id", referencedColumnName="id", nullable=FALSE)
      */
     protected $recipe;
@@ -49,6 +49,7 @@ class RecipeIngredient {
      * @ORM\Column(type="smallint")
      */
     protected $unit;
+
 
     /**
      * @param mixed $id

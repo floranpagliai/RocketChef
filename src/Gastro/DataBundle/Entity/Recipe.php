@@ -43,12 +43,12 @@ class Recipe {
     /**
      * @ORM\Column(type="float")
      */
-    protected $cost;
+    protected $cost = 0.0;
 
     /**
      * @ORM\Column(type="float")
      */
-    protected $price;
+    protected $price = 0.0;
 
     /**
      * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User", inversedBy="recipes")
@@ -74,17 +74,17 @@ class Recipe {
         $this->recipeIngredients = new ArrayCollection();
     }
 
-    public function addIngredient(RecipeIngredient $ingredient)
+    public function addIngredient(RecipeIngredient $recipeIngredient)
     {
-        if (!$this->recipeIngredients->contains($ingredient)) {
-            $this->recipeIngredients->add($ingredient);
-            $ingredient->setRecipe($this);
+        if (!$this->recipeIngredients->contains($recipeIngredient)) {
+            $this->recipeIngredients->add($recipeIngredient);
+            $recipeIngredient->setRecipe($this);
         }
 
         return $this;
     }
 
-    public function getRecipeIngredients()
+    public function getRecipeIngredient()
     {
         return $this->recipeIngredients;
     }

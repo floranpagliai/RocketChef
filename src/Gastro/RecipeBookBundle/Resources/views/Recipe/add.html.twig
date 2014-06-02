@@ -23,9 +23,54 @@
             </div>
             <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
                 <div class="portlet-body">
-                    {{ form(form) }}
+                    <form action="..." method="POST" {{ form_enctype(form) }}>
+                        {# affiche l'unique champ de la tâche : description #}
+                        {{ form_row(form.name) }}
+
+                        <h3>Ingredients</h3>
+                        <ul class="tags" data-prototype="{{ form_widget(form.RecipeIngredient.vars.prototype)|e }}">
+                            {% for ingredient in form.RecipeIngredient %}
+                                <li>{{ form_row(ingredient.ingredient.name) }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        {{ form_rest(form) }}
+                        {# ... #}
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        var collectionHolder = $('ul.tags');
+
+        // ajoute un lien « add a tag »
+        var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter un tag</a>');
+        var $newLinkLi = $('<li></li>').append($addTagLink);
+
+        jQuery(document).ready(function() {
+            // ajoute l'ancre « ajouter un tag » et li à la balise ul
+            collectionHolder.append($newLinkLi);
+
+            $addTagLink.on('click', function(e) {
+                // empêche le lien de créer un « # » dans l'URL
+                e.preventDefault();
+
+                // ajoute un nouveau formulaire tag (voir le prochain bloc de code)
+                addTagForm(collectionHolder, $newLinkLi);
+            });
+        });
+        function addTagForm(collectionHolder, $newLinkLi) {
+            // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
+            var prototype = collectionHolder.attr('data-prototype');
+
+            // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
+            // la longueur de la collection courante
+            var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+
+            // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+        }
+    </script>
 {% endblock %}

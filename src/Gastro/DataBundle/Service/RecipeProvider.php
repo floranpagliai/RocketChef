@@ -52,7 +52,7 @@ class RecipeProvider {
 
     public function calculateCost(Recipe $recipe)
     {
-        $recipeIngredients = $recipe->getRecipeIngredients();
+        $recipeIngredients = $recipe->getRecipeIngredient();
         $cost = 0;
 
         foreach ($recipeIngredients as $recipeIngredient)
