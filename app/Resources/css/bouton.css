@@ -248,4 +248,5 @@ fieldset[disabled] .btn-dark-blue.active {
 .dropdown-menu {
 	top: inherit;
 	left: inherit;
+    right: 30px;
 }
