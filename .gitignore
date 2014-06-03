@@ -17,4 +17,4 @@ composer.phar
 web/js/
 web/img/
 
-.idea/*
+.idea/
