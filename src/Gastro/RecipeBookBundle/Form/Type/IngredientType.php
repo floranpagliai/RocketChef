@@ -18,6 +18,8 @@ class IngredientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name');
+        $builder->add('priceForUnit');
+        $builder->add('unit');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

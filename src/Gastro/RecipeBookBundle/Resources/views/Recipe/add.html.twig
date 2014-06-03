@@ -23,7 +23,7 @@
             </div>
             <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
                 <div class="portlet-body">
-                    <form action="..." method="POST" {{ form_enctype(form) }}>
+                    <form action="{{ path('gastro_recipe_book_add') }}" method="POST" {{ form_enctype(form) }}>
                         {# affiche l'unique champ de la tâche : description #}
                         {{ form_row(form.name) }}
 
@@ -41,7 +41,9 @@
             </div>
         </div>
     </div>
-    <script>
+
+        {% block page_script %}
+    <script type="text/javascript">
         var collectionHolder = $('ul.tags');
 
         // ajoute un lien « add a tag »
@@ -73,4 +75,6 @@
             $newLinkLi.before($newFormLi);
         }
     </script>
+        {% endblock %}
+
 {% endblock %}

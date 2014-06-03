@@ -33,12 +33,12 @@ class Recipe {
     /**
      * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="recipe", cascade={"persist"}, orphanRemoval=TRUE)
      */
-    protected $recipeIngredients;
+    protected $recipeIngredient;
 
     /**
      * @ORM\Column(type="smallint")
      */
-    protected $portions;
+    protected $portions = 1;
 
     /**
      * @ORM\Column(type="float")
@@ -71,22 +71,30 @@ class Recipe {
      */
     public function __construct()
     {
-        $this->recipeIngredients = new ArrayCollection();
+        $this->recipeIngredient = new ArrayCollection();
     }
 
-    public function addIngredient(RecipeIngredient $recipeIngredient)
+    public function addRecipeIngredient(RecipeIngredient $recipeIngredient)
     {
-        if (!$this->recipeIngredients->contains($recipeIngredient)) {
-            $this->recipeIngredients->add($recipeIngredient);
+        if (!$this->recipeIngredient->contains($recipeIngredient)) {
+            $this->recipeIngredient->add($recipeIngredient);
             $recipeIngredient->setRecipe($this);
         }
+        return $this;
+    }
 
+    public function removeRecipeIngredient(RecipeIngredient $recipeIngredient)
+    {
+        if (!$this->recipeIngredient->contains($recipeIngredient)) {
+            $this->recipeIngredient->removeElement($recipeIngredient);
+            $recipeIngredient->setRecipe(null);
+        }
         return $this;
     }
 
     public function getRecipeIngredient()
     {
-        return $this->recipeIngredients;
+        return $this->recipeIngredient;
     }
 
     /**

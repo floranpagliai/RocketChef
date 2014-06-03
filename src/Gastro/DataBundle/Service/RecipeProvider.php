@@ -85,7 +85,10 @@ class RecipeProvider {
             $cost += $this->calculateCost($recipe)/ $recipe->getPortions();
             $i++;
         }
-        return $cost/$i;
+        if ($i == 0)
+            return null;
+        else
+            return $cost/$i;
     }
 
 } 

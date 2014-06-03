@@ -54,56 +54,21 @@ class DefaultController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         $recipe = new Recipe();
-
-        $recipeIngredient1 = new RecipeIngredient();
-
-        $ingredient1 = new Ingredient();
-        $ingredient1->setName('fraise');
-        $ingredient1->setPriceForUnit(2.30);
-        $ingredient1->setUnit(1);
-
-        $recipeIngredient1->setIngredient($ingredient1);
-        $recipeIngredient1->setQte(10);
-        $recipeIngredient1->setUnit(3);
-
-        $recipe->addIngredient($recipeIngredient1);
-        $recipe->setPortions(4);
-
         $form = $this->createForm(new RecipeType(), $recipe);
 
         if ($request->isMethod('POST')) {
             $form->bind($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
-            $recipe->setUser($user);
+                $recipe->setUser($user);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($recipe);
-            $em->flush();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($recipe);
+                $em->flush();
+
+                return $this->forward('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName()));
             }
         }
-//        $recipe = new Recipe();
-//        $form = $this->createFormBuilder($recipe)
-//            ->add('name', 'text')
-//            ->add('save', 'submit')
-//            ->getForm();
-//        $builder->add('tags', 'collection', array(
-//            'type' => new TagType(),
-//            'allow_add' => true,
-//            'by_reference' => false,
-//        ));
-//
-//        $form->handleRequest($request);
-//        if ($form->isValid()) {
-//            $recipe = $form->getData();
-//            $recipe->setUser($user);
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($recipe);
-//            $em->flush();
-//
-//            return $this->redirect($this->generateUrl('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName'=> $recipe->getName())));
-//        }
 
         $paramsRender = array('form' => $form->createView());
         return $this->render('GastroRecipeBookBundle:Recipe:add.html.twig', $paramsRender);
