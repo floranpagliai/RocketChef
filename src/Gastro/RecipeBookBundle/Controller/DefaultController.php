@@ -66,7 +66,7 @@ class DefaultController extends Controller
                 $em->persist($recipe);
                 $em->flush();
 
-                return $this->forward('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName()));
+                return $this->redirect($this->generateUrl('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
             }
         }
 
