@@ -22,6 +22,7 @@ class RecipeType extends AbstractType
         $builder->add('RecipeIngredient', 'collection', array(
             'type' => new RecipeIngredientType(),
             'allow_add' => true,
+            'allow_delete' => true,
             'by_reference' => false
         ));
         $builder->add('save', 'submit');

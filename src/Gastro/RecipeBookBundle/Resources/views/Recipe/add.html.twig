@@ -14,13 +14,13 @@
 
 {% block page_content %}
     <div class="col-lg-12">
-        <form action="{{ path('gastro_recipe_book_add') }}" method="POST" {{ form_enctype(form) }}>
+        <form method="POST" {{ form_enctype(form) }}>
         <div class="portlet portlet-default">
             <div class="portlet-heading">
                 <div class="portlet-title">
                     <h4>{{ 'recipebook.add.comment'|trans }}</h4>
                 </div><div class="portlet-widgets">
-                    <input class="btn btn-sm btn-blue" type="submit" id="_submit" name="_submit"
+                    <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
                            value="{{ 'recipebook.add.submit'|trans }}"/>
                 </div>
                 <div class="clearfix"></div>
@@ -34,7 +34,9 @@
 
                         <h3>Ingredients</h3>
                         <ul class="tags" data-prototype="{{ form_widget(form.RecipeIngredient.vars.prototype)|e }}">
-
+                            {% for RecipeIngredient in form.RecipeIngredient %}
+                                <li>{{ form_row(RecipeIngredient) }}</li>
+                            {% endfor %}
                         </ul>
 
                         {{ form_widget(form._token) }}
@@ -52,7 +54,7 @@
 
         // ajoute un lien « add a tag »
         var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter un tag</a>');
-        var $newLinkLi = $('<li></li>').append($addTagLink);
+        var $newLinkLi = $addTagLink;
 
         jQuery(document).ready(function() {
             // ajoute l'ancre « ajouter un tag » et li à la balise ul
@@ -64,6 +66,10 @@
 
                 // ajoute un nouveau formulaire tag (voir le prochain bloc de code)
                 addTagForm(collectionHolder, $newLinkLi);
+            });
+
+            collectionHolder.find('li').each(function() {
+                addTagFormDeleteLink($(this));
             });
         });
         function addTagForm(collectionHolder, $newLinkLi) {
@@ -77,6 +83,19 @@
             // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
             var $newFormLi = $('<li></li>').append(newForm);
             $newLinkLi.before($newFormLi);
+            addTagFormDeleteLink($newFormLi);
+        }
+        function addTagFormDeleteLink($tagFormLi) {
+            var $removeFormA = $('<a href="#">Supprimer ce tag</a>');
+            $tagFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // empêche le lien de créer un « # » dans l'URL
+                e.preventDefault();
+
+                // supprime l'élément li pour le formulaire de tag
+                $tagFormLi.remove();
+            });
         }
     </script>
         {% endblock %}

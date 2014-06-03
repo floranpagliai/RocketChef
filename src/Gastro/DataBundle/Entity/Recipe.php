@@ -85,12 +85,18 @@ class Recipe {
 
     public function removeRecipeIngredient(RecipeIngredient $recipeIngredient)
     {
-        if (!$this->recipeIngredient->contains($recipeIngredient)) {
+        if ($this->recipeIngredient->contains($recipeIngredient)) {
             $this->recipeIngredient->removeElement($recipeIngredient);
             $recipeIngredient->setRecipe(null);
         }
         return $this;
     }
+
+    public function setRecipeIngredient(RecipeIngredient $recipeIngredient)
+    {
+        $this->recipeIngredient = $recipeIngredient;
+    }
+
 
     public function getRecipeIngredient()
     {

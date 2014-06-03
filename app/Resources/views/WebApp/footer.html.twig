@@ -20,10 +20,21 @@
     $(".portlet-widgets .fa-chevron-down, .portlet-widgets .fa-chevron-up").click(function() {
         $(this).toggleClass("fa-chevron-down fa-chevron-up");
     });
+
+
     $(document).ready(function () {
+        var aoColums = [];
+        $('#dataTable').find('thead th').each( function () {
+            if ( $(this).hasClass( 'no_sort' )) {
+                aoColums.push( { "bSortable": false } );
+            } else {
+                aoColums.push( null );
+            }
+        } );
         $('#dataTable').dataTable({
             "paging": false,
-            "info": false
+            "info": false,
+            "aoColumns": aoColums
         });
     });
     $(function() {

@@ -2,6 +2,7 @@
 
 namespace Gastro\RecipeBookBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -76,10 +77,29 @@ class DefaultController extends Controller
 
     public function editAction(Request $request, $recipeId)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $recipeOld = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);;
+        $form = $this->createForm(new RecipeType(), $recipeOld);
+
+        if ($request->isMethod('POST')) {
+            $form->submit($request);
+            if ($form->isValid()) {
+                $recipe = $form->getData();
+
+                $em->persist($recipe);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
+            }
+        }
+
+        $paramsRender = array('form' => $form->createView());
+        return $this->render('GastroRecipeBookBundle:Recipe:add.html.twig', $paramsRender);
 
     }
 
-    public function deleteAction(Request $request, $recipeId)
+    public function deleteAction($recipeId)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
