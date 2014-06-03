@@ -18,7 +18,7 @@ class IngredientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name');
-        $builder->add('priceForUnit');
+        $builder->add('priceForUnit', 'money');
         $builder->add('unit');
     }
 

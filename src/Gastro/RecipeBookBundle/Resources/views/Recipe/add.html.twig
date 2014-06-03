@@ -14,28 +14,32 @@
 
 {% block page_content %}
     <div class="col-lg-12">
+        <form action="{{ path('gastro_recipe_book_add') }}" method="POST" {{ form_enctype(form) }}>
         <div class="portlet portlet-default">
             <div class="portlet-heading">
                 <div class="portlet-title">
                     <h4>{{ 'recipebook.add.comment'|trans }}</h4>
+                </div><div class="portlet-widgets">
+                    <input class="btn btn-sm btn-blue" type="submit" id="_submit" name="_submit"
+                           value="{{ 'recipebook.add.submit'|trans }}"/>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
                 <div class="portlet-body">
-                    <form action="{{ path('gastro_recipe_book_add') }}" method="POST" {{ form_enctype(form) }}>
+
                         {# affiche l'unique champ de la tâche : description #}
                         {{ form_row(form.name) }}
+                        {{ form_row(form.portions) }}
 
                         <h3>Ingredients</h3>
                         <ul class="tags" data-prototype="{{ form_widget(form.RecipeIngredient.vars.prototype)|e }}">
-                            {% for ingredient in form.RecipeIngredient %}
-                                <li>{{ form_row(ingredient.ingredient.name) }}</li>
-                            {% endfor %}
+
                         </ul>
 
-                        {{ form_rest(form) }}
-                        {# ... #}
+                        {{ form_widget(form._token) }}
+                        {#<input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"#}
+                               {#value="{{ 'recipebook.add.submit'|trans }}"/>#}
                     </form>
                 </div>
             </div>

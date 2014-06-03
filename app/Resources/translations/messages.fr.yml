@@ -12,6 +12,7 @@ recipebook:
     add:
         new: "Nouvelle recette"
         comment: "Ajouter une nouvelle recette"
+        submit: "Sauvegarder recette"
 
 security:
     logged_in_as: "Connecté en tant que"
