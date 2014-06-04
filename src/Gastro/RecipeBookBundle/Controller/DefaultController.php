@@ -86,6 +86,7 @@ class DefaultController extends Controller
             $form->submit($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
+                $this->updateRecipe($recipe);
 
                 $em->persist($recipe);
                 $em->flush();
