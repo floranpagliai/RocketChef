@@ -61,6 +61,7 @@ class DefaultController extends Controller
             $form->bind($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
+                $this->updateRecipe($recipe);
                 $recipe->setUser($user);
 
                 $em = $this->getDoctrine()->getManager();
