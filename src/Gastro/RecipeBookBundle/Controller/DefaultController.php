@@ -37,7 +37,7 @@ class DefaultController extends Controller
             $recipeIngredients = $recipe->getRecipeIngredient();
             $this->updateRecipe($recipe);
             if ($recipe->getCost() > 0)
-                $margin = 100-(($recipe->getCost()/$recipe->getPortions())*100/6);
+                $margin = (($recipe->getPrice()-($recipe->getCost()/$recipe->getPortions()))/$recipe->getCost()) * 100;
             else
                 $margin = 0;
             $paramsRender = array(
@@ -115,7 +115,11 @@ class DefaultController extends Controller
 
     public function updateRecipe(Recipe $recipe)
     {
-        $recipe->setCost($this->get('gastro_data.recipe.provider')->calculateCost($recipe));
+        $recipeService = $this->get('gastro_data.recipe.provider');
+
+        $recipe->setCost($recipeService->calculateRecipeCost($recipe));
+        foreach ($recipe->getRecipeIngredient() as $recipeIngredient)
+            $recipeIngredient->setCost($recipeService->calculateRecipeIngredientCost($recipeIngredient));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($recipe);

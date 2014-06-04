@@ -38,7 +38,7 @@ class Recipe {
     /**
      * @ORM\Column(type="smallint")
      */
-    protected $portions = 1;
+    protected $portions;
 
     /**
      * @ORM\Column(type="float")
@@ -48,7 +48,7 @@ class Recipe {
     /**
      * @ORM\Column(type="float")
      */
-    protected $price = 0.0;
+    protected $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User", inversedBy="recipes")

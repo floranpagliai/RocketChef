@@ -129,6 +129,7 @@
                             </th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Cost</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -160,6 +161,9 @@
                                     {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_Liter') %}
                                         {{ 'global.currency'|trans }}/L
                                     {% endif %}
+                                </td>
+                                <td>
+                                    {{ recipeIngredient.cost }}{{ 'global.currency'|trans }}
                                 </td>
                             </tr>
 

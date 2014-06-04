@@ -50,6 +50,11 @@ class RecipeIngredient {
      */
     protected $unit;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $cost;
+
 
     /**
      * @param mixed $id
@@ -129,6 +134,22 @@ class RecipeIngredient {
     public function getUnit()
     {
         return $this->unit;
+    }
+
+    /**
+     * @param mixed $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCost()
+    {
+        return $this->cost;
     }
 
 

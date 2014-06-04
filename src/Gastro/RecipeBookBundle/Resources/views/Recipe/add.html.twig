@@ -28,14 +28,25 @@
             <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
                 <div class="portlet-body">
 
-                        {# affiche l'unique champ de la tâche : description #}
-                        {{ form_row(form.name) }}
-                        {{ form_row(form.portions) }}
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="recipe_name">Recipe name</label>
+                            {{ form_widget(form.name) }}
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe_prtions">Portions</label>
+                            {{ form_widget(form.portions) }}
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe_price">Selling Price</label>
+                            {{ form_widget(form.price) }}
+                        </div>
+                    </div>
 
                         <h3>Ingredients</h3>
                         <ul class="tags" data-prototype="{{ form_widget(form.RecipeIngredient.vars.prototype)|e }}">
                             {% for RecipeIngredient in form.RecipeIngredient %}
-                                <li>{{ form_row(RecipeIngredient) }}</li>
+                                <li>{{ form_widget(RecipeIngredient) }}</li>
                             {% endfor %}
                         </ul>
 
