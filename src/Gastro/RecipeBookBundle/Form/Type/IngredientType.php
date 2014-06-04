@@ -19,7 +19,7 @@ class IngredientType extends AbstractType
     {
         $builder->add('name');
         $builder->add('priceForUnit', 'money');
-        $builder->add('unit', 'number');
+        $builder->add('unit', 'choice', array( 'choices'   => array(0 => '/Unité', 1 => '/Kg', 2 => '/L')));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

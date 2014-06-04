@@ -19,7 +19,7 @@ class RecipeIngredientType extends AbstractType
     {
         $builder->add('ingredient', new IngredientType());
         $builder->add('qte', 'number');
-        $builder->add('unit', 'number');
+        $builder->add('unit', 'choice', array( 'choices'   => array(0 => 'Unité', 1 => 'Kg', 2 => 'L', 3 => 'Gr', 4 => 'Cl')));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
