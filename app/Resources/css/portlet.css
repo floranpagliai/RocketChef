@@ -60,12 +60,17 @@
 }
 
 .portlet .portlet-footer {
-    padding: 10px 15px;
+    padding: 0px 15px;
     background: #e0e7e8;
 }
 
 .portlet .portlet-footer ul {
     margin: 0;
+}
+
+.portlet .portlet-footer .portlet-widgets {
+    float: right;
+    margin: 8px 0;
 }
 
 .portlet-green,
