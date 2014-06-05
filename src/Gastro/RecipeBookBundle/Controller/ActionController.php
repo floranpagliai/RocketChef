@@ -42,4 +42,20 @@ class ActionController extends Controller
 
         return $this->redirect($this->generateUrl('gastro_recipe_book'));
     }
+
+    public function removeFromMenuAction($recipeId)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
+
+        if ($recipe && $recipe->getUser() == $user) {
+            $em = $this->getDoctrine()->getManager();
+
+            $recipe->setIsInMenu(false);
+            $em->persist($recipe);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('gastro_recipe_book'));
+    }
 } 

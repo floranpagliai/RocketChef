@@ -1,7 +1,7 @@
 .btn-green {
-    border-color: #15987e;
+    border-color: #148f39;
     color: #fff;
-    background-color: #16a085;
+    background-color: #16a040;
 }
 
 .btn-green:hover,
@@ -9,9 +9,9 @@
 .btn-green:active,
 .btn-green.active,
 .open .dropdown-toggle.btn-green {
-    border-color: #138871;
+    border-color: #117e32;
     color: #fff;
-    background-color: #149077;
+    background-color: #148f39;
 }
 
 .btn-green.disabled,
@@ -113,6 +113,16 @@ fieldset[disabled] .btn-blue.active {
 .btn-red:focus,
 .btn-red:active,
 .btn-red.active,
+.open .dropdown-toggle.btn-red {
+    border-color: #c54133;
+    color: #fff;
+    background-color: #cf4436;
+}
+
+.btn-hover-red:hover,
+.btn-hover-red:focus,
+.btn-hover-red:active,
+.btn-hover-red.active,
 .open .dropdown-toggle.btn-red {
     border-color: #c54133;
     color: #fff;
