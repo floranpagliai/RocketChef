@@ -96,8 +96,9 @@ class DefaultController extends Controller
             }
         }
 
-        $paramsRender = array('form' => $form->createView());
-        return $this->render('GastroRecipeBookBundle:Recipe:add.html.twig', $paramsRender);
+        $paramsRender = array('form' => $form->createView(),
+                                'recipe' => $recipeOld);
+        return $this->render('GastroRecipeBookBundle:Recipe:edit.html.twig', $paramsRender);
 
     }
 
