@@ -8,6 +8,7 @@
 
 namespace Gastro\RecipeBookBundle\Form\Type;
 
+use Gastro\DataBundle\Entity\Image;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -20,6 +21,7 @@ class RecipeType extends AbstractType
         $builder->add('name', 'text');
         $builder->add('portions', 'number');
         $builder->add('price', 'money');
+        $builder->add('image', new ImageType());
         $builder->add('RecipeIngredient', 'collection', array(
             'type' => new RecipeIngredientType(),
             'allow_add' => true,

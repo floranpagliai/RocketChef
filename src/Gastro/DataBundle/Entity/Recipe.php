@@ -57,6 +57,12 @@ class Recipe {
     protected $user;
 
     /**
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     */
+    protected $image;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -182,5 +188,23 @@ class Recipe {
     {
         return $this->user;
     }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+
 
 }
