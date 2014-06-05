@@ -13,5 +13,6 @@
     <li class="active"><i class="fa fa-cutlery"></i> {{ 'recipebook.add.new'|trans }}</li></a>
 {% endblock %}
 
-{% include 'GastroRecipeBookBundle:Recipe:form.html.twig' %}
-
+{% block page_content %}
+    {% include 'GastroRecipeBookBundle:Recipe:form.html.twig' %}
+{% endblock %}

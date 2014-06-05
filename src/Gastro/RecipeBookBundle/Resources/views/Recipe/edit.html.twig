@@ -16,5 +16,9 @@
 {% endblock %}
 
 {% block page_content %}
-    {% include 'GastroRecipeBookBundle:Recipe:form.html.twig' %}
+    {% embed 'GastroRecipeBookBundle:Recipe:form.html.twig' %}
+        {% block recipe_form_comment %}
+            <h4>{{ 'recipebook.edit.comment'|trans }}</h4>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

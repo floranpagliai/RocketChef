@@ -1,168 +1,168 @@
-
-    <div class="col-lg-12">
-        {% form_theme form _self %}
-        <form method="POST" {{ form_enctype(form) }} class="form-horizontal">
-            <div class="portlet portlet-default">
-                <div class="portlet-heading">
-                    <div class="portlet-title">
+<div class="col-lg-12">
+    {% form_theme form _self %}
+    <form method="POST" {{ form_enctype(form) }} class="form-horizontal">
+        <div class="portlet portlet-default">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    {% block recipe_form_comment %}
                         <h4>{{ 'recipebook.add.comment'|trans }}</h4>
-                    </div>
-                    <div class="portlet-widgets">
-                        <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
-                               value="{{ 'recipebook.add.submit'|trans }}"/>
-                    </div>
-                    <div class="clearfix"></div>
+                    {% endblock %}
                 </div>
-                <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
-                    <div class="portlet-body">
+                <div class="portlet-widgets">
+                    <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
+                           value="{{ 'recipebook.add.submit'|trans }}"/>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
+                <div class="portlet-body">
 
-                        {#<h3>Recipe</h3>#}
-                        <div class="row">
-                            <div class="col-lg-3">
-                                {% if  recipe.image.path %}
-                                    <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}">
-                                {% else %}
-                                <div class="form-group">
-                                    {{ form_widget(form.image) }}
+                    {#<h3>Recipe</h3>#}
+                    <div class="row">
+                        <div class="col-lg-2">
+                            {% if  recipe.image.path is defined %}
+                                <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}">
+                            {% else %}
+                               {{ form_widget(form.image) }}
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <label class="col-sm-3" for="recipe_name">Recipe name</label>
+
+                                <div class="col-sm-9">
+                                    {{ form_widget(form.name) }}
                                 </div>
-                                {% endif %}
                             </div>
-                            <div class="col-lg-9">
-                                <div class="form-group">
-                                    <label class="col-sm-3" for="recipe_name">Recipe name</label>
+                            <div class="form-group">
+                                <label class="col-sm-3" for="recipe_portions">Portions</label>
 
-                                    <div class="col-sm-9">
-                                        {{ form_widget(form.name) }}
-                                    </div>
+                                <div class="col-sm-9">
+                                    {{ form_widget(form.portions) }}
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3" for="recipe_portions">Portions</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3" for="recipe_price">Selling Price</label>
 
-                                    <div class="col-sm-9">
-                                        {{ form_widget(form.portions) }}
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3" for="recipe_price">Selling Price</label>
-
-                                    <div class="col-sm-9">
-                                        {{ form_widget(form.price) }}
-                                    </div>
+                                <div class="col-sm-9">
+                                    {{ form_widget(form.price) }}
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <h3>Ingredients</h3>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <table class="table">
-                                    <thead>
+                    <h3>{{ 'ingredient.ingredients'|trans }}</h3>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td width="50%">{{ 'ingredient.name'|trans }}</td>
+                                    <td width="10%">{{ 'ingredient.quantity'|trans }}</td>
+                                    <td width="10%">{{ 'ingredient.unit'|trans }}</td>
+                                    <td width="10%">{{ 'ingredient.price'|trans }}</td>
+                                    <td width="10%">{{ 'ingredient.unit'|trans }}</td>
+                                    <td width="8%"></td>
+                                </tr>
+                                </thead>
+                                {% macro tagCollectionItem(formData) %}
+                                    <td>
+                                        {{ form_widget(formData.ingredient.name) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(formData.qte) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(formData.unit) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(formData.ingredient.priceForUnit) }}
+                                    </td>
+                                    <td>
+                                        {{ form_widget(formData.ingredient.unit) }}
+                                    </td>
+                                {% endmacro %}
+                                <tbody class="ingredients"
+                                       data-prototype="{{ _self.tagCollectionItem(form.RecipeIngredient.vars.prototype)|e }}">
+                                {% for RecipeIngredient in form.RecipeIngredient %}
                                     <tr>
-                                        <td width="50%">Name</td>
-                                        <td width="10%">Quantity</td>
-                                        <td width="10%">Unit</td>
-                                        <td width="10%">Price</td>
-                                        <td width="10%">Unit price</td>
-                                        <td width="8%"></td>
+                                        {{ _self.tagCollectionItem(RecipeIngredient) }}
                                     </tr>
-                                    </thead>
-                                    {% macro tagCollectionItem(formData) %}
-                                        <td>
-                                            {{ form_widget(formData.ingredient.name) }}
-                                        </td>
-                                        <td>
-                                            {{ form_widget(formData.qte) }}
-                                        </td>
-                                        <td>
-                                            {{ form_widget(formData.unit) }}
-                                        </td>
-                                        <td>
-                                            {{ form_widget(formData.ingredient.priceForUnit) }}
-                                        </td>
-                                        <td>
-                                            {{ form_widget(formData.ingredient.unit) }}
-                                        </td>
-                                    {% endmacro %}
-                                    <tbody class="ingredients"
-                                           data-prototype="{{ _self.tagCollectionItem(form.RecipeIngredient.vars.prototype)|e }}">
-                                    {% for RecipeIngredient in form.RecipeIngredient %}
-                                        <tr>
-                                            {{ _self.tagCollectionItem(RecipeIngredient) }}
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
+                                {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
 
-                    </div>
-                </div>
-                <div class="portlet-footer">
-                    <div class="portlet-widgets">
-                        <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
-                               value="{{ 'recipebook.add.submit'|trans }}"/>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-            {{ form_widget(form._token) }}
-        </form>
+            <div class="portlet-footer">
+                <div class="portlet-widgets">
+                    <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
+                           value="{{ 'recipebook.add.submit'|trans }}"/>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        {{ form_widget(form._token) }}
+    </form>
 
-    </div>
+</div>
 
-    {% block page_script %}
-        <script type="text/javascript">
-            var collectionHolder = $('tbody.ingredients');
+{% block page_script %}
+    <script type="text/javascript">
+        var collectionHolder = $('tbody.ingredients');
 
-            // ajoute un lien « add a tag »
-            var $addTagLink = $('<a href="#" class="btn btn-sm btn-primary add_tag_link"><i class="fa fa-plus"></i> Add a ingredient</a>');
+        // ajoute un lien « add a tag »
+        var $addTagLink = $('<a href="#" class="btn btn-sm btn-primary add_tag_link"><i class="fa fa-plus"></i> Add a ingredient</a>');
 
-            var $newLinkLi = $addTagLink;
+        var $newLinkLi = $addTagLink;
 
-            jQuery(document).ready(function () {
-                // ajoute l'ancre « ajouter un tag » et li à la balise ul
-                collectionHolder.append($newLinkLi);
+        jQuery(document).ready(function () {
+            // ajoute l'ancre « ajouter un tag » et li à la balise ul
+            collectionHolder.append($newLinkLi);
 
-                $addTagLink.on('click', function (e) {
-                    // empêche le lien de créer un « # » dans l'URL
-                    e.preventDefault();
+            $addTagLink.on('click', function (e) {
+                // empêche le lien de créer un « # » dans l'URL
+                e.preventDefault();
 
-                    // ajoute un nouveau formulaire tag (voir le prochain bloc de code)
-                    addTagForm(collectionHolder, $newLinkLi);
-                });
-
-                collectionHolder.find('tr').each(function () {
-                    addTagFormDeleteLink($(this));
-                });
+                // ajoute un nouveau formulaire tag (voir le prochain bloc de code)
+                addTagForm(collectionHolder, $newLinkLi);
             });
 
-            function addTagForm(collectionHolder, $newLinkLi) {
-                // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
-                var prototype = collectionHolder.attr('data-prototype');
+            collectionHolder.find('tr').each(function () {
+                addTagFormDeleteLink($(this));
+            });
+        });
 
-                // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
-                // la longueur de la collection courante
-                var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+        function addTagForm(collectionHolder, $newLinkLi) {
+            // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
+            var prototype = collectionHolder.attr('data-prototype');
 
-                // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
-                var $newFormLi = $('<tr></tr>').append(newForm);
-                $newLinkLi.before($newFormLi);
-                addTagFormDeleteLink($newFormLi);
-            }
+            // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
+            // la longueur de la collection courante
+            var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
 
-            function addTagFormDeleteLink($tagFormLi) {
-                var $removeFormA = $('<td class="tooltip-content"><a href="#" class="btn btn-sm btn-red btn-block" data-toggle="tooltip" ' +
-                        'data-placement="top" data-original-title="Delete ingredient"><i class="fa fa-times"></i></a></td>');
+            // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
+            var $newFormLi = $('<tr></tr>').append(newForm);
+            $newLinkLi.before($newFormLi);
+            addTagFormDeleteLink($newFormLi);
+        }
 
-                $tagFormLi.append($removeFormA);
+        function addTagFormDeleteLink($tagFormLi) {
+            var $removeFormA = $('<td class="tooltip-content"><a href="#" class="btn btn-sm btn-red btn-block" data-toggle="tooltip" ' +
+                    'data-placement="top" data-original-title="Delete ingredient"><i class="fa fa-times"></i></a></td>');
 
-                $removeFormA.on('click', function (e) {
-                    // empêche le lien de créer un « # » dans l'URL
-                    e.preventDefault();
+            $tagFormLi.append($removeFormA);
 
-                    // supprime l'élément li pour le formulaire de tag
-                    $tagFormLi.remove();
-                });
-            }
-        </script>
-    {% endblock %}
+            $removeFormA.on('click', function (e) {
+                // empêche le lien de créer un « # » dans l'URL
+                e.preventDefault();
+
+                // supprime l'élément li pour le formulaire de tag
+                $tagFormLi.remove();
+            });
+        }
+    </script>
+{% endblock %}

@@ -9,10 +9,25 @@ dashboard:
 recipebook:
     title: "Livre de Recette"
     recipe: "Recette"
+    recipe:
+        name: "Nom de la recette"
+        portions: "Portions"
+        sellingprice: "Prix de vente"
     add:
         new: "Nouvelle recette"
         comment: "Ajouter une nouvelle recette"
         submit: "Sauvegarder recette"
+    edit:
+        edit: "Modifier"
+        comment: "Modifier une recette"
+
+ingredient:
+    ingredients: "Ingrédients"
+    name: Nom
+    quantity: "Quantité"
+    unit: "Unité"
+    price: "Prix"
+    cost: "Coût"
 
 security:
     logged_in_as: "Connecté en tant que"
