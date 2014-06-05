@@ -57,10 +57,15 @@ class Recipe {
     protected $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}, orphanRemoval=TRUE)
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id", nullable=true)
      */
     protected $image;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isInMenu;
 
     /**
      * Get id
@@ -205,6 +210,19 @@ class Recipe {
         return $this->image;
     }
 
+    /**
+     * @param mixed $isInMenu
+     */
+    public function setIsInMenu($isInMenu)
+    {
+        $this->isInMenu = $isInMenu;
+    }
 
-
+    /**
+     * @return mixed
+     */
+    public function getIsInMenu()
+    {
+        return $this->isInMenu;
+    }
 }

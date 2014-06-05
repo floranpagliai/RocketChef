@@ -28,7 +28,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"
+                                <a href="{{ path('gastro_recipe_book_add_menu', {'recipeId': recipe.id}) }}"
                                 <i class="fa fa-plus"></i> Add to menu</a>
                             </li>
                             <li>
@@ -48,7 +48,9 @@
                     <div class="portlet-body">
                         <div class="row">
                             <div class="col-lg-3 col-md-4">
-                                <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}">
+                                {% if  recipe.image.path is defined %}
+                                    <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}" width="100%">
+                                {% endif %}
                             </div>
                             <div class="col-lg-9 col-md-8">
                                 <table class="table table-bordered table-recipe-infos">

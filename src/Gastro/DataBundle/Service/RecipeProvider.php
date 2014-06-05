@@ -26,6 +26,14 @@ class RecipeProvider {
         return $this->em->findAll();
     }
 
+    public function getAllMenuRecipes()
+    {
+        return $this->em->createQueryBuilder('r')
+            ->select('*')
+            ->where('r.isOnMenu = true')
+            ->getQuery()
+            ->getResult();
+    }
 
     public function getRecipeById($id)
     {

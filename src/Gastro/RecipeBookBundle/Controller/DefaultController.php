@@ -23,8 +23,7 @@ class DefaultController extends Controller
         }
 
         $paramsRender = array('recipes' => $recipes);
-//        $flash = $this->get('braincrafted_bootstrap.flash');
-//        $flash->alert('This is an alert flash message.');
+
         return $this->render('GastroRecipeBookBundle:Recipe:list.html.twig', $paramsRender);
     }
 
@@ -92,6 +91,9 @@ class DefaultController extends Controller
                 $em->persist($recipe);
                 $em->flush();
 
+                $flash = $this->get('braincrafted_bootstrap.flash');
+                $flash->alert('Recipe saved');
+
                 return $this->redirect($this->generateUrl('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
             }
         }
@@ -100,20 +102,6 @@ class DefaultController extends Controller
                                 'recipe' => $recipeOld);
         return $this->render('GastroRecipeBookBundle:Recipe:edit.html.twig', $paramsRender);
 
-    }
-
-    public function deleteAction($recipeId)
-    {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
-
-        if ($recipe && $recipe->getUser() == $user) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($recipe);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('gastro_recipe_book'));
     }
 
     public function updateRecipe(Recipe $recipe)

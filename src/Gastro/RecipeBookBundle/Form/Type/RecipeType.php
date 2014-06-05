@@ -21,7 +21,7 @@ class RecipeType extends AbstractType
         $builder->add('name', 'text');
         $builder->add('portions', 'number');
         $builder->add('price', 'money');
-        $builder->add('image', new ImageType());
+        $builder->add('image', new ImageType(), array('required' => false));
         $builder->add('RecipeIngredient', 'collection', array(
             'type' => new RecipeIngredientType(),
             'allow_add' => true,

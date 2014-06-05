@@ -33,12 +33,21 @@
                                     <td>
                                         {{ (recipe.cost/recipe.portions)|round(2, 'common') }} $
                                     </td>
-                                    <td class="tooltip-content">
-                                        <a href="#" class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
-                                           data-placement="top" data-original-title="Add to menu">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                    </td>
+                                    {% if recipe.isInMenu %}
+                                        <td class="tooltip-content">
+                                            <a href="{{ path('gastro_recipe_book_add_menu', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-green btn-block" data-toggle="tooltip"
+                                               data-placement="top" data-original-title="Remove from menu">
+                                                <i class="fa fa-check"></i>
+                                            </a>
+                                        </td>
+                                    {% else %}
+                                        <td class="tooltip-content">
+                                            <a href="{{ path('gastro_recipe_book_add_menu', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
+                                               data-placement="top" data-original-title="Add to menu">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </td>
+                                    {% endif %}
                                     <td class="tooltip-content">
                                         <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"
                                            class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
