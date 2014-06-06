@@ -38,12 +38,12 @@
         });
     });
     $(function() {
-        $('#easy-pie-1, #easy-pie-2, #easy-pie-3, #easy-pie-4').easyPieChart({
+        $('.easy-pie-chart').easyPieChart({
             barColor: "rgba(255,255,255,.5)",
             trackColor: "rgba(255,255,255,.5)",
             scaleColor: "rgba(255,255,255,.5)",
             lineWidth: 20,
-            animate: 1500,
+            animate: 1,
             size: 180,
             onStep: function(from, to, percent) {
                 $(this.el).find('.percent').text(Math.round(percent));

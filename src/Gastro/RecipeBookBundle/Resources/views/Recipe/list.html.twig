@@ -14,7 +14,7 @@
                 </div>
                 <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
                     <div class="portlet-body">
-                        <table id="dataTable" class="table table-hover">
+                        <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th>Name</th>
@@ -56,7 +56,7 @@
                                     <td class="tooltip-content">
                                         <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}"
                                            class="btn btn-sm btn-red btn-block" data-toggle="tooltip"
-                                           data-placement="top" data-original-title="Delete recipe">
+                                           data-placement="top" data-original-title="Delete recipe" onclick="return confirm('Delete recipe ?')">
                                             <i class="fa fa-times"></i>
                                         </a>
                                     </td>

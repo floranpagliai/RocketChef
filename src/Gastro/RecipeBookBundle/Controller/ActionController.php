@@ -10,10 +10,11 @@ namespace Gastro\RecipeBookBundle\Controller;
 
 use Gastro\DataBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ActionController extends Controller
 {
-    public function deleteAction($recipeId)
+    public function deleteAction(Request $request, $recipeId)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
@@ -24,6 +25,6 @@ class ActionController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('gastro_recipe_book'));
+        return $this->redirect($request->headers->get('referer'));
     }
 } 

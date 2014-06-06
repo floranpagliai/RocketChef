@@ -9,10 +9,12 @@
 namespace Gastro\MenuBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ActionController extends Controller
 {
-    public function addRecipeAction($recipeId)
+    public function addRecipeAction(Request $request, $recipeId)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
@@ -25,10 +27,10 @@ class ActionController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('gastro_recipe_book'));
+        return $this->redirect($request->headers->get('referer'));
     }
 
-    public function removeRecipeAction($recipeId)
+    public function removeRecipeAction(Request $request, $recipeId)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
@@ -41,6 +43,6 @@ class ActionController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('gastro_recipe_book'));
+        return $this->redirect($request->headers->get('referer'));
     }
 } 
