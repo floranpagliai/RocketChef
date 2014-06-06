@@ -28,8 +28,13 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ path('gastro_recipe_book_add_menu', {'recipeId': recipe.id}) }}"
-                                <i class="fa fa-plus"></i> Add to menu</a>
+                                {% if recipe.isInMenu %}
+                                    <a href="{{ path('gastro_menu_remove_recipe', {'recipeId': recipe.id}) }}"
+                                    <i class="fa fa-times"></i> Remove from menu</a>
+                                {% else %}
+                                    <a href="{{ path('gastro_menu_add_recipe', {'recipeId': recipe.id}) }}"
+                                    <i class="fa fa-plus"></i> Add to menu</a>
+                                {% endif %}
                             </li>
                             <li>
                                 <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"

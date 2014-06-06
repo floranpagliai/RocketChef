@@ -1,5 +1,5 @@
 global:
-    appname: "Karrott Tools"
+    appname: "RocketChef"
     currency: "€"
 
 dashboard:
@@ -10,6 +10,7 @@ recipebook:
     title: "Livre de Recette"
     recipe:
         word: "Recette"
+        words: "Recettes"
         name: "Nom de la recette"
         portions: "Portions"
         sellingprice: "Prix de vente"
@@ -20,6 +21,10 @@ recipebook:
     edit:
         edit: "Modifier"
         comment: "Modifier une recette"
+
+menu:
+    title: "Menu"
+    recipeInMenu: "Recettes au menu"
 
 ingredient:
     ingredients: "Ingrédients"

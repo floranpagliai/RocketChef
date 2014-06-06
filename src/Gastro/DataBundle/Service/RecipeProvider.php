@@ -26,11 +26,13 @@ class RecipeProvider {
         return $this->em->findAll();
     }
 
-    public function getAllMenuRecipes()
+    public function getAllUserMenuRecipes($userId)
     {
         return $this->em->createQueryBuilder('r')
-            ->select('*')
-            ->where('r.isOnMenu = true')
+            ->select('r')
+            ->where('r.isInMenu = true')
+            ->andWhere('r.user = :user_id')
+            ->setParameter('user_id', $userId)
             ->getQuery()
             ->getResult();
     }
@@ -53,6 +55,17 @@ class RecipeProvider {
         return $this->em->createQueryBuilder('r')
             ->select('COUNT(r)')
             ->where('r.user = :user_id')
+            ->setParameter('user_id', $userId)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function getUserMenuRecipesCount($userId)
+    {
+        return $this->em->createQueryBuilder('r')
+            ->select('COUNT(r)')
+            ->where('r.isInMenu = true')
+            ->andWhere('r.user = :user_id')
             ->setParameter('user_id', $userId)
             ->getQuery()
             ->getSingleScalarResult();

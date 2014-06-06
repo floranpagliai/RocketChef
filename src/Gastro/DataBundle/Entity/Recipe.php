@@ -67,6 +67,7 @@ class Recipe {
      */
     protected $isInMenu;
 
+
     /**
      * Get id
      *
@@ -83,6 +84,7 @@ class Recipe {
     public function __construct()
     {
         $this->recipeIngredient = new ArrayCollection();
+        $this->menus = new ArrayCollection();
     }
 
     public function addRecipeIngredient(RecipeIngredient $recipeIngredient)

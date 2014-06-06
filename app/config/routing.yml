@@ -1,3 +1,7 @@
+gastro_menu:
+    resource: "@GastroMenuBundle/Resources/config/routing.yml"
+    prefix:   /app
+
 gastro_user:
     resource: "@GastroUserBundle/Resources/config/routing.yml"
     prefix:   /

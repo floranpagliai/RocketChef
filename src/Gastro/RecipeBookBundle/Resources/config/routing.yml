@@ -17,11 +17,3 @@ gastro_recipe_book_edit:
 gastro_recipe_book_delete:
     pattern:  /recipe-book/delete/{recipeId}
     defaults: { _controller: GastroRecipeBookBundle:Action:delete }
-
-gastro_recipe_book_add_menu:
-    pattern:  /recipe-book/addToMenu/{recipeId}}
-    defaults: { _controller: GastroRecipeBookBundle:Action:addToMenu }
-
-gastro_recipe_book_remove_menu:
-    pattern:  /recipe-book/removeFromMenu/{recipeId}}
-    defaults: { _controller: GastroRecipeBookBundle:Action:removeFromMenu }

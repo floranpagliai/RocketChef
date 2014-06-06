@@ -33,21 +33,19 @@
                                     <td>
                                         {{ (recipe.cost/recipe.portions)|round(2, 'common') }} $
                                     </td>
+                                    <td class="tooltip-content">
                                     {% if recipe.isInMenu %}
-                                        <td class="tooltip-content">
-                                            <a href="{{ path('gastro_recipe_book_remove_menu', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-green btn-hover-red btn-block" data-toggle="tooltip"
+                                            <a href="{{ path('gastro_menu_remove_recipe', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-green btn-hover-red btn-block" data-toggle="tooltip"
                                                data-placement="top" data-original-title="Remove from menu">
                                                 <i class="fa fa-check"></i>
                                             </a>
-                                        </td>
                                     {% else %}
-                                        <td class="tooltip-content">
-                                            <a href="{{ path('gastro_recipe_book_add_menu', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
+                                            <a href="{{ path('gastro_menu_add_recipe', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
                                                data-placement="top" data-original-title="Add to menu">
                                                 <i class="fa fa-plus"></i>
                                             </a>
-                                        </td>
                                     {% endif %}
+                                    </td>
                                     <td class="tooltip-content">
                                         <a href="{{ path('gastro_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"
                                            class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
