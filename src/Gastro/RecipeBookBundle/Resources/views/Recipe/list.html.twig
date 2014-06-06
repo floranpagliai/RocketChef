@@ -8,7 +8,7 @@
                     </div>
                     <div class="portlet-widgets">
                         <a href="{{ path('gastro_recipe_book_add') }}" class="btn btn-xs btn-primary">
-                            <i class="fa fa-plus"></i> Add Recipe</a>
+                            <i class="fa fa-plus"></i> {{ 'recipebook.add.recipe'|trans }}</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -17,11 +17,13 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Portion Cost</th>
-                                <th class="no_sort" width="8%"></th>
-                                <th class="no_sort" width="8%"></th>
-                                <th class="no_sort" width="8%"></th>
+                                <td width="25%">{{ 'recipebook.recipe.name'|trans }}</td>
+                                <th width="9%">{{ 'recipebook.recipe.cost'|trans }}</th>
+                                <th width="9%">{{ 'recipebook.recipe.portioncost'|trans }}</th>
+                                <th width="9%">{{  'recipebook.recipe.sellingprice'|trans }}</th>
+                                <th class="no_sort btn-table"></th>
+                                <th class="no_sort btn-table"></th>
+                                <th class="no_sort btn-table"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -31,17 +33,23 @@
                                         <a href="{{ path('gastro_recipe_book_show', {'recipeId' : recipe.id, 'recipeName' : recipe.name}) }}">{{ recipe.name|capitalize }}</a>
                                     </td>
                                     <td>
-                                        {{ (recipe.cost/recipe.portions)|round(2, 'common') }} $
+                                        {{ recipe.cost|round(2, 'common') }}{{ 'global.currency'|trans }}
+                                    </td>
+                                    <td>
+                                        {{ (recipe.cost/recipe.portions)|round(2, 'common') }}{{ 'global.currency'|trans }}
+                                    </td>
+                                    <td>
+                                        {{ recipe.price }}{{ 'global.currency'|trans }}
                                     </td>
                                     <td class="tooltip-content">
                                     {% if recipe.isInMenu %}
                                             <a href="{{ path('gastro_menu_remove_recipe', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-green btn-hover-red btn-block" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Remove from menu">
+                                               data-placement="top" data-original-title="{{ 'menu.remove'|trans }}">
                                                 <i class="fa fa-check"></i>
                                             </a>
                                     {% else %}
                                             <a href="{{ path('gastro_menu_add_recipe', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Add to menu">
+                                               data-placement="top" data-original-title="{{ 'menu.add'|trans }}">
                                                 <i class="fa fa-plus"></i>
                                             </a>
                                     {% endif %}

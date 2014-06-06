@@ -260,3 +260,8 @@ fieldset[disabled] .btn-dark-blue.active {
 	left: inherit;
     right: 30px;
 }
+
+.btn-table {
+	min-width: 50px;
+	width: 8%;
+}

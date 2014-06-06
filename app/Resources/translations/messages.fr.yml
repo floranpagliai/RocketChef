@@ -13,8 +13,11 @@ recipebook:
         words: "Recettes"
         name: "Nom de la recette"
         portions: "Portions"
+        cost: "Coût"
+        portioncost: "Coût par portion"
         sellingprice: "Prix de vente"
     add:
+        recipe: "Ajouter recette"
         new: "Nouvelle recette"
         comment: "Ajouter une nouvelle recette"
         submit: "Sauvegarder recette"
@@ -25,6 +28,8 @@ recipebook:
 menu:
     title: "Menu"
     recipeInMenu: "Recettes au menu"
+    add: "Ajouter au menu"
+    remove: "Enlever du menu"
 
 ingredient:
     ingredients: "Ingrédients"
