@@ -14,9 +14,10 @@ class WidgetController extends Controller
      * @param $color
      * @param $textcolor
      * @param $icon
+     * @param $footerText
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function generateAction($link, $name, $value, $color, $textcolor, $icon)
+    public function generateAction($link, $name, $value, $color, $textcolor, $icon, $footerText)
     {
         $paramsRender = array(
             'link' => $link,
@@ -24,7 +25,8 @@ class WidgetController extends Controller
             'color' => $color,
             'value' => $value,
             'textcolor' => $textcolor,
-            'icon' => $icon);
+            'icon' => $icon,
+            'footerText' => $footerText);
 
         return $this->render('WidgetBundle:Widget:widget.html.twig', $paramsRender);
     }

@@ -8,8 +8,8 @@ dashboard:
 
 recipebook:
     title: "Livre de Recette"
-    recipe: "Recette"
     recipe:
+        word: "Recette"
         name: "Nom de la recette"
         portions: "Portions"
         sellingprice: "Prix de vente"
@@ -44,5 +44,9 @@ security:
 term:
     rate:
         margin: "Taux de marge"
+    cost:
+        average: "Coût moyen"
+        perportion: "Par portion"
+    see: "Voir"
 
 "Bad credentials": Nom d'utilisateur ou mot de passe incorrect

@@ -11,20 +11,24 @@ class DashboardController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         $widgetService = $this->get('widget.generator');
         $recipeProvider = $this->get('gastro_data.recipe.provider');
+        $translator = $this->get('translator');
 
         $widgetService->addWidget(array(
             'link' => 'gastro_recipe_book',
-            'name' => 'Recipes',
+            'name' => $translator->trans('recipebook.recipe.word'),
             'value' => $recipeProvider->getUserRecipesCount($user->getId()),
             'color' => 'blue',
             'textcolor' => 'text-faded',
-            'icon' =>'fa-cutlery'));
+            'icon' =>'fa-cutlery',
+            'footerText' => $translator->trans('term.see')));
         $widgetService->addWidget(array(
-            'name' => 'Average cost',
+            'name' => $translator->trans('term.cost.average'),
             'value' =>  round($recipeProvider->getUserAverageCost($user->getId()), 2) . ' €',
             'color' => 'blue',
             'textcolor' => 'text-faded',
-            'icon' => 'fa-money'));
+            'icon' => 'fa-money',
+            'footerText' => $translator->trans('term.cost.perportion')));
+
         $widgets = $widgetService->getWidgets();
 
         $paramsRender = array('widgets' => $widgets);

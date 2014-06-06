@@ -30,7 +30,8 @@ class WidgetService {
             'value' => !isset($param['value']) ? '' : $param['value'],
             'color' => !isset($param['color']) ? 'blue' : $param['color'],
             'textcolor' => !isset($param['textcolor']) ? 'text-faded' : $param['textcolor'],
-            'icon' => !isset($param['icon']) ? '' : $param['icon']);
+            'icon' => !isset($param['icon']) ? '' : $param['icon'],
+            'footerText' => !isset($param['footerText']) ? '' : $param['footerText']);
     }
 
     public function getWidgets()
