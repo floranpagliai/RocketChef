@@ -1,18 +1,18 @@
 gastro_recipe_book:
     pattern:  /recipe-book
-    defaults: { _controller: GastroRecipeBookBundle:Default:index }
+    defaults: { _controller: GastroRecipeBookBundle:RecipeBook:index }
 
 gastro_recipe_book_show:
     pattern:  /recipe-book/{recipeId}-{recipeName}
-    defaults: { _controller: GastroRecipeBookBundle:Default:show }
+    defaults: { _controller: GastroRecipeBookBundle:RecipeBook:show }
 
 gastro_recipe_book_add:
     pattern:  /recipe-book/add
-    defaults: { _controller: GastroRecipeBookBundle:Default:add }
+    defaults: { _controller: GastroRecipeBookBundle:RecipeBook:add }
 
 gastro_recipe_book_edit:
     pattern:  /recipe-book/edit/{recipeId}-{recipeName}
-    defaults: { _controller: GastroRecipeBookBundle:Default:edit }
+    defaults: { _controller: GastroRecipeBookBundle:RecipeBook:edit }
 
 gastro_recipe_book_delete:
     pattern:  /recipe-book/delete/{recipeId}

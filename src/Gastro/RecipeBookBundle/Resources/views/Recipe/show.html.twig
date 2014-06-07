@@ -53,7 +53,7 @@
                     <div class="portlet-body">
                         <div class="row">
                             <div class="col-lg-3 col-md-4">
-                                {% if  recipe.image.path is defined %}
+                                {% if  recipe.image is not null %}
                                     <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}" width="100%">
                                 {% endif %}
                             </div>

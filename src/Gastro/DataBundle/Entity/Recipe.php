@@ -65,7 +65,7 @@ class Recipe {
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $isInMenu;
+    protected $isInMenu = false;
 
 
     /**

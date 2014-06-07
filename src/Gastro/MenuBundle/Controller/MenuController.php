@@ -10,7 +10,7 @@ namespace Gastro\MenuBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class PageController extends Controller
+class MenuController extends Controller
 {
     public function indexAction()
     {

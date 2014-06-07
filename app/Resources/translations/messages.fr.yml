@@ -27,7 +27,7 @@ recipebook:
 
 menu:
     title: "Menu"
-    recipeInMenu: "Recettes au menu"
+    recipeInMenu: "Au menu"
     add: "Ajouter au menu"
     remove: "Enlever du menu"
 

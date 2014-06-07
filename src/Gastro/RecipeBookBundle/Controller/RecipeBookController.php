@@ -2,16 +2,12 @@
 
 namespace Gastro\RecipeBookBundle\Controller;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Gastro\DataBundle\Entity\Recipe;
-use Gastro\DataBundle\Entity\Ingredient;
-use Gastro\DataBundle\Entity\RecipeIngredient;
 use Gastro\RecipeBookBundle\Form\Type\RecipeType;
 
-class DefaultController extends Controller
+class RecipeBookController extends Controller
 {
     public function indexAction()
     {
