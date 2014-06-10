@@ -116,5 +116,4 @@ class RecipeProvider {
         else
             return $cost/$i;
     }
-
-} 
+}

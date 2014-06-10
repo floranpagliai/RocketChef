@@ -1,6 +1,10 @@
+_index:
+    pattern: /
+    defaults:  { _controller: GastroUserBundle:Security:login }
+
 gastro_menu:
     resource: "@GastroMenuBundle/Resources/config/routing.yml"
-    prefix:   /app
+    prefix:   /webapp
 
 gastro_user:
     resource: "@GastroUserBundle/Resources/config/routing.yml"
@@ -8,10 +12,10 @@ gastro_user:
 
 gastro_dashboard:
     resource: "@GastroDashboardBundle/Resources/config/routing.yml"
-    prefix:   /app
+    prefix:   /webapp
 
 gastro_recipe_book:
     resource: "@GastroRecipeBookBundle/Resources/config/routing.yml"
-    prefix:   /app
+    prefix:   /webapp
 
 

@@ -11,5 +11,5 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
-    locale:            fr
+    locale:            en
     secret:            1051da56014796d65331b7e4a8251010391
