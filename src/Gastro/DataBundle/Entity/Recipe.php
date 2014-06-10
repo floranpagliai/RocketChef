@@ -225,6 +225,7 @@ class Recipe {
      */
     public function getIsInMenu()
     {
+
         return $this->isInMenu;
     }
 }

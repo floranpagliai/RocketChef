@@ -14,8 +14,8 @@ class MenuController extends Controller
 {
     public function indexAction()
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        $recipes = $this->get('gastro_data.recipe.provider')->getAllUserMenuRecipes($user->getId());
+        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $recipes = $this->get('gastro_data.recipe.provider')->getAllRestaurantMenuRecipes($restaurant->getId());
 
         $paramsRender = array('recipes' => $recipes);
 

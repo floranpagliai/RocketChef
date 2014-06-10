@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
         $widgetService = $this->get('widget.generator');
         $recipeProvider = $this->get('gastro_data.recipe.provider');
         $translator = $this->get('translator');
@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $widgetService->addWidget(array(
             'link' => 'gastro_recipe_book',
             'name' => $translator->trans('recipebook.recipe.words'),
-            'value' => $recipeProvider->getUserRecipesCount($user->getId()),
+            'value' => $recipeProvider->getRestaurantRecipesCount($restaurant->getId()),
             'color' => 'blue',
             'textcolor' => 'text-faded',
             'icon' =>'fa-cutlery',
@@ -24,14 +24,14 @@ class DashboardController extends Controller
         $widgetService->addWidget(array(
             'link' => 'gastro_menu',
             'name' => $translator->trans('menu.recipeInMenu'),
-            'value' => $recipeProvider->getUserMenuRecipesCount($user->getId()),
+            'value' => $recipeProvider->getRestaurantMenuRecipesCount($restaurant->getId()),
             'color' => 'blue',
             'textcolor' => 'text-faded',
             'icon' =>'fa-columns',
             'footerText' => $translator->trans('term.see')));
         $widgetService->addWidget(array(
             'name' => $translator->trans('term.cost.average'),
-            'value' =>  round($recipeProvider->getUserAverageCost($user->getId()), 2) . ' €',
+            'value' =>  round($recipeProvider->getRestaurantAverageCost($restaurant->getId()), 2) . ' €',
             'color' => 'blue',
             'textcolor' => 'text-faded',
             'icon' => 'fa-money',

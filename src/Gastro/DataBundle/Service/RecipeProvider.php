@@ -26,12 +26,12 @@ class RecipeProvider {
         return $this->em->findAll();
     }
 
-    public function getAllUserMenuRecipes($restaurantId)
+    public function getAllRestaurantMenuRecipes($restaurantId)
     {
         return $this->em->createQueryBuilder('r')
             ->select('r')
             ->where('r.isInMenu = true')
-            ->where('r.restaurant = :restaurant_id')
+            ->andWhere('r.restaurant = :restaurant_id')
             ->setParameter('restaurant_id', $restaurantId)
             ->getQuery()
             ->getResult();
@@ -50,7 +50,7 @@ class RecipeProvider {
             ->getSingleScalarResult();
     }
 
-    public function getUserRecipesCount($restaurantId)
+    public function getRestaurantRecipesCount($restaurantId)
     {
         return $this->em->createQueryBuilder('r')
             ->select('COUNT(r)')
@@ -60,7 +60,7 @@ class RecipeProvider {
             ->getSingleScalarResult();
     }
 
-    public function getUserMenuRecipesCount($restaurantId)
+    public function getRestaurantMenuRecipesCount($restaurantId)
     {
         return $this->em->createQueryBuilder('r')
             ->select('COUNT(r)')
@@ -95,12 +95,11 @@ class RecipeProvider {
         return $cost;
     }
 
-    public function getUserAverageCost($restaurantId)
+    public function getRestaurantAverageCost($restaurantId)
     {
         $recipes =  $this->em->createQueryBuilder('r')
         ->select('r')
-        ->where('r.isInMenu = true')
-        ->andWhere('r.restaurant = :restaurant_id')
+        ->where('r.restaurant = :restaurant_id')
         ->setParameter('restaurant_id', $restaurantId)
         ->getQuery()
         ->getResult();
