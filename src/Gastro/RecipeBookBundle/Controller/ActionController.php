@@ -16,10 +16,10 @@ class ActionController extends Controller
 {
     public function deleteAction(Request $request, $recipeId)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
 
-        if ($recipe && $recipe->getUser() == $user) {
+        if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($recipe);
             $em->flush();

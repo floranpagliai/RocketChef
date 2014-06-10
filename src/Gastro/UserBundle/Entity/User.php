@@ -51,9 +51,10 @@ class User implements  UserInterface {
     protected $salt;
 
     /**
-     * @ORM\OneToMany(targetEntity="Gastro\DataBundle\Entity\Recipe", mappedBy="user")
+     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\Restaurant")
+     * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
-    protected $recipes;
+    protected $restaurant;
 
     public function __construct()
     {
@@ -174,7 +175,21 @@ class User implements  UserInterface {
         return $this->recipes;
     }
 
+    /**
+     * @param mixed $restaurant
+     */
+    public function setRestaurant($restaurant)
+    {
+        $this->restaurant = $restaurant;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getRestaurant()
+    {
+        return $this->restaurant;
+    }
 
     /**
      * Returns the roles granted to the user.

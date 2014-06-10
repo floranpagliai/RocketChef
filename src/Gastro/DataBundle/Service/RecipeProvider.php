@@ -26,13 +26,13 @@ class RecipeProvider {
         return $this->em->findAll();
     }
 
-    public function getAllUserMenuRecipes($userId)
+    public function getAllUserMenuRecipes($restaurantId)
     {
         return $this->em->createQueryBuilder('r')
             ->select('r')
             ->where('r.isInMenu = true')
-            ->andWhere('r.user = :user_id')
-            ->setParameter('user_id', $userId)
+            ->where('r.restaurant = :restaurant_id')
+            ->setParameter('restaurant_id', $restaurantId)
             ->getQuery()
             ->getResult();
     }
@@ -50,23 +50,23 @@ class RecipeProvider {
             ->getSingleScalarResult();
     }
 
-    public function getUserRecipesCount($userId)
+    public function getUserRecipesCount($restaurantId)
     {
         return $this->em->createQueryBuilder('r')
             ->select('COUNT(r)')
-            ->where('r.user = :user_id')
-            ->setParameter('user_id', $userId)
+            ->where('r.restaurant = :restaurant_id')
+            ->setParameter('restaurant_id', $restaurantId)
             ->getQuery()
             ->getSingleScalarResult();
     }
 
-    public function getUserMenuRecipesCount($userId)
+    public function getUserMenuRecipesCount($restaurantId)
     {
         return $this->em->createQueryBuilder('r')
             ->select('COUNT(r)')
             ->where('r.isInMenu = true')
-            ->andWhere('r.user = :user_id')
-            ->setParameter('user_id', $userId)
+            ->andWhere('r.restaurant = :restaurant_id')
+            ->setParameter('restaurant_id', $restaurantId)
             ->getQuery()
             ->getSingleScalarResult();
     }
@@ -95,12 +95,13 @@ class RecipeProvider {
         return $cost;
     }
 
-    public function getUserAverageCost($userId)
+    public function getUserAverageCost($restaurantId)
     {
         $recipes =  $this->em->createQueryBuilder('r')
         ->select('r')
-        ->where('r.user = :user_id')
-        ->setParameter('user_id', $userId)
+        ->where('r.isInMenu = true')
+        ->andWhere('r.restaurant = :restaurant_id')
+        ->setParameter('restaurant_id', $restaurantId)
         ->getQuery()
         ->getResult();
 

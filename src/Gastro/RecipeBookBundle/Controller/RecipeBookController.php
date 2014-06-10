@@ -11,7 +11,7 @@ class RecipeBookController extends Controller
 {
     public function indexAction()
     {
-        $recipes = $this->container->get('security.context')->getToken()->getUser()->getRecipes();
+        $recipes = $this->container->get('security.context')->getToken()->getUser()->getRestaurant()->getRecipes();
 
         foreach ($recipes as $recipe)
         {
@@ -25,10 +25,10 @@ class RecipeBookController extends Controller
 
     public function showAction($recipeId)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
 
-        if ($recipe && $recipe->getUser() == $user) {
+        if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $recipeIngredients = $recipe->getRecipeIngredient();
             $this->updateRecipe($recipe);
             if ($recipe->getCost() > 0)
@@ -47,7 +47,7 @@ class RecipeBookController extends Controller
 
     public function addAction(Request $request)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
 
         $recipe = new Recipe();
         $form = $this->createForm(new RecipeType(), $recipe);
@@ -57,7 +57,7 @@ class RecipeBookController extends Controller
             if ($form->isValid()) {
                 $recipe = $form->getData();
                 $this->updateRecipe($recipe);
-                $recipe->setUser($user);
+                $recipe->setRestaurant($restaurant);
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($recipe);

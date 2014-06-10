@@ -51,10 +51,10 @@ class Recipe {
     protected $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\User", inversedBy="recipes")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\Restaurant", inversedBy="recipes")
+     * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
-    protected $user;
+    protected $restaurant;
 
     /**
      * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}, orphanRemoval=TRUE)
@@ -181,19 +181,19 @@ class Recipe {
     }
 
     /**
-     * @param mixed $user
+     * @param $restaurant
      */
-    public function setUser($user)
+    public function setRestaurant($restaurant)
     {
-        $this->user = $user;
+        $this->restaurant = $restaurant;
     }
 
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getRestaurant()
     {
-        return $this->user;
+        return $this->restaurant;
     }
 
     /**
