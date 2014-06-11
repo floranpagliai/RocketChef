@@ -25,6 +25,7 @@ class AppKernel extends Kernel
 
             new Utils\WidgetBundle\WidgetBundle(),
             new Gastro\MenuBundle\GastroMenuBundle(),
+            new Gastro\ParameterBundle\GastroParameterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

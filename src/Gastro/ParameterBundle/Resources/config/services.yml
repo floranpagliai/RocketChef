@@ -1,0 +1,7 @@
+parameters:
+#    gastro_parameter.example.class: Gastro\ParameterBundle\Example
+
+services:
+#    gastro_parameter.example:
+#        class: %gastro_parameter.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

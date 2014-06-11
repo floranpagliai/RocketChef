@@ -50,6 +50,7 @@ security:
         remember_me: "Se souvenir de moi"
         submit: "Connexion"
         forgot: "Mot de passe oublié ?"
+    parameters: "Paramètres"
 
 term:
     rate:

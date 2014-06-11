@@ -2,6 +2,7 @@
 
 namespace Gastro\UserBundle\Controller;
 
+use Gastro\UserBundle\Form\Type\UserEditPassType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -32,6 +33,26 @@ class SecurityController extends Controller
             'last_username' => $lastUsername,
             'error'         => $error,
         ));
+    }
+
+    public function editPassAction(Request $request)
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        $form = $this->createForm(new UserEditPassType(), $user);
+
+        if ($request->isMethod('POST')) {
+            $form->submit($request);
+            if ($form->isValid()) {
+                // persistance de l'utilisateur
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+            }
+        }
+
+        $paramsRender = array('form' => $form->createView());
+        return $this->render('GastroUserBundle:Security:editpassform.html.twig', $paramsRender);
     }
 
     public function checkAction()

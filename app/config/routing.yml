@@ -18,4 +18,8 @@ gastro_recipe_book:
     resource: "@GastroRecipeBookBundle/Resources/config/routing.yml"
     prefix:   /webapp
 
+gastro_parameter:
+    resource: "@GastroParameterBundle/Resources/config/routing.yml"
+    prefix:   /webapp
+
 

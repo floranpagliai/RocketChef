@@ -9,3 +9,7 @@ gastro_user_login_check:
 gastro_user_logout:
     pattern:  /logout
     defaults: { _controller: GastroUserBundle:Security:logout }
+
+gastro_user_change_pass:
+    pattern:  /editPass
+    defaults: { _controller: GastroUserBundle:Security:editPass }

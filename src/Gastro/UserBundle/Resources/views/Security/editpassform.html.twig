@@ -1,0 +1,12 @@
+<form method="POST" {{ form_enctype(form) }} class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-12">Nouveau mot de passe</label>
+        <div class="col-sm-5">
+            {{ form_widget(form.password) }}
+        </div>
+    </div>
+   {{ form_widget(form._token) }}
+    <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
+           value="Sauvegarder mot de passe"/>
+</form>
+
