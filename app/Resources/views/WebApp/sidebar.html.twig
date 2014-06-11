@@ -16,6 +16,11 @@
 
     <div class="clearfix"></div>
 </li>
+<li class="sidebar-btn visible-xs">
+    <a class="logout_open" href="{{ path('gastro_user_logout') }}"
+       data-toggle="tooltip" data-placement="top" title="{{ 'security.logout'|trans }}"><i
+                class="fa fa-sign-out"></i> {{ 'security.logout'|trans }}</a>
+</li>
 <li class="sidebar-btn">
     <a class="active" href="{{ path('gastro_dashboard') }}"><i
                 class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>

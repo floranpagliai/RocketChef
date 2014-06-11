@@ -11,11 +11,6 @@ a, a:hover, a:active, a:focus {
     color:#34495E;
 }
 
-.content-header h1 {
-    font-size:26px;
-    margin:0 0 15px;
-}
-
 #wrapper #content-header h1 {
     font-size:26px;
 }
@@ -169,17 +164,18 @@ a, a:hover, a:active, a:focus {
 
 .content-header h1 {
 	margin: 0;
-	margin-left: 20px;
+	margin-left: 10px;
 	line-height: 65px;
+	font-size:26px;
 	display: inline-block;
 }
 
 #menu-toggle {
 	display: none;
+	background-color: #D6DADF;
 }
 
 .inset {
-
 	padding: 30px;
 }
 
@@ -267,9 +263,59 @@ fieldset[disabled] .btn-dark-blue.active {
 	.inset {
 		padding: 15px;
 	}
+
+	h1 small, h2 small {
+		display: none;
+	}
 }
 
 
 .table-recipe-infos {
 	text-align: center;
+}
+
+a.list-group-item.active,
+a.list-group-item.active:hover,
+a.list-group-item.active:focus,
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:hover,
+.nav-pills>li.active>a:focus,
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+	border-color: #34495e;
+	background-color: #34495e;
+}
+
+.nav-tabs,
+.nav-pills {
+	margin-bottom: 10px;
+}
+
+a.list-group-item:hover,
+a.list-group-item:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus,
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus,
+.nav-tabs .open > a,
+.nav-tabs .open > a:hover,
+.nav-tabs .open > a:focus,
+.nav-pills .open > a,
+.nav-pills .open > a:hover,
+.nav-pills .open > a:focus,
+.nav-tabs ul.dropdown-menu > li > a:hover,
+.nav-tabs ul.dropdown-menu > li > a:focus,
+.nav-pills ul.dropdown-menu > li > a:hover,
+.nav-pills ul.dropdown-menu > li > a:focus {
+	background-color: #ecf0f1;
+}
+
+.nav-tabs .open > a,
+.nav-tabs .open > a:hover,
+.nav-tabs .open > a:focus {
+	border-color: #35495e;
 }

@@ -8,7 +8,7 @@
                     </div>
                     <div class="portlet-widgets">
                         <a href="{{ path('gastro_recipe_book') }}" class="btn btn-xs btn-primary">
-                            <i class="fa fa-plus"></i> Add Recipe</a>
+                            <i class="fa fa-plus"></i> {{ 'recipebook.add.recipe'|trans }}</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -17,10 +17,10 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th width="25%">Name</th>
-                                <th width="9%">Cost</th>
-                                <th width="9%">Portion Cost</th>
-                                <th width="9%">Selling Price</th>
+                                <th width="25%">{{ 'recipebook.recipe.name'|trans }}</th>
+                                <th width="9%">{{ 'recipebook.recipe.cost'|trans }}</th>
+                                <th width="9%">{{ 'recipebook.recipe.portioncost'|trans }}</th>
+                                <th width="9%">{{  'recipebook.recipe.sellingprice'|trans }}</th>
                                 <th class="no_sort btn-table" ></th>
                             </tr>
                             </thead>
