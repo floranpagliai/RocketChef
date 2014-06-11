@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ActionController extends Controller
 {
-    public function deleteAction(Request $request, $recipeId)
+    public function deleteAction(Request $request, $recipeId, $urlRedirect)
     {
         $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
         $recipe = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);
@@ -25,6 +25,9 @@ class ActionController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($request->headers->get('referer'));
+        if ($urlRedirect == null)
+            return $this->redirect($request->headers->get('referer'));
+        else
+            return $this->redirect($this->generateUrl($urlRedirect));
     }
 } 

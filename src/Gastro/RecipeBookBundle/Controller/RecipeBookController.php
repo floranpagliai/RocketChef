@@ -14,9 +14,7 @@ class RecipeBookController extends Controller
         $recipes = $this->container->get('security.context')->getToken()->getUser()->getRestaurant()->getRecipes();
 
         foreach ($recipes as $recipe)
-        {
-            $this->updateRecipe($recipe);
-        }
+            $this->updateRecipeCost($recipe);
 
         $paramsRender = array('recipes' => $recipes);
 
@@ -30,7 +28,7 @@ class RecipeBookController extends Controller
 
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $recipeIngredients = $recipe->getRecipeIngredient();
-            $this->updateRecipe($recipe);
+            $this->updateRecipeCost($recipe);
             if ($recipe->getCost() > 0)
                 $margin = (($recipe->getPrice()-($recipe->getCost()/$recipe->getPortions()))/$recipe->getCost()) * 100;
             else
@@ -47,21 +45,14 @@ class RecipeBookController extends Controller
 
     public function addAction(Request $request)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
-
         $recipe = new Recipe();
-        $form = $this->createForm(new RecipeType(), $recipe);
+        $form = $this->createForm(new RecipeType($this->container->get('security.context')), $recipe);
 
         if ($request->isMethod('POST')) {
             $form->bind($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
                 $this->updateRecipe($recipe);
-                $recipe->setRestaurant($restaurant);
-
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($recipe);
-                $em->flush();
 
                 return $this->redirect($this->generateUrl('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
             }
@@ -73,19 +64,14 @@ class RecipeBookController extends Controller
 
     public function editAction(Request $request, $recipeId)
     {
-        $em = $this->getDoctrine()->getManager();
-
         $recipeOld = $this->get('gastro_data.recipe.provider')->getRecipeById($recipeId);;
-        $form = $this->createForm(new RecipeType(), $recipeOld);
+        $form = $this->createForm(new RecipeType($this->container->get('security.context')), $recipeOld);
 
         if ($request->isMethod('POST')) {
             $form->submit($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
                 $this->updateRecipe($recipe);
-
-                $em->persist($recipe);
-                $em->flush();
 
                 $flash = $this->get('braincrafted_bootstrap.flash');
                 $flash->alert('Recipe saved');
@@ -102,11 +88,25 @@ class RecipeBookController extends Controller
 
     public function updateRecipe(Recipe $recipe)
     {
+        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+
+        $recipe->setRestaurant($restaurant);
+        foreach ($recipe->getRecipeIngredient() as $recipeIngredient)
+            $recipeIngredient->getIngredient()->setRestaurant($restaurant);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($recipe);
+        $em->flush();
+    }
+
+    public function updateRecipeCost(Recipe $recipe)
+    {
         $recipeService = $this->get('gastro_data.recipe.provider');
 
         $recipe->setCost($recipeService->calculateRecipeCost($recipe));
-        foreach ($recipe->getRecipeIngredient() as $recipeIngredient)
+        foreach ($recipe->getRecipeIngredient() as $recipeIngredient) {
             $recipeIngredient->setCost($recipeService->calculateRecipeIngredientCost($recipeIngredient));
+        }
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($recipe);

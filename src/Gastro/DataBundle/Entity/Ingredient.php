@@ -53,9 +53,14 @@ class Ingredient {
     protected $endMonthSeason;
 
     /**
-     * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="ingredient", cascade={"persist"}, orphanRemoval=TRUE)
+     * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="ingredient", cascade={"persist", "remove"}, orphanRemoval=TRUE)
      */
     protected $recipes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\Restaurant", inversedBy="ingredients", cascade={"persist", "remove"})
+     */
+    protected $restaurant;
 
     /**
      * Constructor
@@ -226,6 +231,22 @@ class Ingredient {
     public function getRecipes()
     {
         return $this->recipes;
+    }
+
+    /**
+     * @param mixed $restaurant
+     */
+    public function setRestaurant($restaurant)
+    {
+        $this->restaurant = $restaurant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRestaurant()
+    {
+        return $this->restaurant;
     }
 
 

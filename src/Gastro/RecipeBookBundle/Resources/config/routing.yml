@@ -15,5 +15,5 @@ gastro_recipe_book_edit:
     defaults: { _controller: GastroRecipeBookBundle:RecipeBook:edit }
 
 gastro_recipe_book_delete:
-    pattern:  /recipe-book/delete/{recipeId}
-    defaults: { _controller: GastroRecipeBookBundle:Action:delete }
+    pattern:  /recipe-book/delete/{recipeId}-{urlRedirect}
+    defaults: { _controller: GastroRecipeBookBundle:Action:delete, urlRedirect: null }

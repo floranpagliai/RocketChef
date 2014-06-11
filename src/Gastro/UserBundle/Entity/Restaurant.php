@@ -40,9 +40,15 @@ class Restaurant
      */
     protected $recipes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Gastro\DataBundle\Entity\Ingredient", mappedBy="restaurant")
+     */
+    protected $ingredients;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
     }
 
     /**
@@ -107,6 +113,22 @@ class Restaurant
     public function getRecipes()
     {
         return $this->recipes;
+    }
+
+    /**
+     * @param mixed $ingredients
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
     }
 
 

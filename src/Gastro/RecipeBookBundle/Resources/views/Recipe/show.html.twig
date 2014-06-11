@@ -41,7 +41,7 @@
                                 <i class="fa fa-pencil"></i> Edit Recipe</a>
                             </li>
                             <li>
-                                <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id}) }}" onclick="return confirm('Delete recipe ?')">
+                                <a href="{{ path('gastro_recipe_book_delete', {'recipeId': recipe.id, 'urlRedirect': 'gastro_recipe_book'}) }}" onclick="return confirm('Delete recipe ?')">
                                 <i class="fa fa-times"></i> Delete Recipe</a>
                             </li>
                         </ul>

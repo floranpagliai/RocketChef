@@ -53,7 +53,7 @@ class RecipeIngredient {
     /**
      * @ORM\Column(type="float")
      */
-    protected $cost;
+    protected $cost = 0.0;
 
 
     /**
