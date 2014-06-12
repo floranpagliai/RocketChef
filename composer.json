@@ -24,7 +24,8 @@
         "twbs/bootstrap": "3.0.*",
         "components/font-awesome": "dev-master",
         "jquery/jquery":  "1.10.*",
-		"winzou/console-bundle": "dev-master"
+		"winzou/console-bundle": "dev-master",
+		"leafo/lessphp": "dev-master"
     },
     "repositories": [
         {
