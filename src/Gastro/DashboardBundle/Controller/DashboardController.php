@@ -31,7 +31,7 @@ class DashboardController extends Controller
             'footerText' => $translator->trans('term.see')));
         $widgetService->addWidget(array(
             'name' => $translator->trans('term.cost.average'),
-            'value' =>  round($recipeProvider->getRestaurantAverageCost($restaurant->getId()), 2) . ' €',
+            'value' =>  round($recipeProvider->getRestaurantAveragePortionCost($restaurant->getId()), 2) . ' €',
             'color' => 'blue',
             'textcolor' => 'text-faded',
             'icon' => 'fa-money',

@@ -1,4 +1,4 @@
-{% extends 'GastroParameterBundle::layout.html.twig' %}
+{% extends 'GastroSettingBundle::layout.html.twig' %}
 
 {% block page_content %}
     <div class="col-lg-12">
@@ -16,7 +16,7 @@
                     <div class="tab-pane fade in active" id="profile-settings">
                         <div class="row">
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <ul id="userSettings" class="nav nav-pills nav-stacked">
                                     <li class="active">
                                         <a href="#changePassword" data-toggle="tab"><i class="fa fa-lock fa-fw"></i>Changer de mot de passe</a>
@@ -24,7 +24,7 @@
                                 </ul>
                             </div>
 
-                            <div class="col-sm-9">
+                            <div class="col-sm-8">
                                 <div id="userSettingsContent" class="tab-content">
                                         {% render url('gastro_user_change_pass') %}
                                 </div>

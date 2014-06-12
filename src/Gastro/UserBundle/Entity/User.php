@@ -51,7 +51,7 @@ class User implements  UserInterface {
     protected $salt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\Restaurant")
+     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\Restaurant", inversedBy="users")
      * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
     protected $restaurant;

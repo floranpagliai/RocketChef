@@ -5,6 +5,12 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+    public function init()
+    {
+        date_default_timezone_set( 'Europe/Paris' );
+        parent::init();
+    }
+
     public function registerBundles()
     {
         $bundles = array(
@@ -25,7 +31,7 @@ class AppKernel extends Kernel
 
             new Utils\WidgetBundle\WidgetBundle(),
             new Gastro\MenuBundle\GastroMenuBundle(),
-            new Gastro\ParameterBundle\GastroParameterBundle(),
+            new Gastro\SettingBundle\GastroSettingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

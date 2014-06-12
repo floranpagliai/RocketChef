@@ -1,3 +1,0 @@
-gastro_parameter:
-    pattern:  /parameters
-    defaults: { _controller: GastroParameterBundle:Parameter:index }

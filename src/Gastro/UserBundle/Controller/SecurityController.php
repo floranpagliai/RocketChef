@@ -44,10 +44,13 @@ class SecurityController extends Controller
         if ($request->isMethod('POST')) {
             $form->submit($request);
             if ($form->isValid()) {
-                // persistance de l'utilisateur
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();
+
+                $flash = $this->get('braincrafted_bootstrap.flash');
+                $flash->alert('Mot de passe changé');
             }
         }
 

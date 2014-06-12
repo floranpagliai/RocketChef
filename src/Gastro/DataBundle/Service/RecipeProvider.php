@@ -108,6 +108,28 @@ class RecipeProvider {
         $i = 0;
         foreach ($recipes as $recipe)
         {
+            $cost += $this->calculateRecipeCost($recipe);
+            $i++;
+        }
+        if ($i == 0)
+            return null;
+        else
+            return $cost/$i;
+    }
+
+    public function getRestaurantAveragePortionCost($restaurantId)
+    {
+        $recipes =  $this->em->createQueryBuilder('r')
+            ->select('r')
+            ->where('r.restaurant = :restaurant_id')
+            ->setParameter('restaurant_id', $restaurantId)
+            ->getQuery()
+            ->getResult();
+
+        $cost = 0;
+        $i = 0;
+        foreach ($recipes as $recipe)
+        {
             $cost += $this->calculateRecipeCost($recipe)/ $recipe->getPortions();
             $i++;
         }

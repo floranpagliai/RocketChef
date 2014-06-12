@@ -16,9 +16,7 @@ a, a:hover, a:active, a:focus {
 }
 
 #wrapper {
-	padding-left: 250px;
-	transition: all 0.4s ease 0s;
-
+	padding-left: 200px;
 }
 
 .sidebar-nav .side-user {
@@ -65,9 +63,9 @@ a, a:hover, a:active, a:focus {
 }
 
 #sidebar-wrapper {
-	margin-left: -250px;
-	left: 250px;
-	width: 250px;
+	margin-left: -200px;
+	left: 200px;
+	width: 200px;
 	background: #34495E;
 	position: fixed;
 	height: 100%;
@@ -87,7 +85,7 @@ a, a:hover, a:active, a:focus {
 .sidebar-nav {
 	position: absolute;
 	top: 0;
-	width: 250px;
+	width: 200px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -235,7 +233,7 @@ fieldset[disabled] .btn-dark-blue.active {
     background-color: #526476;
 }
 
-@media (max-width:767px) {
+@media (max-width:850px) {
 
 	#wrapper {
 		padding-left: 0;
@@ -247,12 +245,12 @@ fieldset[disabled] .btn-dark-blue.active {
 
 	#wrapper.active {
 		position: relative;
-		left: 250px;
+		left: 200px;
 	}
 
 	#wrapper.active #sidebar-wrapper {
-		left: 250px;
-		width: 250px;
+		left: 200px;
+		width: 200px;
 		transition: all 0.4s ease 0s;
 	}
 
@@ -263,10 +261,12 @@ fieldset[disabled] .btn-dark-blue.active {
 	.inset {
 		padding: 15px;
 	}
+}
 
-	h1 small, h2 small {
-		display: none;
-	}
+@media (max-width:400px) {
+    h1 small, h2 small {
+        display: none;
+    }
 }
 
 

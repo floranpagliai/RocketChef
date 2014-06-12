@@ -2,11 +2,12 @@
     <h4 class="page-header">Nouveau mot de passe :</h4>
 
     <form method="POST" {{ form_enctype(form) }} class="form-horizontal">
-        <div class="form-group">
-            <div class="col-sm-6">
+        <fieldset>
+            <div class="form-group col-md-12">
                 {{ form_widget(form.password) }}
             </div>
-        </div>
+        </fieldset>
+
         {{ form_widget(form._token) }}
         <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
                value="Sauvegarder"/>
