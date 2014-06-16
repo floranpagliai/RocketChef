@@ -18,7 +18,7 @@
                             <thead>
                             <tr>
                                 <th width="25%">{{ 'recipebook.recipe.name'|trans }}</th>
-                                <th width="9%">{{ 'recipebook.recipe.cost'|trans }}</th>
+                                <th width="9%" class="hidden-xs">{{ 'recipebook.recipe.cost'|trans }}</th>
                                 <th width="9%">{{ 'recipebook.recipe.portioncost'|trans }}</th>
                                 <th width="9%">{{  'recipebook.recipe.sellingprice'|trans }}</th>
                                 <th class="no_sort btn-table" ></th>
@@ -30,7 +30,7 @@
                                     <td>
                                         {{ recipe.name|capitalize }}
                                     </td>
-                                    <td>
+                                    <td class="hidden-xs">
                                         {{ recipe.cost|round(2, 'common') }}{{ 'global.currency'|trans }}
                                     </td>
                                     <td>

@@ -18,9 +18,9 @@
                             <thead>
                             <tr>
                                 <th width="25%">{{ 'recipebook.recipe.name'|trans }}</th>
-                                <th width="9%">{{ 'recipebook.recipe.cost'|trans }}</th>
-                                <th width="9%">{{ 'recipebook.recipe.portioncost'|trans }}</th>
-                                <th width="9%">{{  'recipebook.recipe.sellingprice'|trans }}</th>
+                                <th width="9%" class="hidden-xs">{{ 'recipebook.recipe.cost'|trans }}</th>
+                                <th width="9%" class="hidden-xs">{{ 'recipebook.recipe.portioncost'|trans }}</th>
+                                <th width="9%" class="hidden-xs">{{  'recipebook.recipe.sellingprice'|trans }}</th>
                                 <th class="no_sort btn-table"></th>
                                 <th class="no_sort btn-table"></th>
                                 <th class="no_sort btn-table"></th>
@@ -32,13 +32,13 @@
                                     <td>
                                         <a href="{{ path('gastro_recipe_book_show', {'recipeId' : recipe.id, 'recipeName' : recipe.name}) }}">{{ recipe.name|capitalize }}</a>
                                     </td>
-                                    <td>
+                                    <td class="hidden-xs">
                                         {{ recipe.cost|round(2, 'common') }}{{ 'global.currency'|trans }}
                                     </td>
-                                    <td>
+                                    <td class="hidden-xs">
                                         {{ (recipe.cost/recipe.portions)|round(2, 'common') }}{{ 'global.currency'|trans }}
                                     </td>
-                                    <td>
+                                    <td class="hidden-xs">
                                         {{ recipe.price }}{{ 'global.currency'|trans }}
                                     </td>
                                     <td class="tooltip-content">

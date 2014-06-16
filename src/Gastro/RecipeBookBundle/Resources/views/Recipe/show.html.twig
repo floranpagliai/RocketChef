@@ -136,7 +136,7 @@
                             </th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Cost</th>
+                            <th class="hidden-xs">Cost</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -169,7 +169,7 @@
                                         {{ 'global.currency'|trans }}/L
                                     {% endif %}
                                 </td>
-                                <td>
+                                <td class="hidden-xs">
                                     {{ recipeIngredient.cost }}{{ 'global.currency'|trans }}
                                 </td>
                             </tr>

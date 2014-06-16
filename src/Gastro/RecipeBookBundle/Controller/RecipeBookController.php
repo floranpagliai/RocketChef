@@ -30,9 +30,9 @@ class RecipeBookController extends Controller
             $recipeIngredients = $recipe->getRecipeIngredient();
             $this->updateRecipeCost($recipe);
             if ($recipe->getCost() > 0)
-                $margin = (($recipe->getPrice()-($recipe->getCost()/$recipe->getPortions()))/$recipe->getCost()) * 100;
+                $margin = ($recipe->getPrice()-($recipe->getCost()/$recipe->getPortions()))/($recipe->getPrice())*100;
             else
-                $margin = 0;
+                $margin = 100;
             $paramsRender = array(
                 'recipe' => $recipe,
                 'recipeIngredients' => $recipeIngredients,
