@@ -2,16 +2,17 @@ default_run_options[:pty] = true
 
 set :application, "RocketChef"
 set :domain,      "s526317483.onlinehome.fr"
-set :deploy_to,   "rocketchef"
+set :deploy_to,   "rocketchef2"
 set :app_path,    "app"
 set :user,        "u77128745"
 
 set :deploy_via, :copy
-set :copy_remote_dir, deploy_to
+set :copy_remote_dir, "rocketchef2/tmp"
+set :copy_local_tar, "/usr/bin/gnutar" if `uname` =~ /Darwin/
 
-set :branch, "master"
 set :scm,         :git
-set :repository,  "https://github.com/shked0wn/RocketChef"
+set :repository,  "git@github.com:shked0wn/RocketChef.git"
+set :ssh_options, { :forward_agent => true }
 
 
 set :model_manager, "doctrine"
@@ -29,3 +30,5 @@ set :shared_files, ["app/config/parameters.yml"] # Les fichiers à conserver ent
 set :shared_children, [app_path + "/logs", "vendor"] # Idem, mais pour les dossiers
 set :use_composer, true
 set :update_vendors, false
+
+after "deploy:update", "deploy:cleanup"
