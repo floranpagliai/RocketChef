@@ -29,10 +29,4 @@ set :shared_children, [app_path + "/logs", "vendor"] # Idem, mais pour les dossi
 set :use_composer, true
 set :update_vendors, false
 
-task :php_bin do
-  try_sudo  "alias php='php6' && alias"
-end
-
-after "deploy", "php_bin"
-
 after "deploy:update", "deploy:cleanup"
