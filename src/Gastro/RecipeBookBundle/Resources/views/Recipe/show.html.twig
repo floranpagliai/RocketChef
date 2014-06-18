@@ -60,14 +60,13 @@
                             <div class="col-lg-9 col-md-8 col-sm-7">
                                 <table class="table table-bordered table-recipe-infos">
                                     <tr>
-                                        {% set minimalPrice = ((recipe.cost/recipe.portions)*3)|round(2, 'common') %}
                                         <td>
                                             <strong>HT cost for {{ recipe.portions }} portion(s)</strong><br>
                                             {{ recipe.cost|round(2, 'common') }}{{ 'global.currency'|trans }}
                                         </td>
                                         <td>
                                             <strong>TTC minimal price</strong><br>
-                                            {{ minimalPrice+(minimalPrice/100*20)|round(2, 'common') }}{{ 'global.currency'|trans }}
+                                            {{ minimalPrice+(minimalPrice/100*19.6)|round(2, 'common') }}{{ 'global.currency'|trans }}
 
                                         </td>
                                         <td>
@@ -78,7 +77,7 @@
                                     <tr>
                                         <td>
                                             <strong>HT cost per portion</strong><br>
-                                            {{ (recipe.cost/recipe.portions)|round(2, 'common') }}{{ 'global.currency'|trans }}
+                                            {{ portionCost|round(2, 'common') }}{{ 'global.currency'|trans }}
                                         </td>
                                         <td>
                                             <strong>HT minimal price</strong><br>
@@ -88,7 +87,7 @@
                                         <td>
                                             <strong>Ratio</strong><br>
                                             {% if  recipe.cost != 0 %}
-                                                {{ (recipe.price/(recipe.cost/recipe.portions))|round(1, 'common') }}
+                                                {{ ratio|round(1, 'common') }}
                                             {% endif %}
                                         </td>
                                     </tr>

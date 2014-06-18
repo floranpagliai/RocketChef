@@ -29,14 +29,18 @@ class RecipeBookController extends Controller
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $recipeIngredients = $recipe->getRecipeIngredient();
             $this->updateRecipeCost($recipe);
-            if ($recipe->getCost() > 0)
+            if ($recipe->getCost() > 0) {
                 $margin = ($recipe->getPrice()-($recipe->getCost()/$recipe->getPortions()))/($recipe->getPrice())*100;
-            else
+                $ratio = $recipe->getPrice()/($recipe->getCost()/$recipe->getPortions());
+            } else
                 $margin = 100;
             $paramsRender = array(
                 'recipe' => $recipe,
                 'recipeIngredients' => $recipeIngredients,
-                'margin' => $margin);
+                'margin' => $margin,
+                'minimalPrice' => round(($recipe->getCost()/$recipe->getPortions())*3, 2),
+                'portionCost' => $recipe->getCost()/$recipe->getPortions(),
+                'ratio' => $ratio);
         } else
             throw $this->createNotFoundException('Recette introuvable');
 
