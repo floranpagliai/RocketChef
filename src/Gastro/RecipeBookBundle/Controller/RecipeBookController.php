@@ -2,10 +2,10 @@
 
 namespace Gastro\RecipeBookBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Gastro\DataBundle\Entity\Recipe;
 use Gastro\RecipeBookBundle\Form\Type\RecipeType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class RecipeBookController extends Controller
 {

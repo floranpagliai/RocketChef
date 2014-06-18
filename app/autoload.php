@@ -9,5 +9,5 @@ use Composer\Autoload\ClassLoader;
 $loader = require __DIR__.'/../vendor/autoload.php';
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
-//ini_set('xdebug.max_nesting_level' , '200');
+ini_set('xdebug.max_nesting_level' , '200');
 return $loader;

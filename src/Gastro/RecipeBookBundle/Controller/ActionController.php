@@ -8,7 +8,6 @@
 
 namespace Gastro\RecipeBookBundle\Controller;
 
-use Gastro\DataBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
