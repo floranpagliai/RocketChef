@@ -28,7 +28,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                {% if recipe.isInMenu %}
+                                {% if recipe.inMenu %}
                                     <a href="{{ path('gastro_menu_remove_recipe', {'recipeId': recipe.id}) }}">
                                     <i class="fa fa-times"></i> Remove from menu</a>
                                 {% else %}

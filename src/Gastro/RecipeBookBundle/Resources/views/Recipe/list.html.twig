@@ -42,7 +42,7 @@
                                         {{ recipe.price }}{{ 'global.currency'|trans }}
                                     </td>
                                     <td class="tooltip-content">
-                                    {% if recipe.isInMenu %}
+                                    {% if recipe.inMenu %}
                                             <a href="{{ path('gastro_menu_remove_recipe', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-green btn-hover-red btn-block" data-toggle="tooltip"
                                                data-placement="top" data-original-title="{{ 'menu.remove'|trans }}">
                                                 <i class="fa fa-check"></i>

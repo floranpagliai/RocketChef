@@ -215,7 +215,7 @@ class Recipe {
     /**
      * @param mixed $isInMenu
      */
-    public function setIsInMenu($isInMenu)
+    public function setInMenu($isInMenu)
     {
         $this->isInMenu = $isInMenu;
     }
@@ -223,7 +223,7 @@ class Recipe {
     /**
      * @return mixed
      */
-    public function getIsInMenu()
+    public function getInMenu()
     {
 
         return $this->isInMenu;

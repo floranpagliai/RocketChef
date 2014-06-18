@@ -21,7 +21,7 @@ class ActionController extends Controller
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $em = $this->getDoctrine()->getManager();
 
-            $recipe->setIsInMenu(true);
+            $recipe->setInMenu(true);
             $em->persist($recipe);
             $em->flush();
         }
@@ -37,7 +37,7 @@ class ActionController extends Controller
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $em = $this->getDoctrine()->getManager();
 
-            $recipe->setIsInMenu(false);
+            $recipe->setInMenu(false);
             $em->persist($recipe);
             $em->flush();
         }
