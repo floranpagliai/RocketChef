@@ -249,4 +249,27 @@ class Ingredient {
     }
 
 
+
+    /**
+     * Add recipes
+     *
+     * @param \Gastro\DataBundle\Entity\RecipeIngredient $recipes
+     * @return Ingredient
+     */
+    public function addRecipe(\Gastro\DataBundle\Entity\RecipeIngredient $recipes)
+    {
+        $this->recipes[] = $recipes;
+
+        return $this;
+    }
+
+    /**
+     * Remove recipes
+     *
+     * @param \Gastro\DataBundle\Entity\RecipeIngredient $recipes
+     */
+    public function removeRecipe(\Gastro\DataBundle\Entity\RecipeIngredient $recipes)
+    {
+        $this->recipes->removeElement($recipes);
+    }
 }

@@ -9,7 +9,6 @@ namespace Gastro\DataBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="Gastro\DataBundle\Entity\RecipeRepository")
@@ -226,6 +225,29 @@ class Recipe {
     public function getInMenu()
     {
 
+        return $this->isInMenu;
+    }
+
+    /**
+     * Set isInMenu
+     *
+     * @param boolean $isInMenu
+     * @return Recipe
+     */
+    public function setIsInMenu($isInMenu)
+    {
+        $this->isInMenu = $isInMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get isInMenu
+     *
+     * @return boolean 
+     */
+    public function getIsInMenu()
+    {
         return $this->isInMenu;
     }
 }

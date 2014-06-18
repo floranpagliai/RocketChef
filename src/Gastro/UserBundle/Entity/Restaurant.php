@@ -132,4 +132,73 @@ class Restaurant
     }
 
 
-} 
+
+    /**
+     * Add users
+     *
+     * @param \Gastro\UserBundle\Entity\User $users
+     * @return Restaurant
+     */
+    public function addUser(\Gastro\UserBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \Gastro\UserBundle\Entity\User $users
+     */
+    public function removeUser(\Gastro\UserBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Add recipes
+     *
+     * @param \Gastro\DataBundle\Entity\Recipe $recipes
+     * @return Restaurant
+     */
+    public function addRecipe(\Gastro\DataBundle\Entity\Recipe $recipes)
+    {
+        $this->recipes[] = $recipes;
+
+        return $this;
+    }
+
+    /**
+     * Remove recipes
+     *
+     * @param \Gastro\DataBundle\Entity\Recipe $recipes
+     */
+    public function removeRecipe(\Gastro\DataBundle\Entity\Recipe $recipes)
+    {
+        $this->recipes->removeElement($recipes);
+    }
+
+    /**
+     * Add ingredients
+     *
+     * @param \Gastro\DataBundle\Entity\Ingredient $ingredients
+     * @return Restaurant
+     */
+    public function addIngredient(\Gastro\DataBundle\Entity\Ingredient $ingredients)
+    {
+        $this->ingredients[] = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredients
+     *
+     * @param \Gastro\DataBundle\Entity\Ingredient $ingredients
+     */
+    public function removeIngredient(\Gastro\DataBundle\Entity\Ingredient $ingredients)
+    {
+        $this->ingredients->removeElement($ingredients);
+    }
+}
