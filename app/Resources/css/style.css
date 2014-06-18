@@ -229,8 +229,8 @@ fieldset[disabled] .btn-dark-blue:active,
 .btn-dark-blue.disabled.active,
 .btn-dark-blue[disabled].active,
 fieldset[disabled] .btn-dark-blue.active {
-    border-color: #495c6e;
-    background-color: #526476;
+	border-color: #495c6e;
+	background-color: #526476;
 }
 
 @media (max-width:850px) {
@@ -264,9 +264,9 @@ fieldset[disabled] .btn-dark-blue.active {
 }
 
 @media (max-width:400px) {
-    h1 small, h2 small {
-        display: none;
-    }
+	h1 small, h2 small {
+		display: none;
+	}
 }
 
 

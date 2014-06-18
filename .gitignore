@@ -7,7 +7,6 @@ web/img/
 /app/bootstrap.php.cache
 /app/cache/
 /app/config/parameters.yml
-/app/config/parameters.yml.dist
 /app/logs/
 
 build/

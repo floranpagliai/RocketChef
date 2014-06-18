@@ -1,11 +1,9 @@
 global:
     appname: "RocketChef"
     currency: "€"
-
 dashboard:
     title: "Tableau de Bord"
     comment: "Aperçu de la Cuisinne"
-
 recipebook:
     title: "Livre de Recette"
     recipe:
@@ -24,13 +22,11 @@ recipebook:
     edit:
         edit: "Modifier"
         comment: "Modifier une recette"
-
 menu:
     title: "Menu"
     recipeInMenu: "Au menu"
     add: "Ajouter au menu"
     remove: "Enlever du menu"
-
 ingredient:
     ingredients: "Ingrédients"
     name: Nom
@@ -38,7 +34,6 @@ ingredient:
     unit: "Unité"
     price: "Prix"
     cost: "Coût"
-
 security:
     logged_in_as: "Connecté en tant que"
     logout: "Déconnexion"
@@ -51,7 +46,6 @@ security:
         submit: "Connexion"
         forgot: "Mot de passe oublié ?"
     parameters: "Paramètres"
-
 term:
     rate:
         margin: "Taux de marge"
@@ -59,5 +53,4 @@ term:
         average: "Coût moyen"
         perportion: "Par portion"
     see: "Voir"
-
 "Bad credentials": Nom d'utilisateur ou mot de passe incorrect
