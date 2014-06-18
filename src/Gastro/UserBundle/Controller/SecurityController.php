@@ -58,7 +58,7 @@ class SecurityController extends Controller
         return $this->render('GastroUserBundle:Security:editpassform.html.twig', $paramsRender);
     }
 
-    public function checkAction()
+    public function loginCheckAction()
     {
         throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
     }
