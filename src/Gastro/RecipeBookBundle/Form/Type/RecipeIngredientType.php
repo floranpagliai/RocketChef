@@ -25,7 +25,7 @@ class RecipeIngredientType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('ingredient', new IngredientType($this->securityContext));
+        $builder->add('ingredient', 'shtumi_ajax_autocomplete', array('entity_alias'=>'ingredient'));
         $builder->add('qte', 'number');
         $builder->add('unit', 'choice', array( 'choices'   => array(0 => 'Unité', 3 => 'Gr', 1 => 'Kg', 4 => 'Cl', 2 => 'L')));
     }

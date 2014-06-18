@@ -19,6 +19,7 @@ framework:
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
+        handler_id: ~
         name: ROCHEFSESSID
     fragments:       ~
     http_method_override: true
@@ -27,6 +28,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - ShtumiUsefulBundle::fields.html.twig
 
 # Assetic Configuration
 assetic:
@@ -101,3 +105,11 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+shtumi_useful:
+    autocomplete_entities:
+        ingredient:
+            class: GastroDataBundle:Ingredient
+            role: ROLE_USER
+            property: name
+            search: contains

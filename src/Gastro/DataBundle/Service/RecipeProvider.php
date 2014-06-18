@@ -30,7 +30,7 @@ class RecipeProvider {
     {
         return $this->em->createQueryBuilder('r')
             ->select('r')
-            ->where('r.isInMenu = true')
+            ->where('r.inMenu = true')
             ->andWhere('r.restaurant = :restaurant_id')
             ->setParameter('restaurant_id', $restaurantId)
             ->getQuery()
@@ -64,7 +64,7 @@ class RecipeProvider {
     {
         return $this->em->createQueryBuilder('r')
             ->select('COUNT(r)')
-            ->where('r.isInMenu = true')
+            ->where('r.inMenu = true')
             ->andWhere('r.restaurant = :restaurant_id')
             ->setParameter('restaurant_id', $restaurantId)
             ->getQuery()

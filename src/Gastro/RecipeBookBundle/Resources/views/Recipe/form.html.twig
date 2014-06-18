@@ -68,7 +68,7 @@
                                 </thead>
                                 {% macro tagCollectionItem(formData) %}
                                     <td>
-                                        {{ form_widget(formData.ingredient.name) }}
+                                        {{ form_widget(formData.ingredient) }}
                                     </td>
                                     <td>
                                         {{ form_widget(formData.qte) }}
@@ -77,10 +77,10 @@
                                         {{ form_widget(formData.unit) }}
                                     </td>
                                     <td>
-                                        {{ form_widget(formData.ingredient.priceForUnit) }}
+                                        {{ form_widget(formData.ingredient) }}
                                     </td>
                                     <td>
-                                        {{ form_widget(formData.ingredient.unit) }}
+                                        {{ form_widget(formData.ingredient) }}
                                     </td>
                                 {% endmacro %}
                                 <tbody class="ingredients"
