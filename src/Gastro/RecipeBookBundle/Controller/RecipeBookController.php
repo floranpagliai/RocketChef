@@ -14,7 +14,7 @@ class RecipeBookController extends Controller
         $recipes = $this->container->get('security.context')->getToken()->getUser()->getRestaurant()->getRecipes();
 
         foreach ($recipes as $recipe)
-            $this->updateRecipeCost($recipe);
+            $this->updateRecipeCostAction($recipe);
 
         $paramsRender = array('recipes' => $recipes);
 
@@ -28,7 +28,7 @@ class RecipeBookController extends Controller
 
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $recipeIngredients = $recipe->getRecipeIngredient();
-            $this->updateRecipeCost($recipe);
+            $this->updateRecipeCostAction($recipe);
             if ($recipe->getCost() > 0) {
                 $margin = ($recipe->getPrice()-($recipe->getCost()/$recipe->getPortions()))/($recipe->getPrice())*100;
                 $ratio = $recipe->getPrice()/($recipe->getCost()/$recipe->getPortions());
@@ -64,7 +64,7 @@ class RecipeBookController extends Controller
             $form->bind($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
-                $this->updateRecipe($recipe);
+                $this->updateRecipeAction($recipe);
 
                 return $this->redirect($this->generateUrl('gastro_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
             }
@@ -83,7 +83,7 @@ class RecipeBookController extends Controller
             $form->submit($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
-                $this->updateRecipe($recipe);
+                $this->updateRecipeAction($recipe);
 
                 $flash = $this->get('braincrafted_bootstrap.flash');
                 $flash->alert('Recipe saved');
@@ -98,7 +98,7 @@ class RecipeBookController extends Controller
 
     }
 
-    public function updateRecipe(Recipe $recipe)
+    public function updateRecipeAction(Recipe $recipe)
     {
         $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
 
@@ -111,7 +111,7 @@ class RecipeBookController extends Controller
         $em->flush();
     }
 
-    public function updateRecipeCost(Recipe $recipe)
+    public function updateRecipeCostAction(Recipe $recipe)
     {
         $recipeService = $this->get('gastro_data.recipe.provider');
 

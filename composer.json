@@ -22,10 +22,10 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.0.*",
-        "components/font-awesome": "dev-master",
+        "components/font-awesome": "4.1.x-dev",
         "jquery/jquery":  "1.10.*",
-		"winzou/console-bundle": "dev-master",
-		"leafo/lessphp": "dev-master"
+		"winzou/console-bundle": "1.0.*",
+		"leafo/lessphp": "0.4.*"
     },
     "repositories": [
         {
