@@ -26,7 +26,7 @@ logger.level = Logger::MAX_LEVEL
 
 set :shared_files, ["app/config/parameters.yml"] # Les fichiers à conserver entre chaque déploiement
 set :shared_children, [app_path + "/logs", "vendor"] # Idem, mais pour les dossiers
-set :use_composer, true
+set :use_composer, false
 set :update_vendors, false
 
 after "deploy:update", "deploy:cleanup"
