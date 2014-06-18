@@ -64,7 +64,7 @@ class Recipe {
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $isInMenu = false;
+    protected $inMenu = false;
 
 
     /**
@@ -212,11 +212,11 @@ class Recipe {
     }
 
     /**
-     * @param mixed $isInMenu
+     * @param $inMenu
      */
-    public function setInMenu($isInMenu)
+    public function setInMenu($inMenu)
     {
-        $this->isInMenu = $isInMenu;
+        $this->inMenu = $inMenu;
     }
 
     /**
@@ -225,29 +225,6 @@ class Recipe {
     public function getInMenu()
     {
 
-        return $this->isInMenu;
-    }
-
-    /**
-     * Set isInMenu
-     *
-     * @param boolean $isInMenu
-     * @return Recipe
-     */
-    public function setIsInMenu($isInMenu)
-    {
-        $this->isInMenu = $isInMenu;
-
-        return $this;
-    }
-
-    /**
-     * Get isInMenu
-     *
-     * @return boolean 
-     */
-    public function getIsInMenu()
-    {
-        return $this->isInMenu;
+        return $this->inMenu;
     }
 }
