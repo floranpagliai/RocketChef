@@ -67,21 +67,11 @@
                                 </tr>
                                 </thead>
                                 {% macro tagCollectionItem(formData) %}
-                                    <td>
-                                        {{ form_widget(formData.ingredient) }}
-                                    </td>
-                                    <td>
-                                        {{ form_widget(formData.qte) }}
-                                    </td>
-                                    <td>
-                                        {{ form_widget(formData.unit) }}
-                                    </td>
-                                    <td>
-                                        {{ form_widget(formData.ingredient) }}
-                                    </td>
-                                    <td>
-                                        {{ form_widget(formData.ingredient) }}
-                                    </td>
+                                    <td>{{ form_widget(formData.ingredient.name) }}</td>
+                                    <td>{{ form_widget(formData.qte) }} </td>
+                                    <td>{{ form_widget(formData.unit) }}</td>
+                                    <td>{{ form_widget(formData.ingredient.priceForUnit) }}</td>
+                                    <td>{{ form_widget(formData.ingredient.unit) }}</td>
                                 {% endmacro %}
                                 <tbody class="ingredients"
                                        data-prototype="{{ _self.tagCollectionItem(form.RecipeIngredient.vars.prototype)|e }}">

@@ -1,12 +1,8 @@
-<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-
-<!-- Include all JavaScripts, compiled by Assetic -->
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('js/jquery.easypiechart.min.js') }}"></script>
 <script src="{{ asset('js/raphael.min.js') }}"></script>
 <script src="{{ asset('js/morris.min.js') }}"></script>
-
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -68,6 +64,14 @@
             {label: "In-Store Sales", value: 30},
             {label: "Mail-Order Sales", value: 20}
         ]
+    });
+    $(document).ready(function() {
+        // SearchEngineBundle_ajax
+        var attr = $('.ingredient_search').attr('data-url');
+        $(".ingredient_search").autocomplete({
+            minLength: 3,
+            source: attr
+        });
     });
 </script>
 {% block page_script %}{% endblock %}

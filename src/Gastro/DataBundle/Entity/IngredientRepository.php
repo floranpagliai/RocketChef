@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class IngredientRepository extends EntityRepository
 {
+    public function search( $title ){
+        $qb = $this->createQueryBuilder('f');
+        $qb->where( 'f.name LIKE :title' )
+            ->setParameter( 'title', '%'. $title .'%' );
+
+        return $qb->getQuery()->getResult();
+    }
 }

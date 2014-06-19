@@ -28,9 +28,6 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    form:
-        resources:
-            - ShtumiUsefulBundle::fields.html.twig
 
 # Assetic Configuration
 assetic:
@@ -73,6 +70,10 @@ assetic:
             inputs:
                 - %kernel.root_dir%/Resources/js/morris.min.js
             output: js/morris.min.js
+        jqueryui_js:
+            inputs:
+                - %kernel.root_dir%/Resources/js/jquery-ui-1.10.4.min.js
+            output: js/jqueryui.js
 
 
 braincrafted_bootstrap:
@@ -90,9 +91,6 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        # if using pdo_sqlite as your database driver, add the path in parameters.yml
-        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        # path:     "%database_path%"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -106,10 +104,3 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-shtumi_useful:
-    autocomplete_entities:
-        ingredient:
-            class: GastroDataBundle:Ingredient
-            role: ROLE_USER
-            property: name
-            search: contains
