@@ -16,5 +16,3 @@ gastro_recipe_book:
 gastro_setting:
     resource: "@GastroSettingBundle/Resources/config/routing.yml"
     prefix:   /webapp
-shtumi_useful:
-    resource: '@ShtumiUsefulBundle/Resources/config/routing.xml'

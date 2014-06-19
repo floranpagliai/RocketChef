@@ -139,11 +139,8 @@
                         <tbody>
                         {% for recipeIngredient in recipeIngredients %}
                             <tr>
-                                <td>
-                                    {{ recipeIngredient.ingredient.name }}
-                                </td>
-                                <td>
-                                    {{ recipeIngredient.qte }}
+                                <td>{{ recipeIngredient.ingredient.name }}</td>
+                                <td>{{ recipeIngredient.qte }}
                                     {% if recipeIngredient.unit == constant('Gastro\\DataBundle\\Entity\\RecipeIngredient::UNIT_GR') %}
                                         Gr
                                     {% elseif recipeIngredient.unit == constant('Gastro\\DataBundle\\Entity\\RecipeIngredient::UNIT_KG') %}
@@ -154,21 +151,16 @@
                                         Cl
                                     {% else %}
 
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    {{ recipeIngredient.ingredient.priceForUnit }}
+                                    {% endif %}</td>
+                                <td>{{ recipeIngredient.ingredient.priceForUnit }}
                                     {% if recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_UNITARY') %}
                                         {{ 'global.currency'|trans }}/Pce
                                     {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
                                         {{ 'global.currency'|trans }}/Kg
                                     {% elseif recipeIngredient.ingredient.unit == constant('Gastro\\DataBundle\\Entity\\Ingredient::UNIT_LITER') %}
                                         {{ 'global.currency'|trans }}/L
-                                    {% endif %}
-                                </td>
-                                <td class="hidden-xs">
-                                    {{ recipeIngredient.cost }}{{ 'global.currency'|trans }}
-                                </td>
+                                    {% endif %}</td>
+                                <td class="hidden-xs">{{ recipeIngredient.cost }}{{ 'global.currency'|trans }} </td>
                             </tr>
 
                         {% endfor %}
