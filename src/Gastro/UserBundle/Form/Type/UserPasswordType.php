@@ -1,6 +1,6 @@
 <?php
 /**
- * UserEditPassType.php
+ * UserPasswordType.php
  * User: Utilisateur
  * Date: 11/06/14
  * Time: 11:16
@@ -12,7 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserEditPassType extends AbstractType
+class UserPasswordType extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -29,6 +29,6 @@ class UserEditPassType extends AbstractType
 
     public function getName()
     {
-        return 'user_edit_pass';
+        return 'user_password';
     }
 }

@@ -4,6 +4,9 @@ gastro_user_login:
 gastro_user_login_check:
     pattern:  /login_check
     defaults: { _controller: GastroUserBundle:Security:loginCheck }
+gastro_user_register:
+    pattern:  /register
+    defaults: { _controller: GastroUserBundle:Security:register }
 gastro_user_logout:
     pattern:  /logout
     defaults: { _controller: GastroUserBundle:Security:logout }

@@ -1,0 +1,18 @@
+{% include ':WebApp:header.html.twig' %}
+<body class="login">
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-5 col-md-offset-4 col-xs-12">
+        <div class="login-banner text-center">
+            <h1><i class="fa fa-rocket"></i> {{ 'global.appname'|trans }}</h1>
+        </div>
+        <div class="portlet portlet-blue">
+            {% block page_content_login %}
+            {% endblock page_content_login %}
+
+        </div>
+    </div>
+    </div>
+</body>
+{% include ':WebApp:footer.html.twig' %}

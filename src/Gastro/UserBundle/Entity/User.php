@@ -7,14 +7,18 @@
 
 namespace Gastro\UserBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
+ /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @UniqueEntity("email",
+  *             message="This email is already used.")
  */
 class User implements  UserInterface {
 
@@ -37,6 +41,7 @@ class User implements  UserInterface {
 
     /**
      * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\Email()
      */
     protected $email;
 
@@ -51,7 +56,7 @@ class User implements  UserInterface {
     protected $salt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\Restaurant", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="Gastro\UserBundle\Entity\Restaurant", inversedBy="users", cascade={"persist"})
      * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
     protected $restaurant;
@@ -140,7 +145,7 @@ class User implements  UserInterface {
      */
     public function getSalt()
     {
-        return $this->salt;
+        return null;
     }
 
     /**

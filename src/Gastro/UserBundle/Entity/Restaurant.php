@@ -31,7 +31,7 @@ class Restaurant
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="restaurant")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="restaurant", cascade={"persist", "remove"})
      */
     private $users;
 

@@ -13,3 +13,5 @@ parameters:
 
     locale:            en
     secret:            1051da56014796d65331b7e4a8251010391
+
+    security.new_user_allowed: true

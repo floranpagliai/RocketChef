@@ -53,4 +53,5 @@ term:
         average: "Coût moyen"
         perportion: "Par portion"
     see: "Voir"
-"Bad credentials": Nom d'utilisateur ou mot de passe incorrect
+"Bad credentials": "Nom d'utilisateur ou mot de passe incorrect."
+"This Email is already used.": "Cet Email est déjà utilisé."

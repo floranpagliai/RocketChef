@@ -2,7 +2,9 @@
 
 namespace Gastro\UserBundle\Controller;
 
-use Gastro\UserBundle\Form\Type\UserEditPassType;
+use Gastro\UserBundle\Entity\User;
+use Gastro\UserBundle\Form\Type\UserPasswordType;
+use Gastro\UserBundle\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -31,15 +33,46 @@ class SecurityController extends Controller
         return $this->render('GastroUserBundle:Security:login.html.twig', array(
             // last username entered by the user
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error' => $error,
+            'newUserAllowed' => $this->container->getParameter('security.new_user_allowed')
         ));
+    }
+
+    public function registerAction(Request $request)
+    {
+        if (!$this->container->getParameter('security.new_user_allowed'))
+            return $this->redirect($this->generateUrl('gastro_user_login'));
+
+        $user = new User();
+        $form = $this->createForm(new UserType(), $user);
+        $errors = null;
+
+        if ($request->isMethod('post')) {
+            $form->submit($request);
+            $validator = $this->get('validator');
+            $errors = $validator->validate($user);
+            if ($form->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+
+                $flash = $this->get('braincrafted_bootstrap.flash');
+                $flash->success('Utilisateur enregistré. Vous pouvez maintenant vous connecter.');
+
+                return $this->redirect($this->generateUrl('gastro_user_login'));
+            }
+        }
+
+        $paramsRender = array('form' => $form->createView(), 'errors' => $errors);
+        return $this->render('GastroUserBundle:Security:register.html.twig', $paramsRender);
     }
 
     public function editPassAction(Request $request)
     {
         $user = $this->get('security.context')->getToken()->getUser();
 
-        $form = $this->createForm(new UserEditPassType(), $user);
+        $form = $this->createForm(new UserPasswordType(), $user);
 
         if ($request->isMethod('POST')) {
             $form->submit($request);

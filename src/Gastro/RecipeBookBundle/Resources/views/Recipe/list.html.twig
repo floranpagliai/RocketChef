@@ -14,6 +14,7 @@
                 </div>
                 <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
                     <div class="portlet-body">
+                        {% if recipe is defined  %}
                         <table id="dataTable" class="table table-hover">
                             <thead>
                             <tr>
@@ -72,6 +73,13 @@
                             {% endfor %}
                             </tbody>
                         </table>
+                        {% else %}
+                            <div class="well text-center">
+                                <p>Aucune recette.</p>
+                            <a href="{{ path('gastro_recipe_book_add') }}" class="btn btn-lg btn-primary">
+                                <i class="fa fa-plus"></i> {{ 'recipebook.add.recipe'|trans }}</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
