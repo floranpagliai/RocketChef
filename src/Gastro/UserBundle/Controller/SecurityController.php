@@ -52,18 +52,15 @@ class SecurityController extends Controller
             $validator = $this->get('validator');
             $errors = $validator->validate($user);
             if ($form->isValid()) {
-
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();
 
                 $flash = $this->get('braincrafted_bootstrap.flash');
                 $flash->success('Utilisateur enregistré. Vous pouvez maintenant vous connecter.');
-
                 return $this->redirect($this->generateUrl('gastro_user_login'));
             }
         }
-
         $paramsRender = array('form' => $form->createView(), 'errors' => $errors);
         return $this->render('GastroUserBundle:Security:register.html.twig', $paramsRender);
     }

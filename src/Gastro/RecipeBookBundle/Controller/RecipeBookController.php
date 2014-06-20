@@ -36,10 +36,6 @@ class RecipeBookController extends Controller
                 $margin = 100;
                 $ratio = 0;
             }
-            if ($margin > 40)
-                $marginColor = 'green';
-            else
-                $marginColor = 'red';
             $paramsRender = array(
                 'recipe' => $recipe,
                 'recipeIngredients' => $recipeIngredients,
@@ -47,7 +43,7 @@ class RecipeBookController extends Controller
                 'minimalPrice' => round(($recipe->getCost()/$recipe->getPortions())*3, 2),
                 'portionCost' => $recipe->getCost()/$recipe->getPortions(),
                 'ratio' => $ratio,
-                'marginColor' => $marginColor
+                'marginColor' => ($margin > 40)? 'green' : 'red'
             );
         } else
             throw $this->createNotFoundException('Recette introuvable');
