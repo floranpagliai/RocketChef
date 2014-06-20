@@ -1,9 +1,13 @@
 gastro_recipe_book:
     pattern:  /recipe-book
     defaults: { _controller: GastroRecipeBookBundle:RecipeBook:index }
+    requirements:
+        _method: GET
 gastro_recipe_book_show:
     pattern:  /recipe-book/{recipeId}-{recipeName}
     defaults: { _controller: GastroRecipeBookBundle:RecipeBook:show }
+    requirements:
+        _method: GET
 gastro_recipe_book_add:
     pattern:  /recipe-book/add
     defaults: { _controller: GastroRecipeBookBundle:RecipeBook:add }
