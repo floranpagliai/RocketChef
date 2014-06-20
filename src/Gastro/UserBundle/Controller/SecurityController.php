@@ -69,9 +69,9 @@ class SecurityController extends Controller
     {
         $user = $this->get('security.context')->getToken()->getUser();
 
-        $form = $this->createForm(new UserPasswordType(), $user);
+        $form = $this->createForm(new UserPasswordType(), $user, array(
+            'action' => $this->generateUrl('gastro_user_change_pass')));
 
-        if ($request->isMethod('POST')) {
             $form->submit($request);
             if ($form->isValid()) {
 
@@ -80,9 +80,9 @@ class SecurityController extends Controller
                 $em->flush();
 
                 $flash = $this->get('braincrafted_bootstrap.flash');
-                $flash->alert('Mot de passe changé');
+                $flash->success('Mot de passe changé');
+                return $this->redirect($request->headers->get('referer'));
             }
-        }
 
         $paramsRender = array('form' => $form->createView());
         return $this->render('GastroUserBundle:Security:editpassform.html.twig', $paramsRender);

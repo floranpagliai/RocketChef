@@ -1,8 +1,9 @@
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('js/jquery.easypiechart.min.js') }}"></script>
-<script src="{{ asset('js/raphael.min.js') }}"></script>
-<script src="{{ asset('js/morris.min.js') }}"></script>
+
+{% javascripts
+'js/bootstrap.js'
+'%kernel.root_dir%/Resources/js/*'%}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -46,8 +47,8 @@
                 $(this.el).find('.percent').text(Math.round(percent));
             }
         });
-
     });
+
     $(function() {
 
         // Tooltips for sidebar toggle and sidebar logout button
@@ -57,21 +58,168 @@
         })
 
     })
-    Morris.Donut({
-        element: 'morris-chart-donut',
-        data: [
-            {label: "Download Sales", value: 12},
-            {label: "In-Store Sales", value: 30},
-            {label: "Mail-Order Sales", value: 20}
-        ]
-    });
-    $(document).ready(function() {
-        // SearchEngineBundle_ajax
-        var attr = $('.ingredient_search').attr('data-url');
-        $(".ingredient_search").autocomplete({
-            minLength: 3,
-            source: attr
+
+    $("#info-message-demo").click(function() {
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
+
+        Messenger().post({
+            message: 'This is an example of an info notification. You can close this message using the box to the right.',
+            type: 'info',
+            showCloseButton: true
         });
+
+    });
+
+    $("#error-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
+        Messenger().post({
+            message: 'This is an example of an error notification. You can close this message using the box to the right.',
+            type: 'error',
+            showCloseButton: true
+        });
+
+    });
+
+    $("#success-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
+
+        Messenger().post({
+            message: 'This is an example of a success notification. You can close this message using the box to the right.',
+            type: 'success',
+            showCloseButton: true
+        });
+
+    });
+
+    $("#bottom-right-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
+
+        Messenger().post({
+            message: 'This is an example of a bottom right notification!',
+            id: "Only-one-message",
+            type: 'success',
+            showCloseButton: true
+        });
+
+    });
+
+    $("#bottom-left-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-left',
+            theme: 'flat'
+        }
+
+        Messenger().post({
+            message: 'This is an example of a bottom left notification!',
+            id: "Only-one-message",
+            type: 'success',
+            showCloseButton: true
+        });
+
+    });
+
+    $("#top-right-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-top messenger-on-right',
+            theme: 'flat'
+        }
+
+        Messenger().post({
+            message: 'This is an example of a top right notification!',
+            id: "Only-one-message",
+            type: 'success',
+            showCloseButton: true
+        });
+
+    });
+
+    $("#top-left-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-top messenger-on-left',
+            theme: 'flat'
+        }
+
+        Messenger().post({
+            message: 'This is an example of a top left notification!',
+            id: "Only-one-message",
+            type: 'success',
+            showCloseButton: true
+        });
+
+    });
+
+    $("#cancel-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
+
+        msg = Messenger().post({
+            message: 'You can cancel this message and it will disappear completely.',
+            id: "Only-one-message",
+            type: 'success',
+            showCloseButton: true,
+            actions: {
+                cancel: {
+                    action: function() {
+                        msg.hide()
+                    }
+                }
+            }
+        });
+
+    });
+
+    $("#interactive-message-demo").click(function() {
+
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
+
+        msg = Messenger().post({
+            message: 'This message in interactive! Cancel this message to see what happens.',
+            id: "Only-one-message",
+            type: 'error',
+            showCloseButton: true,
+            actions: {
+                cancel: {
+                    action: function() {
+                        msg.update({
+                            message: 'Message cancelled!',
+                            type: 'success',
+                            actions: false
+                        })
+                    }
+                }
+            }
+        });
+
+    });
+
+    $("#clear-message-demo").click(function() {
+
+        Messenger().hideAll();
+
     });
 </script>
 {% block page_script %}{% endblock %}
