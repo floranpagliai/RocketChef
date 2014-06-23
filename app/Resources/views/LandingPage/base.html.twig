@@ -2,20 +2,22 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
     <title>{% block title %}{{ 'global.appname'|trans }}{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <script src="{{ asset('js/pace.min.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic"
+          rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel="stylesheet" type="text/css">
     {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
     {% stylesheets
     'css/bootstrap.css'
     'css/font-awesome.css'
     '%kernel.root_dir%/Resources/css/pace-flash.css'
     '%kernel.root_dir%/Resources/css/LandingPage/*'
-    filter='cssrewrite'%}
+    filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet" media="screen"/>
     {% endstylesheets %}
 </head>
@@ -35,22 +37,26 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav cl-effect-13">
-                <li class="active"><a href="#home" class="smoothScroll">Home</a></li>
-                <li><a href="#features" class="smoothScroll">Features</a></li>
-                <li><a href="#pricing" class="smoothScroll">Pricing</a></li>
+                <li class="active"><a href="#home" class="smoothScroll">Accueil</a></li>
+                <li><a href="#features" class="smoothScroll">Fonctionnalités</a></li>
+                <li><a href="#pricing" class="smoothScroll">Forfaits</a></li>
                 <li><a href="#contact" class="smoothScroll">Contact</a></li>
             </ul>
 
             <!-- Sign In / Sign Up -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="{{ path('gastro_user_login') }}"><i class="fa fa-lock"></i> Connexion</a></li>
+                <li class="dropdown"><a href="{{ path('gastro_user_login') }}"><i class="fa fa-lock"></i> Connexion</a>
+                </li>
                 <div class="navbar-form pull-left">
                     <a href="#pricing" type="button" class="btn btn-sm btn-theme"> Version gratuite</a>
                 </div>
             </ul>
-        </div><!--/nav-collapse -->
-    </div><!-- /container -->
-</div><!-- /fixed-navbar -->
+        </div>
+        <!--/nav-collapse -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /fixed-navbar -->
 
 <!-- Header Wrap -->
 <section id="home" name="home"></section>
@@ -59,12 +65,14 @@
         <div class="row text-center">
             <div class="col-lg-12">
                 <h1>Bienvenue sur <b>RocketChef</b></h1>
+
                 <h3>La gestion de cuisine nouvelle génération.</h3>
                 <br>
             </div>
 
             <div class="col-lg-2 hidden-xs hidden-sm hidden-md">
                 <h5>Automate business processes</h5>
+
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <img src="/img/landingpage/arrow-left.png" alt="">
             </div>
@@ -77,11 +85,14 @@
                 <br>
                 <img class="pad-top" src="/img/landingpage/arrow-right.png" alt="">
                 <h5>Collaborate in the cloud</h5>
+
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
         </div>
-    </div> <!-- /container -->
-</div><!-- /headerwrap -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /headerwrap -->
 
 
 <!-- Intro Wrap -->
@@ -92,30 +103,41 @@
             <hr>
             <br>
             <br>
+
             <div class="col-lg-3">
-                <licon class="fa fa-user"></licon>
+                <i class="fa fa-user fa-5x"></i>
+
                 <h3>Professional Services</h3>
+
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
             <div class="col-lg-3">
-                <licon class="fa fa-dollar"></licon>
+                <i class="fa fa-dollar fa-5x"></i>
+
                 <h3>Cost Effective</h3>
+
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
             <div class="col-lg-3">
-                <licon class="fa fa-database"></licon>
+                <i class="fa fa-database fa-5x"></i>
+
                 <h3>Scalable and Adaptable</h3>
+
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
             <div class="col-lg-3">
-                <licon class="fa fa-check"></licon>
+                <i class="fa fa-check fa-5x"></i>
+
                 <h3>Easy to Use</h3>
+
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
         </div>
         <br>
-    </div> <!-- /container -->
-</div><!-- /introwrap -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /introwrap -->
 
 
 <!-- Features Wrap -->
@@ -127,8 +149,9 @@
             <hr>
             <br>
             <br>
+
             <div class="col-lg-6">
-                <img class="img-responsive left" src="/img/landingpage/mobile.png" alt="">
+                <img class="img-responsive left" src="/img/landingpage/app-bg.png" alt="">
             </div>
 
             <div class="col-lg-6">
@@ -137,70 +160,112 @@
                 <div class="accordion ac" id="accordion2">
                     <div class="accordion-group active">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                               href="#collapseOne">
                                 <i class="fa fa-cloud"></i> Collaborate in the cloud
                             </a>
-                        </div><!-- /accordion-heading -->
+                        </div>
+                        <!-- /accordion-heading -->
                         <div id="collapseOne" class="accordion-body collapse in">
                             <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
+                                <p>It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum.</p>
+                            </div>
+                            <!-- /accordion-inner -->
+                        </div>
+                        <!-- /collapse -->
+                    </div>
+                    <!-- /accordion-group -->
                     <br>
 
                     <div class="accordion-group">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                               href="#collapseTwo">
                                 <i class="fa fa-mail-forward"></i> Get started fast
                             </a>
                         </div>
                         <div id="collapseTwo" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
+                                <p>It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum.</p>
+                            </div>
+                            <!-- /accordion-inner -->
+                        </div>
+                        <!-- /collapse -->
+                    </div>
+                    <!-- /accordion-group -->
                     <br>
 
                     <div class="accordion-group">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                               href="#collapseThree">
                                 <i class="fa fa-bar-chart-o"></i> Deliver real time insights
                             </a>
                         </div>
                         <div id="collapseThree" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
+                                <p>It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum.</p>
+                            </div>
+                            <!-- /accordion-inner -->
+                        </div>
+                        <!-- /collapse -->
+                    </div>
+                    <!-- /accordion-group -->
                     <br>
 
                     <div class="accordion-group">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                               href="#collapseFour">
                                 <i class="fa fa-dashboard"></i> Automate business processes
                             </a>
                         </div>
                         <div id="collapseFour" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
+                                <p>It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum.</p>
+                            </div>
+                            <!-- /accordion-inner -->
+                        </div>
+                        <!-- /collapse -->
+                    </div>
+                    <!-- /accordion-group -->
                     <br>
-                </div><!-- /accordion -->
+                </div>
+                <!-- /accordion -->
             </div>
-        </div><!-- /row -->
+        </div>
+        <!-- /row -->
         <br><br><br>
+
         <div class="row">
             <h2 class="text-center">Multi Useful Components</h2>
-            <hr><br><br>
+            <hr>
+            <br><br>
+
             <div class="col-lg-6">
                 <br><br>
                 <h4><i class="fa fa-cogs"></i> Create customized business apps</h4>
-                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.</p>
                 <br><br>
             </div>
 
@@ -211,38 +276,23 @@
         <br>
         <br>
         <br>
-    </div><!-- /container -->
-</div><!-- /featureswrap -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /featureswrap -->
 
 
 <!-- Divider 1 Section -->
 <div class="divider01">
     <div class="container">
         <div class="row text-center">
-            <div id="carousel-example-generic" class="carousel slide">
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <h3>"Working with Bootstack was amazing. Their team is incredible."</h3>
-                        <h4>John Doe, <em>A Company</em></h4>
-                    </div>
-                    <div class="item">
-                        <h3>"Bootstack has helped my team build amazing products. Amazing team."</h3>
-                        <h4>Jane Doe, <em>A Company</em></h4>
-                    </div>
-                </div><!-- /carousel-inner -->
-                <br>
-                <br>
-                <br>
-                <!-- Indicators - Uncomment for indicators to show
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                </ol> -->
-            </div><!-- /carousel-example -->
-        </div><!-- /row -->
-    </div><!-- /container -->
-</div><!-- /divider01 -->
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /divider01 -->
 
 
 <!-- Pricing Section -->
@@ -250,42 +300,32 @@
 <div class="pricingwrap">
     <div class="container text-center">
         <br>
+
         <h2>Our Pricing Options</h2>
-        <hr><br><br>
+        <hr>
+        <br><br>
+
         <div class="row">
             <div class="col-xs-12 col-md-3">
                 <div class="panel panel-custom">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Starter</h3>
+                        <h3 class="panel-title">Apprenti</h3>
                     </div>
                     <div class="panel-body">
                         <div class="the-price">
-                            <h2>$9<span class="subscript">/mo</span></h2>
-                            <small>1 month FREE Trial</small>
+                            <h2>Gratuit</h2>
                         </div>
                         <table class="table">
                             <tr>
-                                <td>1 Account</td>
+                                <td>1 Utilisateur</td>
                             </tr>
                             <tr>
-                                <td>1 Project</td>
-                            </tr>
-                            <tr>
-                                <td>50K API Access</td>
-                            </tr>
-                            <tr>
-                                <td>100MB Storage</td>
-                            </tr>
-                            <tr>
-                                <td>Custom Cloud Services</td>
-                            </tr>
-                            <tr>
-                                <td>Weekly Reports</td>
+                                <td>5 Recettes</td>
                             </tr>
                         </table>
                     </div>
                     <div class="panel-footer">
-                        <a href="#" class="btn btn-theme" role="button">Sign Up</a>
+                        <a href="#" class="btn btn-theme" role="button">Souscrire</a>
                     </div>
                 </div>
             </div>
@@ -293,12 +333,11 @@
             <div class="col-xs-12 col-md-3">
                 <div class="panel panel-custom">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Standard</h3>
+                        <h3 class="panel-title">Commis</h3>
                     </div>
                     <div class="panel-body">
                         <div class="the-price">
                             <h2>$19<span class="subscript">/mo</span></h2>
-                            <small>1 month FREE Trial</small>
                         </div>
                         <table class="table">
                             <tr>
@@ -307,18 +346,6 @@
                             <tr>
                                 <td>5 Projects</td>
                             </tr>
-                            <tr>
-                                <td>100K API Access</td>
-                            </tr>
-                            <tr>
-                                <td>200MB Storage</td>
-                            </tr>
-                            <tr>
-                                <td>Custom Cloud Services</td>
-                            </tr>
-                            <tr>
-                                <td>Weekly Reports</td>
-                            </tr>
                         </table>
                     </div>
                     <div class="panel-footer">
@@ -330,12 +357,11 @@
             <div class="col-xs-12 col-md-3">
                 <div class="panel panel-custom">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Premium</h3>
+                        <h3 class="panel-title">Sous-chef</h3>
                     </div>
                     <div class="panel-body">
                         <div class="the-price">
                             <h2>$39<span class="subscript">/mo</span></h2>
-                            <small>1 month FREE Trial</small>
                         </div>
                         <table class="table">
                             <tr>
@@ -344,18 +370,6 @@
                             <tr>
                                 <td>20 Projects</td>
                             </tr>
-                            <tr>
-                                <td>300K API Access</td>
-                            </tr>
-                            <tr>
-                                <td>500MB Storage</td>
-                            </tr>
-                            <tr>
-                                <td>Custom Cloud Services</td>
-                            </tr>
-                            <tr>
-                                <td>Weekly Reports</td>
-                            </tr>
                         </table>
                     </div>
                     <div class="panel-footer">
@@ -367,31 +381,18 @@
             <div class="col-xs-12 col-md-3">
                 <div class="panel panel-custom">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Enterprise</h3>
+                        <h3 class="panel-title">Chef</h3>
                     </div>
                     <div class="panel-body">
                         <div class="the-price">
-                            <h2>$59<span class="subscript">/mo</span></h2>
-                            <small>1 month FREE Trial</small>
+                            <h2>60$<span class="subscript">/mois</span></h2>
                         </div>
                         <table class="table">
                             <tr>
-                                <td>10 Accounts</td>
+                                <td>15 Utilisateurs</td>
                             </tr>
                             <tr>
-                                <td>50 Projects</td>
-                            </tr>
-                            <tr>
-                                <td>500K API Access</td>
-                            </tr>
-                            <tr>
-                                <td>1GB Storage</td>
-                            </tr>
-                            <tr>
-                                <td>Custom Cloud Services</td>
-                            </tr>
-                            <tr>
-                                <td>Weekly Reports</td>
+                                <td>Recettes ilimités</td>
                             </tr>
                         </table>
                     </div>
@@ -400,9 +401,12 @@
                     </div>
                 </div>
             </div>
-        </div><!-- /row -->
-    </div><!-- /container -->
-</div><!-- /pricingwrap -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /pricingwrap -->
 
 
 <!-- Divider 2 Section -->
@@ -411,7 +415,8 @@
         <h3>Start your 30-day free trial today.</h3>
         <a href="#" type="button" class="btn btn-lg btn-theme2">Get Started</a>
     </div>
-</div><!-- /divider02 -->
+</div>
+<!-- /divider02 -->
 
 
 <!-- Footer Wrap -->
@@ -422,6 +427,7 @@
             <div class="col-lg-4">
                 <h3>Contact Us</h3>
                 <br>
+
                 <p><i class="fa fa-map-marker"></i> Some Address 373, Palo Alto, CA <br/>
                     <i class="fa fa-phone"></i> (800) 373-7733 <br/>
                     <i class="fa fa-envelope-o"></i> <a href="mailto:support@bootstacktheme.com">support@bootstacktheme.com</a>
@@ -431,6 +437,7 @@
             <div class="col-lg-4">
                 <h3>We Are Social</h3>
                 <br>
+
                 <div id="social">
                     <a href="#" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
                     <a href="#" rel="tooltip" title="Twitter" class="twitter">Twitter</a>
@@ -446,15 +453,24 @@
             <div class="col-lg-4">
                 <h3>Newsletter</h3>
                 <br>
+
                 <p>Subscribe to our newsletter and be the first to know our latest updates.</p>
+
                 <div class="form-inline">
-                    <input type="text" class="form-control" placeholder="Your email">
-                    <button class="btn btn-theme" type="button">Subscribe</button>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-theme" type="button">Subscribe</button>
+                    </div>
                 </div>
             </div>
-        </div><!-- /row -->
-    </div><!-- /container -->
-</div><!-- /footerwrap -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /footerwrap -->
 
 
 <!-- Copyright Wrap -->
@@ -467,12 +483,15 @@
             <div class="col-lg-2">
                 <p><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Legal</a></p>
             </div>
-        </div><!-- /row -->
-    </div><!-- /container -->
-</div><!-- /copywrap (copyright) -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /copywrap (copyright) -->
 
 {% javascripts
-'js/bootstrap.js'%}
+'js/bootstrap.js' %}
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 </body>

@@ -43,7 +43,7 @@ p {
 /* Links */
 
 a {
-	color: #06979e;
+	color: #34495e;
 	word-wrap: break-word;
 
 	-webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -55,7 +55,7 @@ a {
 
 a:hover,
 a:focus {
-	color: #05888e;
+	color: #2980b9;
 	text-decoration: none;
 	outline: 0;
 }
@@ -80,16 +80,16 @@ a:after {
 /* Button Modifications */
 
 .btn-theme {
-	background-color: #06979e;
+	background-color: #34495e;
 	color: #fff;
-	border-color: #06979e;
+	border-color: #34495e;
 }
 
 .btn-theme:hover,
 .btn-theme:focus {
-	border-color: #06979e; /* change to darker hue than bg hover color */
+	border-color: #2980b9; /* change to darker hue than bg hover color */
 	background-color: transparent;
-	color: #06979e;
+	color: #2980b9;
 	box-shadow: none;
 }
 
@@ -103,7 +103,7 @@ a:after {
 .btn-theme2:active {
 	border-color: #fff;
 	background-color: #fff;
-	color: #06979e;
+	color: #2980b9;
 	box-shadow: none;
 }
 
@@ -136,11 +136,11 @@ a:after {
 }
 
 .navbar-default .navbar-toggle > .icon-bar {
-	background-color: #06979e;
+	background-color: #34495e;
 }
 
 .navbar-default .navbar-brand {
-	color: #06979e;
+	color: #34495e;
 }
 
 .navbar-default .navbar-brand:hover {
@@ -148,7 +148,7 @@ a:after {
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: #06979e;
+	color: #34495e;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -172,7 +172,7 @@ a:after {
 .navbar-default .navbar-right a[type="button"]:hover,
 .navbar-default .navbar-right a[type="button"]:focus {
 	background-color: transparent;
-	color: #06979e;
+	color: #2980b9;
 }
 
 
@@ -228,13 +228,6 @@ a:after {
 	padding-bottom: 80px;
 }
 
-.intro licon {
-	font-size: 60px;
-	color: #06979e;
-	padding: 20px;
-	vertical-align: middle;
-}
-
 /* Features Wrap */
 
 .featureswrap {
@@ -278,7 +271,7 @@ a:after {
 }
 
 .divider02 {
-	background-color: #06979e;
+	background-color: #34495e;
 	height: 150px;
 	padding-top: 55px;
 }
@@ -314,11 +307,11 @@ a:after {
 }
 
 .panel-custom {
-	border-color: #06979e;
+	border-color: #34495e;
 }
 
 .panel-custom > .panel-heading {
-	background-color: #06979e;
+	background-color: #34495e;
 	color: #fff;
 }
 
