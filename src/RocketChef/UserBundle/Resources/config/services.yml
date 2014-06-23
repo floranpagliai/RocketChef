@@ -1,0 +1,7 @@
+parameters:
+#    rocketchef_user.example.class: RocketChef\UserBundle\Example
+
+services:
+#    rocketchef_user.example:
+#        class: %rocketchef_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

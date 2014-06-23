@@ -1,3 +1,0 @@
-gastro_setting:
-    pattern:  /settings
-    defaults: { _controller: GastroSettingBundle:Setting:index }

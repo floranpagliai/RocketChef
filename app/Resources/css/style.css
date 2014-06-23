@@ -97,6 +97,8 @@ a, a:hover, a:active, a:focus {
     background: #2C3E50;
     font-size:18px;
     border: none;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 
 .sidebar-nav li {

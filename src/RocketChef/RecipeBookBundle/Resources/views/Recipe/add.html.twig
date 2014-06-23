@@ -1,0 +1,18 @@
+{% extends 'RocketChefRecipeBookBundle::layout.html.twig' %}
+
+{% block page_content_header %}
+    {{ 'recipebook.title'|trans }}
+    <small>{{ 'recipebook.add.comment'|trans }}</small>
+{% endblock %}
+
+{% block page_content_breadcrumb %}
+    <li><a href="{{ path('rocketchef_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
+    </li>
+    <li><a href="{{ path('rocketchef_recipe_book') }}"><i class="fa fa-book"></i> {{ 'recipebook.title'|trans }}</a>
+    </li></a>
+    <li class="active"><i class="fa fa-cutlery"></i> {{ 'recipebook.add.new'|trans }}</li></a>
+{% endblock %}
+
+{% block page_content %}
+    {% include 'RocketChefRecipeBookBundle:Recipe:form.html.twig' %}
+{% endblock %}

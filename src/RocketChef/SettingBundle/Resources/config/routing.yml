@@ -1,0 +1,3 @@
+rocketchef_setting:
+    pattern:  /settings
+    defaults: { _controller: RocketChefSettingBundle:Setting:index }

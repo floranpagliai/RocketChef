@@ -16,6 +16,7 @@
     'css/bootstrap.css'
     'css/font-awesome.css'
     '%kernel.root_dir%/Resources/css/pace-flash.css'
+    '%kernel.root_dir%/Resources/css/color-helper.css'
     '%kernel.root_dir%/Resources/css/LandingPage/*'
     filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet" media="screen"/>
@@ -37,20 +38,20 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav cl-effect-13">
-                <li class="active"><a href="#home" class="smoothScroll">Accueil</a></li>
-                <li><a href="#features" class="smoothScroll">Fonctionnalités</a></li>
-                <li><a href="#pricing" class="smoothScroll">Forfaits</a></li>
-                <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                <li class="active"><a href="#home">Accueil</a></li>
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><a href="#pricing">Forfaits</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
 
-            <!-- Sign In / Sign Up -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="{{ path('gastro_user_login') }}"><i class="fa fa-lock"></i> Connexion</a>
+                <li class="dropdown"><a href="{{ path('rocketchef_user_login') }}"><i class="fa fa-lock"></i> Connexion</a>
                 </li>
                 <div class="navbar-form pull-left">
                     <a href="#pricing" type="button" class="btn btn-sm btn-theme"> Version gratuite</a>
                 </div>
             </ul>
+
         </div>
         <!--/nav-collapse -->
     </div>
@@ -99,17 +100,17 @@
 <div class="intro">
     <div class="container">
         <div class="row text-center">
-            <h2>Proven Success</h2>
+            <h2>Les clès</h2>
             <hr>
             <br>
             <br>
 
             <div class="col-lg-3">
-                <i class="fa fa-user fa-5x"></i>
+                <i class="fa fa-users fa-5x"></i>
 
-                <h3>Professional Services</h3>
+                <h3>Professionnel</h3>
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p>Conçut et réalisé en collaboration avec des profesionnels de la restauration et de l'informatique.</p>
             </div>
             <div class="col-lg-3">
                 <i class="fa fa-dollar fa-5x"></i>
@@ -128,9 +129,9 @@
             <div class="col-lg-3">
                 <i class="fa fa-check fa-5x"></i>
 
-                <h3>Easy to Use</h3>
+                <h3>Facile d'utilisation</h3>
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p>Parce qu'un logiciel ne s'utilise pas comme un avion, nous avons pensé l'interface simplement...</p>
             </div>
         </div>
         <br>
@@ -145,7 +146,7 @@
 <div class="featureswrap">
     <div class="container">
         <div class="row">
-            <h2 class="text-center">Features</h2>
+            <h2 class="text-center">Fonctionnalités</h2>
             <hr>
             <br>
             <br>
@@ -162,17 +163,14 @@
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
                                href="#collapseOne">
-                                <i class="fa fa-cloud"></i> Collaborate in the cloud
+                                <i class="fa fa-cloud"></i> Travaillez dans le cloud
                             </a>
                         </div>
                         <!-- /accordion-heading -->
                         <div id="collapseOne" class="accordion-body collapse in">
                             <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
-                                    Ipsum.</p>
+                                <p>Nous pensons qu'un logiciel en ligne est plus perfomant, plus accesible et plus souple pour l'utilisateur,
+                                il se trouve que c'est aussi ce qu'on fait de mieux.</p>
                             </div>
                             <!-- /accordion-inner -->
                         </div>
@@ -185,16 +183,14 @@
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
                                href="#collapseTwo">
-                                <i class="fa fa-mail-forward"></i> Get started fast
+                                <i class="fa fa-money"></i> Calcul du coût de revient
                             </a>
                         </div>
                         <div id="collapseTwo" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
-                                    Ipsum.</p>
+                                <p>Ajouter vos recettes et vos ingrédients, RocketChef calcule pour vous le coût de revient et
+                                    vous propose les prix minimun à appliquer HT et TTC.<br>
+                                Entrez votre prix de ventre, vous avez maintenaint votre ratio et un indicateur clair sur votre taux de marge.</p>
                             </div>
                             <!-- /accordion-inner -->
                         </div>
@@ -207,16 +203,13 @@
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
                                href="#collapseThree">
-                                <i class="fa fa-bar-chart-o"></i> Deliver real time insights
+                                <i class="fa fa-tablet"></i> Livre de recette
                             </a>
                         </div>
                         <div id="collapseThree" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
-                                    Ipsum.</p>
+                                <p>Permettre à sa brigade d'accèder aux recettes via une tablette ou des fiches imprimable stanrdisées,
+                                c'est l'assurance d'un maintient des repères et de l'autonomie.</p>
                             </div>
                             <!-- /accordion-inner -->
                         </div>
@@ -225,25 +218,25 @@
                     <!-- /accordion-group -->
                     <br>
 
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
-                               href="#collapseFour">
-                                <i class="fa fa-dashboard"></i> Automate business processes
-                            </a>
-                        </div>
-                        <div id="collapseFour" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic
-                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
-                                    Ipsum.</p>
-                            </div>
-                            <!-- /accordion-inner -->
-                        </div>
-                        <!-- /collapse -->
-                    </div>
+                    {#<div class="accordion-group">#}
+                        {#<div class="accordion-heading">#}
+                            {#<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"#}
+                               {#href="#collapseFour">#}
+                                {#<i class="fa fa-dashboard"></i> Automate business processes#}
+                            {#</a>#}
+                        {#</div>#}
+                        {#<div id="collapseFour" class="accordion-body collapse">#}
+                            {#<div class="accordion-inner">#}
+                                {#<p>It has survived not only five centuries, but also the leap into electronic#}
+                                    {#typesetting, remaining essentially unchanged. It was popularised in the 1960s with#}
+                                    {#the release of Letraset sheets containing Lorem Ipsum passages, and more recently#}
+                                    {#with desktop publishing software like Aldus PageMaker including versions of Lorem#}
+                                    {#Ipsum.</p>#}
+                            {#</div>#}
+                            {#<!-- /accordion-inner -->#}
+                        {#</div>#}
+                        {#<!-- /collapse -->#}
+                    {#</div>#}
                     <!-- /accordion-group -->
                     <br>
                 </div>
@@ -254,13 +247,13 @@
         <br><br><br>
 
         <div class="row">
-            <h2 class="text-center">Multi Useful Components</h2>
+            <h2 class="text-center">Compatible Tablette et Smarphone</h2>
             <hr>
             <br><br>
 
             <div class="col-lg-6">
                 <br><br>
-                <h4><i class="fa fa-cogs"></i> Create customized business apps</h4>
+                <h4><i class="fa fa-tablet"></i> Create customized business apps</h4>
 
                 <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
                     essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
@@ -272,6 +265,23 @@
             <div class="col-lg-6">
                 <img class="img-responsive right" src="/img/landingpage/tablet.png" alt="">
             </div>
+
+            <div class="col-lg-6">
+                <img class="img-responsive left" src="/img/landingpage/mobile.png" alt="">
+            </div>
+
+            <div class="col-lg-6">
+                <br><br>
+                <h4><i class="fa fa-mobile"></i> Create customized business apps</h4>
+
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.</p>
+                <br><br>
+            </div>
+
+
         </div>
         <br>
         <br>
@@ -282,17 +292,17 @@
 <!-- /featureswrap -->
 
 
-<!-- Divider 1 Section -->
-<div class="divider01">
-    <div class="container">
-        <div class="row text-center">
+{#<!-- Divider 1 Section -->#}
+{#<div class="divider01">#}
+    {#<div class="container">#}
+        {#<div class="row text-center">#}
 
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /divider01 -->
+        {#</div>#}
+        {#<!-- /row -->#}
+    {#</div>#}
+    {#<!-- /container -->#}
+{#</div>#}
+{#<!-- /divider01 -->#}
 
 
 <!-- Pricing Section -->
@@ -301,12 +311,12 @@
     <div class="container text-center">
         <br>
 
-        <h2>Our Pricing Options</h2>
+        <h2>Nos forfaits</h2>
         <hr>
         <br><br>
 
         <div class="row">
-            <div class="col-xs-12 col-md-3">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
                 <div class="panel panel-custom">
                     <div class="panel-heading">
                         <h3 class="panel-title">Apprenti</h3>
@@ -320,7 +330,10 @@
                                 <td>1 Utilisateur</td>
                             </tr>
                             <tr>
-                                <td>5 Recettes</td>
+                                <td>8 Recettes</td>
+                            </tr>
+                            <tr>
+                                <td>Livre de recette</td>
                             </tr>
                         </table>
                     </div>
@@ -330,77 +343,80 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-3">
-                <div class="panel panel-custom">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Commis</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="the-price">
-                            <h2>$19<span class="subscript">/mo</span></h2>
-                        </div>
-                        <table class="table">
-                            <tr>
-                                <td>2 Accounts</td>
-                            </tr>
-                            <tr>
-                                <td>5 Projects</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="panel-footer">
-                        <a href="#" class="btn btn-theme" role="button">Sign Up</a>
-                    </div>
-                </div>
-            </div>
+            {#<div class="col-xs-12 col-md-3">#}
+                {#<div class="panel panel-custom">#}
+                    {#<div class="panel-heading">#}
+                        {#<h3 class="panel-title">Commis</h3>#}
+                    {#</div>#}
+                    {#<div class="panel-body">#}
+                        {#<div class="the-price">#}
+                            {#&#123;&#35;<h2>$19<span class="subscript">/mo</span></h2>&#35;&#125;#}
+                            {#<small>A venir</small>#}
+                        {#</div>#}
+                        {#<table class="table">#}
+                            {#<tr>#}
+                                {#<td>2 Accounts</td>#}
+                            {#</tr>#}
+                            {#<tr>#}
+                                {#<td>5 Projects</td>#}
+                            {#</tr>#}
+                        {#</table>#}
+                    {#</div>#}
+                    {#<div class="panel-footer">#}
+                        {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
 
-            <div class="col-xs-12 col-md-3">
-                <div class="panel panel-custom">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Sous-chef</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="the-price">
-                            <h2>$39<span class="subscript">/mo</span></h2>
-                        </div>
-                        <table class="table">
-                            <tr>
-                                <td>5 Accounts</td>
-                            </tr>
-                            <tr>
-                                <td>20 Projects</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="panel-footer">
-                        <a href="#" class="btn btn-theme" role="button">Sign Up</a>
-                    </div>
-                </div>
-            </div>
+            {#<div class="col-xs-12 col-md-3">#}
+                {#<div class="panel panel-custom">#}
+                    {#<div class="panel-heading">#}
+                        {#<h3 class="panel-title">Sous-chef</h3>#}
+                    {#</div>#}
+                    {#<div class="panel-body">#}
+                        {#<div class="the-price">#}
+                            {#&#123;&#35;<h2>$39<span class="subscript">/mo</span></h2>&#35;&#125;#}
+                            {#<small>A venir</small>#}
+                        {#</div>#}
+                        {#<table class="table">#}
+                            {#<tr>#}
+                                {#<td>5 Accounts</td>#}
+                            {#</tr>#}
+                            {#<tr>#}
+                                {#<td>20 Projects</td>#}
+                            {#</tr>#}
+                        {#</table>#}
+                    {#</div>#}
+                    {#<div class="panel-footer">#}
+                        {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
 
-            <div class="col-xs-12 col-md-3">
-                <div class="panel panel-custom">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Chef</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="the-price">
-                            <h2>60$<span class="subscript">/mois</span></h2>
-                        </div>
-                        <table class="table">
-                            <tr>
-                                <td>15 Utilisateurs</td>
-                            </tr>
-                            <tr>
-                                <td>Recettes ilimités</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="panel-footer">
-                        <a href="#" class="btn btn-theme" role="button">Sign Up</a>
-                    </div>
-                </div>
-            </div>
+            {#<div class="col-xs-12 col-md-3">#}
+                {#<div class="panel panel-custom">#}
+                    {#<div class="panel-heading">#}
+                        {#<h3 class="panel-title">Chef</h3>#}
+                    {#</div>#}
+                    {#<div class="panel-body">#}
+                        {#<div class="the-price">#}
+                            {#&#123;&#35;<h2>60$<span class="subscript">/mois</span></h2>&#35;&#125;#}
+                            {#<small>A venir</small>#}
+                        {#</div>#}
+                        {#<table class="table">#}
+                            {#<tr>#}
+                                {#<td>15 Utilisateurs</td>#}
+                            {#</tr>#}
+                            {#<tr>#}
+                                {#<td>Recettes ilimités</td>#}
+                            {#</tr>#}
+                        {#</table>#}
+                    {#</div>#}
+                    {#<div class="panel-footer">#}
+                        {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
         </div>
         <!-- /row -->
     </div>
@@ -412,8 +428,8 @@
 <!-- Divider 2 Section -->
 <div class="divider02">
     <div class="container text-center">
-        <h3>Start your 30-day free trial today.</h3>
-        <a href="#" type="button" class="btn btn-lg btn-theme2">Get Started</a>
+        <h3>RocketChef est encore en développement, bientôt plus de fonctionalités et d'offres !</h3>
+        {#<a href="#" type="button" class="btn btn-lg btn-theme2">Get Started</a>#}
     </div>
 </div>
 <!-- /divider02 -->
@@ -425,43 +441,43 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <h3>Contact Us</h3>
+                <h3>Contact</h3>
                 <br>
 
-                <p><i class="fa fa-map-marker"></i> Some Address 373, Palo Alto, CA <br/>
-                    <i class="fa fa-phone"></i> (800) 373-7733 <br/>
-                    <i class="fa fa-envelope-o"></i> <a href="mailto:support@bootstacktheme.com">support@bootstacktheme.com</a>
+                <p>
+                    <i class="fa fa-phone"></i> +33 6 24 41 18 26 <br/>
+                    <i class="fa fa-envelope-o"></i> <a class="text-faded" href="mailto:floran.pagliai@gmail.com.com">Envoyer un Email</a>
                 </p>
             </div>
 
             <div class="col-lg-4">
-                <h3>We Are Social</h3>
-                <br>
+                {#<h3>We Are Social</h3>#}
+                {#<br>#}
 
-                <div id="social">
-                    <a href="#" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
-                    <a href="#" rel="tooltip" title="Twitter" class="twitter">Twitter</a>
-                    <a href="#" rel="tooltip" title="RSS" class="rss">RSS</a>
-                    <a href="#" rel="tooltip" title="Github" class="github">Github</a>
-                    <a href="#" rel="tooltip" title="LinkedIn" class="linkedin">LinkedIn</a>
-                    <a href="#" rel="tooltip" title="Pintrest" class="pintrest">Pintrest</a>
-                    <a href="#" rel="tooltip" title="Vimeo" class="vimeo">Vimeo</a>
-                    <a href="#" rel="tooltip" title="YouTube" class="youtube">YouTube</a>
-                </div>
+                {#<div id="social">#}
+                    {#<a href="#" rel="tooltip" title="Facebook" class="facebook">Facebook</a>#}
+                    {#<a href="#" rel="tooltip" title="Twitter" class="twitter">Twitter</a>#}
+                    {#<a href="#" rel="tooltip" title="RSS" class="rss">RSS</a>#}
+                    {#<a href="#" rel="tooltip" title="Github" class="github">Github</a>#}
+                    {#<a href="#" rel="tooltip" title="LinkedIn" class="linkedin">LinkedIn</a>#}
+                    {#<a href="#" rel="tooltip" title="Pintrest" class="pintrest">Pintrest</a>#}
+                    {#<a href="#" rel="tooltip" title="Vimeo" class="vimeo">Vimeo</a>#}
+                    {#<a href="#" rel="tooltip" title="YouTube" class="youtube">YouTube</a>#}
+                {#</div>#}
             </div>
 
             <div class="col-lg-4">
                 <h3>Newsletter</h3>
                 <br>
 
-                <p>Subscribe to our newsletter and be the first to know our latest updates.</p>
+                <p>Inscrivez vous pour recevoir les mises à jour de RocketChef.</p>
 
                 <div class="form-inline">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-theme" type="button">Subscribe</button>
+                        <button class="btn btn-theme" type="button">S'inscrire</button>
                     </div>
                 </div>
             </div>
@@ -478,11 +494,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10">
-                <p>Copyright &copy;2014 Bootstack Theme. All Rights Reserved.</p>
+                <p>Copyright &copy; 2014 Floran Pagliai. All Rights Reserved.</p>
             </div>
-            <div class="col-lg-2">
-                <p><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Legal</a></p>
-            </div>
+            {#<div class="col-lg-2">#}
+                {#<p><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Legal</a></p>#}
+            {#</div>#}
         </div>
         <!-- /row -->
     </div>

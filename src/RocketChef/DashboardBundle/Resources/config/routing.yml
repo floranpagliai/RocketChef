@@ -1,0 +1,5 @@
+rocketchef_dashboard:
+    pattern:  /dashboard
+    defaults: { _controller: RocketChefDashboardBundle:Dashboard:index }
+    requirements:
+        _method: GET

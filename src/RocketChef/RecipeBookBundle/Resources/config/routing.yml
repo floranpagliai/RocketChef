@@ -1,0 +1,19 @@
+rocketchef_recipe_book:
+    pattern:  /recipe-book
+    defaults: { _controller: RocketChefRecipeBookBundle:RecipeBook:index }
+    requirements:
+        _method: GET
+rocketchef_recipe_book_show:
+    pattern:  /recipe-book/{recipeId}-{recipeName}
+    defaults: { _controller: RocketChefRecipeBookBundle:RecipeBook:show }
+    requirements:
+        _method: GET
+rocketchef_recipe_book_add:
+    pattern:  /recipe-book/add
+    defaults: { _controller: RocketChefRecipeBookBundle:RecipeBook:add }
+rocketchef_recipe_book_edit:
+    pattern:  /recipe-book/edit/{recipeId}-{recipeName}
+    defaults: { _controller: RocketChefRecipeBookBundle:RecipeBook:edit }
+rocketchef_recipe_book_delete:
+    pattern:  /recipe-book/delete/{recipeId}-{urlRedirect}
+    defaults: { _controller: RocketChefRecipeBookBundle:Action:delete, urlRedirect: null }

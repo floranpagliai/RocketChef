@@ -1,5 +1,5 @@
 <li class="sidebar-brand">
-    <a href="#"><i class="fa fa-rocket"></i> {{ ('global.appname'|trans)|upper }}</a>
+    <a href="#"><i class="fa fa-rocket"></i> <b>{{ ('global.appname'|trans)|upper }}</b></a>
 </li>
 <li class="side-user hidden-xs">
     <h3 style="color: #f5f5f5">{{ app.user.restaurant.name }}</h3>
@@ -9,7 +9,7 @@
 
     <p class="name tooltip-sidebar-logout">
         {{ app.user.username }} <span class="last-name">{{ app.user.lastname }}</span>
-        <a style="color: inherit" class="logout_open" href="{{ path('gastro_user_logout') }}"
+        <a style="color: inherit" class="logout_open" href="{{ path('rocketchef_user_logout') }}"
            data-toggle="tooltip" data-placement="top" title="{{ 'security.logout'|trans }}"><i
                     class="fa fa-sign-out"></i></a>
     </p>
@@ -17,23 +17,23 @@
     <div class="clearfix"></div>
 </li>
 <li class="sidebar-btn visible-xs">
-    <a class="logout_open" href="{{ path('gastro_user_logout') }}"
+    <a class="logout_open" href="{{ path('rocketchef_user_logout') }}"
        data-toggle="tooltip" data-placement="top" title="{{ 'security.logout'|trans }}"><i
                 class="fa fa-sign-out"></i> {{ 'security.logout'|trans }}</a>
 </li>
 <li class="sidebar-btn">
-    <a class="active" href="{{ path('gastro_dashboard') }}"><i
+    <a class="active" href="{{ path('rocketchef_dashboard') }}"><i
                 class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
 </li>
 <li class="sidebar-btn">
-    <a href="{{ path('gastro_recipe_book') }}"><i
+    <a href="{{ path('rocketchef_recipe_book') }}"><i
                 class="fa fa-book "></i> {{ 'recipebook.title'|trans }}</a>
 </li>
 <li class="sidebar-btn">
-    <a href="{{ path('gastro_menu') }}"><i
+    <a href="{{ path('rocketchef_menu') }}"><i
                 class="fa fa-columns "></i> {{ 'menu.title'|trans }}</a>
 </li>
 <li class="sidebar-btn">
-    <a href="{{ path('gastro_setting') }}"><i
+    <a href="{{ path('rocketchef_setting') }}"><i
                 class="fa fa-cog "></i> {{ 'security.parameters'|trans }}</a>
 </li>

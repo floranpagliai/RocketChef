@@ -1,18 +1,18 @@
 site_site:
     resource: "@SiteSiteBundle/Resources/config/routing.yml"
     prefix:   /
-gastro_user:
-    resource: "@GastroUserBundle/Resources/config/routing.yml"
+rocketchef_user:
+    resource: "@RocketChefUserBundle/Resources/config/routing.yml"
     prefix:   /
-gastro_menu:
-    resource: "@GastroMenuBundle/Resources/config/routing.yml"
+rocketchef_menu:
+    resource: "@RocketChefMenuBundle/Resources/config/routing.yml"
     prefix:   /webapp
-gastro_dashboard:
-    resource: "@GastroDashboardBundle/Resources/config/routing.yml"
+rocketchef_dashboard:
+    resource: "@RocketChefDashboardBundle/Resources/config/routing.yml"
     prefix:   /webapp
-gastro_recipe_book:
-    resource: "@GastroRecipeBookBundle/Resources/config/routing.yml"
+rocketchef_recipe_book:
+    resource: "@RocketChefRecipeBookBundle/Resources/config/routing.yml"
     prefix:   /webapp
-gastro_setting:
-    resource: "@GastroSettingBundle/Resources/config/routing.yml"
+rocketchef_setting:
+    resource: "@RocketChefSettingBundle/Resources/config/routing.yml"
     prefix:   /webapp

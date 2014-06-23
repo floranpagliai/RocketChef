@@ -1,6 +1,6 @@
 security:
     encoders:
-        Gastro\UserBundle\Entity\User:
+        RocketChef\UserBundle\Entity\User:
             algorithm:        md5
             encode_as_base64: false
             iterations:       1
@@ -11,7 +11,7 @@ security:
 
     providers:
         userbundle:
-            entity: { class: Gastro\UserBundle\Entity\User, property: email }
+            entity: { class: RocketChef\UserBundle\Entity\User, property: email }
 
     firewalls:
         dev:
@@ -21,13 +21,13 @@ security:
             pattern: ^/
             provider: userbundle
             form_login:
-                login_path: gastro_user_login
-                check_path: gastro_user_login_check
+                login_path: rocketchef_user_login
+                check_path: rocketchef_user_login_check
                 always_use_default_target_path: true
-                default_target_path: gastro_dashboard
+                default_target_path: rocketchef_dashboard
             logout:
-                path:     gastro_user_logout
-                target:   gastro_user_login
+                path:     rocketchef_user_logout
+                target:   rocketchef_user_login
             anonymous:    true
             security: true
 

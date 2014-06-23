@@ -1,0 +1,53 @@
+{% extends 'RocketChefUserBundle::layoutoffline.html.twig' %}
+{% block page_content_login %}
+    <div class="portlet-heading login-heading">
+        <div class="portlet-title">
+            <h4><strong>{% block login_title %}{{ 'security.login.title'|trans }}{% endblock %}</strong>
+            </h4>
+        </div>
+        <div class="portlet-widgets">
+            {% if newUserAllowed %}
+                <a href="{{ path('rocketchef_user_register') }}">
+                    <button class="btn btn-white btn-xs"><i class="fa fa-plus-circle"></i> S'inscrire</button>
+                </a>
+            {% endif %}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="portlet-body">
+        {% if error %}
+            <div class="alert alert-danger"><i class="fa fa-warning"></i> {{ error.message|trans }}</div>
+        {% endif %}
+        {% include 'BraincraftedBootstrapBundle::flash.html.twig' with { 'close': false } %}
+        <form action="{{ path("rocketchef_user_login_check") }}" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <label class="sr-only" for="email">Email address</label>
+                    <input class="form-control" placeholder="{{ 'security.login.email'|trans }}" type="text"
+                           id="username" name="_username"
+                           value="{{ last_username }}" required="required">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <input class="form-control" placeholder="{{ 'security.login.password'|trans }}"
+                           id="password" name="_password" type="password" value=""
+                           required="required">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="remember_me" name="_remember_me"
+                               value="on">{{ 'security.login.remember_me'|trans }}
+                    </label>
+                </div>
+                <br>
+                <input class="btn btn-lg btn-blue btn-block" type="submit" id="_submit" name="_submit"
+                       value="{{ 'security.login.submit'|trans }}"/>
+            </fieldset>
+            <br>
+
+            <p class="small">
+                <a href="#">{{ 'security.login.forgot'|trans }}</a>
+            </p>
+        </form>
+    </div>
+{% endblock page_content_login %}

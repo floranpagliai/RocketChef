@@ -1,7 +1,0 @@
-parameters:
-#    gastro_recipe_book.example.class: Gastro\RecipeBookBundle\Example
-
-services:
-#    gastro_recipe_book.example:
-#        class: %gastro_recipe_book.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

@@ -24,14 +24,14 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
 
-            new Gastro\DataBundle\GastroDataBundle(),
-            new Gastro\RecipeBookBundle\GastroRecipeBookBundle(),
-            new Gastro\DashboardBundle\GastroDashboardBundle(),
-            new Gastro\UserBundle\GastroUserBundle(),
+            new RocketChef\DataBundle\RocketChefDataBundle(),
+            new RocketChef\RecipeBookBundle\RocketChefRecipeBookBundle(),
+            new RocketChef\DashboardBundle\RocketChefDashboardBundle(),
+            new RocketChef\UserBundle\RocketChefUserBundle(),
+            new RocketChef\MenuBundle\RocketChefMenuBundle(),
+            new RocketChef\SettingBundle\RocketChefSettingBundle(),
 
             new Utils\WidgetBundle\WidgetBundle(),
-            new Gastro\MenuBundle\GastroMenuBundle(),
-            new Gastro\SettingBundle\GastroSettingBundle(),
             new Utils\NotifyMessengerBundle\UtilsNotifyMessengerBundle(),
             new Site\SiteBundle\SiteSiteBundle(),
         );
