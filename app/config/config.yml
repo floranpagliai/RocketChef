@@ -48,6 +48,10 @@ assetic:
                 - less
                 - cssrewrite
             output: css/font-awesome.css
+        pace_js:
+            inputs:
+                - %kernel.root_dir%/Resources/js/pace.js/pace.min.js
+            output: js/pace.min.js
 
 
 braincrafted_bootstrap:

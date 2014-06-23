@@ -1,6 +1,6 @@
-_index:
-    pattern: /
-    defaults:  { _controller: GastroUserBundle:Security:login }
+site_site:
+    resource: "@SiteSiteBundle/Resources/config/routing.yml"
+    prefix:   /
 gastro_user:
     resource: "@GastroUserBundle/Resources/config/routing.yml"
     prefix:   /

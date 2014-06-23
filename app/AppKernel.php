@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Gastro\MenuBundle\GastroMenuBundle(),
             new Gastro\SettingBundle\GastroSettingBundle(),
             new Utils\NotifyMessengerBundle\UtilsNotifyMessengerBundle(),
+            new Site\SiteBundle\SiteSiteBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
