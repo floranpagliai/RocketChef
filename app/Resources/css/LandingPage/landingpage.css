@@ -92,9 +92,9 @@ a:after {
 
 .btn-theme:hover,
 .btn-theme:focus {
-	border-color: #2980b9; /* change to darker hue than bg hover color */
+	border-color: #16a040; /* change to darker hue than bg hover color */
 	background-color: transparent;
-	color: #2980b9;
+	color: #16a040;
 	box-shadow: none;
 }
 
@@ -108,7 +108,7 @@ a:after {
 .btn-theme2:active {
 	border-color: #fff;
 	background-color: #fff;
-	color: #2980b9;
+	color: #16a040;
 	box-shadow: none;
 }
 
@@ -177,7 +177,7 @@ a:after {
 .navbar-default .navbar-right a[type="button"]:hover,
 .navbar-default .navbar-right a[type="button"]:focus {
 	background-color: transparent;
-	color: #2980b9;
+	color: #16a040;
 }
 
 
@@ -188,7 +188,7 @@ a:after {
 /* Header Wrap */
 
 .headerwrap {
-	background: url("/img/landingpage/header-bg.jpg") no-repeat center top;
+	background: url("bundles/sitesite/img/header-bg.jpg") no-repeat center top;
 	background-size: cover;
 	padding-top: 80px;
 }
@@ -258,7 +258,7 @@ a:after {
 /* Divider 1 & 2 Wrap */
 
 .divider01 {
-	background: url("/img/landingpage/divider-1.jpg") no-repeat center center;
+	background: url("bundles/sitesite/divider-1.jpg") no-repeat center center;
 	background-size: cover;
 	min-height: 400px;
 	padding-top: 120px;
