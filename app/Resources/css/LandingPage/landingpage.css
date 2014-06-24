@@ -188,7 +188,7 @@ a:after {
 /* Header Wrap */
 
 .headerwrap {
-	background: url("bundles/sitesite/img/header-bg.jpg") no-repeat center top;
+	background: url("bundles/sitesite/img/retina_wood.png");
 	background-size: cover;
 	padding-top: 80px;
 }
@@ -354,8 +354,8 @@ a:after {
 .footerwrap {
 	background-color: #333;
 	color: #777;
-	padding-top: 80px;
-	padding-bottom: 100px;
+	padding-top: 40px;
+	padding-bottom: 50px;
 }
 
 .footerwrap h3 {

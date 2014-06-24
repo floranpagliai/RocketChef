@@ -24,6 +24,10 @@ a, a:hover, a:active, a:focus {
     padding-bottom: 30px;
 }
 
+.sidebar-nav li.divider {
+	border-top: solid 1px #1b1e23;
+}
+
 .sidebar-nav li.side-user {
     display: block;
     width: 100%;
@@ -45,9 +49,6 @@ a, a:hover, a:active, a:focus {
     color: #9aa4af;
 }
 
-.sidebar-nav .side-user .welcome .fa {
-    padding-right: 0;
-}
 
 .sidebar-nav .side-user .name {
     margin: 0;
@@ -62,11 +63,15 @@ a, a:hover, a:active, a:focus {
     color: #fff;
 }
 
+.sidebar-nav .side-user .fa:hover {
+	color: #e74c3c;
+}
+
 #sidebar-wrapper {
 	margin-left: -200px;
 	left: 200px;
 	width: 200px;
-	background: #34495E;
+	background: #2E333B;
 	position: fixed;
 	height: 100%;
 	overflow-y: auto;
@@ -92,7 +97,7 @@ a, a:hover, a:active, a:focus {
 }
 .sidebar-nav li.sidebar-brand {
     line-height: 40px;
-    background: #2C3E50;
+    background: #34495e;
     font-size:18px;
     border: none;
     letter-spacing: 2px;
@@ -112,12 +117,26 @@ a, a:hover, a:active, a:focus {
 	color: #fff;
 	display: block;
 	text-decoration: none;
+	border-left: solid 4px transparent;
 }
 
 .sidebar-nav li.sidebar-btn a:hover {
-	color: #fff;
 	background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li.sidebar-btn a:hover,
+.sidebar-nav li.sidebar-btn a:focus {
 	text-decoration: none;
+	border-left: solid 4px #2980b9;
+}
+
+.sidebar-nav li.sidebar-btn a.active {
+	 border-left: solid 4px #2980b9;
+ }
+.sidebar-nav li.sidebar-btn a:hover i.fa,
+.sidebar-nav li.sidebar-btn a:focus i.fa,
+.sidebar-nav li.sidebar-btn a.active i.fa {
+	color: #2980b9;
 }
 
 .sidebar-nav li.sidebar-brand a:hover {
@@ -126,12 +145,6 @@ a, a:hover, a:active, a:focus {
     -moz-transition: opacity 0.7s ease-in-out;
     transition: opacity 0.7s ease-in-out;
     text-decoration: none;
-}
-
-.sidebar-nav li.sidebar-btn a:active,
-.sidebar-nav li.sidebar-btn a:focus {
-	text-decoration: none;
-	outline: medium none;
 }
 
 .sidebar-nav  li.sidebar-btn i.fa {
@@ -319,4 +332,23 @@ a.list-group-item:focus,
 .nav-tabs .open > a:hover,
 .nav-tabs .open > a:focus {
 	border-color: #35495e;
+}
+
+.dataTables_filter input {
+	border-color:#EDF0F5;
+	height:34px;
+	margin-left:10px;
+}
+
+.dataTables_filter input, .dataTables_length select {
+	background:#EDF0F5;
+	border:1px solid #34495e;
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	color:#555555;
+	font-size:12px;
+	line-height:1.42857143;
+	padding:6px 12px;
 }

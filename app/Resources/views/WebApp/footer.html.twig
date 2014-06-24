@@ -2,7 +2,7 @@
 {% javascripts
 'js/bootstrap.js'
 '%kernel.root_dir%/Resources/js/*'%}
-<script type="text/javascript" src="{{ asset_url }}"></script>
+<script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 {#<script type="text/javascript" src="http://5.135.165.207:8080/s/d41d8cd98f00b204e9800998ecf8427e/fr_FRs565z7-1988229788/6261/4/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=4a751eb7"></script>#}
 {#<script type="text/javascript" src="http://5.135.165.207:8080/s/d41d8cd98f00b204e9800998ecf8427e/fr_FRs565z7-1988229788/6261/4/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=928954fe"></script>#}
@@ -10,6 +10,21 @@
     $(document).ready(function () {
         {% block document_ready %}{% endblock %}
     });
+
+    $(function() {
+        $('.easy-pie-chart').easyPieChart({
+            barColor: "rgba(255,255,255,.5)",
+            trackColor: "rgba(255,255,255,.5)",
+            scaleColor: "rgba(255,255,255,.5)",
+            lineWidth: 20,
+            animate: 1,
+            size: 180,
+            onStep: function(from, to, percent) {
+                $(this.el).find('.percent').text(Math.round(percent));
+            }
+        });
+    });
+
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("active");
@@ -19,7 +34,6 @@
     $(".portlet-widgets .fa-chevron-down, .portlet-widgets .fa-chevron-up").click(function() {
         $(this).toggleClass("fa-chevron-down fa-chevron-up");
     });
-
 
     $(document).ready(function () {
         var aoColums = [];
