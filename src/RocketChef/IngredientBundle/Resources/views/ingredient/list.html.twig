@@ -14,11 +14,14 @@
                 </div>
                 <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
                     <div class="portlet-body">
-                        {% if recipes  %}
+                        {% if ingredients is defined  %}
                             <table id="dataTable" class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th width="25%">Name</th>
+                                    <th width="9%">Price</th>
+                                    <th width="9%">Utilisé dans</th>
+                                    <th width="9%" class="no_sort btn-table"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -26,6 +29,22 @@
                                     <tr>
                                         <td>
                                             <a href="{{ path('rocketchef_recipe_book_show', {'recipeId' : ingredient.id, 'recipeName' : ingredient.name}) }}">{{ ingredient.name|capitalize }}</a>
+                                        </td>
+                                        <td>{{ ingredient.priceForUnit }}
+                                        {% if ingredient.unit == constant('RocketChef\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
+                                            {{ 'global.currency'|trans }}/Kg
+                                        {% elseif ingredient.unit == constant('RocketChef\\DataBundle\\Entity\\Ingredient::UNIT_LITER') %}
+                                            {{ 'global.currency'|trans }}/L
+                                        {% else %}
+                                            {{ 'global.currency'|trans }}/Pce
+                                        {% endif %}</td>
+                                        <td>{{ ingredient.recipes.count }} recette(s)</td>
+                                        <td class="tooltips">
+                                            <a href="{{ path('rocketchef_ingredient_delete', {'ingredientId': ingredient.id}) }}"
+                                               class="btn btn-sm btn-red btn-block" data-toggle="tooltip"
+                                               data-placement="top" data-original-title="Delete ingredient" onclick="return confirm('Supprimer l\'ingredient ? Il sera aussi supprimé des recettes.')">
+                                                <i class="fa fa-times"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 {% endfor %}

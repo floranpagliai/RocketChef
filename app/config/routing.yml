@@ -3,7 +3,7 @@ site_site:
     prefix:   /
 rocketchef_user:
     resource: "@RocketChefUserBundle/Resources/config/routing.yml"
-    prefix:   /webapp
+    prefix:   /
 rocketchef_menu:
     resource: "@RocketChefMenuBundle/Resources/config/routing.yml"
     prefix:   /webapp

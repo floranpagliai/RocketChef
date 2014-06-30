@@ -6,3 +6,6 @@ rocketchef_ingredient:
 rocketchef_ingredient_add:
     pattern:  /ingredient/add
     defaults: { _controller: RocketChefIngredientBundle:Ingredient:index }
+rocketchef_ingredient_delete:
+    pattern:  /ingredient-book/delete/{ingredientId}-{urlRedirect}
+    defaults: { _controller: RocketChefIngredientBundle:Action:delete, urlRedirect: null }

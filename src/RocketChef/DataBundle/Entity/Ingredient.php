@@ -57,7 +57,7 @@ class Ingredient {
     protected $recipes;
 
     /**
-     * @ORM\ManyToOne(targetEntity="RocketChef\UserBundle\Entity\Restaurant", inversedBy="ingredients", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="RocketChef\UserBundle\Entity\Restaurant", inversedBy="ingredients")
      */
     protected $restaurant;
 

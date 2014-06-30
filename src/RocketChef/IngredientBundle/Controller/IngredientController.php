@@ -15,7 +15,9 @@ class IngredientController extends Controller
 {
     public function indexAction()
     {
-        $paramsRender = array();
+        $ingredients = $this->container->get('security.context')->getToken()->getUser()->getRestaurant()->getIngredients();
+
+        $paramsRender = array('ingredients' => $ingredients);
 
         return $this->render('RocketChefIngredientBundle:ingredient:list.html.twig', $paramsRender);
     }
