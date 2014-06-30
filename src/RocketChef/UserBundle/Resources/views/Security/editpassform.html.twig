@@ -5,17 +5,17 @@
         {{ form_errors(form.password.second, { 'attr' : { 'class' : 'alert alert-danger'} }) }}
     <div class="form-group">
         <label class="sr-only" for="password">Password</label>
-        {{ form_widget(form.oldPassword, { 'attr': { 'placeholder': 'security.login.password'|trans } } ) }}
+        {{ form_widget(form.oldPassword, { 'attr': { 'placeholder': 'user.form.password_old'|trans } } ) }}
     </div>
             <div class="form-group">
                 <label class="sr-only" for="password">Password</label>
-                {{ form_widget(form.password.first, { 'attr': { 'placeholder': 'security.login.password'|trans } } ) }}
+                {{ form_widget(form.password.first, { 'attr': { 'placeholder': 'user.form.password'|trans } } ) }}
             </div>
             <div class="form-group">
                 <label class="sr-only" for="password">Password</label>
-                {{ form_widget(form.password.second, { 'attr': { 'placeholder': 'security.login.passwordValidation'|trans } } ) }}
+                {{ form_widget(form.password.second, { 'attr': { 'placeholder': 'user.form.password_validation'|trans } } ) }}
             </div>
             <input class="btn btn-sm btn-blue" type="submit" id="_submit" name="_submit"
-                   value="Sauvegarder"/>
+                   value="{{ 'user.action.save'|trans }}"/>
     {{ form_end(form) }}
 </div>

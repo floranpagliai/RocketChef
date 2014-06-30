@@ -39,7 +39,7 @@ class SecurityController extends Controller
         ));
     }
 
-    public function registerAction($request)
+    public function registerAction(Request $request)
     {
         if (!$this->container->getParameter('security.new_user_allowed'))
             return $this->redirect($this->generateUrl('rocketchef_user_login'));
@@ -53,6 +53,9 @@ class SecurityController extends Controller
             $validator = $this->get('validator');
             $errors = $validator->validate($user);
             if ($form->isValid()) {
+                $encoder = $this->get('security.encoder_factory')->getEncoder($user);
+                $user->setPassword($encoder->encodePassword($user->getPassword(), null));
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();

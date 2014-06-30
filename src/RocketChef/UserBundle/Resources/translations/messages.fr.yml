@@ -1,0 +1,19 @@
+user:
+    action:
+        login: "Connexion"
+        logout: "Déconnexion"
+        register: "Inscription"
+        forgot: "Mot de passe oublié ?"
+        remember_me: "Se souvenir de moi"
+        save: "Sauvegarder"
+    title:
+        login: "Se connecter"
+        register: "S'inscrire"
+    form:
+        email: "Email"
+        password: "Mot de passe"
+        password_validation: "Mot de passe (validation)"
+        password_old: "Ancien mot de passe"
+        firstname: "Prénom"
+        lastname: "Nom"
+        restaurant_name: "Nom du restaurant"
