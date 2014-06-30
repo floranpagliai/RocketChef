@@ -25,7 +25,7 @@
 
                             <div class="col-sm-10">
                                 <div id="userSettingsContent" class="tab-content">
-                                        {% render url('rocketchef_user_change_pass') %}
+                                    {% render controller('RocketChefUserBundle:Security:editPass', { 'request' : app.request }) %}
                                 </div>
                             </div>
                         </div>

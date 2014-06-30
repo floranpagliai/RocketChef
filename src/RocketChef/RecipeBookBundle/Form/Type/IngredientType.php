@@ -8,8 +8,11 @@
 
 namespace RocketChef\RecipeBookBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -24,9 +27,43 @@ class IngredientType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
-        $builder->add('priceForUnit', 'money');
-        $builder->add('unit', 'choice', array( 'choices'   => array(0 => '/Unité', 1 => '/Kg', 2 => '/L')));
+        $restaurant = $this->securityContext->getToken()->getUser()->getRestaurant();
+
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function(FormEvent $event) use ($restaurant) {
+                $form = $event->getForm();
+                $ingredient = $event->getData();
+
+                $formOptions = array(
+                    'empty_value' => 'Choose an option',
+                    'class' => 'RocketChef\DataBundle\Entity\Ingredient',
+                    'property' => 'name',
+                    'query_builder' => function(EntityRepository $er) use ($restaurant) {
+                            return $er->createQueryBuilder('i');
+                        },
+                );
+
+                $formOptions2 = array(
+                    'empty_value' => $ingredient,
+                    'class' => 'RocketChef\DataBundle\Entity\Ingredient',
+                    'property' => 'name',
+                    'query_builder' => function(EntityRepository $er) use ($restaurant) {
+                            return $er->createQueryBuilder('i');
+                        },
+                );
+
+                if (!$ingredient) {
+                    $form->add('name', 'entity', $formOptions);
+                } else
+                    $form->add('name', 'entity', $formOptions2);
+            }
+        );
+
+        //$builder->add('name');
+        //$builder->add('priceForUnit', 'money');
+        //$builder->add('unit', 'choice', array( 'choices'   => array(0 => '/Unité', 1 => '/Kg', 2 => '/L')));
+
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

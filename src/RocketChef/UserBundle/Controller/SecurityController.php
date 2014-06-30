@@ -7,6 +7,7 @@ use RocketChef\UserBundle\Form\Type\UserPasswordType;
 use RocketChef\UserBundle\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
@@ -38,7 +39,7 @@ class SecurityController extends Controller
         ));
     }
 
-    public function registerAction(Request $request)
+    public function registerAction($request)
     {
         if (!$this->container->getParameter('security.new_user_allowed'))
             return $this->redirect($this->generateUrl('rocketchef_user_login'));
@@ -65,26 +66,25 @@ class SecurityController extends Controller
         return $this->render('RocketChefUserBundle:Security:register.html.twig', $paramsRender);
     }
 
-    public function editPassAction(Request $request)
+    public function editPassAction($request)
     {
         $user = $this->get('security.context')->getToken()->getUser();
 
-        $form = $this->createForm(new UserPasswordType(), $user, array(
-            'action' => $this->generateUrl('rocketchef_user_change_pass')));
+        $form = $this->createForm(new UserPasswordType(), $user);
+        $form->add('oldPassword', 'password', array('mapped' => false));
 
-            $form->submit($request);
-            if ($form->isValid()) {
-                $encoder = $this->get('security.encoder_factory')->getEncoder($user);
-                $user->setPassword($encoder->encodePassword($user->getPassword(), null));
+        $form->submit($request);
+        if ($form->isValid()) {
+            $encoder = $this->get('security.encoder_factory')->getEncoder($user);
+            $user->setPassword($encoder->encodePassword($user->getPassword(), null));
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($user);
-                $em->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
 
-                $flash = $this->get('braincrafted_bootstrap.flash');
-                $flash->success('Mot de passe changé');
-                return $this->redirect($request->headers->get('referer'));
-            }
+            $flash = $this->get('braincrafted_bootstrap.flash');
+            $flash->success('Mot de passe changé');
+        }
 
         $paramsRender = array('form' => $form->createView());
         return $this->render('RocketChefUserBundle:Security:editpassform.html.twig', $paramsRender);

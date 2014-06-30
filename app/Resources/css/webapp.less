@@ -1,3 +1,5 @@
+@import "vars/color.less";
+
 body {
     font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -8,7 +10,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a, a:hover, a:active, a:focus {
-    color:#34495E;
+    color: @darkblue;
 }
 
 #wrapper #content-header h1 {
@@ -64,7 +66,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .sidebar-nav .side-user .fa:hover {
-	color: #e74c3c;
+	color: @red;
 }
 
 #sidebar-wrapper {
@@ -97,7 +99,7 @@ a, a:hover, a:active, a:focus {
 }
 .sidebar-nav li.sidebar-brand {
     line-height: 40px;
-    background: #34495e;
+    background: @darkblue;
     font-size:18px;
     border: none;
     letter-spacing: 2px;
@@ -127,7 +129,7 @@ a, a:hover, a:active, a:focus {
 .sidebar-nav li.sidebar-btn a:hover,
 .sidebar-nav li.sidebar-btn a:focus {
 	text-decoration: none;
-	border-left: solid 4px #2980b9;
+	border-left: solid 4px @blue;
 }
 
 .sidebar-nav li.sidebar-btn a.active {
@@ -136,7 +138,7 @@ a, a:hover, a:active, a:focus {
 .sidebar-nav li.sidebar-btn a:hover i.fa,
 .sidebar-nav li.sidebar-btn a:focus i.fa,
 .sidebar-nav li.sidebar-btn a.active i.fa {
-	color: #2980b9;
+	color: @blue;
 }
 
 .sidebar-nav li.sidebar-brand a:hover {
@@ -195,7 +197,7 @@ a, a:hover, a:active, a:focus {
 .btn-dark-blue {
     border-color: #314559;
     color: #fff;
-    background-color: #34495e;
+    background-color: @darkblue;
 }
 
 .btn-default:hover,
@@ -300,8 +302,8 @@ a.list-group-item.active:focus,
 .pagination>.active>span:hover,
 .pagination>.active>a:focus,
 .pagination>.active>span:focus {
-	border-color: #34495e;
-	background-color: #34495e;
+	border-color: @darkblue;
+	background-color: @darkblue;
 }
 
 .nav-tabs,
@@ -331,7 +333,7 @@ a.list-group-item:focus,
 .nav-tabs .open > a,
 .nav-tabs .open > a:hover,
 .nav-tabs .open > a:focus {
-	border-color: #35495e;
+	border-color: @darkblue;
 }
 
 .dataTables_filter input {
@@ -342,7 +344,7 @@ a.list-group-item:focus,
 
 .dataTables_filter input, .dataTables_length select {
 	background:#EDF0F5;
-	border:1px solid #34495e;
+	border:1px solid @darkblue;
 	border-bottom-left-radius:3px;
 	border-bottom-right-radius:3px;
 	border-top-left-radius:3px;

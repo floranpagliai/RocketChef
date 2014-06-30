@@ -42,7 +42,7 @@
                                     <td class="hidden-xs">
                                         {{ recipe.price }}{{ 'global.currency'|trans }}
                                     </td>
-                                    <td class="tooltip-content">
+                                    <td class="tooltips">
                                     {% if recipe.inMenu %}
                                             <a href="{{ path('rocketchef_menu_remove_recipe', {'recipeId': recipe.id}) }}" class="btn btn-sm btn-green btn-hover-red btn-block" data-toggle="tooltip"
                                                data-placement="top" data-original-title="{{ 'menu.remove'|trans }}">
@@ -55,14 +55,14 @@
                                             </a>
                                     {% endif %}
                                     </td>
-                                    <td class="tooltip-content">
+                                    <td class="tooltips">
                                         <a href="{{ path('rocketchef_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"
                                            class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
                                            data-placement="top" data-original-title="Edit recipe">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                     </td>
-                                    <td class="tooltip-content">
+                                    <td class="tooltips">
                                         <a href="{{ path('rocketchef_recipe_book_delete', {'recipeId': recipe.id}) }}"
                                            class="btn btn-sm btn-red btn-block" data-toggle="tooltip"
                                            data-placement="top" data-original-title="Delete recipe" onclick="return confirm('Delete recipe ?')">

@@ -2,7 +2,7 @@
     margin-bottom: 15px;
     padding: 15px;
     overflow: hidden;
-    color: #fff;
+    color: white;
 	text-align: center;
 }
 
@@ -21,7 +21,7 @@
 .tile h4 a,
 .tile h5 a,
 .tile h6 a {
-    color: #fff;
+    color: white;
 }
 
 .tile-img {

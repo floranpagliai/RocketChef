@@ -61,8 +61,8 @@
                                     <th width="25%">{{ 'ingredient.name'|trans }}</th>
                                     <th width="9%">{{ 'ingredient.quantity'|trans }}</th>
                                     <th width="9%">{{ 'ingredient.unit'|trans }}</th>
-                                    <th width="9%">{{ 'ingredient.price'|trans }}</th>
-                                    <th width="9%">{{ 'ingredient.unit'|trans }}</th>
+                                    {#<th width="9%">{{ 'ingredient.price'|trans }}</th>
+                                    <th width="9%">{{ 'ingredient.unit'|trans }}</th>#}
                                     <th class="btn-table"></th>
                                 </tr>
                                 </thead>
@@ -70,8 +70,8 @@
                                     <td>{{ form_widget(formData.ingredient.name) }}</td>
                                     <td>{{ form_widget(formData.qte) }} </td>
                                     <td>{{ form_widget(formData.unit) }}</td>
-                                    <td>{{ form_widget(formData.ingredient.priceForUnit) }}</td>
-                                    <td>{{ form_widget(formData.ingredient.unit) }}</td>
+                                    {#<td>{{ form_widget(formData.ingredient.priceForUnit) }}</td>
+                                    <td>{{ form_widget(formData.ingredient.unit) }}</td>#}
                                 {% endmacro %}
                                 <tbody class="ingredients"
                                        data-prototype="{{ _self.tagCollectionItem(form.RecipeIngredient.vars.prototype)|e }}">

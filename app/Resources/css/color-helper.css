@@ -1,73 +1,54 @@
 .dark-blue {
-    background-color: #34495e;
+  background-color: #34495e;
 }
-
 .green {
-    background-color: #16a040;
+  background-color: #16a040;
 }
-
 .blue {
-    background-color: #2980b9;
+  background-color: #2980b9;
 }
-
 .orange {
-    background-color: #f39c12;
+  background-color: #f39c12;
 }
-
 .red {
-    background-color: #e74c3c;
+  background-color: #e74c3c;
 }
-
 .purple {
-    background-color: #8e44ad;
+  background-color: #8e44ad;
 }
-
 .dark-gray {
-    background-color: #7f8c8d;
+  background-color: #7f8c8d;
 }
-
 .gray {
-    background-color: #95a5a6;
+  background-color: #95a5a6;
 }
-
 .light-gray {
-    background-color: #bdc3c7;
+  background-color: #bdc3c7;
 }
-
 .yellow {
-    background-color: #f1c40f;
+  background-color: #f1c40f;
 }
-
-
-
 .text-dark-blue {
-    color: #34495e;
+  color: #34495e;
 }
-
 .text-green {
-    color: #16a040;
+  color: #16a040;
 }
-
 .text-blue {
-    color: #2980b9;
+  color: #2980b9;
 }
-
 .text-orange {
-    color: #f39c12;
+  color: #f39c12;
 }
-
 .text-red {
-    color: #e74c3c;
+  color: #e74c3c;
 }
-
 .text-purple {
-    color: #8e44ad;
+  color: #8e44ad;
 }
-
 .text-faded {
-    color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
-
 .text-white {
-	color: #fff;
+  color: #fff;
 }

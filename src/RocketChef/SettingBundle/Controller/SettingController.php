@@ -9,10 +9,11 @@
 namespace RocketChef\SettingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class SettingController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         return $this->render('RocketChefSettingBundle:setting:setting.html.twig');
     }
