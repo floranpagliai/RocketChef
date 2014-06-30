@@ -1,0 +1,45 @@
+{% extends 'RocketChefIngredientBundle::layout.html.twig' %}
+    {% block page_content %}
+        <div class="col-lg-12">
+            <div class="portlet portlet-default">
+                <div class="portlet-heading">
+                    <div class="portlet-title">
+                        <h4></h4>
+                    </div>
+                    <div class="portlet-widgets">
+                        <a href="{{ path('rocketchef_ingredient_add') }}" class="btn btn-xs btn-primary">
+                            <i class="fa fa-plus"></i> {{ 'ingredient.add'|trans }}</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
+                    <div class="portlet-body">
+                        {% if recipes  %}
+                            <table id="dataTable" class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th width="25%">Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for ingredient in ingredients %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('rocketchef_recipe_book_show', {'recipeId' : ingredient.id, 'recipeName' : ingredient.name}) }}">{{ ingredient.name|capitalize }}</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <div class="well text-center">
+                                <p>Aucun ingredient.</p>
+                                <a href="{{ path('rocketchef_ingredient_add') }}" class="btn btn-lg btn-primary">
+                                    <i class="fa fa-plus"></i> {{ 'ingredient.add'|trans }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

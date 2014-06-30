@@ -3,7 +3,7 @@ site_site:
     prefix:   /
 rocketchef_user:
     resource: "@RocketChefUserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /webapp
 rocketchef_menu:
     resource: "@RocketChefMenuBundle/Resources/config/routing.yml"
     prefix:   /webapp
@@ -12,6 +12,9 @@ rocketchef_dashboard:
     prefix:   /webapp
 rocketchef_recipe_book:
     resource: "@RocketChefRecipeBookBundle/Resources/config/routing.yml"
+    prefix:   /webapp
+rocket_chef_ingredient:
+    resource: "@RocketChefIngredientBundle/Resources/config/routing.yml"
     prefix:   /webapp
 rocketchef_setting:
     resource: "@RocketChefSettingBundle/Resources/config/routing.yml"

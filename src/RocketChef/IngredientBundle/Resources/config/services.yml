@@ -1,0 +1,7 @@
+parameters:
+#    rocket_chef_ingredient.example.class: RocketChef\IngredientBundle\Example
+
+services:
+#    rocket_chef_ingredient.example:
+#        class: %rocket_chef_ingredient.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

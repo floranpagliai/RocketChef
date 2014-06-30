@@ -1,0 +1,8 @@
+rocketchef_ingredient:
+    pattern:  /ingredient
+    defaults: { _controller: RocketChefIngredientBundle:Ingredient:index }
+    requirements:
+        _method: GET
+rocketchef_ingredient_add:
+    pattern:  /ingredient/add
+    defaults: { _controller: RocketChefIngredientBundle:Ingredient:index }

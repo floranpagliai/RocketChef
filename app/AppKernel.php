@@ -30,10 +30,13 @@ class AppKernel extends Kernel
             new RocketChef\UserBundle\RocketChefUserBundle(),
             new RocketChef\MenuBundle\RocketChefMenuBundle(),
             new RocketChef\SettingBundle\RocketChefSettingBundle(),
+            new RocketChef\IngredientBundle\RocketChefIngredientBundle(),
 
             new Utils\WidgetBundle\WidgetBundle(),
             new Utils\NotifyMessengerBundle\UtilsNotifyMessengerBundle(),
+
             new Site\SiteBundle\SiteSiteBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

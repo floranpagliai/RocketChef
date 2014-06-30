@@ -6,7 +6,7 @@
  * Time: 16:59
  */
 
-namespace RocketChef\RecipeBookBundle\Form\Type;
+namespace RocketChef\DataBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
@@ -18,19 +18,12 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 class IngredientType extends AbstractType
 {
-    private $securityContext;
-
-    public function __construct(SecurityContext $securityContext)
-    {
-        $this->securityContext = $securityContext;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
-        $builder->add('priceForUnit', 'money');
-        $builder->add('unit', 'choice', array( 'choices'   => array(0 => '/Unité', 1 => '/Kg', 2 => '/L')));
-
+        $builder->add('name', 'text', array('read_only' => true));
+        $builder->add('priceForUnit', 'money', array('read_only' => true));
+        $builder->add('unit', 'choice', array('choices' => array(0 => '/Unité', 1 => '/Kg', 2 => '/L'),
+                      'attr'=> array('disabled'=>'disabled')));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

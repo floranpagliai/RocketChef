@@ -3,7 +3,7 @@
 namespace RocketChef\RecipeBookBundle\Controller;
 
 use RocketChef\DataBundle\Entity\Recipe;
-use RocketChef\RecipeBookBundle\Form\Type\RecipeType;
+use RocketChef\DataBundle\Form\Type\RecipeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

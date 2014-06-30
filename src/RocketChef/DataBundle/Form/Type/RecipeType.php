@@ -6,7 +6,7 @@
  * Time: 17:04
  */
 
-namespace RocketChef\RecipeBookBundle\Form\Type;
+namespace RocketChef\DataBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
