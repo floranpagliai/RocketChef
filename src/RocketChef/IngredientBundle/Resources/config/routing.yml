@@ -4,7 +4,7 @@ rocketchef_ingredient:
     requirements:
         _method: GET
 rocketchef_ingredient_show:
-    pattern:  /ingredient/edit/{ingredientId}-{ingredientName}
+    pattern:  /ingredient/show/{ingredientId}-{ingredientName}
     defaults: { _controller: RocketChefIngredientBundle:Ingredient:show }
     requirements:
         _method: GET

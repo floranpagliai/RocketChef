@@ -5,8 +5,13 @@
     </li>
     <li><a href="{{ path('rocketchef_ingredient') }}"><i class="fa fa-tags "></i> {{ 'ingredient.title'|trans }}</a>
     </li>
-    <li class="active"><i class="fa fa-tag"></i> {{ 'ingredient.add'|capitalize }}</li>
+    <li class="active"><i class="fa fa-tag"></i> {{ 'ingredient.edit'|capitalize }}</li>
 {% endblock %}
+
 {% block page_content %}
-    {% include 'RocketChefIngredientBundle:ingredient:form.html.twig' %}
+    {% embed 'RocketChefIngredientBundle:ingredient:form.html.twig' %}
+        {% block recipe_form_comment %}
+            <h4>{{ 'ingredient.edit.comment'|trans }}</h4>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}
