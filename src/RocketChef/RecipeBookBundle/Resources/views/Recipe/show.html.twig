@@ -27,6 +27,10 @@
                             <span class="caret"/>
                         </button>
                         <ul class="dropdown-menu" role="menu">
+                            {#<li>#}
+                                {#<a href="{{ path('rocketchef_recipe_book_print', {'recipeId': recipe.id}) }}">#}
+                                    {#<i class="fa fa-print"></i> Print Recipe</a>#}
+                            {#</li>#}
                             <li>
                                 {% if recipe.inMenu %}
                                     <a href="{{ path('rocketchef_menu_remove_recipe', {'recipeId': recipe.id}) }}">

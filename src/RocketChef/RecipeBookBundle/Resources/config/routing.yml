@@ -17,3 +17,8 @@ rocketchef_recipe_book_edit:
 rocketchef_recipe_book_delete:
     pattern:  /recipe-book/delete/{recipeId}-{urlRedirect}
     defaults: { _controller: RocketChefRecipeBookBundle:Action:delete, urlRedirect: null }
+rocketchef_recipe_book_print:
+    pattern:  /recipe-book/print/{recipeId}
+    defaults: { _controller: RocketChefRecipeBookBundle:Action:print }
+    requirements:
+        _method: GET

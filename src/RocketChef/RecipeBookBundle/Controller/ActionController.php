@@ -10,13 +10,14 @@ namespace RocketChef\RecipeBookBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ActionController extends Controller
 {
     public function deleteAction(Request $request, $recipeId, $urlRedirect)
     {
         $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
-        $recipe = $this->get('rocketchef_data.recipe.provider')->getRecipeById($recipeId);
+        $recipe = $this->getDoctrine()->getRepository('RocketChefDataBundle:Recipe')->find($recipeId);
 
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $em = $this->getDoctrine()->getManager();
@@ -29,4 +30,10 @@ class ActionController extends Controller
         else
             return $this->redirect($this->generateUrl($urlRedirect));
     }
+
+    public function printAction($recipeId)
+    {
+
+    }
+
 } 

@@ -14,3 +14,5 @@ ingredient:
         price: "Prix d'achat"
         use_in: "Utilisé dans"
         unit: "Unité"
+    warn:
+        delete: "Supprimer l'ingredient ? Il sera aussi supprimé des recettes"
