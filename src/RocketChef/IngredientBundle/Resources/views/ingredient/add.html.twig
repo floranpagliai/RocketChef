@@ -3,9 +3,9 @@
 {% block page_content_breadcrumb %}
     <li><a href="{{ path('rocketchef_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
     </li>
-    <li><a href="{{ path('rocketchef_ingredient') }}"><i class="fa fa-tags "></i> {{ 'ingredient.title'|trans }}</a>
+    <li><a href="{{ path('rocketchef_ingredient') }}"><i class="fa fa-tags "></i> {{ 'ingredient.title.ingredients'|trans }}</a>
     </li>
-    <li class="active"><i class="fa fa-tag"></i> {{ 'ingredient.add'|capitalize }}</li>
+    <li class="active"><i class="fa fa-tag"></i> {{ 'ingredient.title.add'|capitalize }}</li>
 {% endblock %}
 {% block page_content %}
     {% include 'RocketChefIngredientBundle:ingredient:form.html.twig' %}

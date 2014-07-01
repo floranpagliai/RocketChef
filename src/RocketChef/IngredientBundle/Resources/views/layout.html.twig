@@ -2,11 +2,11 @@
 {% set menu_selected = 'ingredient' %}
 
 {% block page_content_header %}
-    {{ 'ingredient.title'|trans }}
+    {{ 'ingredient.title.ingredients'|trans }}
     <small></small>
 {% endblock %}
 
 {% block page_content_breadcrumb %}
     <li><a href="{{ path('rocketchef_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a></li>
-    <li class="active"><i class="fa fa-book "></i> {{ 'ingredient.title'|trans }}</li>
+    <li class="active"><i class="fa fa-book "></i> {{ 'ingredient.title.ingredients'|trans }}</li>
 {% endblock %}

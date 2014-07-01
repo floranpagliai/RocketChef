@@ -71,7 +71,8 @@ class IngredientController extends Controller
                 return $this->redirect($this->generateUrl('rocketchef_ingredient'));
             }
         }
-        $paramsRender = array('form' => $form->createView());
+        $paramsRender = array('form' => $form->createView(),
+                              'ingredient' => $ingredientOld);
         return $this->render('RocketChefIngredientBundle:ingredient:edit.html.twig', $paramsRender);
     }
 } 

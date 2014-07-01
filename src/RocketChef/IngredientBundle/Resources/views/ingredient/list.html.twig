@@ -8,7 +8,7 @@
                     </div>
                     <div class="portlet-widgets">
                         <a href="{{ path('rocketchef_ingredient_add') }}" class="btn btn-xs btn-primary">
-                            <i class="fa fa-plus"></i> {{ 'ingredient.add'|trans }}</a>
+                            <i class="fa fa-plus"></i> {{ 'ingredient.action.add'|trans }}</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -18,9 +18,9 @@
                             <table id="dataTable" class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th width="25%">Name</th>
-                                    <th width="9%">Price</th>
-                                    <th width="9%">Utilisé dans</th>
+                                    <th width="25%">{{ 'ingredient.form.name'|trans }}</th>
+                                    <th width="9%">{{ 'ingredient.form.price'|trans }}</th>
+                                    <th width="9%">{{ 'ingredient.form.use_in'|trans }}</th>
                                     <th width="9%" class="no_sort btn-table"></th>
                                     <th width="9%" class="no_sort btn-table"></th>
                                 </tr>
@@ -40,18 +40,18 @@
                                         {% else %}
                                             {{ 'global.currency'|trans }}/Pce
                                         {% endif %}</td>
-                                        <td>{{ ingredient.recipes.count }} recette(s)</td>
+                                        <td>{{ ingredient.recipes.count }} {{ 'recipebook.word.recipe_(s)'|trans }}</td>
                                         <td class="tooltips">
                                             <a href="{{ path('rocketchef_ingredient_edit', {'ingredientId': ingredient.id, 'ingredientName': ingredient.name}) }}"
                                                class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Edit ingredient">
+                                               data-placement="top" data-original-title="{{ 'ingredient.action.edit'|trans }}">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                         </td>
                                         <td class="tooltips">
                                             <a href="{{ path('rocketchef_ingredient_delete', {'ingredientId': ingredient.id}) }}"
                                                class="btn btn-sm btn-red btn-block" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="Delete ingredient" onclick="return confirm('Supprimer l\'ingredient ? Il sera aussi supprimé des recettes.')">
+                                               data-placement="top" data-original-title="{{ 'ingredient.action.delete'|trans }}" onclick="return confirm('Supprimer l\'ingredient ? Il sera aussi supprimé des recettes.')">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>
@@ -61,9 +61,9 @@
                             </table>
                         {% else %}
                             <div class="well text-center">
-                                <p>Aucun ingredient.</p>
+                                <p>{{ 'ingredient.title.empty'|trans }}</p>
                                 <a href="{{ path('rocketchef_ingredient_add') }}" class="btn btn-lg btn-primary">
-                                    <i class="fa fa-plus"></i> {{ 'ingredient.add'|trans }}</a>
+                                    <i class="fa fa-plus"></i> {{ 'ingredient.action.add'|trans }}</a>
                             </div>
                         {% endif %}
                     </div>

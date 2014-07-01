@@ -4,12 +4,12 @@
             <div class="portlet-heading">
                 <div class="portlet-title">
                     {% block recipe_form_comment %}
-                        <h4>{{ 'recipebook.add.comment'|trans }}</h4>
+                        <h4>{{ 'ingredient.title.add'|trans }}</h4>
                     {% endblock %}
                 </div>
                 <div class="portlet-widgets">
                     <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
-                           value="Save ingredient"/>
+                           value="{{ 'ingredient.action.save'|trans }}"/>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -20,9 +20,9 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th width="25%">{{ 'ingredient.name'|trans }}</th>
-                                    <th width="9%">{{ 'ingredient.price'|trans }}</th>
-                                    <th width="9%">{{ 'ingredient.unit'|trans }}</th>
+                                    <th width="25%">{{ 'ingredient.form.name'|trans }}</th>
+                                    <th width="9%">{{ 'ingredient.form.price'|trans }}</th>
+                                    <th width="9%">{{ 'ingredient.form.unit'|trans }}</th>
                                 </tr>
                                 </thead>
 
@@ -42,7 +42,7 @@
             <div class="portlet-footer">
                 <div class="portlet-widgets">
                     <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
-                           value="Save ingredient"/>
+                           value="{{ 'ingredient.action.save'|trans }}"/>
                 </div>
                 <div class="clearfix"></div>
             </div>

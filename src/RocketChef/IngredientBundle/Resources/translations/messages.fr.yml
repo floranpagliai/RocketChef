@@ -1,0 +1,16 @@
+ingredient:
+    action:
+        add: "Ajouter un ingrédient"
+        edit: "Editer l'ingrédient"
+        delete: "Supprimer l'ingrédient"
+        save: "Sauvegarder l'ingrédient"
+    title:
+        ingredients: "Ingrédients"
+        add: "Ajouter un ingrédient"
+        edit: "Modifier un ingrédient"
+        empty: "Aucun ingredient."
+    form:
+        name: "Nom"
+        price: "Prix d'achat"
+        use_in: "Utilisé dans"
+        unit: "Unité"

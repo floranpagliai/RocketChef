@@ -3,15 +3,15 @@
 {% block page_content_breadcrumb %}
     <li><a href="{{ path('rocketchef_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
     </li>
-    <li><a href="{{ path('rocketchef_ingredient') }}"><i class="fa fa-tags "></i> {{ 'ingredient.title'|trans }}</a>
+    <li><a href="{{ path('rocketchef_ingredient') }}"><i class="fa fa-tags "></i> {{ 'ingredient.title.ingredients'|trans }}</a>
     </li>
-    <li class="active"><i class="fa fa-tag"></i> {{ 'ingredient.edit'|capitalize }}</li>
+    <li class="active"><i class="fa fa-tag"></i> {{ 'ingredient.title.edit'|capitalize }}</li>
 {% endblock %}
 
 {% block page_content %}
     {% embed 'RocketChefIngredientBundle:ingredient:form.html.twig' %}
         {% block recipe_form_comment %}
-            <h4>{{ 'ingredient.edit.comment'|trans }}</h4>
+            <h4>{{ ingredient.name|capitalize }}</h4>
         {% endblock %}
     {% endembed %}
 {% endblock %}
