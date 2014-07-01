@@ -3,9 +3,17 @@ rocketchef_ingredient:
     defaults: { _controller: RocketChefIngredientBundle:Ingredient:index }
     requirements:
         _method: GET
+rocketchef_ingredient_show:
+    pattern:  /ingredient/edit/{ingredientId}-{ingredientName}
+    defaults: { _controller: RocketChefIngredientBundle:Ingredient:show }
+    requirements:
+        _method: GET
 rocketchef_ingredient_add:
     pattern:  /ingredient/add
-    defaults: { _controller: RocketChefIngredientBundle:Ingredient:index }
+    defaults: { _controller: RocketChefIngredientBundle:Ingredient:add }
+rocketchef_ingredient_edit:
+    pattern:  /ingredient/edit/{ingredientId}-{ingredientName}
+    defaults: { _controller: RocketChefIngredientBundle:Ingredient:edit }
 rocketchef_ingredient_delete:
     pattern:  /ingredient-book/delete/{ingredientId}-{urlRedirect}
     defaults: { _controller: RocketChefIngredientBundle:Action:delete, urlRedirect: null }

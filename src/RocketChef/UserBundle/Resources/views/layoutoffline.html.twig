@@ -10,8 +10,11 @@
             <div class="portlet portlet-blue">
                 {% block page_content_login %}
                 {% endblock page_content_login %}
-
             </div>
+            <footer style="text-align: center;">
+                <a href="{{ path('_index') }}">{{ 'user.action.return_home'|trans }}</a>
+            </footer>
+
         </div>
     </div>
 </div>

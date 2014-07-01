@@ -1,0 +1,53 @@
+<div class="col-lg-12">
+    {% form_theme form _self %}
+    <form method="POST" {{ form_enctype(form) }} class="form-horizontal">
+        <div class="portlet portlet-default">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    {% block recipe_form_comment %}
+                        <h4>{{ 'recipebook.add.comment'|trans }}</h4>
+                    {% endblock %}
+                </div>
+                <div class="portlet-widgets">
+                    <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
+                           value="Save ingredient"/>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-collapse in" style="height: auto;">
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th width="25%">{{ 'ingredient.name'|trans }}</th>
+                                    <th width="9%">{{ 'ingredient.price'|trans }}</th>
+                                    <th width="9%">{{ 'ingredient.unit'|trans }}</th>
+                                </tr>
+                                </thead>
+
+                                <tbody class="ingredients">
+                                <tr>
+                                    <td>{{ form_widget(form.name) }}</td>
+                                    <td>{{ form_widget(form.priceForUnit) }}</td>
+                                    <td>{{ form_widget(form.unit) }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="portlet-footer">
+                <div class="portlet-widgets">
+                    <input class="btn btn-xs btn-blue" type="submit" id="_submit" name="_submit"
+                           value="Save ingredient"/>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        {{ form_widget(form._token) }}
+    </form>
+</div>

@@ -1,0 +1,52 @@
+{% extends 'RocketChefIngredientBundle::layout.html.twig' %}
+
+{% block page_content_breadcrumb %}
+    <li><a href="{{ path('rocketchef_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
+    </li>
+    <li><a href="{{ path('rocketchef_ingredient') }}"><i class="fa fa-tags "></i> {{ 'ingredient.title'|trans }}</a>
+    </li>
+    <li class="active"><i class="fa fa-tag"></i> {{ ingredient.name|capitalize }}</li>
+{% endblock %}
+    {% block page_content %}
+        <div class="row-fluid">
+            <div class="col-lg-12">
+                <div class="portlet portlet-default">
+                    <div class="portlet-heading">
+                        <div class="portlet-title">
+                            <h4>{{ ingredient.name|capitalize }}</h4>
+                        </div>
+                        <div class="portlet-widgets">
+                            <button type="button" class="btn btn-xs btn-white dropdown-toggle" data-toggle="dropdown">
+                                Actions
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ path('rocketchef_ingredient_edit', {'ingredientId': ingredient.id, 'ingredientName': ingredient.name}) }}">
+                                        <i class="fa fa-pencil"></i> Edit Ingredient</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('rocketchef_ingredient_delete', {'ingredientId': ingredient.id, 'urlRedirect': 'rocketchef_ingredient'}) }}" onclick="return confirm('Delete ingredient ?')">
+                                        <i class="fa fa-times"></i> Delete Ingredient</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-collapse in" style="height: auto;">
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

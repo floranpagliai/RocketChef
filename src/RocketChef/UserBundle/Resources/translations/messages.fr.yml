@@ -6,6 +6,7 @@ user:
         forgot: "Mot de passe oublié ?"
         remember_me: "Se souvenir de moi"
         save: "Sauvegarder"
+        return_home: "Retour sur l'accueil"
     title:
         login: "Se connecter"
         register: "S'inscrire"

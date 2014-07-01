@@ -1,3 +1,6 @@
+_index:
+    pattern:  /
+    defaults: { _controller: SiteSiteBundle:Default:index }
 site_site:
     resource: "@SiteSiteBundle/Resources/config/routing.yml"
     prefix:   /

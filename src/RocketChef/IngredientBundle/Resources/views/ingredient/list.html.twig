@@ -12,7 +12,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div id="defaultPortlet" class="panel-collapse in" style="height: auto;">
+                <div class="panel-collapse in" style="height: auto;">
                     <div class="portlet-body">
                         {% if ingredients is defined  %}
                             <table id="dataTable" class="table table-hover">
@@ -28,7 +28,8 @@
                                 {% for ingredient in ingredients %}
                                     <tr>
                                         <td>
-                                            <a href="{{ path('rocketchef_recipe_book_show', {'recipeId' : ingredient.id, 'recipeName' : ingredient.name}) }}">{{ ingredient.name|capitalize }}</a>
+                                            {#<a href="{{ path('rocketchef_ingredient_show', {'ingredientId' : ingredient.id, 'ingredientName' : ingredient.name}) }}">{{ ingredient.name|capitalize }}</a>#}
+                                            {{ ingredient.name|capitalize }}
                                         </td>
                                         <td>{{ ingredient.priceForUnit }}
                                         {% if ingredient.unit == constant('RocketChef\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
