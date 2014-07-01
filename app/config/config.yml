@@ -84,3 +84,8 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+mz_mail_chimp:
+  api_key: "%mailchimp_api_key%"
+  default_list: 175181
+  ssl: false #option to use http or https
+

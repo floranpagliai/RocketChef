@@ -24,7 +24,8 @@
         "components/font-awesome": "4.1.x-dev",
         "jquery/jquery":  "1.10.*",
 		"winzou/console-bundle": "1.0.*",
-		"leafo/lessphp": "0.4.*"
+		"leafo/lessphp": "0.4.*",
+		"mlpz/mailchimp-bundle": "dev-master"
     },
     "repositories": [
         {

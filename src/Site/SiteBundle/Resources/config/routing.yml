@@ -1,3 +1,6 @@
 _index:
     pattern:  /
     defaults: { _controller: SiteSiteBundle:Default:index }
+site_suscribe_email:
+    pattern:  /{email}
+    defaults: { _controller: SiteSiteBundle:Default:suscribeEmail }
