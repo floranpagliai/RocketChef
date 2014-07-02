@@ -86,6 +86,6 @@ swiftmailer:
 
 mz_mail_chimp:
   api_key: "%mailchimp_api_key%"
-  default_list: 175181
+  default_list: 1b23bd2095
   ssl: false #option to use http or https
 

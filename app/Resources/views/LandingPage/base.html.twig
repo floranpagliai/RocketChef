@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width, initial-scale=0.7 maximum-scale=1, user-scalable=no" />
     <title>{% block title %}{{ 'global.appname'|trans }}{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <script src="{{ asset('js/pace.min.js') }}"></script>
@@ -16,14 +16,13 @@
     'css/bootstrap.css'
     'css/font-awesome.css'
     '%kernel.root_dir%/Resources/css/pace-flash.css'
-    '%kernel.root_dir%/Resources/css/color-helper.css'
+    '%kernel.root_dir%/Resources/css/color-helper.less'
     '%kernel.root_dir%/Resources/css/LandingPage/*'
     filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet" media="screen"/>
     {% endstylesheets %}
 </head>
 <body data-spy="scroll" data-offset="0" data-target=".navbar">
-
 <!-- Fixed navbar -->
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -47,7 +46,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a href="{{ path('rocketchef_user_login') }}"><i class="fa fa-lock"></i> Connexion</a>
                 </li>
-                <div class="navbar-form pull-left">
+                <div class="navbar-form pull-left hidden-xs">
                     <a href="#pricing" type="button" class="btn btn-sm btn-theme"> Version gratuite</a>
                 </div>
             </ul>
@@ -60,41 +59,41 @@
 <!-- /fixed-navbar -->
 
 <!-- Header Wrap -->
-<section id="home" name="home"></section>
-<div class="headerwrap">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <h1>Bienvenue sur <b>RocketChef</b></h1>
+<section id="home">
+    <div class="headerwrap">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h1>Bienvenue sur <b>RocketChef</b></h1>
 
-                <h3>La gestion de cuisine nouvelle génération.</h3>
-                <br>
-            </div>
+                    <h3>La gestion de cuisine nouvelle génération.</h3>
+                    <br>
+                </div>
 
-            <div class="col-lg-2 hidden-xs hidden-sm hidden-md">
-                <h5>Automate business processes</h5>
+                <div class="col-lg-2 hidden-xs hidden-sm hidden-md">
+                    <h5>Automate business processes</h5>
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <img src="{{ asset('bundles/sitesite/img/arrow-left.png') }}" alt="">
-            </div>
-            <div class="col-lg-8">
-                <img class="img-responsive" src="{{ asset('bundles/sitesite/img/app-bg.png') }}" alt="">
-                <!--<h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
-                <a href="#features" type="submit" class="btn btn-lg btn-theme smoothScroll">LEARN MORE</a>-->
-            </div>
-            <div class="col-lg-2 hidden-xs hidden-sm hidden-md">
-                <br>
-                <img class="pad-top" src="{{ asset('bundles/sitesite/img/arrow-right.png') }}" alt="">
-                <h5>Collaborate in the cloud</h5>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <img src="{{ asset('bundles/sitesite/img/arrow-left.png') }}" alt="">
+                </div>
+                <div class="col-lg-8">
+                    <img class="img-responsive" src="{{ asset('bundles/sitesite/img/app-bg.png') }}" alt="">
+                    <!--<h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
+                    <a href="#features" type="submit" class="btn btn-lg btn-theme smoothScroll">LEARN MORE</a>-->
+                </div>
+                <div class="col-lg-2 hidden-xs hidden-sm hidden-md">
+                    <br>
+                    <img class="pad-top" src="{{ asset('bundles/sitesite/img/arrow-right.png') }}" alt="">
+                    <h5>Collaborate in the cloud</h5>
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
             </div>
         </div>
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /headerwrap -->
-
+    <!-- /headerwrap -->
+</section>
 
 <!-- Intro Wrap -->
 <div class="intro">
@@ -142,277 +141,285 @@
 
 
 <!-- Features Wrap -->
-<section id="features" name="features"></section>
-<div class="featureswrap">
-    <div class="container">
-        <div class="row">
-            <h2 class="text-center">Fonctionnalités</h2>
-            <hr>
-            <br>
-            <br>
-
-            <div class="col-lg-6">
-                <img class="img-responsive left" src="{{ asset('bundles/sitesite/img/app-bg.png') }}" alt="">
-            </div>
-
-            <div class="col-lg-6">
+<section id="features">
+    <div class="featureswrap">
+        <div class="container">
+            <div class="row">
+                <h2 class="text-center">Fonctionnalités</h2>
+                <hr>
                 <br>
-                <!-- Accordion -->
-                <div class="accordion ac" id="accordion2">
+                <br>
 
-                    <div class="accordion-group active">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
-                               href="#collapseOne">
-                                <i class="fa fa-money"></i> Calcul du coût de revient
-                            </a>
-                        </div>
-                        <div id="collapseOne" class="accordion-body collapse in">
-                            <div class="accordion-inner">
-                                <p>Ajouter vos recettes et vos ingrédients, RocketChef calcule pour vous le coût de revient et vous propose les prix minimum à appliquer HT et TTC.
-                                    <br>
-                                    Entrez votre prix de ventre, vous avez maintenant votre ratio et un indicateur clair sur votre taux de marge.</p>
-                            </div>
-                            <!-- /accordion-inner -->
-                        </div>
-                        <!-- /collapse -->
-                    </div>
-                    <!-- /accordion-group -->
+                <div class="col-lg-6">
+                    <img class="img-responsive left" src="{{ asset('bundles/sitesite/img/app-bg.png') }}" alt="">
+                </div>
+
+                <div class="col-lg-6">
                     <br>
+                    <!-- Accordion -->
+                    <div class="accordion ac" id="accordion2">
 
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
-                               href="#collapseTwo">
-                                <i class="fa fa-book"></i> Livre de recette
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>Permettre à sa brigade d’accéder aux recettes via une tablette ou des fiches imprimable, c'est l'assurance d'un maintient des repères et de l'autonomie.</p>
+                        <div class="accordion-group active">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseOne">
+                                    <i class="fa fa-money"></i> Calcul du coût de revient
+                                </a>
                             </div>
-                            <!-- /accordion-inner -->
-                        </div>
-                        <!-- /collapse -->
-                    </div>
-                    <!-- /accordion-group -->
-                    <br>
-
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
-                               href="#collapseThree">
-                                <i class="fa fa-cloud"></i> Travaillez dans le cloud
-                            </a>
-                        </div>
-                        <!-- /accordion-heading -->
-                        <div id="collapseThree" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>Nous pensons qu'un logiciel en ligne est plus performant, plus accessible et plus souple pour l'utilisateur,
-                                    il se trouve que c'est aussi ce qu'on fait de mieux..</p>
+                            <div id="collapseOne" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <p>Ajouter vos recettes et vos ingrédients, RocketChef calcule pour vous le coût de
+                                        revient et vous propose les prix minimum à appliquer HT et TTC.
+                                        <br>
+                                        Entrez votre prix de ventre, vous avez maintenant votre ratio et un indicateur
+                                        clair
+                                        sur votre taux de marge.</p>
+                                </div>
+                                <!-- /accordion-inner -->
                             </div>
-                            <!-- /accordion-inner -->
+                            <!-- /collapse -->
                         </div>
-                        <!-- /collapse -->
-                    </div>
-                    <!-- /accordion-group -->
-                    <br>
+                        <!-- /accordion-group -->
+                        <br>
 
-                    {#<div class="accordion-group">#}
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseTwo">
+                                    <i class="fa fa-book"></i> Livre de recette
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <p>Permettre à sa brigade d’accéder aux recettes via une tablette ou des fiches
+                                        imprimable, c'est l'assurance d'un maintient des repères et de l'autonomie.</p>
+                                </div>
+                                <!-- /accordion-inner -->
+                            </div>
+                            <!-- /collapse -->
+                        </div>
+                        <!-- /accordion-group -->
+                        <br>
+
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseThree">
+                                    <i class="fa fa-cloud"></i> Travaillez dans le cloud
+                                </a>
+                            </div>
+                            <!-- /accordion-heading -->
+                            <div id="collapseThree" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <p>Nous pensons qu'un logiciel en ligne est plus performant, plus accessible et plus
+                                        souple pour l'utilisateur,
+                                        il se trouve que c'est aussi ce qu'on fait de mieux..</p>
+                                </div>
+                                <!-- /accordion-inner -->
+                            </div>
+                            <!-- /collapse -->
+                        </div>
+                        <!-- /accordion-group -->
+                        <br>
+
+                        {#<div class="accordion-group">#}
                         {#<div class="accordion-heading">#}
-                            {#<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"#}
-                               {#href="#collapseFour">#}
-                                {#<i class="fa fa-dashboard"></i> Automate business processes#}
-                            {#</a>#}
+                        {#<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"#}
+                        {#href="#collapseFour">#}
+                        {#<i class="fa fa-dashboard"></i> Automate business processes#}
+                        {#</a>#}
                         {#</div>#}
                         {#<div id="collapseFour" class="accordion-body collapse">#}
-                            {#<div class="accordion-inner">#}
-                                {#<p>It has survived not only five centuries, but also the leap into electronic#}
-                                    {#typesetting, remaining essentially unchanged. It was popularised in the 1960s with#}
-                                    {#the release of Letraset sheets containing Lorem Ipsum passages, and more recently#}
-                                    {#with desktop publishing software like Aldus PageMaker including versions of Lorem#}
-                                    {#Ipsum.</p>#}
-                            {#</div>#}
-                            {#<!-- /accordion-inner -->#}
+                        {#<div class="accordion-inner">#}
+                        {#<p>It has survived not only five centuries, but also the leap into electronic#}
+                        {#typesetting, remaining essentially unchanged. It was popularised in the 1960s with#}
+                        {#the release of Letraset sheets containing Lorem Ipsum passages, and more recently#}
+                        {#with desktop publishing software like Aldus PageMaker including versions of Lorem#}
+                        {#Ipsum.</p>#}
+                        {#</div>#}
+                        {#<!-- /accordion-inner -->#}
                         {#</div>#}
                         {#<!-- /collapse -->#}
-                    {#</div>#}
-                    <!-- /accordion-group -->
-                    <br>
+                        {#</div>#}
+                        <!-- /accordion-group -->
+                        <br>
+                    </div>
+                    <!-- /accordion -->
                 </div>
-                <!-- /accordion -->
             </div>
-        </div>
-        <!-- /row -->
-        <br><br><br>
+            <!-- /row -->
+            <br><br><br>
 
-        <div class="row">
-            <h2 class="text-center">Compatible Tablette et Smarphone</h2>
-            <hr>
-            <br><br>
-
-            <div class="col-lg-6">
+            <div class="row">
+                <h2 class="text-center">Compatible Tablette et Smarphone</h2>
+                <hr>
                 <br><br>
-                <h4><i class="fa fa-tablet"></i> Create customized business apps</h4>
 
-                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                    pageMaker including versions of Lorem Ipsum.</p>
-                <br><br>
-            </div>
-            <div class="col-lg-6 test left">
-            <div class="ipad img-responsive left">
-                <img class="preview" src="{{ asset('bundles/sitesite/img/tablet.png') }}" alt="" />
-            </div>
+                <div class="col-lg-6">
+                    <br><br>
+                    <h4><i class="fa fa-tablet"></i> Create customized business apps</h4>
 
-            <div class="iphone">
-                <img class="preview img-responsive" src="{{ asset('bundles/sitesite/img/mobile.png') }}" alt="" />
-            </div>
-            </div>
+                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                        pageMaker including versions of Lorem Ipsum.</p>
+                    <br><br>
+                </div>
+                {#<div class="col-lg-6">#}
+                {#<img class="img-responsive right" src="{{ asset('bundles/sitesite/img/tablet.png') }}" alt="">#}
+                {#&#123;&#35;<img class="img-responsive right" src="{{ asset('bundles/sitesite/img/mobile.png') }}" alt="" >&#35;&#125;#}
+                {#&#123;&#35;<div class="ipad left">&#35;&#125;#}
+                {#&#123;&#35;<img class="preview" src="{{ asset('bundles/sitesite/img/tablet.png') }}" alt="" >&#35;&#125;#}
+                {#&#123;&#35;</div>&#35;&#125;#}
 
+                {#&#123;&#35;<div class="iphone">&#35;&#125;#}
+                {#&#123;&#35;<img class="preview" src="{{ asset('bundles/sitesite/img/mobile.png') }}" alt="" >&#35;&#125;#}
+                {#&#123;&#35;</div>&#35;&#125;#}
+                {#</div>#}
+
+            </div>
+            <br>
+            <br>
+            <br>
         </div>
-        <br>
-        <br>
-        <br>
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /featureswrap -->
-
+    <!-- /featureswrap -->
+</section>
 
 {#<!-- Divider 1 Section -->#}
 {#<div class="divider01">#}
-    {#<div class="container">#}
-        {#<div class="row text-center">#}
+{#<div class="container">#}
+{#<div class="row text-center">#}
 
-        {#</div>#}
-        {#<!-- /row -->#}
-    {#</div>#}
-    {#<!-- /container -->#}
+{#</div>#}
+{#<!-- /row -->#}
+{#</div>#}
+{#<!-- /container -->#}
 {#</div>#}
 {#<!-- /divider01 -->#}
 
-
 <!-- Pricing Section -->
-<section id="pricing" name="pricing"></section>
-<div class="pricingwrap">
-    <div class="container text-center">
-        <br>
+<section id="pricing">
+    <div class="pricingwrap">
+        <div class="container text-center">
+            <div class="row">
+            <br>
 
-        <h2>Nos forfaits</h2>
-        <hr>
-        <br><br>
+            <h2>Nos forfaits</h2>
+            <hr>
+            <br><br>
 
-        <div class="row">
-            <div class="col-xs-12 col-md-4 col-md-offset-4">
-                <div class="panel panel-custom">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Apprenti</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="the-price">
-                            <h2>Gratuit</h2>
+
+                <div class="col-xs-12 col-md-4 col-md-offset-4">
+                    <div class="panel panel-custom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Apprenti</h3>
                         </div>
-                        <table class="table">
-                            <tr>
-                                <td>1 Utilisateur</td>
-                            </tr>
-                            <tr>
-                                <td>8 Recettes</td>
-                            </tr>
-                            <tr>
-                                <td>Livre de recette</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="panel-footer">
-                        <a href="{{ path('rocketchef_user_register') }}" class="btn btn-theme" role="button">Souscrire</a>
+                        <div class="panel-body">
+                            <div class="the-price">
+                                <h2>Gratuit</h2>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td>1 Utilisateur</td>
+                                </tr>
+                                <tr>
+                                    <td>8 Recettes</td>
+                                </tr>
+                                <tr>
+                                    <td>Livre de recette</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            <a href="{{ path('rocketchef_user_register') }}" class="btn btn-theme"
+                               role="button">Souscrire</a>
+                        </div>
                     </div>
                 </div>
+
+                {#<div class="col-xs-12 col-md-3">#}
+                {#<div class="panel panel-custom">#}
+                {#<div class="panel-heading">#}
+                {#<h3 class="panel-title">Commis</h3>#}
+                {#</div>#}
+                {#<div class="panel-body">#}
+                {#<div class="the-price">#}
+                {#&#123;&#35;<h2>$19<span class="subscript">/mo</span></h2>&#35;&#125;#}
+                {#<small>A venir</small>#}
+                {#</div>#}
+                {#<table class="table">#}
+                {#<tr>#}
+                {#<td>2 Accounts</td>#}
+                {#</tr>#}
+                {#<tr>#}
+                {#<td>5 Projects</td>#}
+                {#</tr>#}
+                {#</table>#}
+                {#</div>#}
+                {#<div class="panel-footer">#}
+                {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
+                {#</div>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-xs-12 col-md-3">#}
+                {#<div class="panel panel-custom">#}
+                {#<div class="panel-heading">#}
+                {#<h3 class="panel-title">Sous-chef</h3>#}
+                {#</div>#}
+                {#<div class="panel-body">#}
+                {#<div class="the-price">#}
+                {#&#123;&#35;<h2>$39<span class="subscript">/mo</span></h2>&#35;&#125;#}
+                {#<small>A venir</small>#}
+                {#</div>#}
+                {#<table class="table">#}
+                {#<tr>#}
+                {#<td>5 Accounts</td>#}
+                {#</tr>#}
+                {#<tr>#}
+                {#<td>20 Projects</td>#}
+                {#</tr>#}
+                {#</table>#}
+                {#</div>#}
+                {#<div class="panel-footer">#}
+                {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
+                {#</div>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-xs-12 col-md-3">#}
+                {#<div class="panel panel-custom">#}
+                {#<div class="panel-heading">#}
+                {#<h3 class="panel-title">Chef</h3>#}
+                {#</div>#}
+                {#<div class="panel-body">#}
+                {#<div class="the-price">#}
+                {#&#123;&#35;<h2>60$<span class="subscript">/mois</span></h2>&#35;&#125;#}
+                {#<small>A venir</small>#}
+                {#</div>#}
+                {#<table class="table">#}
+                {#<tr>#}
+                {#<td>15 Utilisateurs</td>#}
+                {#</tr>#}
+                {#<tr>#}
+                {#<td>Recettes ilimités</td>#}
+                {#</tr>#}
+                {#</table>#}
+                {#</div>#}
+                {#<div class="panel-footer">#}
+                {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
+                {#</div>#}
+                {#</div>#}
+                {#</div>#}
             </div>
-
-            {#<div class="col-xs-12 col-md-3">#}
-                {#<div class="panel panel-custom">#}
-                    {#<div class="panel-heading">#}
-                        {#<h3 class="panel-title">Commis</h3>#}
-                    {#</div>#}
-                    {#<div class="panel-body">#}
-                        {#<div class="the-price">#}
-                            {#&#123;&#35;<h2>$19<span class="subscript">/mo</span></h2>&#35;&#125;#}
-                            {#<small>A venir</small>#}
-                        {#</div>#}
-                        {#<table class="table">#}
-                            {#<tr>#}
-                                {#<td>2 Accounts</td>#}
-                            {#</tr>#}
-                            {#<tr>#}
-                                {#<td>5 Projects</td>#}
-                            {#</tr>#}
-                        {#</table>#}
-                    {#</div>#}
-                    {#<div class="panel-footer">#}
-                        {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#<div class="col-xs-12 col-md-3">#}
-                {#<div class="panel panel-custom">#}
-                    {#<div class="panel-heading">#}
-                        {#<h3 class="panel-title">Sous-chef</h3>#}
-                    {#</div>#}
-                    {#<div class="panel-body">#}
-                        {#<div class="the-price">#}
-                            {#&#123;&#35;<h2>$39<span class="subscript">/mo</span></h2>&#35;&#125;#}
-                            {#<small>A venir</small>#}
-                        {#</div>#}
-                        {#<table class="table">#}
-                            {#<tr>#}
-                                {#<td>5 Accounts</td>#}
-                            {#</tr>#}
-                            {#<tr>#}
-                                {#<td>20 Projects</td>#}
-                            {#</tr>#}
-                        {#</table>#}
-                    {#</div>#}
-                    {#<div class="panel-footer">#}
-                        {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-            {#<div class="col-xs-12 col-md-3">#}
-                {#<div class="panel panel-custom">#}
-                    {#<div class="panel-heading">#}
-                        {#<h3 class="panel-title">Chef</h3>#}
-                    {#</div>#}
-                    {#<div class="panel-body">#}
-                        {#<div class="the-price">#}
-                            {#&#123;&#35;<h2>60$<span class="subscript">/mois</span></h2>&#35;&#125;#}
-                            {#<small>A venir</small>#}
-                        {#</div>#}
-                        {#<table class="table">#}
-                            {#<tr>#}
-                                {#<td>15 Utilisateurs</td>#}
-                            {#</tr>#}
-                            {#<tr>#}
-                                {#<td>Recettes ilimités</td>#}
-                            {#</tr>#}
-                        {#</table>#}
-                    {#</div>#}
-                    {#<div class="panel-footer">#}
-                        {#&#123;&#35;<a href="#" class="btn btn-theme" role="button">Sign Up</a>&#35;&#125;#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
+            <!-- /row -->
         </div>
-        <!-- /row -->
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /pricingwrap -->
-
+    <!-- /pricingwrap -->
+</section>
 
 <!-- Divider 2 Section -->
 <div class="divider02">
@@ -425,25 +432,26 @@
 
 
 <!-- Footer Wrap -->
-<section id="contact" name="contact"></section>
-<div class="footerwrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <h3>Contact</h3>
-                <br>
-                <a class="text-white" href="mailto:floran.pagliai@gmail.com.com">
+<section id="contact">
+    <div class="footerwrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>Contact</h3>
+                    <br>
+                    <a class="text-white" href="mailto:floran.pagliai@gmail.com.com">
                     <span class="fa-stack fa-lg">
-  <i class="fa fa-circle text-dark-blue fa-stack-2x"></i>
-  <i class="fa fa-envelope fa-stack-1x"></i>
-</span> Envoyer un Email<br></a>
-            </div>
+                        <i class="fa fa-circle text-dark-blue fa-stack-2x"></i>
+                        <i class="fa fa-envelope fa-stack-1x"></i>
+                    </span> Envoyer un Email<br>
+                    </a>
+                </div>
 
-            <div class="col-lg-4">
-                {#<h3>We Are Social</h3>#}
-                {#<br>#}
+                <div class="col-lg-4">
+                    {#<h3>We Are Social</h3>#}
+                    {#<br>#}
 
-                {#<div id="social">#}
+                    {#<div id="social">#}
                     {#<a href="#" rel="tooltip" title="Facebook" class="facebook">Facebook</a>#}
                     {#<a href="#" rel="tooltip" title="Twitter" class="twitter">Twitter</a>#}
                     {#<a href="#" rel="tooltip" title="RSS" class="rss">RSS</a>#}
@@ -452,51 +460,42 @@
                     {#<a href="#" rel="tooltip" title="Pintrest" class="pintrest">Pintrest</a>#}
                     {#<a href="#" rel="tooltip" title="Vimeo" class="vimeo">Vimeo</a>#}
                     {#<a href="#" rel="tooltip" title="YouTube" class="youtube">YouTube</a>#}
-                {#</div>#}
-            </div>
+                    {#</div>#}
+                </div>
 
-            <div class="col-lg-4">
-                <h3>Newsletter</h3>
-                <br>
-
-                <p>Inscrivez vous pour recevoir les mises à jour de RocketChef.</p>
-
-                <div class="form-inline">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-theme" type="button">S'inscrire</button>
-                    </div>
+                <div class="col-lg-4">
+                    {% render controller('SiteSiteBundle:Default:subscribeEmail', { 'request' : app.request }) %}
                 </div>
             </div>
+            <!-- /row -->
         </div>
-        <!-- /row -->
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /footerwrap -->
+    <!-- /footerwrap -->
 
 
-<!-- Copyright Wrap -->
-<div class="copywrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10">
-                <p>Copyright &copy; 2014 Floran Pagliai. All Rights Reserved.</p>
-            </div>
-            {#<div class="col-lg-2">#}
+    <!-- Copyright Wrap -->
+    <div class="copywrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <p>Copyright &copy; 2014 Floran Pagliai. All Rights Reserved.</p>
+                </div>
+                {#<div class="col-lg-2">#}
                 {#<p><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Legal</a></p>#}
-            {#</div>#}
+                {#</div>#}
+            </div>
+            <!-- /row -->
         </div>
-        <!-- /row -->
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /copywrap (copyright) -->
-
-{% javascripts
-'js/bootstrap.js' %}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+    <!-- /copywrap (copyright) -->
+</section>
+<footer>
+    {% javascripts
+    'js/bootstrap.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+</footer>
 </body>
+</html>

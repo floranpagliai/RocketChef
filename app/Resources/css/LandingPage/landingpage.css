@@ -10,10 +10,12 @@ body {
   padding-top: 50px;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
+	overflow-x:hidden;
 }
 hr {
   display: block;
-  width: 500px;
+  max-width: 85%;
+	width: 500px;
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
@@ -340,7 +342,4 @@ a:after {
   top: 67px;
   left: 85px;
   max-width: 330px;
-}
-.test {
-  height: 500px;
 }

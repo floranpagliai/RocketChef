@@ -10,7 +10,7 @@ ingredient:
         edit: "Modifier un ingrédient"
         empty: "Aucun ingredient."
     form:
-        name: "Nom"
+        name: "Ingrédient"
         price: "Prix d'achat"
         use_in: "Utilisé dans"
         unit: "Unité"

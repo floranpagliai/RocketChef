@@ -3,6 +3,7 @@
 namespace Site\SiteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -11,34 +12,39 @@ class DefaultController extends Controller
         return $this->render('SiteSiteBundle:Default:index.html.twig');
     }
 
-    public function suscribeEmailAction($email)
+    public function subscribeEmailAction($request)
     {
-        $mailChimp = $this->get('MailChimp');
+        $form = $this->createFormBuilder()
+            ->add('email', 'email')
+            ->getForm();
+        $error = null;
 
-        /**
-         * Change mailing list
-         * */
-        $mailChimp->setListID(175181);
+        $form->submit($request);
+        if ($form->isValid()) {
+            $email = $form->getData();
+            $email = $email['email'];
 
-        /**
-         * Get list methods
-         * */
-        $list = $mailChimp->getList();
+            $mailChimp = $this->get('MailChimp');
+            /**
+             * Get list methods
+             * */
+            $list = $mailChimp->getList();
+            /**
+             * listSubscribe default Parameters
+             * */
+            $list->setEmailType('html'); //optional default: html
+            $list->setDoubleOptin(false);  //optional default : true
+            $list->setUpdateExisting(false); // optional default : false
+            $list->setReplaceInterests(true);  // optional default : true
+            $list->SendWelcome(false);  // optional default : false
 
-        /**
-         * listSubscribe default Parameters
-         * */
-        $list->setEmailType('html'); //optional default: html
-        $list->setDoubleOptin(true);  //optional default : true
-        $list->setUpdateExisting(false); // optional default : false
-        $list->setReplaceInterests(true);  // optional default : true
-        $list->SendWelcome(false);  // optional default : false
-
-        /**
-         * Subscribe user to list
-         * */
-        $list->Subscribe($email); //boolean
-
-        return $this->redirect($this->generateUrl('_index'));
+            $ret = $list->Subscribe($email);
+            if (isset($ret->error))
+            {
+                $error = $ret->error;
+            }
+        }
+        $paramsRender = array('form' => $form->createView(), 'error' => $error);
+        return $this->render('SiteSiteBundle:Default:subscribe.html.twig', $paramsRender);
     }
 }

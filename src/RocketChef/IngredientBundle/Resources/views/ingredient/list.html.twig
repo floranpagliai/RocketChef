@@ -14,13 +14,13 @@
                 </div>
                 <div class="panel-collapse in" style="height: auto;">
                     <div class="portlet-body">
-                        {% if ingredients is defined  %}
+                        {% if ingredients %}
                             <table id="dataTable" class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th width="25%">{{ 'ingredient.form.name'|trans }}</th>
                                     <th width="9%">{{ 'ingredient.form.price'|trans }}</th>
-                                    <th width="9%">{{ 'ingredient.form.use_in'|trans }}</th>
+                                    <th width="9%" class="hidden-xs">{{ 'ingredient.form.use_in'|trans }}</th>
                                     <th width="9%" class="no_sort btn-table"></th>
                                     <th width="9%" class="no_sort btn-table"></th>
                                 </tr>
@@ -40,7 +40,7 @@
                                         {% else %}
                                             {{ 'global.currency'|trans }}/Pce
                                         {% endif %}</td>
-                                        <td>{{ ingredient.recipes.count }} {{ 'recipebook.word.recipe_(s)'|trans }}</td>
+                                        <td class="hidden-xs">{{ ingredient.recipes.count }} {{ 'recipebook.word.recipe_(s)'|trans }}</td>
                                         <td class="tooltips">
                                             <a href="{{ path('rocketchef_ingredient_edit', {'ingredientId': ingredient.id, 'ingredientName': ingredient.name}) }}"
                                                class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
