@@ -14,10 +14,10 @@ class DefaultController extends Controller
 
     public function subscribeEmailAction($request)
     {
+        $flash = $this->get('notify_messenger.flash');
         $form = $this->createFormBuilder()
             ->add('email', 'email')
             ->getForm();
-        $error = null;
 
         $form->submit($request);
         if ($form->isValid()) {
@@ -41,10 +41,12 @@ class DefaultController extends Controller
             $ret = $list->Subscribe($email);
             if (isset($ret->error))
             {
-                $error = $ret->error;
+
+                $flash->error($ret->error);
             }
+            $flash->success('Email save.');
         }
-        $paramsRender = array('form' => $form->createView(), 'error' => $error);
+        $paramsRender = array('form' => $form->createView());
         return $this->render('SiteSiteBundle:Default:subscribe.html.twig', $paramsRender);
     }
 }

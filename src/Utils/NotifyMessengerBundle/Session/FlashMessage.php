@@ -20,9 +20,30 @@ class FlashMessage
         $this->session = $session;
     }
 
+    public function alert($message)
+    {
+        $this->session->getFlashBag()->add('alert', $message);
+    }
+
+
+    public function error($message)
+    {
+        $this->session->getFlashBag()->add('error', $message);
+    }
+
     public function info($message)
     {
         $this->session->getFlashBag()->add('info', $message);
+    }
+
+    public function success($message)
+    {
+        $this->session->getFlashBag()->add('success', $message);
+    }
+
+    public function reset()
+    {
+        $this->session->getFlashBag()->clear();
     }
 
 } 

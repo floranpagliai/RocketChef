@@ -37,6 +37,7 @@
 
 
             <div class="page-content"><!-- Page content -->
+                {% include 'UtilsNotifyMessengerBundle::flash.html.twig' %}
                 {% block page_widgets %}
                     {% if widgets is defined %}
                         <div class="row-fluid">
@@ -55,9 +56,6 @@
                 {% endblock %}
 
                 <div class="container-fluid">
-                    <div class="col-lg-12">
-                        {% include 'BraincraftedBootstrapBundle::flash.html.twig' with { 'close': true } %}
-                    </div>
                     {% block page_content %}
                     {% endblock %}
                 </div>

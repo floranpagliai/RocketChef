@@ -71,8 +71,8 @@ class RecipeBookController extends Controller
             if ($form->isValid()) {
                 $recipe = $form->getData();
                 $this->updateRecipeAction($recipe);
-                $flash = $this->get('braincrafted_bootstrap.flash');
-                $flash->alert('Recipe saved');
+                $flash = $this->get('notify_messenger.flash');
+                $flash->success('Recipe saved');
 
                 return $this->redirect($this->generateUrl('rocketchef_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
             }

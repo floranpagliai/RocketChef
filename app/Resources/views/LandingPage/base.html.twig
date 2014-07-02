@@ -17,6 +17,7 @@
     'css/font-awesome.css'
     '%kernel.root_dir%/Resources/css/pace-flash.css'
     '%kernel.root_dir%/Resources/css/color-helper.less'
+    '%kernel.root_dir%/Resources/css/messenger/*'
     '%kernel.root_dir%/Resources/css/LandingPage/*'
     filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet" media="screen"/>
@@ -491,9 +492,12 @@
     </div>
     <!-- /copywrap (copyright) -->
 </section>
+{% include 'UtilsNotifyMessengerBundle::flash.html.twig' %}
 <footer>
     {% javascripts
-    'js/bootstrap.js' %}
+    'js/bootstrap.js'
+    '%kernel.root_dir%/Resources/js/messenger.min.js'
+    '%kernel.root_dir%/Resources/js/messenger-theme-flat.js'%}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 </footer>

@@ -1,13 +1,44 @@
-{% if translation_domain is not defined %}
-    {% set translation_domain = null %}
-{% endif %}
-{% if close is not defined %}
-    {% set close = false %}
-{% endif %}
-
-{% for flashMessage in app.session.flashbag.get('info') %}
-    <div class="alert alert-warning">
-        {% if close %}<button type="button" class="close" data-dismiss="alert">&times;</button>{% endif %}
-        {{ flashMessage|trans({}, translation_domain) }}
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="messenger-success" data-message="{{ flashMessage }}">
     </div>
 {% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="messenger-info" data-message="{{ flashMessage }}">
+    </div>
+{% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="messenger-error" data-message="{{ flashMessage }}">
+    </div>
+{% endfor %}
+
+<script>
+    $(document).ready(function(){
+        Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+            theme: 'flat'
+        }
+        $('div').find('.messenger-info').each( function () {
+
+            Messenger().post({
+                message: this.dataset.message,
+                type: 'info'
+            });
+        });
+        $('div').find('.messenger-error').each( function () {
+
+            Messenger().post({
+                message: this.dataset.message,
+                type: 'error'
+            });
+        });
+        $('div').find('.messenger-success').each( function () {
+
+            Messenger().post({
+                message: this.dataset.message,
+                type: 'success'
+            });
+        });
+    });
+</script>
