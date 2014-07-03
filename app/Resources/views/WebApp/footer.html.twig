@@ -1,10 +1,6 @@
 {% javascripts
-'@UtilsNotifyMessengerBundle/Resources/public/js/*'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
-{% javascripts
 'js/bootstrap.js'
+'@UtilsNotifyMessengerBundle/Resources/public/js/*'
 '%kernel.root_dir%/Resources/js/*'
 %}
 <script src="{{ asset_url }}"></script>
@@ -51,7 +47,7 @@ $(document).ready(function () {
         } else {
             aoColums.push( null );
         }
-    } );
+    });
     $('#dataTable').dataTable({
         "paging": false,
         "info": false,
