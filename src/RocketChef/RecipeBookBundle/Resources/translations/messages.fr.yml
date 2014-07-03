@@ -1,0 +1,4 @@
+recipebook:
+    word:
+        count_recipe: "%count% Recette|%count% Recettes"
+

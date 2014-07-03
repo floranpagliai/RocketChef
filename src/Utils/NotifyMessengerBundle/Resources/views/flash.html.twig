@@ -1,44 +1,17 @@
 {% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="messenger-success" data-message="{{ flashMessage }}">
+    <div id="messenger" class="messenger-success" data-message="{{ flashMessage }}" onclick="Messenger().post({
+            message: this.dataset.message,
+            type: 'info'
+       })">afd
     </div>
 {% endfor %}
 
 {% for flashMessage in app.session.flashbag.get('info') %}
-    <div class="messenger-info" data-message="{{ flashMessage }}">
+    <div id="messenger" class="messenger-info" data-message="{{ flashMessage }}">
     </div>
 {% endfor %}
 
 {% for flashMessage in app.session.flashbag.get('error') %}
-    <div class="messenger-error" data-message="{{ flashMessage }}">
+    <div id="messenger" class="messenger-error" data-message="{{ flashMessage }}">
     </div>
 {% endfor %}
-
-<script>
-    $(document).ready(function(){
-        Messenger.options = {
-            extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
-            theme: 'flat'
-        }
-        $('div').find('.messenger-info').each( function () {
-
-            Messenger().post({
-                message: this.dataset.message,
-                type: 'info'
-            });
-        });
-        $('div').find('.messenger-error').each( function () {
-
-            Messenger().post({
-                message: this.dataset.message,
-                type: 'error'
-            });
-        });
-        $('div').find('.messenger-success').each( function () {
-
-            Messenger().post({
-                message: this.dataset.message,
-                type: 'success'
-            });
-        });
-    });
-</script>

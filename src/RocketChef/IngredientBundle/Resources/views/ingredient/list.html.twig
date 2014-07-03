@@ -40,7 +40,7 @@
                                         {% else %}
                                             {{ 'global.currency'|trans }}/Pce
                                         {% endif %}</td>
-                                        <td class="hidden-xs">{{ ingredient.recipes.count }} {{ 'recipebook.word.recipe_(s)'|trans }}</td>
+                                        <td class="hidden-xs">{{ 'recipebook.word.count_recipe'|transchoice(ingredient.recipes.count) }}</td>
                                         <td class="tooltips">
                                             <a href="{{ path('rocketchef_ingredient_edit', {'ingredientId': ingredient.id, 'ingredientName': ingredient.name}) }}"
                                                class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"

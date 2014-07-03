@@ -492,12 +492,10 @@
     </div>
     <!-- /copywrap (copyright) -->
 </section>
-{% include 'UtilsNotifyMessengerBundle::flash.html.twig' %}
+
 <footer>
     {% javascripts
-    'js/bootstrap.js'
-    '%kernel.root_dir%/Resources/js/messenger.min.js'
-    '%kernel.root_dir%/Resources/js/messenger-theme-flat.js'%}
+    'js/bootstrap.js'%}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 </footer>
