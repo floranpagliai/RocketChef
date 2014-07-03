@@ -60,8 +60,8 @@ class SecurityController extends Controller
                 $em->persist($user);
                 $em->flush();
 
-                $flash = $this->get('braincrafted_bootstrap.flash');
-                $flash->success('Utilisateur enregistré. Vous pouvez maintenant vous connecter.');
+                $flash = $this->get('notify_messenger.flash');
+                $flash->success($this->get('translator')->trans('user.warn.can_login'));
                 return $this->redirect($this->generateUrl('rocketchef_user_login'));
             }
         }
@@ -85,8 +85,8 @@ class SecurityController extends Controller
             $em->persist($user);
             $em->flush();
 
-            $flash = $this->get('braincrafted_bootstrap.flash');
-            $flash->success('Mot de passe changé');
+            $flash = $this->get('notify_messenger.flash');
+            $flash->info($this->get('translator')->trans('user.warn.password_updated'));
         }
 
         $paramsRender = array('form' => $form->createView());

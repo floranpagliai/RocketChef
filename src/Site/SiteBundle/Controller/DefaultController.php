@@ -41,10 +41,9 @@ class DefaultController extends Controller
             $ret = $list->Subscribe($email);
             if (isset($ret->error))
             {
-
                 $flash->error($ret->error);
-            }
-            $flash->success('Email save.');
+            } else
+                $flash->success('Merci de votre intérêt, vous recevrez sur cet Email les dernières mises à jour de RocketChef.');
         }
         $paramsRender = array('form' => $form->createView());
         return $this->render('SiteSiteBundle:Default:subscribe.html.twig', $paramsRender);

@@ -23,6 +23,8 @@ class ActionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($ingredient);
             $em->flush();
+            $flash = $this->get('notify_messenger.flash');
+            $flash->info('Ingredient deleted.');
         }
 
         if ($urlRedirect == null)

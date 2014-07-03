@@ -16,9 +16,9 @@
     {% stylesheets
     'css/bootstrap.css'
     'css/font-awesome.css'
+    '@UtilsNotifyMessengerBundle/Resources/public/css/*'
     '%kernel.root_dir%/Resources/css/pace-flash.css'
     '%kernel.root_dir%/Resources/css/color-helper.less'
-    '%kernel.root_dir%/Resources/css/messenger/*'
     '%kernel.root_dir%/Resources/css/LandingPage/*'
     filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet" media="screen"/>
@@ -59,7 +59,7 @@
     <!-- /container -->
 </div>
 <!-- /fixed-navbar -->
-
+{% include 'UtilsNotifyMessengerBundle::flash.html.twig' %}
 <!-- Header Wrap -->
 <section id="home">
     <div class="headerwrap">
@@ -496,9 +496,21 @@
 
 <footer>
     {% javascripts
-    'js/bootstrap.js'%}
+    'js/bootstrap.js'
+    '@UtilsNotifyMessengerBundle/Resources/public/js/*'
+    %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-52343157-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 </footer>
 </body>
 </html>
