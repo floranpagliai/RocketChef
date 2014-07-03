@@ -43,7 +43,7 @@ $(".portlet-widgets .fa-chevron-down, .portlet-widgets .fa-chevron-up").click(fu
     $(this).toggleClass("fa-chevron-down fa-chevron-up");
 });
 
-jQuery(document).ready(function () {
+$(document).ready(function () {
     var aoColums = [];
     $('#dataTable').find('thead th').each( function () {
         if ( $(this).hasClass( 'no_sort' )) {
@@ -57,29 +57,6 @@ jQuery(document).ready(function () {
         "info": false,
         "aoColumns": aoColums
     });
-//    Messenger.options = {
-//        extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
-//        theme: 'flat'
-//    };
-//    selector = $('div');
-//    selector.find('.messenger-info').each( function () {
-//        Messenger().post({
-//            message: this.dataset.message,
-//            type: 'info'
-//        });
-//    });
-//    selector.find('.messenger-error').each( function () {
-//        Messenger().post({
-//            message: this.dataset.message,
-//            type: 'error'
-//        });
-//    });
-//    selector.find('.messenger-success').each( function () {
-//        Messenger().post({
-//            message: this.dataset.message,
-//            type: 'success'
-//        });
-//    });
 });
 </script>
 {#<script type="text/javascript" src="http://5.135.165.207:8080/s/d41d8cd98f00b204e9800998ecf8427e/fr_FRs565z7-1988229788/6261/4/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=4a751eb7"></script>#}

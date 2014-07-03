@@ -1,8 +1,6 @@
 {% for flashMessage in app.session.flashbag.get('success') %}
-    <div id="messenger" class="messenger-success" data-message="{{ flashMessage }}" onclick="Messenger().post({
-            message: this.dataset.message,
-            type: 'info'
-       })">afd
+    <div id="messenger" class="messenger-success" data-message="{{ flashMessage }}">
+        afd
     </div>
 {% endfor %}
 
@@ -15,3 +13,19 @@
     <div id="messenger" class="messenger-error" data-message="{{ flashMessage }}">
     </div>
 {% endfor %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    Messenger.options = {
+            extraClasses: 'messenger-fixed messenger-on-top messenger-on-right',
+            theme: 'flat'
+        };
+        var selector = $('div');
+        selector.find('.messenger-success').each( function () {
+            Messenger().post({
+                message: this.dataset.message,
+                type: 'success'
+            });
+        });
+    });
+</script>
