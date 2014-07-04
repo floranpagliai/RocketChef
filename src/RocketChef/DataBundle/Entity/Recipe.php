@@ -35,6 +35,11 @@ class Recipe {
     protected $recipeIngredient;
 
     /**
+     * @ORM\OneToMany(targetEntity="RecipeStep", mappedBy="recipe", cascade={"persist"}, orphanRemoval=TRUE)
+     */
+    protected $recipeStep;
+
+    /**
      * @ORM\Column(type="smallint")
      */
     protected $portions;
@@ -227,4 +232,22 @@ class Recipe {
 
         return $this->inMenu;
     }
+
+    /**
+     * @param mixed $recipeStep
+     */
+    public function setRecipeStep($recipeStep)
+    {
+        $this->recipeStep = $recipeStep;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRecipeStep()
+    {
+        return $this->recipeStep;
+    }
+
+
 }

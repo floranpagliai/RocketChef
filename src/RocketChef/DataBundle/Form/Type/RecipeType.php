@@ -36,6 +36,13 @@ class RecipeType extends AbstractType
             'prototype' => true,
             'by_reference' => false
         ));
+        $builder->add('RecipeStep', 'collection', array(
+            'type' => new RecipeStepType(),
+            'allow_add' => true,
+            'allow_delete' => true,
+            'prototype' => true,
+            'by_reference' => false
+        ));
         $builder->add('save', 'submit');
     }
 
