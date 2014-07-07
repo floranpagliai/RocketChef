@@ -7,11 +7,14 @@
 
 namespace RocketChef\DataBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="recipeIngredient")
+ * @Assert\Callback(methods={"getIngredientUnits"})
  */
 class RecipeIngredient {
 
@@ -46,7 +49,7 @@ class RecipeIngredient {
     protected $qte;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint", nullable=false)
      */
     protected $unit;
 
@@ -122,9 +125,12 @@ class RecipeIngredient {
 
     /**
      * @param mixed $unit
+     * @throws \InvalidArgumentException
      */
     public function setUnit($unit)
     {
+        if (!in_array($unit, array(self::UNIT_KG, self::UNIT_LITER, self::UNIT_UNITARY, self::UNIT_GR, self::UNIT_CLITER)))
+            throw new \InvalidArgumentException("Invalid unit");
         $this->unit = $unit;
     }
 
@@ -152,6 +158,16 @@ class RecipeIngredient {
         return $this->cost;
     }
 
+    public function getIngredientUnits(ExecutionContextInterface $context)
+    {
 
+        if ($this->getIngredient()->getUnit() == Ingredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_LITER) {
+            $context->buildViolation('L')->addViolation();
+        } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_KG && $this->getUnit() != RecipeIngredient::UNIT_KG) {
+            $context->buildViolation('KG')->addViolation();
+        } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_UNITARY && $this->getUnit() != RecipeIngredient::UNIT_UNITARY) {
+            $context->buildViolation('U')->addViolation();
+        }
+    }
 
 }

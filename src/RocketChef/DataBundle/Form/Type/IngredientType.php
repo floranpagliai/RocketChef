@@ -8,6 +8,7 @@
 
 namespace RocketChef\DataBundle\Form\Type;
 
+use RocketChef\DataBundle\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -19,7 +20,7 @@ class IngredientType extends AbstractType
     {
         $builder->add('name', 'text', array('read_only' => true));
         $builder->add('priceForUnit', 'money', array('read_only' => true));
-        $builder->add('unit', 'choice', array('choices' => array(0 => '/Unité', 1 => '/Kg', 2 => '/L')));
+        $builder->add('unit', 'choice', array('choices' => Ingredient::getUnits()));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

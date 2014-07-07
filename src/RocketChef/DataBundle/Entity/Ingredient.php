@@ -146,8 +146,6 @@ class Ingredient {
         if (!in_array($unit, array(self::UNIT_KG, self::UNIT_LITER, self::UNIT_UNITARY)))
             throw new \InvalidArgumentException("Invalid unit");
         $this->unit = $unit;
-
-        return $this;
     }
 
     /**
@@ -158,6 +156,35 @@ class Ingredient {
     public function getUnit()
     {
         return $this->unit;
+    }
+
+    /**
+     * Get unit
+     *
+     * @return integer
+     */
+    public static function getUnits()
+    {
+        return array(
+            Ingredient::UNIT_UNITARY => '/Unité',
+            Ingredient::UNIT_KG => '/Kg',
+            Ingredient::UNIT_LITER => '/L'
+        );
+    }
+
+    public static function getUnitsValues()
+    {
+        return array_keys(self::getUnits());
+    }
+
+    public function getAvailableUnits()
+    {
+        if ($this->getUnit() == Ingredient::UNIT_LITER)
+            return array(RecipeIngredient::UNIT_CLITER => '/Cl', RecipeIngredient::UNIT_LITER => '/L');
+        elseif ($this->getUnit() == Ingredient::UNIT_KG)
+            return array(RecipeIngredient::UNIT_GR => '/Gr', RecipeIngredient::UNIT_KG => '/Kg');
+        else
+            return array(RecipeIngredient::UNIT_UNITARY => '/Unité');
     }
 
     /**

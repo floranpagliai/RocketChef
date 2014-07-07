@@ -267,17 +267,15 @@
                         pageMaker including versions of Lorem Ipsum.</p>
                     <br><br>
                 </div>
-                {#<div class="col-lg-6">#}
-                {#<img class="img-responsive right" src="{{ asset('bundles/sitesite/img/tablet.png') }}" alt="">#}
-                {#&#123;&#35;<img class="img-responsive right" src="{{ asset('bundles/sitesite/img/mobile.png') }}" alt="" >&#35;&#125;#}
-                {#&#123;&#35;<div class="ipad left">&#35;&#125;#}
-                {#&#123;&#35;<img class="preview" src="{{ asset('bundles/sitesite/img/tablet.png') }}" alt="" >&#35;&#125;#}
-                {#&#123;&#35;</div>&#35;&#125;#}
-
-                {#&#123;&#35;<div class="iphone">&#35;&#125;#}
-                {#&#123;&#35;<img class="preview" src="{{ asset('bundles/sitesite/img/mobile.png') }}" alt="" >&#35;&#125;#}
-                {#&#123;&#35;</div>&#35;&#125;#}
+                <div class="col-lg-6">
+                {#<div class="ipad left" style="width: 100%; overflow: hidden">#}
+                {#<img class="preview"  src="{{ asset('bundles/sitesite/img/tablet.png') }}" alt="" >#}
                 {#</div>#}
+
+                {#<div class="iphone" style="width: 100%; overflow: hidden">#}
+                 {#<img class="preview" src="{{ asset('bundles/sitesite/img/mobile.png') }}" alt="" >#}
+                {#</div>#}
+                </div>
 
             </div>
             <br>

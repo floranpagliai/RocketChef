@@ -51,7 +51,7 @@ class RecipeBookController extends Controller
         $recipe = new Recipe();
         $form = $this->createForm(new RecipeType($this->container->get('security.context')), $recipe);
         if ($request->isMethod('POST')) {
-            $form->bind($request);
+            $form->submit($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
                 $this->updateRecipeAction($recipe);
@@ -66,8 +66,7 @@ class RecipeBookController extends Controller
     {
         $recipeOld = $this->get('rocketchef_data.recipe.provider')->getRecipeById($recipeId);//TODO gestion du propriétaire
         $form = $this->createForm(new RecipeType($this->container->get('security.context')), $recipeOld);
-        if ($request->isMethod('POST')) {
-            $form->submit($request);
+            $form->handleRequest($request);
             if ($form->isValid()) {
                 $recipe = $form->getData();
                 $this->updateRecipeAction($recipe);
@@ -76,7 +75,7 @@ class RecipeBookController extends Controller
 
                 return $this->redirect($this->generateUrl('rocketchef_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
             }
-        }
+
         $paramsRender = array('form' => $form->createView(),
                                 'recipe' => $recipeOld);
         return $this->render('RocketChefRecipeBookBundle:Recipe:edit.html.twig', $paramsRender);
