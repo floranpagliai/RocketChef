@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(name="recipeIngredient")
- * @Assert\Callback(methods={"getIngredientUnits"})
  */
 class RecipeIngredient {
 
@@ -158,15 +157,20 @@ class RecipeIngredient {
         return $this->cost;
     }
 
-    public function getIngredientUnits(ExecutionContextInterface $context)
+    /**
+     *  @Assert\Callback(message = "user.address.invalid")
+     */
+    public function isValid(ExecutionContextInterface $context)
     {
-
-        if ($this->getIngredient()->getUnit() == Ingredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_LITER) {
-            $context->buildViolation('L')->addViolation();
-        } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_KG && $this->getUnit() != RecipeIngredient::UNIT_KG) {
-            $context->buildViolation('KG')->addViolation();
+        $ingredientName = $this->getIngredient()->getName();
+        if ($this->getIngredient()->getUnit() == Ingredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_LITER&&
+            ($this->getUnit() != RecipeIngredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_CLITER)) {
+            $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be in L or CL')->addViolation();
+        } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_KG &&
+            ($this->getUnit() != RecipeIngredient::UNIT_KG && $this->getUnit() != RecipeIngredient::UNIT_GR)) {
+            $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be in Kg or Gr')->addViolation();
         } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_UNITARY && $this->getUnit() != RecipeIngredient::UNIT_UNITARY) {
-            $context->buildViolation('U')->addViolation();
+            $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be unitary')->addViolation();
         }
     }
 

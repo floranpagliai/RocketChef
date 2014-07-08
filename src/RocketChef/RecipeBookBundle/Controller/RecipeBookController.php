@@ -74,10 +74,14 @@ class RecipeBookController extends Controller
                 $flash->success('Recipe saved');
 
                 return $this->redirect($this->generateUrl('rocketchef_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
+            } else {
+                $recipe = $form->getData();
+                $validator = $this->get('validator');
+                $errorList = $validator->validate($recipe);
             }
 
         $paramsRender = array('form' => $form->createView(),
-                                'recipe' => $recipeOld);
+                              'recipe' => $recipeOld);
         return $this->render('RocketChefRecipeBookBundle:Recipe:edit.html.twig', $paramsRender);
 
     }

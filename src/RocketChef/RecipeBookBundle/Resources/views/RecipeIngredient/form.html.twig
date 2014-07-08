@@ -24,12 +24,16 @@
             <td class="hidden"></td>
         {% endif %}
         {% if formData.ingredient.unit is defined %}
-            <td class="hidden">{{ form_widget(formData.ingredient.unit) }}</td>
+            <td class="hidden">{{ form_row(formData.ingredient.unit) }}</td>
         {% else %}
             <td class="hidden"></td>
         {% endif %}
     {% endmacro %}
-    {{ form_errors(form) }}
+    {% if not form.vars.valid %}
+        <div class="alert alert-danger">
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
     <tbody class="ingredients" data-prototype="{{ _self.tagCollectionItem(form.RecipeIngredient.vars.prototype)|e }}">
     {% for RecipeIngredient in form.RecipeIngredient %}
         <tr>

@@ -50,22 +50,26 @@ class RecipeIngredientType extends AbstractType
                     $form->add('ingredient', new IngredientType());
                 } else
                     $form->add('ingredient', 'entity', $formOptions);
-
             }
         );
         $builder->add('qte', 'number');
-        $builder->add('unit', 'choice', array( 'choices' => array(
-            RecipeIngredient::UNIT_UNITARY => 'Unité',
-            RecipeIngredient::UNIT_GR => 'Gr',
-            RecipeIngredient::UNIT_KG => 'Kg',
-            RecipeIngredient::UNIT_CLITER => 'Cl',
-            RecipeIngredient::UNIT_LITER => 'L')));
+        $builder->add('unit', 'choice', array(
+            'choices' => array(
+                RecipeIngredient::UNIT_UNITARY => 'Unité',
+                RecipeIngredient::UNIT_GR => 'Gr',
+                RecipeIngredient::UNIT_KG => 'Kg',
+                RecipeIngredient::UNIT_CLITER => 'Cl',
+                RecipeIngredient::UNIT_LITER => 'L'
+            )
+        ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RocketChef\DataBundle\Entity\RecipeIngredient'
+            'data_class' => 'RocketChef\DataBundle\Entity\RecipeIngredient',
+            'error_mapping' => array(
+                'valid' => 'unit'),
         ));
     }
 
