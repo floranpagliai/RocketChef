@@ -54,6 +54,36 @@ $(document).ready(function () {
         "aoColumns": aoColums
     });
 });
+//Morris Area Chart
+var sales_data = [
+    {date: '2014-1-25', productA: 450.26, productB: 112.26},
+    {date: '2014-1-26', productA: 600.34, productB: 200.62},
+    {date: '2014-1-27', productA: 645.91, productB: 224.26},
+    {date: '2014-1-28', productA: 442.23, productB: 109.94},
+    {date: '2014-1-29', productA: 569.26, productB: 198.98},
+    {date: '2014-1-30', productA: 602.53, productB: 201.26},
+    {date: '2014-1-31', productA: 680.26, productB: 243.87}
+];
+Morris.Area({
+    element: 'morris-chart-area',
+    data: sales_data,
+    xkey: 'date',
+    xLabelFormat: function(date) {
+        return (date.getMonth()+1)+'/'+date.getDate()+'/'+date.getFullYear();
+    },
+    xLabels: 'day',
+    ykeys: ['productA', 'productB'],
+    yLabelFormat: function (y) { return y +" €" ;},
+    labels: ['Chiffre d\'affaire', 'Coûts'],
+    lineColors: ['#e74c3c', '#2980b9'],
+    hideHover: 'auto',
+    resize: true,
+    gridTextFamily: ['Open Sans'],
+    dateFormat: function(date) {
+        d = new Date(date);
+        return d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear();
+    }
+});
 </script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
