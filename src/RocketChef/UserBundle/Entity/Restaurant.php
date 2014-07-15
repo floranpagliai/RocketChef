@@ -45,10 +45,17 @@ class Restaurant
      */
     protected $ingredients;
 
+    /**
+     * @ORM\OneToMany(targetEntity="RocketChef\DataBundle\Entity\SellingDay", mappedBy="restaurant")
+     */
+    protected $sellingDays;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
         $this->ingredients = new ArrayCollection();
+        $this->recipes = new ArrayCollection();
+        $this->sellingDays = new ArrayCollection();
     }
 
     /**
@@ -131,6 +138,22 @@ class Restaurant
         return $this->ingredients;
     }
 
+    /**
+     * @param mixed $sellingDays
+     */
+    public function setSellingDays($sellingDays)
+    {
+        $this->sellingDays = $sellingDays;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSellingDays()
+    {
+        return $this->sellingDays;
+    }
+
 
 
     /**
@@ -200,5 +223,24 @@ class Restaurant
     public function removeIngredient(\RocketChef\DataBundle\Entity\Ingredient $ingredients)
     {
         $this->ingredients->removeElement($ingredients);
+    }
+
+    /**
+     * @param \RocketChef\DataBundle\Entity\SellingDay $sellingDay
+     * @return $this
+     */
+    public function addSellingDay(\RocketChef\DataBundle\Entity\SellingDay $sellingDay)
+    {
+        $this->sellingDays[] = $sellingDay;
+
+        return $this;
+    }
+
+    /**
+     * @param \RocketChef\DataBundle\Entity\SellingDay $sellingDay
+     */
+    public function removeSellingDay(\RocketChef\DataBundle\Entity\SellingDay $sellingDay)
+    {
+        $this->sellingDays->removeElement($sellingDay);
     }
 }

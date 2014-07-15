@@ -22,3 +22,6 @@ rocket_chef_ingredient:
 rocketchef_setting:
     resource: "@RocketChefSettingBundle/Resources/config/routing.yml"
     prefix:   /webapp
+rocketchef_selling:
+    resource: "@RocketChefSellingBundle/Resources/config/routing.yml"
+    prefix:   /webapp

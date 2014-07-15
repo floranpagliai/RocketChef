@@ -1,0 +1,66 @@
+{% extends 'RocketChefSellingBundle::layout.html.twig' %}
+    {% block page_content %}
+            <div class="col-lg-12">
+                <div class="portlet portlet-default">
+                    <div class="portlet-heading">
+                        <div class="portlet-title">
+                            <h4>Ventes</h4>
+                        </div>
+                        <div class="portlet-widgets">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#areaChart"><i
+                                        class="fa-chevron-down fa"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-collapse collapse in">
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-lg-12">
+            <div class="portlet portlet-default">
+                <div class="portlet-heading">
+                    <div class="portlet-title">
+                        <h4></h4>
+                    </div>
+                    <div class="portlet-widgets">
+                        <a href="{{ path('rocketchef_selling_add') }}" class="btn btn-xs btn-primary">
+                            <i class="fa fa-plus"></i> {{ 'recipebook.add.recipe'|trans }}</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-collapse" style="height: auto;">
+                    <div class="portlet-body">
+                        {% if sellingDays %}
+                            <table id="dataTable" class="table table-hover">
+                                <thead>
+                                <tr>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for sellingDay in sellingDays %}
+                                    {{ sellingDay.date|date }}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <div class="well text-center">
+                                <p>Aucune recette.</p>
+                                <a href="{{ path('rocketchef_selling_add') }}" class="btn btn-lg btn-primary">
+                                    <i class="fa fa-plus"></i> {{ 'recipebook.add.recipe'|trans }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

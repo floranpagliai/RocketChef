@@ -1,0 +1,8 @@
+rocketchef_selling:
+    path:     /selling
+    defaults: { _controller: RocketChefSellingBundle:Selling:index }
+    requirements:
+        _method: GET
+rocketchef_selling_add:
+    path:     /selling/add
+    defaults: { _controller: RocketChefSellingBundle:Selling:index }

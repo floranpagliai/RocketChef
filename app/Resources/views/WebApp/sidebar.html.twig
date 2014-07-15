@@ -32,6 +32,10 @@
                 class="fa fa-columns "></i> {{ 'menu.title'|trans }}</a>
 </li>
 <li class="sidebar-btn">
+    <a class="{% if menu_selected == 'selling' %}active{% endif %}" href="{{ path('rocketchef_selling') }}"><i
+                class="fa fa-bar-chart-o "></i> {{ 'selling.title'|trans }}</a>
+</li>
+<li class="sidebar-btn">
     <a class="{% if menu_selected == 'setting' %}active{% endif %}" href="{{ path('rocketchef_setting') }}"><i
                 class="fa fa-cog "></i> {{ 'security.parameters'|trans }}</a>
 </li>
