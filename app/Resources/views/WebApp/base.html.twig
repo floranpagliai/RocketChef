@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-{% include ':WebApp:header.html.twig' %}
+    {% include ':WebApp:header.html.twig' %}
 </head>
 <body>
 
@@ -27,33 +27,40 @@
                 </h1>
             </div>
 
-            <div class="row-fluid">
-                <ol class="breadcrumb">
-                    {% block page_content_breadcrumb %}
-                        <li class="active"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</li>
-                    {% endblock %}
-                </ol>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <ol class="breadcrumb">
+                        {% block page_content_breadcrumb %}
+                            <li class="active"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</li>
+                        {% endblock %}
+                    </ol>
+                </div>
             </div>
 
 
             <div class="page-content"><!-- Page content -->
                 {% include 'UtilsNotifyMessengerBundle::flash.html.twig' %}
-                {% block page_widgets %}
-                    {% if widgets is defined %}
-                        <div class="row-fluid">
-                            {% for widget in widgets %}
-                                {{ render(controller("WidgetBundle:Widget:generate",
-                                {'link': widget.link,
-                                'name' : widget.name,
-                                'value' : widget.value,
-                                'color' : widget.color,
-                                'textcolor' : widget.textcolor,
-                                'icon' : widget.icon,
-                                'footerText' : widget.footerText} )) }}
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                {% endblock %}
+
+                <div class="container-fluid">
+                    <div class="col-lg-12">
+                        {% block page_widgets %}
+                            {% if widgets is defined %}
+                                <div class="row">
+                                    {% for widget in widgets %}
+                                        {{ render(controller("WidgetBundle:Widget:generate",
+                                        {'link': widget.link,
+                                        'name' : widget.name,
+                                        'value' : widget.value,
+                                        'color' : widget.color,
+                                        'textcolor' : widget.textcolor,
+                                        'icon' : widget.icon,
+                                        'footerText' : widget.footerText} )) }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+                    </div>
+                </div>
 
                 <div class="container-fluid">
                     {% block page_content %}

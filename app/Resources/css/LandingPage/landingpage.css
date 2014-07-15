@@ -10,12 +10,10 @@ body {
   padding-top: 50px;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
-	overflow-x:hidden;
 }
 hr {
   display: block;
-  max-width: 85%;
-	width: 500px;
+  width: 500px;
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
@@ -156,7 +154,6 @@ a:after {
 /* Header Wrap */
 .headerwrap {
   background: url("bundles/sitesite/img/retina_wood.png");
-  background-size: cover;
   padding-top: 80px;
 }
 .headerwrap .col-lg-2 {
@@ -183,7 +180,8 @@ a:after {
 }
 .headerwrap p {
   text-align: left;
-  color: #95a5a6;
+  font-weight: 500;
+  color: ghostwhite;
 }
 /* Intro Wrap */
 .intro {
@@ -342,4 +340,7 @@ a:after {
   top: 67px;
   left: 85px;
   max-width: 330px;
+}
+.test {
+  height: 500px;
 }

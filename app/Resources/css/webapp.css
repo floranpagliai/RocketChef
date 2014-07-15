@@ -311,3 +311,15 @@ a.list-group-item:focus,
   line-height: 1.42857143;
   padding: 6px 12px;
 }
+footer a {
+  color: #bdc3c7;
+  font-weight: 100;
+}
+footer a:focus,
+footer a:active,
+footer a:hover {
+  color: #bdc3c7;
+}
+#chart > svg {
+  width: 100% !important;
+}
