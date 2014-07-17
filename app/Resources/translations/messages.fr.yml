@@ -3,7 +3,7 @@ global:
     currency: "€"
 dashboard:
     title: "Tableau de Bord"
-    comment: "Aperçu de la Cuisinne"
+    comment: "Aperçu de la Cuisine"
 recipebook:
     title: "Livre de Recette"
     recipe:
