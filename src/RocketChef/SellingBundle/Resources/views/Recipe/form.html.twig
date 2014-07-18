@@ -11,11 +11,6 @@
         <td>{{ form_widget(formData.recipe) }}</td>
         <td>{{ form_widget(formData.qte) }} </td>
     {% endmacro %}
-    {% if not form.vars.valid %}
-        <div class="alert alert-danger">
-            {{ form_errors(form) }}
-        </div>
-    {% endif %}
     <tbody class="recipes" data-prototype="{{ _self.tagCollectionItem(form.recipes.vars.prototype)|e }}">
     {% for Recipe in form.recipes %}
         <tr>

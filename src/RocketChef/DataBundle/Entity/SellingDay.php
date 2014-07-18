@@ -8,6 +8,7 @@
 
 namespace RocketChef\DataBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
@@ -32,7 +33,6 @@ class SellingDay
 
     /**
      * @ORM\OneToMany(targetEntity="SellingDayRecipe", mappedBy="sellingDay", cascade={"persist"}, orphanRemoval=TRUE)
-     * @Assert\Valid()
      */
     protected $recipes;
 
@@ -42,6 +42,10 @@ class SellingDay
      */
     protected $restaurant;
 
+    public function __construct()
+    {
+        $this->recipes = new ArrayCollection();
+    }
     /**
      * @param mixed $date
      */
@@ -88,5 +92,21 @@ class SellingDay
     public function getRecipes()
     {
         return $this->recipes;
+    }
+
+    /**
+     * @param $restaurant
+     */
+    public function setRestaurant($restaurant)
+    {
+        $this->restaurant = $restaurant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRestaurant()
+    {
+        return $this->restaurant;
     }
 } 

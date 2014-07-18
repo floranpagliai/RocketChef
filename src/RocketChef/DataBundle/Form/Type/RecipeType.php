@@ -43,7 +43,6 @@ class RecipeType extends AbstractType
             'prototype' => true,
             'by_reference' => false
         ));
-        $builder->add('save', 'submit');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

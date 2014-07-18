@@ -26,16 +26,16 @@ class SellingController extends Controller
     public function addAction(Request $request)
     {
         $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
-        $recipes = $this->get('rocketchef_data.recipe.provider')->getAllRestaurantMenuRecipes($restaurant->getId());
 
-        $sellingDay = new SellingDay();
-        $form = $this->createForm(new SellingDayType($this->container->get('security.context')), $sellingDay);
-
-
+        $form = $this->createForm(new SellingDayType($this->container->get('security.context')));
         if ($request->isMethod('POST')) {
             $form->submit($request);
             if ($form->isValid()) {
-
+                $sellingDay = $form->getData();
+                $sellingDay->setRestaurant($restaurant);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($sellingDay);
+                $em->flush();
            }
         }
         $paramsRender = array('form' => $form->createView());
