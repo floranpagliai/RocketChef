@@ -5,4 +5,4 @@ rocketchef_selling:
         _method: GET
 rocketchef_selling_add:
     path:     /selling/add
-    defaults: { _controller: RocketChefSellingBundle:Selling:index }
+    defaults: { _controller: RocketChefSellingBundle:Selling:add }

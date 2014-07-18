@@ -34,7 +34,7 @@ class SellingDay
      * @ORM\OneToMany(targetEntity="SellingDayRecipe", mappedBy="sellingDay", cascade={"persist"}, orphanRemoval=TRUE)
      * @Assert\Valid()
      */
-    protected $recipe;
+    protected $recipes;
 
     /**
      * @ORM\ManyToOne(targetEntity="RocketChef\UserBundle\Entity\Restaurant", inversedBy="sellingDays")
@@ -75,18 +75,18 @@ class SellingDay
     }
 
     /**
-     * @param mixed $recipe
+     * @param $recipes
      */
-    public function setRecipe($recipe)
+    public function setRecipes($recipes)
     {
-        $this->recipe = $recipe;
+        $this->recipes = $recipes;
     }
 
     /**
      * @return mixed
      */
-    public function getRecipe()
+    public function getRecipes()
     {
-        return $this->recipe;
+        return $this->recipes;
     }
 } 

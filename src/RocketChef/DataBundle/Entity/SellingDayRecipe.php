@@ -38,6 +38,11 @@ class SellingDayRecipe
     protected $sellingDay;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $qte;
+
+    /**
      * @param mixed $id
      */
     public function setId($id)
@@ -83,5 +88,21 @@ class SellingDayRecipe
     public function getSellingDay()
     {
         return $this->sellingDay;
+    }
+
+    /**
+     * @param mixed $qte
+     */
+    public function setQte($qte)
+    {
+        $this->qte = $qte;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQte()
+    {
+        return $this->qte;
     }
 } 
