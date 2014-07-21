@@ -32,7 +32,7 @@ class SellingDayRecipe
     protected $recipe;
 
     /**
-     * @ORM\ManyToOne(targetEntity="SellingDay", inversedBy="recipes", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="RocketChef\DataBundle\Entity\SellingDay", inversedBy="recipes", cascade={"persist"})
      * @ORM\JoinColumn(name="sellingday_id", referencedColumnName="id", nullable=FALSE)
      */
     protected $sellingDay;

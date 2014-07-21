@@ -25,7 +25,7 @@ class SellingDayType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date', 'date');
+        $builder->add('date', 'date', array('data' => new \DateTime('today')));
         $builder->add('recipes', 'collection', array(
             'type' => new SellingDayRecipeType($this->securityContext),
             'allow_add' => true,

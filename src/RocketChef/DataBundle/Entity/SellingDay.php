@@ -8,14 +8,16 @@
 
 namespace RocketChef\DataBundle\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="sellingDay")
+ * @UniqueEntity("date", message="selling.warn.dateUnique")
  */
 class SellingDay 
 {
@@ -92,6 +94,22 @@ class SellingDay
     public function getRecipes()
     {
         return $this->recipes;
+    }
+
+    public function addRecipes(Recipe $recipe)
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes->add($recipe);
+        }
+        return $this;
+    }
+
+    public function removeRecipes(Recipe $recipe)
+    {
+        if ($this->recipes->contains($recipe)) {
+            $this->recipes->removeElement($recipe);
+        }
+        return $this;
     }
 
     /**

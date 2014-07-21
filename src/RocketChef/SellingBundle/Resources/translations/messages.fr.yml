@@ -1,0 +1,11 @@
+selling:
+    icon: "fa fa-bar-chart-o"
+    action:
+        add: "Ajouter vente"
+        save: "Sauvegarder vente"
+    title:
+        selling: "Ventes"
+    form:
+        date: "Date du jour de vente"
+    warn:
+        dateUnique: "Une vente existe déjà pour cette date."

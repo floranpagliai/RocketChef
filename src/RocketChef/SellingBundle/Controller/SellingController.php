@@ -9,6 +9,7 @@
 namespace RocketChef\SellingBundle\Controller;
 
 use RocketChef\DataBundle\Entity\SellingDay;
+use RocketChef\DataBundle\Entity\SellingDayRecipe;
 use RocketChef\DataBundle\Form\Type\SellingDayRecipeType;
 use RocketChef\DataBundle\Form\Type\SellingDayType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,16 +29,18 @@ class SellingController extends Controller
         $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
 
         $form = $this->createForm(new SellingDayType($this->container->get('security.context')));
-        if ($request->isMethod('POST')) {
-            $form->submit($request);
+        $form->handleRequest($request);
             if ($form->isValid()) {
                 $sellingDay = $form->getData();
                 $sellingDay->setRestaurant($restaurant);
+                foreach ($sellingDay->getRecipes() as $recipe)
+                    $recipe->setSellingDay($sellingDay);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sellingDay);
                 $em->flush();
+                return $this->redirect($this->generateUrl('rocketchef_selling'));
            }
-        }
+
         $paramsRender = array('form' => $form->createView());
         return $this->render('@RocketChefSelling/Selling/add.html.twig', $paramsRender);
     }
