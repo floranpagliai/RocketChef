@@ -5,7 +5,11 @@ selling:
         save: "Sauvegarder vente"
     title:
         selling: "Ventes"
+        new: "Nouvelle vente"
     form:
         date: "Date du jour de vente"
+        recipe: "Plat"
+        qte: "Quantité vendu"
+        add: "Ajouter plat"
     warn:
         dateUnique: "Une vente existe déjà pour cette date."

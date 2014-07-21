@@ -1,8 +1,8 @@
 <table class="table">
     <thead>
     <tr>
-        <th width="9%">{{ 'recipe'|trans }}</th>
-        <th width="25%">{{ 'qte'|trans }}</th>
+        <th width="9%">{{ 'selling.form.recipe'|trans }}</th>
+        <th width="25%">{{ 'selling.form.qte'|trans }}</th>
         <th class="btn-table"></th>
     </tr>
     </thead>
@@ -25,7 +25,7 @@
         var collectionHolder = $('tbody.recipes');
 
         // ajoute un lien « add a tag »
-        var $addTagLink = $('<a href="#" class="btn btn-sm btn-primary add_tag_link"><i class="fa fa-plus"></i> Add a recipe</a>');
+        var $addTagLink = $('<a href="#" class="btn btn-sm btn-primary add_tag_link"><i class="fa fa-plus"></i> Ajouter un plat</a>');
 
         var $newLinkLi = $addTagLink;
 
@@ -62,7 +62,7 @@
 
         function addTagFormDeleteLink($tagFormLi) {
             var $removeFormA = $('<td class="tooltip-content"><a href="#" class="btn btn-sm btn-red btn-block" data-toggle="tooltip" ' +
-                    'data-placement="top" data-original-title="Delete recipe"><i class="fa fa-times"></i></a></td>');
+                    'data-placement="top" data-original-title="Supprimer plat"><i class="fa fa-times"></i></a></td>');
 
             $tagFormLi.append($removeFormA);
 

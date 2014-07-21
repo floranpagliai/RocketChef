@@ -33,8 +33,8 @@ class SellingController extends Controller
             if ($form->isValid()) {
                 $sellingDay = $form->getData();
                 $sellingDay->setRestaurant($restaurant);
-                foreach ($sellingDay->getRecipes() as $recipe)
-                    $recipe->setSellingDay($sellingDay);
+
+                $sellingDay = $this->get('rocket_chef_selling')->calculateSellingDay($sellingDay);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($sellingDay);
                 $em->flush();

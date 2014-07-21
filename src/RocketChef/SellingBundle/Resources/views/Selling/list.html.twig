@@ -7,16 +7,16 @@
                         <h4>Ventes</h4>
                     </div>
                     <div class="portlet-widgets">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#areaChart"><i
+                        <a data-toggle="collapse" data-parent="#accordion" href="#sellingChart"><i
                                     class="fa-chevron-down fa"></i></a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="panel-collapse collapse in">
+                <div class="panel-collapse collapse in" id="sellingChart">
                     <div class="portlet-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div id="chart"></div>
+                                <div id="chart" data-target="{{ path('rocketchef_selling_ajax') }}"></div>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="panel-collapse" style="height: auto;">
                     <div class="portlet-body">
-                        {% if sellingDays %}
+                        {% if sellingDays is not empty %}
                             <table id="dataTable" class="table table-hover">
                                 <thead>
                                 <tr>

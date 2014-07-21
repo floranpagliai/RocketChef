@@ -33,6 +33,10 @@ class Recipe {
     /**
      * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="recipe", cascade={"persist"}, orphanRemoval=TRUE)
      * @Assert\Valid()
+     * @Assert\Count(
+     *      min = "1",
+     *      minMessage = "Vous devez spécifier au moins un ingrédient"
+     * )
      */
     protected $recipeIngredient;
 

@@ -1,7 +1,6 @@
 parameters:
-#    rocket_chef_selling.example.class: RocketChef\SellingBundle\Example
+    rocket_chef_selling.class: RocketChef\SellingBundle\Service\SellingService
 
 services:
-#    rocket_chef_selling.example:
-#        class: %rocket_chef_selling.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    rocket_chef_selling:
+        class: %rocket_chef_selling.class%

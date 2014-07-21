@@ -34,7 +34,21 @@ class SellingDay
     protected $date;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    protected $cost;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $CA;
+
+    /**
      * @ORM\OneToMany(targetEntity="SellingDayRecipe", mappedBy="sellingDay", cascade={"persist"}, orphanRemoval=TRUE)
+     * @Assert\Count(
+     *      min = "1",
+     *      minMessage = "Vous devez spécifier au moins un plat vendu."
+     * )
      */
     protected $recipes;
 
@@ -127,4 +141,38 @@ class SellingDay
     {
         return $this->restaurant;
     }
+
+    /**
+     * @param mixed $CA
+     */
+    public function setCA($CA)
+    {
+        $this->CA = $CA;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCA()
+    {
+        return $this->CA;
+    }
+
+    /**
+     * @param mixed $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+
 } 
