@@ -15,7 +15,7 @@ class ActionController extends Controller
 {
     public function addRecipeAction(Request $request, $recipeId)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $recipe = $this->get('rocketchef_data.recipe.provider')->getRecipeById($recipeId);
 
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
@@ -31,7 +31,7 @@ class ActionController extends Controller
 
     public function removeRecipeAction(Request $request, $recipeId)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $recipe = $this->get('rocketchef_data.recipe.provider')->getRecipeById($recipeId);
 
         if ($recipe && $recipe->getRestaurant() == $restaurant) {

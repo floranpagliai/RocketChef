@@ -9,6 +9,7 @@
 namespace RocketChef\UserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,7 +18,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Restaurant
 {
-
     /**
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id()
@@ -29,6 +29,12 @@ class Restaurant
      * @ORM\Column(name="name", type="string", length=30)
      */
     private $name;
+
+    /**
+     * @var \RocketChef\UserBundle\Entity\Subscription
+     * @ORM\ManyToOne(targetEntity="RocketChef\UserBundle\Entity\Subscription")
+     */
+    private $subscription;
 
     /**
      * @ORM\OneToMany(targetEntity="User", mappedBy="restaurant", cascade={"persist", "remove"})
@@ -115,7 +121,7 @@ class Restaurant
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getRecipes()
     {
@@ -242,5 +248,21 @@ class Restaurant
     public function removeSellingDay(\RocketChef\DataBundle\Entity\SellingDay $sellingDay)
     {
         $this->sellingDays->removeElement($sellingDay);
+    }
+
+    /**
+     * @param \RocketChef\UserBundle\Entity\Subscription $subscription
+     */
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
+    }
+
+    /**
+     * @return \RocketChef\UserBundle\Entity\Subscription $subscription
+     */
+    public function getSubscription()
+    {
+        return $this->subscription;
     }
 }

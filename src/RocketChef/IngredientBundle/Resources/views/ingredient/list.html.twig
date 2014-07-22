@@ -51,7 +51,7 @@
                                         <td class="tooltips">
                                             <a href="{{ path('rocketchef_ingredient_delete', {'ingredientId': ingredient.id}) }}"
                                                class="btn btn-sm btn-red btn-block" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="{{ 'ingredient.action.delete'|trans }}" onclick="return confirm('Supprimer l\'ingredient ? Il sera aussi supprimé des recettes.')">
+                                               data-placement="top" data-original-title="{{ 'ingredient.action.delete'|trans }}" onclick="return confirm(Translator.trans('ingredient.warn.delete'))">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>

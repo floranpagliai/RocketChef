@@ -23,6 +23,9 @@
         {% endif %}
         <fieldset>
             <div class="form-group">
+                {{ form_widget(form.restaurant.subscription) }}
+            </div>
+            <div class="form-group">
                 <label class="sr-only" for="email">Email address</label>
                 {{ form_widget(form.email, { 'attr': { 'placeholder': 'user.form.email'|trans } } ) }}
             </div>

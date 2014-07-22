@@ -1,10 +1,11 @@
 {% javascripts
 'js/bootstrap.js'
 '@UtilsNotifyMessengerBundle/Resources/public/js/*'
+'@BazingaJsTranslationBundle/Resources/public/js/translator.min.js'
 '%kernel.root_dir%/Resources/js/*' %}
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
-
+<script src="{{ url('bazinga_jstranslation_js') }}"></script>
 <script>
     //Morris Area Chart
     $(document).ready(function () {
@@ -15,7 +16,7 @@
     });
     function barChart(url) {
         $.getJSON(url, function (data) {
-            window.m = Morris.Area({
+            window.m = Morris.Line({
                 element: 'chart',
                 data: data,
                 xkey: 'date',
@@ -23,12 +24,12 @@
                     return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
                 },
                 xLabels: 'day',
-                ykeys: ['cost', 'CA'],
+                ykeys: ['CA', 'cost'],
                 yLabelFormat: function (y) {
                     return y + " €";
                 },
-                labels: ['Coûts', 'Chiffre d\'affaire'],
-                lineColors: ['#e74c3c', '#2980b9'],
+                labels: [Translator.trans('selling.title.CA'), Translator.trans('selling.title.costs')],
+                lineColors: ['#2980b9', '#e74c3c'],
                 hideHover: 'auto',
                 resize: true,
                 redraw: true,
@@ -84,10 +85,14 @@
         $('#dataTable').dataTable({
             "paging": false,
             "info": false,
-            "aoColumns": aoColums
+            "aoColumns": aoColums,
+            "language": {
+                "search": Translator.trans('global.search')
+            }
         });
     });
 </script>
+{% if app.environment != 'dev' %}
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -105,6 +110,7 @@
     ga('send', 'pageview');
 
 </script>
+{% endif %}
 {#<script type="text/javascript" src="http://5.135.165.207:8080/s/d41d8cd98f00b204e9800998ecf8427e/fr_FRs565z7-1988229788/6261/4/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=4a751eb7"></script>#}
 {#<script type="text/javascript" src="http://5.135.165.207:8080/s/d41d8cd98f00b204e9800998ecf8427e/fr_FRs565z7-1988229788/6261/4/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=928954fe"></script>#}
 {% block page_script %}{% endblock %}

@@ -25,7 +25,8 @@
         "jquery/jquery":  "1.10.*",
 		"winzou/console-bundle": "1.0.*",
 		"leafo/lessphp": "0.4.*",
-		"mlpz/mailchimp-bundle": "dev-master"
+		"mlpz/mailchimp-bundle": "dev-master",
+		"willdurand/js-translation-bundle": "2.1.*@dev"
     },
     "repositories": [
         {

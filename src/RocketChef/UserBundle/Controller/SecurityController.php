@@ -2,6 +2,7 @@
 
 namespace RocketChef\UserBundle\Controller;
 
+use RocketChef\UserBundle\Entity\Restaurant;
 use RocketChef\UserBundle\Entity\User;
 use RocketChef\UserBundle\Form\Type\UserPasswordType;
 use RocketChef\UserBundle\Form\Type\UserType;

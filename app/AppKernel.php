@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new MZ\MailChimpBundle\MZMailChimpBundle(),
+            new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
 
             new RocketChef\DataBundle\RocketChefDataBundle(),
             new RocketChef\RecipeBookBundle\RocketChefRecipeBookBundle(),

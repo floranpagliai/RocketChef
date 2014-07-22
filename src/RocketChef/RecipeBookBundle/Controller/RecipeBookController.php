@@ -11,7 +11,7 @@ class RecipeBookController extends Controller
 {
     public function indexAction()
     {
-        $recipes = $this->container->get('security.context')->getToken()->getUser()->getRestaurant()->getRecipes();
+        $recipes = $this->getUser()->getRestaurant()->getRecipes();
         foreach ($recipes as $recipe)
             $this->updateRecipeCostAction($recipe);
         $paramsRender = array('recipes' => $recipes);
@@ -20,7 +20,7 @@ class RecipeBookController extends Controller
 
     public function showAction($recipeId)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $recipe = $this->get('rocketchef_data.recipe.provider')->getRecipeById($recipeId);
         if ($recipe && $recipe->getRestaurant() == $restaurant) {
             $recipeIngredients = $recipe->getRecipeIngredient();
@@ -48,6 +48,13 @@ class RecipeBookController extends Controller
 
     public function addAction(Request $request)
     {
+        $restaurant = $this->getUser()->getRestaurant();
+        if ($restaurant->getSubscription()->getRecipeMax() <= $restaurant->getRecipes()->count())
+        {
+            $flash = $this->get('notify_messenger.flash');
+            $flash->error('Nombre maximun de recettes atteint.');
+            return $this->redirect($this->generateUrl('rocketchef_recipe_book'));
+        }
         $recipe = new Recipe();
         $form = $this->createForm(new RecipeType($this->container->get('security.context')), $recipe);
         if ($request->isMethod('POST')) {
@@ -88,7 +95,7 @@ class RecipeBookController extends Controller
 
     public function updateRecipeAction(Recipe $recipe)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $recipe->setRestaurant($restaurant);
         foreach ($recipe->getRecipeIngredient() as $recipeIngredient)
             $recipeIngredient->getIngredient()->setRestaurant($restaurant);

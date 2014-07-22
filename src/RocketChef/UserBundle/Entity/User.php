@@ -56,6 +56,7 @@ class User implements  UserInterface {
     protected $salt;
 
     /**
+     * @var \RocketChef\UserBundle\Entity\Restaurant
      * @ORM\ManyToOne(targetEntity="RocketChef\UserBundle\Entity\Restaurant", inversedBy="users", cascade={"persist"})
      * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
@@ -181,7 +182,7 @@ class User implements  UserInterface {
     }
 
     /**
-     * @param mixed $restaurant
+     * @param \RocketChef\UserBundle\Entity\Restaurant $restaurant
      */
     public function setRestaurant($restaurant)
     {
@@ -189,7 +190,7 @@ class User implements  UserInterface {
     }
 
     /**
-     * @return mixed
+     * @return \RocketChef\UserBundle\Entity\Restaurant
      */
     public function getRestaurant()
     {

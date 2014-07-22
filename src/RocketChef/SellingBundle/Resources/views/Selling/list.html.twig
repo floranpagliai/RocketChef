@@ -43,12 +43,16 @@
                                 <thead>
                                 <tr>
                                     <th>{{ 'selling.form.date'|trans }}</th>
+                                    <th>{{ 'selling.title.costs'|trans }}</th>
+                                    <th>{{ 'selling.title.CA'|trans }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for sellingDay in sellingDays %}
                                     <tr>
                                         <td>{{ sellingDay.date|date('d M Y') }}</td>
+                                        <td>{{ sellingDay.cost|round(2, 'common') }} {{ 'global.currency'|trans }}</td>
+                                        <td>{{ sellingDay.CA|round(2, 'common') }} {{ 'global.currency'|trans }}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>

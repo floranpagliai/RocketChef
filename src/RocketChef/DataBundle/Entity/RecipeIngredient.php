@@ -162,16 +162,21 @@ class RecipeIngredient {
      */
     public function isValid(ExecutionContextInterface $context)
     {
-        $ingredientName = $this->getIngredient()->getName();
-        if ($this->getIngredient()->getUnit() == Ingredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_LITER&&
-            ($this->getUnit() != RecipeIngredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_CLITER)) {
-            $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be in L or CL')->addViolation();
-        } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_KG &&
-            ($this->getUnit() != RecipeIngredient::UNIT_KG && $this->getUnit() != RecipeIngredient::UNIT_GR)) {
-            $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be in Kg or Gr')->addViolation();
-        } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_UNITARY && $this->getUnit() != RecipeIngredient::UNIT_UNITARY) {
-            $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be unitary')->addViolation();
+        if ($this->getIngredient() != null) {
+            $ingredientName = $this->getIngredient()->getName();
+            if ($this->getIngredient()->getUnit() == Ingredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_LITER&&
+                ($this->getUnit() != RecipeIngredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_CLITER)) {
+                $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be in L or CL')->addViolation();
+            } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_KG &&
+                ($this->getUnit() != RecipeIngredient::UNIT_KG && $this->getUnit() != RecipeIngredient::UNIT_GR)) {
+                $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be in Kg or Gr')->addViolation();
+            } elseif ($this->getIngredient()->getUnit() == Ingredient::UNIT_UNITARY && $this->getUnit() != RecipeIngredient::UNIT_UNITARY) {
+                $context->buildViolation('Ingredient ' . $ingredientName . ' unit must be unitary')->addViolation();
+            }
+        } else {
+            $context->buildViolation('You must choose an ingredient.')->addViolation();
         }
+
     }
 
 }

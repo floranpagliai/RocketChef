@@ -1,6 +1,7 @@
 global:
     appname: "RocketChef"
     currency: "€"
+    search: "Recherche :"
 dashboard:
     title: "Tableau de Bord"
     comment: "Aperçu de la Cuisine"

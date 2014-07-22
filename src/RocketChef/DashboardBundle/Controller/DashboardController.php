@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $widgetService = $this->get('widget.generator');
         $recipeProvider = $this->get('rocketchef_data.recipe.provider');
         $translator = $this->get('translator');

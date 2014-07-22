@@ -14,7 +14,7 @@ class MenuController extends Controller
 {
     public function indexAction()
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $recipes = $this->get('rocketchef_data.recipe.provider')->getAllRestaurantMenuRecipes($restaurant->getId());
 
         $paramsRender = array('recipes' => $recipes);

@@ -19,14 +19,14 @@ class SellingController extends Controller
 {
     public function indexAction()
     {
-        $sellingDays = $this->container->get('security.context')->getToken()->getUser()->getRestaurant()->getSellingDays();
+        $sellingDays = $this->getUser()->getRestaurant()->getSellingDays();
         $paramsRender = array('sellingDays' => $sellingDays);
         return $this->render('RocketChefSellingBundle:Selling:list.html.twig', $paramsRender);
     }
 
     public function addAction(Request $request)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
 
         $form = $this->createForm(new SellingDayType($this->container->get('security.context')));
         $form->handleRequest($request);

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e12bd574d5a04268e55ab67df98a8ada",
+    "hash": "e5e2c0571460ca4e44a49103bb0ed0f1",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1520,17 +1520,16 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.6.0",
-            "target-dir": "Symfony/Bundle/MonologBundle",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a"
+                "reference": "227bbeefe30f2d95e3fe5fbd1ccda414287a957a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
-                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/227bbeefe30f2d95e3fe5fbd1ccda414287a957a",
+                "reference": "227bbeefe30f2d95e3fe5fbd1ccda414287a957a",
                 "shasum": ""
             },
             "require": {
@@ -1552,8 +1551,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Symfony\\Bundle\\MonologBundle": ""
+                "psr-4": {
+                    "Symfony\\Bundle\\MonologBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1562,14 +1561,12 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony MonologBundle",
@@ -1578,7 +1575,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-06-04 16:49:13"
+            "time": "2014-07-21 00:36:06"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -1901,6 +1898,64 @@
             "time": "2014-07-05 12:19:05"
         },
         {
+            "name": "willdurand/js-translation-bundle",
+            "version": "dev-master",
+            "target-dir": "Bazinga/Bundle/JsTranslationBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/BazingaJsTranslationBundle.git",
+                "reference": "360aa09aed6872db399ccfd13b2dff074ff36063"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/BazingaJsTranslationBundle/zipball/360aa09aed6872db399ccfd13b2dff074ff36063",
+                "reference": "360aa09aed6872db399ccfd13b2dff074ff36063",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "~2.3",
+                "symfony/finder": "~2.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "replace": {
+                "willdurand/expose-translation-bundle": "2.1.*"
+            },
+            "require-dev": {
+                "symfony/browser-kit": "~2.3",
+                "symfony/twig-bundle": "~2.3",
+                "symfony/yaml": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Bazinga\\Bundle\\JsTranslationBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "A pretty nice way to expose your translation messages to your JavaScript.",
+            "keywords": [
+                "javascript",
+                "symfony",
+                "translation"
+            ],
+            "time": "2014-07-14 19:23:33"
+        },
+        {
             "name": "winzou/console-bundle",
             "version": "1.0.1",
             "target-dir": "CoreSphere/ConsoleBundle",
@@ -1962,7 +2017,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "components/font-awesome": 20,
-        "mlpz/mailchimp-bundle": 20
+        "mlpz/mailchimp-bundle": 20,
+        "willdurand/js-translation-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

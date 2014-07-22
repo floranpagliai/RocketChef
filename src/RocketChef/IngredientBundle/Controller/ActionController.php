@@ -16,7 +16,7 @@ class ActionController extends Controller
 {
     public function deleteAction(Request $request, $ingredientId, $urlRedirect)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $ingredient = $this->getDoctrine()->getRepository('RocketChefDataBundle:Ingredient')->find($ingredientId);
 
         if ($ingredient && $ingredient->getRestaurant() == $restaurant) {

@@ -35,7 +35,7 @@ class Recipe {
      * @Assert\Valid()
      * @Assert\Count(
      *      min = "1",
-     *      minMessage = "Vous devez spécifier au moins un ingrédient"
+     *      minMessage = "Vous devez ajouter au moins un ingrédient"
      * )
      */
     protected $recipeIngredient;
@@ -61,6 +61,7 @@ class Recipe {
     protected $price;
 
     /**
+     * @var \RocketChef\UserBundle\Entity\Restaurant
      * @ORM\ManyToOne(targetEntity="RocketChef\UserBundle\Entity\Restaurant", inversedBy="recipes")
      * @ORM\JoinColumn(name="restaurant_id", referencedColumnName="id")
      */
@@ -198,8 +199,9 @@ class Recipe {
         $this->restaurant = $restaurant;
     }
 
+
     /**
-     * @return mixed
+     * @return \RocketChef\UserBundle\Entity\Restaurant $restaurant
      */
     public function getRestaurant()
     {
@@ -254,6 +256,4 @@ class Recipe {
     {
         return $this->recipeStep;
     }
-
-
 }

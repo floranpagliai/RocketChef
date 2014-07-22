@@ -17,14 +17,14 @@ class IngredientController extends Controller
 {
     public function indexAction()
     {
-        $ingredients = $this->container->get('security.context')->getToken()->getUser()->getRestaurant()->getIngredients();
+        $ingredients = $this->getUser()->getRestaurant()->getIngredients();
         $paramsRender = array('ingredients' => $ingredients);
         return $this->render('RocketChefIngredientBundle:ingredient:list.html.twig', $paramsRender);
     }
 
     public function showAction($ingredientId)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $ingredient = $this->getDoctrine()->getRepository('RocketChefDataBundle:Ingredient')->find($ingredientId);
         if ($ingredient && $ingredient->getRestaurant() == $restaurant) {
             $paramsRender = array(
@@ -37,7 +37,7 @@ class IngredientController extends Controller
 
     public function addAction(Request $request)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();
+        $restaurant = $this->getUser()->getRestaurant();
         $ingredient = new Ingredient();
         $form = $this->createForm(new NewIngredientType(), $ingredient);
         if ($request->isMethod('POST')) {
@@ -57,7 +57,7 @@ class IngredientController extends Controller
 
     public function editAction(Request $request, $ingredientId)
     {
-        $restaurant = $this->container->get('security.context')->getToken()->getUser()->getRestaurant();//TODO gestion du propriétaire
+        $restaurant = $this->getUser()->getRestaurant();//TODO gestion du propriétaire
         $ingredientOld = $this->getDoctrine()->getRepository('RocketChefDataBundle:Ingredient')->find($ingredientId);
         $form = $this->createForm(new NewIngredientType(), $ingredientOld);
         if ($request->isMethod('POST')) {
