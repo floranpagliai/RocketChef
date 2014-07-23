@@ -39,11 +39,11 @@
             </div>
             <div class="form-group">
                 <label class="sr-only" for="password">Password</label>
-                {{ form_widget(form.password.first, { 'attr': { 'placeholder': 'user.form.password'|trans } } ) }}
+                {{ form_widget(form.plain_password.first, { 'attr': { 'placeholder': 'user.form.password'|trans } } ) }}
             </div>
             <div class="form-group">
                 <label class="sr-only" for="password">Password</label>
-                {{ form_widget(form.password.second, { 'attr': { 'placeholder': 'user.form.password_validation'|trans } } ) }}
+                {{ form_widget(form.plain_password.second, { 'attr': { 'placeholder': 'user.form.password_validation'|trans } } ) }}
             </div>
             <div class="form-group">
                 {{ form_widget(form.restaurant.name, { 'attr': { 'placeholder': 'user.form.restaurant_name'|trans } } ) }}

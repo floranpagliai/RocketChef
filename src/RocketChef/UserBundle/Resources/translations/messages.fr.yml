@@ -21,3 +21,5 @@ user:
     warn:
         password_updated: "Mot de passe mis à jour."
         can_login: "Utilisateur enregistré. Vous pouvez maintenant vous connecter."
+        unique_email: "Cet email est déjà utilisé."
+        password_length: "Votre mot de passe doit faire entre 5 et 30 caractères"

@@ -55,7 +55,7 @@ class SecurityController extends Controller
             $errors = $validator->validate($user);
             if ($form->isValid()) {
                 $encoder = $this->get('security.encoder_factory')->getEncoder($user);
-                $user->setPassword($encoder->encodePassword($user->getPassword(), null));
+                $user->setPassword($encoder->encodePassword($user->getPlainPassword(), null));
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
@@ -72,22 +72,22 @@ class SecurityController extends Controller
 
     public function editPassAction($request)
     {
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->getUser();
 
         $form = $this->createForm(new UserPasswordType(), $user);
-        $form->add('oldPassword', 'password', array('mapped' => false));
+//        $form->add('oldPassword', 'password', array('mapped' => false));
 
         $form->submit($request);
         if ($form->isValid()) {
             $encoder = $this->get('security.encoder_factory')->getEncoder($user);
-            $user->setPassword($encoder->encodePassword($user->getPassword(), null));
+            $user->setPassword($encoder->encodePassword($user->getPlainPassword(), $user->getSalt()));
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
             $flash = $this->get('notify_messenger.flash');
-            $flash->info($this->get('translator')->trans('user.warn.password_updated'));
+            $flash->success($this->get('translator')->trans('user.warn.password_updated'));
         }
 
         $paramsRender = array('form' => $form->createView());

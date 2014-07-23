@@ -14,13 +14,14 @@ use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
- /**
+/**
  * @ORM\Entity
  * @ORM\Table(name="user")
  * @UniqueEntity("email",
-  *             message="This email is already used.")
+ *             message="user.warn.unique_email")
  */
-class User implements  UserInterface {
+class User implements UserInterface
+{
 
     /**
      * @ORM\Id
@@ -46,6 +47,16 @@ class User implements  UserInterface {
     protected $email;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = "5",
+     *      max = "30",
+     *      minMessage = "user.warn.password_length",
+     *      maxMessage = "user.warn.password_length"
+     * )
+     * */
+    protected $plainPassword;
+    /**
      * @ORM\Column(name="password", type="string", length=255)
      */
     protected $password;
@@ -62,9 +73,15 @@ class User implements  UserInterface {
      */
     protected $restaurant;
 
+    /**
+     * @ORM\Column(name="role", type="string", length=20)
+     */
+    protected $roles;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
+        $this->roles = 'ROLE_USER';
         $this->isActive = true;
         $this->salt = md5(uniqid(null, true));
     }
@@ -115,6 +132,22 @@ class User implements  UserInterface {
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
     }
 
     /**
@@ -215,7 +248,7 @@ class User implements  UserInterface {
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array($this->roles);
     }
 
     /**

@@ -3,31 +3,39 @@
 {% block page_content %}
     <div class="col-lg-12">
         <div class="portlet portlet-default">
-            <div class="panel-collapse in" style="height: auto;">
+            <div class="panel-collapse" style="height: auto;">
                 <div class="portlet-body">
 
-                    <ul id="userTab" class="nav nav-tabs">
-                        {#<li class="active"><a href="#overview" data-toggle="tab">Paramètres</a>#}
-                        {#</li>#}
-                        <li class="active"><a href="#profile-settings" data-toggle="tab">Mon profil</a></li>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#profileSettings" data-toggle="tab">Mon profil</a></li>
+                        {#<li><a href="#overview" data-toggle="tab">Paramètres</a></li>#}
                     </ul>
 
-                    <div class="tab-pane fade in active" id="profile-settings">
+                    <div class="tab-pane fade in active" id="profileSettings">
                         <div class="row">
 
                             <div class="col-sm-2">
                                 <ul id="userSettings" class="nav nav-pills nav-stacked">
                                     <li class="active">
-                                        <a href="#changePassword" data-toggle="tab"><i class="fa fa-lock fa-fw"></i>Changer mot de passe</a>
+                                        <a href="#profile" data-toggle="tab"><i class="fa fa-user fa-fw"></i>{{ app.user.username }} {{ app.user.lastname }}</a>
                                     </li>
                                 </ul>
                             </div>
 
                             <div class="col-sm-10">
-                                <div id="userSettingsContent" class="tab-content">
-                                    {% render controller('RocketChefUserBundle:Security:editPass', { 'request' : app.request }) %}
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="profile">
+                                        <h4 class="page-header">Mes informations :</h4>
+                                        <p>
+                                            <strong>Prénom :</strong> {{ app.user.username }}<br>
+                                            <strong>Nom :</strong> {{ app.user.lastname }}<br>
+                                            <strong>Email :</strong> {{ app.user.email }}<br>
+                                        </p>
+                                        {% render controller('RocketChefUserBundle:Security:editPass', { 'request' : app.request }) %}
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 

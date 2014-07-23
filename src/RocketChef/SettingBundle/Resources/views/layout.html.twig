@@ -2,11 +2,11 @@
 {% set menu_selected = 'setting' %}
 
 {% block page_content_header %}
-    {{ 'parameter.title'|trans }}
+    {{ 'settings.title.settings'|trans }}
     <small></small>
 {% endblock %}
 
 {% block page_content_breadcrumb %}
     <li><a href="{{ path('rocketchef_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a></li>
-    <li class="active"><i class="fa fa-cog "></i> {{ 'parameter.title'|trans }}</li>
+    <li class="active"><i class="fa fa-cog "></i> {{ 'settings.title.settings'|trans }}</li>
 {% endblock %}
