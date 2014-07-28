@@ -1,4 +1,16 @@
 recipebook:
+    action:
+        save: "Sauvegarder recette"
+        add_ingredient: "Ajouter un ingrédient"
+    title:
+        recipebook: "Livre de Recette"
+        edit_recipe: "Modifier une recette"
+        edit: "Modifier"
+    form:
+        recipe_name: "Nom de la recette"
+        portions : "Nombre de portions"
+        selling_price: "Prix de vente"
+
     word:
         count_recipe: "%count% Recette|%count% Recettes"
 
