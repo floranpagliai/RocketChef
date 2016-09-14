@@ -28,37 +28,39 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             {#<li>#}
-                                {#<a href="{{ path('rocketchef_recipe_book_print', {'recipeId': recipe.id}) }}">#}
-                                    {#<i class="fa fa-print"></i> Print Recipe</a>#}
+                            {#<a href="{{ path('rocketchef_recipe_book_print', {'recipeId': recipe.id}) }}">#}
+                            {#<i class="fa fa-print"></i> Print Recipe</a>#}
                             {#</li>#}
                             <li>
                                 {% if recipe.inMenu %}
                                     <a href="{{ path('rocketchef_menu_remove_recipe', {'recipeId': recipe.id}) }}">
-                                    <i class="fa fa-times"></i> Remove from menu</a>
+                                        <i class="fa fa-times"></i> Remove from menu</a>
                                 {% else %}
                                     <a href="{{ path('rocketchef_menu_add_recipe', {'recipeId': recipe.id}) }}">
-                                    <i class="fa fa-plus"></i> Add to menu</a>
+                                        <i class="fa fa-plus"></i> Add to menu</a>
                                 {% endif %}
                             </li>
                             <li>
                                 <a href="{{ path('rocketchef_recipe_book_edit', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}">
-                                <i class="fa fa-pencil"></i> Edit Recipe</a>
+                                    <i class="fa fa-pencil"></i> Edit Recipe</a>
                             </li>
                             <li>
-                                <a href="{{ path('rocketchef_recipe_book_delete', {'recipeId': recipe.id, 'urlRedirect': 'rocketchef_recipe_book'}) }}" onclick="return confirm('Delete recipe ?')">
-                                <i class="fa fa-times"></i> Delete Recipe</a>
+                                <a href="{{ path('rocketchef_recipe_book_delete', {'recipeId': recipe.id, 'urlRedirect': 'rocketchef_recipe_book'}) }}"
+                                   onclick="return confirm('Delete recipe ?')">
+                                    <i class="fa fa-times"></i> Delete Recipe</a>
                             </li>
                         </ul>
 
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div  class="panel-collapse in" style="height: auto;">
+                <div class="panel-collapse in" style="height: auto;">
                     <div class="portlet-body">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 {% if  recipe.image is not null %}
-                                    <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}" width="80%">
+                                    <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}"
+                                         width="80%">
                                 {% endif %}
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8">
@@ -90,7 +92,7 @@
                                         </td>
                                         <td>
                                             <strong>Ratio</strong><br>
-                                                {{ ratio|round(1, 'common') }}
+                                            {{ ratio|round(1, 'common') }}
                                         </td>
                                     </tr>
                                 </table>

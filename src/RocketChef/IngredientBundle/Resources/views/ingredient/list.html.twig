@@ -33,25 +33,28 @@
                                             {{ ingredient.name|capitalize }}
                                         </td>
                                         <td>{{ ingredient.priceForUnit }}
-                                        {% if ingredient.unit == constant('RocketChef\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
-                                            {{ 'global.currency'|trans }}/Kg
-                                        {% elseif ingredient.unit == constant('RocketChef\\DataBundle\\Entity\\Ingredient::UNIT_LITER') %}
-                                            {{ 'global.currency'|trans }}/L
-                                        {% else %}
-                                            {{ 'global.currency'|trans }}/Pce
-                                        {% endif %}</td>
+                                            {% if ingredient.unit == constant('RocketChef\\DataBundle\\Entity\\Ingredient::UNIT_KG') %}
+                                                {{ 'global.currency'|trans }}/Kg
+                                            {% elseif ingredient.unit == constant('RocketChef\\DataBundle\\Entity\\Ingredient::UNIT_LITER') %}
+                                                {{ 'global.currency'|trans }}/L
+                                            {% else %}
+                                                {{ 'global.currency'|trans }}/Pce
+                                            {% endif %}</td>
                                         <td class="hidden-xs">{{ 'recipebook.word.count_recipe'|transchoice(ingredient.recipes.count) }}</td>
                                         <td class="tooltips">
                                             <a href="{{ path('rocketchef_ingredient_edit', {'ingredientId': ingredient.id, 'ingredientName': ingredient.name}) }}"
                                                class="btn btn-sm btn-primary btn-block" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="{{ 'ingredient.action.edit'|trans }}">
+                                               data-placement="top"
+                                               data-original-title="{{ 'ingredient.action.edit'|trans }}">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                         </td>
                                         <td class="tooltips">
                                             <a href="{{ path('rocketchef_ingredient_delete', {'ingredientId': ingredient.id}) }}"
                                                class="btn btn-sm btn-red btn-block" data-toggle="tooltip"
-                                               data-placement="top" data-original-title="{{ 'ingredient.action.delete'|trans }}" onclick="return confirm(Translator.trans('ingredient.warn.delete'))">
+                                               data-placement="top"
+                                               data-original-title="{{ 'ingredient.action.delete'|trans }}"
+                                               onclick="return confirm(Translator.trans('ingredient.warn.delete'))">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>

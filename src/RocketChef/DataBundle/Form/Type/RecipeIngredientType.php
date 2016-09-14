@@ -9,14 +9,11 @@
 namespace RocketChef\DataBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
-use RocketChef\DataBundle\Entity\Ingredient;
 use RocketChef\DataBundle\Entity\RecipeIngredient;
-use RocketChef\UserBundle\Entity\Restaurant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -35,16 +32,16 @@ class RecipeIngredientType extends AbstractType
         $restaurant = $this->securityContext->getToken()->getUser()->getRestaurant();
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA,
-            function(FormEvent $event) use ($restaurant) {
+            function (FormEvent $event) use ($restaurant) {
                 $form = $event->getForm();
                 $ingredient = $event->getData();
                 $formOptions = array(
-                    'empty_value' => 'Choose an option',
-                    'class' => 'RocketChef\DataBundle\Entity\Ingredient',
-                    'property' => 'name',
-                    'query_builder' => function(EntityRepository $er) use ($restaurant) {
-                            return $er->createQueryBuilder('i')->where('i.restaurant = :restaurant')->setParameter('restaurant', $restaurant);
-                        },
+                    'empty_value'   => 'Choose an option',
+                    'class'         => 'RocketChef\DataBundle\Entity\Ingredient',
+                    'property'      => 'name',
+                    'query_builder' => function (EntityRepository $er) use ($restaurant) {
+                        return $er->createQueryBuilder('i')->where('i.restaurant = :restaurant')->setParameter('restaurant', $restaurant);
+                    },
                 );
                 if ($ingredient) {
                     $form->add('ingredient', new IngredientType());
@@ -56,10 +53,10 @@ class RecipeIngredientType extends AbstractType
         $builder->add('unit', 'choice', array(
             'choices' => array(
                 RecipeIngredient::UNIT_UNITARY => 'Unité',
-                RecipeIngredient::UNIT_GR => 'Gr',
-                RecipeIngredient::UNIT_KG => 'Kg',
-                RecipeIngredient::UNIT_CLITER => 'Cl',
-                RecipeIngredient::UNIT_LITER => 'L'
+                RecipeIngredient::UNIT_GR      => 'Gr',
+                RecipeIngredient::UNIT_KG      => 'Kg',
+                RecipeIngredient::UNIT_CLITER  => 'Cl',
+                RecipeIngredient::UNIT_LITER   => 'L'
             )
         ));
     }
@@ -67,7 +64,7 @@ class RecipeIngredientType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RocketChef\DataBundle\Entity\RecipeIngredient',
+            'data_class'    => 'RocketChef\DataBundle\Entity\RecipeIngredient',
             'error_mapping' => array(
                 'valid' => 'unit'),
         ));

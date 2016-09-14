@@ -21,14 +21,16 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
                             {% if  recipe.image.path is defined %}
-                                <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}" width="80%">
+                                <img class="img-rounded img-responsive" src="{{ asset(recipe.image.getWebPath()) }}"
+                                     width="80%">
                             {% else %}
                                 {{ form_widget(form.image) }}
                             {% endif %}
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-7">
                             <div class="form-group">
-                                <label class="col-sm-3" for="recipe_name">{{ 'recipebook.form.recipe_name'|trans }}</label>
+                                <label class="col-sm-3"
+                                       for="recipe_name">{{ 'recipebook.form.recipe_name'|trans }}</label>
 
                                 <div class="col-sm-5">
                                     {{ form_widget(form.name) }}
@@ -38,14 +40,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3" for="recipe_portions">{{ 'recipebook.form.portions'|trans }}</label>
+                                <label class="col-sm-3"
+                                       for="recipe_portions">{{ 'recipebook.form.portions'|trans }}</label>
 
                                 <div class="col-sm-9">
                                     {{ form_widget(form.portions) }}
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3" for="recipe_price">{{ 'recipebook.form.selling_price'|trans }}</label>
+                                <label class="col-sm-3"
+                                       for="recipe_price">{{ 'recipebook.form.selling_price'|trans }}</label>
 
                                 <div class="col-sm-9">
                                     {{ form_widget(form.price) }}

@@ -8,8 +8,8 @@
 namespace RocketChef\DataBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="RocketChef\DataBundle\Entity\RecipeRepository")
@@ -88,7 +88,7 @@ class Recipe
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -110,6 +110,7 @@ class Recipe
             $this->recipeIngredient->add($recipeIngredient);
             $recipeIngredient->setRecipe($this);
         }
+
         return $this;
     }
 
@@ -119,6 +120,7 @@ class Recipe
             $this->recipeIngredient->removeElement($recipeIngredient);
             $recipeIngredient->setRecipe(null);
         }
+
         return $this;
     }
 

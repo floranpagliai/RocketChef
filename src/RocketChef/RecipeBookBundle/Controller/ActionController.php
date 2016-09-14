@@ -10,7 +10,6 @@ namespace RocketChef\RecipeBookBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class ActionController extends Controller
 {
@@ -25,7 +24,7 @@ class ActionController extends Controller
             $em->flush();
         }
 
-        if ($urlRedirect == null)
+        if ($urlRedirect === null)
             return $this->redirect($request->headers->get('referer'));
         else
             return $this->redirect($this->generateUrl($urlRedirect));

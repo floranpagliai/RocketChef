@@ -19,6 +19,7 @@ class IngredientController extends Controller
     {
         $ingredients = $this->getUser()->getRestaurant()->getIngredients();
         $paramsRender = array('ingredients' => $ingredients);
+
         return $this->render('RocketChefIngredientBundle:ingredient:list.html.twig', $paramsRender);
     }
 
@@ -32,6 +33,7 @@ class IngredientController extends Controller
             );
         } else
             throw $this->createNotFoundException('Ingredient introuvable');
+
         return $this->render('RocketChefIngredientBundle:ingredient:show.html.twig', $paramsRender);
     }
 
@@ -48,10 +50,12 @@ class IngredientController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($ingredient);
                 $em->flush();
+
                 return $this->redirect($this->generateUrl('rocketchef_ingredient'));
             }
         }
         $paramsRender = array('form' => $form->createView());
+
         return $this->render('RocketChefIngredientBundle:ingredient:add.html.twig', $paramsRender);
     }
 
@@ -68,11 +72,13 @@ class IngredientController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($ingredient);
                 $em->flush();
+
                 return $this->redirect($this->generateUrl('rocketchef_ingredient'));
             }
         }
-        $paramsRender = array('form' => $form->createView(),
+        $paramsRender = array('form'       => $form->createView(),
                               'ingredient' => $ingredientOld);
+
         return $this->render('RocketChefIngredientBundle:ingredient:edit.html.twig', $paramsRender);
     }
 } 

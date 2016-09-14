@@ -2,13 +2,11 @@
 
 namespace RocketChef\UserBundle\Controller;
 
-use RocketChef\UserBundle\Entity\Restaurant;
 use RocketChef\UserBundle\Entity\User;
 use RocketChef\UserBundle\Form\Type\UserPasswordType;
 use RocketChef\UserBundle\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
@@ -34,8 +32,8 @@ class SecurityController extends Controller
 
         return $this->render('RocketChefUserBundle:Security:login.html.twig', array(
             // last username entered by the user
-            'last_username' => $lastUsername,
-            'error' => $error,
+            'last_username'  => $lastUsername,
+            'error'          => $error,
             'newUserAllowed' => $this->container->getParameter('security.new_user_allowed')
         ));
     }
@@ -63,10 +61,12 @@ class SecurityController extends Controller
 
                 $flash = $this->get('braincrafted_bootstrap.flash');
                 $flash->success($this->get('translator')->trans('user.warn.can_login'));
+
                 return $this->redirect($this->generateUrl('rocketchef_user_login'));
             }
         }
         $paramsRender = array('form' => $form->createView(), 'errors' => $errors);
+
         return $this->render('RocketChefUserBundle:Security:register.html.twig', $paramsRender);
     }
 
@@ -75,7 +75,6 @@ class SecurityController extends Controller
         $user = $this->getUser();
 
         $form = $this->createForm(new UserPasswordType(), $user);
-//        $form->add('oldPassword', 'password', array('mapped' => false));
 
         $form->submit($request);
         if ($form->isValid()) {
@@ -91,6 +90,7 @@ class SecurityController extends Controller
         }
 
         $paramsRender = array('form' => $form->createView());
+
         return $this->render('RocketChefUserBundle:Security:editpassform.html.twig', $paramsRender);
     }
 
