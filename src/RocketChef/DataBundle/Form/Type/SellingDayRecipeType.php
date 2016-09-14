@@ -31,16 +31,16 @@ class SellingDayRecipeType extends AbstractType
         $restaurant = $this->securityContext->getToken()->getUser()->getRestaurant();
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA,
-            function(FormEvent $event) use ($restaurant) {
+            function (FormEvent $event) use ($restaurant) {
                 $form = $event->getForm();
                 $recipe = $event->getData();
                 $formOptions = array(
-                    'empty_value' => 'Choose an option',
-                    'class' => 'RocketChef\DataBundle\Entity\Recipe',
-                    'property' => 'name',
-                    'query_builder' => function(EntityRepository $er) use ($restaurant) {
-                            return $er->createQueryBuilder('i')->where('i.restaurant = :restaurant')->setParameter('restaurant', $restaurant);
-                        },
+                    'empty_value'   => 'Choose an option',
+                    'class'         => 'RocketChef\DataBundle\Entity\Recipe',
+                    'property'      => 'name',
+                    'query_builder' => function (EntityRepository $er) use ($restaurant) {
+                        return $er->createQueryBuilder('i')->where('i.restaurant = :restaurant')->setParameter('restaurant', $restaurant);
+                    },
                 );
                 if (!$recipe) {
                     $form->add('recipe', 'entity', $formOptions);

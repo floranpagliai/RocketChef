@@ -18,10 +18,10 @@ class UserPasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('plain_password', 'repeated', array(
-            'type' => 'password',
+            'type'            => 'password',
             'invalid_message' => 'Les mots de passe doivent correspondre',
-            'first_options'  => array('label' => 'Mot de passe'),
-            'second_options' => array('label' => 'Mot de passe (validation)'),
+            'first_options'   => array('label' => 'Mot de passe'),
+            'second_options'  => array('label' => 'Mot de passe (validation)'),
         ));
     }
 

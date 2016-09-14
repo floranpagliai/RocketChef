@@ -9,8 +9,8 @@
 namespace RocketChef\UserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="restaurant")
@@ -161,11 +161,11 @@ class Restaurant
     }
 
 
-
     /**
      * Add users
      *
      * @param \RocketChef\UserBundle\Entity\User $users
+     *
      * @return Restaurant
      */
     public function addUser(\RocketChef\UserBundle\Entity\User $users)
@@ -189,6 +189,7 @@ class Restaurant
      * Add recipes
      *
      * @param \RocketChef\DataBundle\Entity\Recipe $recipes
+     *
      * @return Restaurant
      */
     public function addRecipe(\RocketChef\DataBundle\Entity\Recipe $recipes)
@@ -212,6 +213,7 @@ class Restaurant
      * Add ingredients
      *
      * @param \RocketChef\DataBundle\Entity\Ingredient $ingredients
+     *
      * @return Restaurant
      */
     public function addIngredient(\RocketChef\DataBundle\Entity\Ingredient $ingredients)
@@ -233,6 +235,7 @@ class Restaurant
 
     /**
      * @param \RocketChef\DataBundle\Entity\SellingDay $sellingDay
+     *
      * @return $this
      */
     public function addSellingDay(\RocketChef\DataBundle\Entity\SellingDay $sellingDay)

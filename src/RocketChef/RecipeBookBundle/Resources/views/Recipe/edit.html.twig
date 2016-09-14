@@ -8,9 +8,11 @@
 {% block page_content_breadcrumb %}
     <li><a href="{{ path('rocketchef_dashboard') }}"><i class="fa fa-tachometer "></i> {{ 'dashboard.title'|trans }}</a>
     </li>
-    <li><a href="{{ path('rocketchef_recipe_book') }}"><i class="fa fa-book"></i> {{ 'recipebook.title.recipebook'|trans }}</a>
+    <li><a href="{{ path('rocketchef_recipe_book') }}"><i
+                    class="fa fa-book"></i> {{ 'recipebook.title.recipebook'|trans }}</a>
     </li>
-    <li><a href="{{ path('rocketchef_recipe_book_show', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"><i class="fa fa-cutlery"></i> {{ recipe.name|capitalize }}</a>
+    <li><a href="{{ path('rocketchef_recipe_book_show', {'recipeId': recipe.id, 'recipeName': recipe.name}) }}"><i
+                    class="fa fa-cutlery"></i> {{ recipe.name|capitalize }}</a>
     </li>
     <li class="active">{{ 'recipebook.edit.edit'|trans }}</li>
 {% endblock %}

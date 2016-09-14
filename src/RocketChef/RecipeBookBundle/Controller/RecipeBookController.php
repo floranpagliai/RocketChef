@@ -15,7 +15,20 @@ class RecipeBookController extends Controller
         foreach ($recipes as $recipe)
             $this->updateRecipeCostAction($recipe);
         $paramsRender = array('recipes' => $recipes);
+
         return $this->render('RocketChefRecipeBookBundle:Recipe:list.html.twig', $paramsRender);
+    }
+
+    public function updateRecipeCostAction(Recipe $recipe)
+    {
+        $recipeService = $this->get('rocketchef_data.recipe.provider');
+        $recipe->setCost($recipeService->calculateRecipeCost($recipe));
+        foreach ($recipe->getRecipeIngredient() as $recipeIngredient) {
+            $recipeIngredient->setCost($recipeService->calculateRecipeIngredientCost($recipeIngredient));
+        }
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($recipe);
+        $em->flush();
     }
 
     public function showAction($recipeId)
@@ -26,33 +39,34 @@ class RecipeBookController extends Controller
             $recipeIngredients = $recipe->getRecipeIngredient();
             $this->updateRecipeCostAction($recipe);
             if ($recipe->getCost() > 0) {
-                $margin = ($recipe->getPrice()-($recipe->getCost()/$recipe->getPortions()))/($recipe->getPrice())*100;
-                $ratio = $recipe->getPrice()/($recipe->getCost()/$recipe->getPortions());
+                $margin = ($recipe->getPrice() - ($recipe->getCost() / $recipe->getPortions())) / ($recipe->getPrice()) * 100;
+                $ratio = $recipe->getPrice() / ($recipe->getCost() / $recipe->getPortions());
             } else {
                 $margin = 100;
                 $ratio = 0;
             }
             $paramsRender = array(
-                'recipe' => $recipe,
+                'recipe'            => $recipe,
                 'recipeIngredients' => $recipeIngredients,
-                'margin' => $margin,
-                'minimalPrice' => round(($recipe->getCost()/$recipe->getPortions())*3, 2),
-                'portionCost' => $recipe->getCost()/$recipe->getPortions(),
-                'ratio' => $ratio,
-                'marginColor' => ($margin > 40)? 'green' : 'red'
+                'margin'            => $margin,
+                'minimalPrice'      => round(($recipe->getCost() / $recipe->getPortions()) * 3, 2),
+                'portionCost'       => $recipe->getCost() / $recipe->getPortions(),
+                'ratio'             => $ratio,
+                'marginColor'       => ($margin > 40) ? 'green' : 'red'
             );
         } else
             throw $this->createNotFoundException('Recette introuvable');
+
         return $this->render('RocketChefRecipeBookBundle:Recipe:show.html.twig', $paramsRender);
     }
 
     public function addAction(Request $request)
     {
         $restaurant = $this->getUser()->getRestaurant();
-        if ($restaurant->getSubscription()->getRecipeMax() <= $restaurant->getRecipes()->count())
-        {
+        if ($restaurant->getSubscription()->getRecipeMax() <= $restaurant->getRecipes()->count()) {
             $flash = $this->get('notify_messenger.flash');
             $flash->error('Nombre maximun de recettes atteint.');
+
             return $this->redirect($this->generateUrl('rocketchef_recipe_book'));
         }
         $recipe = new Recipe();
@@ -62,35 +76,13 @@ class RecipeBookController extends Controller
             if ($form->isValid()) {
                 $recipe = $form->getData();
                 $this->updateRecipeAction($recipe);
-                return $this->redirect($this->generateUrl('rocketchef_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
+
+                return $this->redirect($this->generateUrl('rocketchef_recipe_book_show', array('recipeId' => $recipe->getId(), 'recipeName' => $recipe->getName())));
             }
         }
         $paramsRender = array('form' => $form->createView());
+
         return $this->render('RocketChefRecipeBookBundle:Recipe:add.html.twig', $paramsRender);
-    }
-
-    public function editAction(Request $request, $recipeId)
-    {
-        $recipeOld = $this->get('rocketchef_data.recipe.provider')->getRecipeById($recipeId);//TODO gestion du propriétaire
-        $form = $this->createForm(new RecipeType($this->container->get('security.context')), $recipeOld);
-            $form->handleRequest($request);
-            if ($form->isValid()) {
-                $recipe = $form->getData();
-                $this->updateRecipeAction($recipe);
-                $flash = $this->get('notify_messenger.flash');
-                $flash->success('Recipe saved');
-
-                return $this->redirect($this->generateUrl('rocketchef_recipe_book_show', array('recipeId'=> $recipe->getId(), 'recipeName' => $recipe->getName())));
-            } else {
-                $recipe = $form->getData();
-                $validator = $this->get('validator');
-                $errorList = $validator->validate($recipe);
-            }
-
-        $paramsRender = array('form' => $form->createView(),
-                              'recipe' => $recipeOld);
-        return $this->render('RocketChefRecipeBookBundle:Recipe:edit.html.twig', $paramsRender);
-
     }
 
     public function updateRecipeAction(Recipe $recipe)
@@ -104,16 +96,27 @@ class RecipeBookController extends Controller
         $em->flush();
     }
 
-    public function updateRecipeCostAction(Recipe $recipe)
+    public function editAction(Request $request, $recipeId)
     {
-        $recipeService = $this->get('rocketchef_data.recipe.provider');
-        $recipe->setCost($recipeService->calculateRecipeCost($recipe));
-        foreach ($recipe->getRecipeIngredient() as $recipeIngredient) {
-            $recipeIngredient->setCost($recipeService->calculateRecipeIngredientCost($recipeIngredient));
+        $recipeOld = $this->get('rocketchef_data.recipe.provider')->getRecipeById($recipeId);//TODO gestion du propriétaire
+        $form = $this->createForm(new RecipeType($this->container->get('security.context')), $recipeOld);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $recipe = $form->getData();
+            $this->updateRecipeAction($recipe);
+            $flash = $this->get('notify_messenger.flash');
+            $flash->success('Recipe saved');
+
+            return $this->redirect($this->generateUrl('rocketchef_recipe_book_show', array('recipeId' => $recipe->getId(), 'recipeName' => $recipe->getName())));
         }
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($recipe);
-        $em->flush();
+
+        $paramsRender = array(
+            'form'   => $form->createView(),
+            'recipe' => $recipeOld
+        );
+
+        return $this->render('RocketChefRecipeBookBundle:Recipe:edit.html.twig', $paramsRender);
+
     }
 
 }

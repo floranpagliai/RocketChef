@@ -10,8 +10,6 @@ namespace RocketChef\SellingBundle\Service;
 
 
 use RocketChef\DataBundle\Entity\SellingDay;
-use RocketChef\DataBundle\Entity\SellingDayRecipe;
-use RocketChef\DataBundle\Service\RecipeProvider;
 
 class SellingService
 {
@@ -26,6 +24,7 @@ class SellingService
         }
         $sellingDay->setCost($cost);
         $sellingDay->setCA($CA);
+
         return $sellingDay;
     }
 

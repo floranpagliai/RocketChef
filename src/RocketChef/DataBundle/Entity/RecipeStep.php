@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="recipeStep")
  */
-class RecipeStep 
+class RecipeStep
 {
 
     /**
@@ -36,6 +36,14 @@ class RecipeStep
     protected $text;
 
     /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param mixed $id
      */
     public function setId($id)
@@ -46,9 +54,9 @@ class RecipeStep
     /**
      * @return mixed
      */
-    public function getId()
+    public function getRecipe()
     {
-        return $this->id;
+        return $this->recipe;
     }
 
     /**
@@ -62,9 +70,9 @@ class RecipeStep
     /**
      * @return mixed
      */
-    public function getRecipe()
+    public function getText()
     {
-        return $this->recipe;
+        return $this->text;
     }
 
     /**
@@ -74,12 +82,4 @@ class RecipeStep
     {
         $this->text = $text;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-} 
+}

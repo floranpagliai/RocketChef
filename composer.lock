@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a8ea789ca21a2d412520fb1efd0bbb17",
-    "content-hash": "c1978f389ed0f6f900f66573919860ae",
+    "hash": "4341dc20f5bb4a264ab02a4d8d06dc82",
+    "content-hash": "775868010781dc07d4e104ce23f8749f",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1249,17 +1249,17 @@
         },
         {
             "name": "mlpz/mailchimp-bundle",
-            "version": "dev-master",
+            "version": "v1.3",
             "target-dir": "MZ/MailChimpBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/miguel250/MZMailChimpBundle.git",
-                "reference": "6c830cacba6e03e2d70c68030b9369ae5293ba1a"
+                "reference": "5673cd4ac97ddf0aec9723f9b44be41ac06d9148"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/miguel250/MZMailChimpBundle/zipball/6c830cacba6e03e2d70c68030b9369ae5293ba1a",
-                "reference": "6c830cacba6e03e2d70c68030b9369ae5293ba1a",
+                "url": "https://api.github.com/repos/miguel250/MZMailChimpBundle/zipball/5673cd4ac97ddf0aec9723f9b44be41ac06d9148",
+                "reference": "5673cd4ac97ddf0aec9723f9b44be41ac06d9148",
                 "shasum": ""
             },
             "require": {
@@ -1291,7 +1291,7 @@
                 "mailchimp",
                 "newsletter"
             ],
-            "time": "2015-04-27 21:24:08"
+            "time": "2014-10-07 05:23:09"
         },
         {
             "name": "monolog/monolog",
@@ -2775,7 +2775,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "mlpz/mailchimp-bundle": 20,
         "willdurand/js-translation-bundle": 20
     },
     "prefer-stable": false,

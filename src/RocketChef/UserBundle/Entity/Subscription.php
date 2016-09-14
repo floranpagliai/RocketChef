@@ -8,14 +8,13 @@
 
 namespace RocketChef\UserBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="subscription")
  * @ORM\Entity()
  */
-class Subscription 
+class Subscription
 {
     /**
      * @ORM\Column(name="id", type="integer")
@@ -35,6 +34,14 @@ class Subscription
     private $recipeMax;
 
     /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @param mixed $id
      */
     public function setId($id)
@@ -45,9 +52,9 @@ class Subscription
     /**
      * @return mixed
      */
-    public function getId()
+    public function getName()
     {
-        return $this->id;
+        return $this->name;
     }
 
     /**
@@ -61,9 +68,9 @@ class Subscription
     /**
      * @return mixed
      */
-    public function getName()
+    public function getRecipeMax()
     {
-        return $this->name;
+        return $this->recipeMax;
     }
 
     /**
@@ -72,13 +79,5 @@ class Subscription
     public function setRecipeMax($recipeMax)
     {
         $this->recipeMax = $recipeMax;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRecipeMax()
-    {
-        return $this->recipeMax;
     }
 } 

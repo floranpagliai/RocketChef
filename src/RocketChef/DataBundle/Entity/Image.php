@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Image 
+class Image
 {
     /**
      * @ORM\Id
@@ -35,14 +35,6 @@ class Image
     protected $path;
 
     /**
-     * @param mixed $image
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-
-    /**
      * @return mixed
      */
     public function getImage()
@@ -50,20 +42,17 @@ class Image
         return $this->image;
     }
 
-    public function getAbsolutePath()
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
     {
-        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+        $this->image = $image;
     }
 
     public function getWebPath()
     {
-        return null === $this->path ? null : $this->getUploadDir().'/'.$this->path;
-    }
-
-    protected function getUploadRootDir()
-    {
-        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return null === $this->path ? null : $this->getUploadDir() . '/' . $this->path;
     }
 
     protected function getUploadDir()
@@ -81,7 +70,7 @@ class Image
     {
         if (null !== $this->image) {
             // faites ce que vous voulez pour générer un nom unique
-            $this->path = sha1(uniqid(mt_rand(), true)).'.'.$this->image->guessExtension();
+            $this->path = sha1(uniqid(mt_rand(), true)) . '.' . $this->image->guessExtension();
         }
     }
 
@@ -104,6 +93,12 @@ class Image
         unset($this->file);
     }
 
+    protected function getUploadRootDir()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+    }
+
     /**
      * @ORM\PostRemove()
      */
@@ -114,10 +109,15 @@ class Image
         }
     }
 
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
+    }
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -125,9 +125,20 @@ class Image
     }
 
     /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
      * Set path
      *
      * @param string $path
+     *
      * @return Image
      */
     public function setPath($path)
@@ -135,15 +146,5 @@ class Image
         $this->path = $path;
 
         return $this;
-    }
-
-    /**
-     * Get path
-     *
-     * @return string 
-     */
-    public function getPath()
-    {
-        return $this->path;
     }
 }
