@@ -7,8 +7,8 @@
 
 namespace RocketChef\DataBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
@@ -162,7 +162,7 @@ class RecipeIngredient {
      */
     public function isValid(ExecutionContextInterface $context)
     {
-        if ($this->getIngredient() != null) {
+        if ($this->getIngredient() !== null) {
             $ingredientName = $this->getIngredient()->getName();
             if ($this->getIngredient()->getUnit() == Ingredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_LITER&&
                 ($this->getUnit() != RecipeIngredient::UNIT_LITER && $this->getUnit() != RecipeIngredient::UNIT_CLITER)) {

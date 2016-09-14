@@ -2,13 +2,11 @@
 
 namespace RocketChef\UserBundle\Controller;
 
-use RocketChef\UserBundle\Entity\Restaurant;
 use RocketChef\UserBundle\Entity\User;
 use RocketChef\UserBundle\Form\Type\UserPasswordType;
 use RocketChef\UserBundle\Form\Type\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
@@ -75,7 +73,6 @@ class SecurityController extends Controller
         $user = $this->getUser();
 
         $form = $this->createForm(new UserPasswordType(), $user);
-//        $form->add('oldPassword', 'password', array('mapped' => false));
 
         $form->submit($request);
         if ($form->isValid()) {

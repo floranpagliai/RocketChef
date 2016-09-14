@@ -10,8 +10,6 @@ namespace RocketChef\SellingBundle\Service;
 
 
 use RocketChef\DataBundle\Entity\SellingDay;
-use RocketChef\DataBundle\Entity\SellingDayRecipe;
-use RocketChef\DataBundle\Service\RecipeProvider;
 
 class SellingService
 {

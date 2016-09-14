@@ -8,9 +8,6 @@
 
 namespace RocketChef\SellingBundle\Controller;
 
-use RocketChef\DataBundle\Entity\SellingDay;
-use RocketChef\DataBundle\Entity\SellingDayRecipe;
-use RocketChef\DataBundle\Form\Type\SellingDayRecipeType;
 use RocketChef\DataBundle\Form\Type\SellingDayType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

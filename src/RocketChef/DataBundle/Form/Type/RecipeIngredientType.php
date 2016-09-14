@@ -9,14 +9,11 @@
 namespace RocketChef\DataBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
-use RocketChef\DataBundle\Entity\Ingredient;
 use RocketChef\DataBundle\Entity\RecipeIngredient;
-use RocketChef\UserBundle\Entity\Restaurant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 

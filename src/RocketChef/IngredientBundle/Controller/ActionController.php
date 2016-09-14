@@ -8,7 +8,6 @@
 
 namespace RocketChef\IngredientBundle\Controller;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,7 +26,7 @@ class ActionController extends Controller
             $flash->info('Ingredient deleted.');
         }
 
-        if ($urlRedirect == null)
+        if ($urlRedirect === null)
             return $this->redirect($request->headers->get('referer'));
         else
             return $this->redirect($this->generateUrl($urlRedirect));

@@ -9,11 +9,8 @@
 namespace RocketChef\SellingBundle\Controller;
 
 
-use RocketChef\DataBundle\Entity\SellingDay;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\Encoder\JsonEncode;
 
 class ActionController extends Controller
 {
