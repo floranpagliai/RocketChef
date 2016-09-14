@@ -16,8 +16,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="recipe")
  * @ORM\HasLifecycleCallbacks
  */
-class Recipe {
-
+class Recipe
+{
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -29,6 +29,12 @@ class Recipe {
      * @ORM\Column(type="string", length=100)
      */
     protected $name;
+
+    /**
+     * @ORM\OneToOne(targetEntity="RecipeType")
+     * @ORM\JoinColumn(name="recipeType_id", referencedColumnName="id")
+     */
+    protected $type;
 
     /**
      * @ORM\OneToMany(targetEntity="RecipeIngredient", mappedBy="recipe", cascade={"persist"}, orphanRemoval=TRUE)
@@ -255,5 +261,21 @@ class Recipe {
     public function getRecipeStep()
     {
         return $this->recipeStep;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

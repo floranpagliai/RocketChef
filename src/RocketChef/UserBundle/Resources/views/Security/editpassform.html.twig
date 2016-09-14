@@ -1,9 +1,9 @@
 {% include 'UtilsNotifyMessengerBundle::flash.html.twig' %}
 <h4 class="page-header">Nouveau mot de passe :</h4>
 {{ form_start(form, {'attr': {'class': 'form-inline'} }) }}
-{% if not form.password.vars.valid %}
+{% if not form.plain_password.vars.valid %}
 <div class="alert alert-danger">
-        {{ form_errors(form.password) }}
+        {{ form_errors(form) }}
 </div>
 {% endif %}
 {#<div class="form-group">#}

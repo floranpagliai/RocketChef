@@ -30,8 +30,11 @@
                             <div class="form-group">
                                 <label class="col-sm-3" for="recipe_name">{{ 'recipebook.form.recipe_name'|trans }}</label>
 
-                                <div class="col-sm-9">
+                                <div class="col-sm-5">
                                     {{ form_widget(form.name) }}
+                                </div>
+                                <div class="col-sm-4">
+                                    {{ form_widget(form.type) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -47,6 +50,7 @@
                                 <div class="col-sm-9">
                                     {{ form_widget(form.price) }}
                                 </div>
+
                             </div>
                         </div>
                     </div>

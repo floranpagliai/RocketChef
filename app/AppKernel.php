@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new MZ\MailChimpBundle\MZMailChimpBundle(),
             new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
+            new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle(),
 
             new RocketChef\DataBundle\RocketChefDataBundle(),
             new RocketChef\RecipeBookBundle\RocketChefRecipeBookBundle(),
@@ -45,7 +46,6 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            $bundles[] = new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle();
         }
 
         return $bundles;
