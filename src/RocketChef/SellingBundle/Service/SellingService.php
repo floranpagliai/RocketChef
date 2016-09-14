@@ -24,6 +24,7 @@ class SellingService
         }
         $sellingDay->setCost($cost);
         $sellingDay->setCA($CA);
+
         return $sellingDay;
     }
 

@@ -12,7 +12,6 @@ use RocketChef\DataBundle\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Security\Core\SecurityContext;
 
 class IngredientType extends AbstractType
 {

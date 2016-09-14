@@ -21,11 +21,12 @@ class ActionController extends Controller
         $data = array();
         foreach ($sellingDays as $sellingDay) {
             $data[] = array('date' => date_format($sellingDay->getDate(), 'Y-m-d'),
-                            'CA' => round($sellingDay->getCA(), 2),
+                            'CA'   => round($sellingDay->getCA(), 2),
                             'cost' => round($sellingDay->getCost(), 2),
 
             );
         }
+
         return new JsonResponse($data);
     }
 } 

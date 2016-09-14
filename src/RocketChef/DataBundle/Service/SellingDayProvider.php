@@ -9,7 +9,7 @@
 namespace RocketChef\DataBundle\Service;
 
 
-class SellingDayProvider 
+class SellingDayProvider
 {
 
 } 

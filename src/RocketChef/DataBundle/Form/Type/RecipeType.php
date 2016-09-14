@@ -31,14 +31,14 @@ class RecipeType extends AbstractType
         $builder->add('name', 'text');
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA,
-            function(FormEvent $event)  {
+            function (FormEvent $event) {
                 $form = $event->getForm();
                 $formOptions = array(
-                    'class' => 'RocketChef\DataBundle\Entity\RecipeType',
-                    'property' => 'name',
-                    'query_builder' => function(EntityRepository $er)  {
-                            return $er->createQueryBuilder('i');
-                        },
+                    'class'         => 'RocketChef\DataBundle\Entity\RecipeType',
+                    'property'      => 'name',
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('i');
+                    },
                 );
                 $form->add('type', 'entity', $formOptions);
 
@@ -48,17 +48,17 @@ class RecipeType extends AbstractType
         $builder->add('price', 'money');
         $builder->add('image', new ImageType(), array('required' => false));
         $builder->add('RecipeIngredient', 'collection', array(
-            'type' => new RecipeIngredientType($this->securityContext),
-            'allow_add' => true,
+            'type'         => new RecipeIngredientType($this->securityContext),
+            'allow_add'    => true,
             'allow_delete' => true,
-            'prototype' => true,
+            'prototype'    => true,
             'by_reference' => false
         ));
         $builder->add('RecipeStep', 'collection', array(
-            'type' => new RecipeStepType(),
-            'allow_add' => true,
+            'type'         => new RecipeStepType(),
+            'allow_add'    => true,
             'allow_delete' => true,
-            'prototype' => true,
+            'prototype'    => true,
             'by_reference' => false
         ));
     }

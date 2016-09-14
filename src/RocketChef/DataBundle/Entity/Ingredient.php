@@ -13,11 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="RocketChef\DataBundle\Entity\IngredientRepository")
  * @ORM\Table(name="ingredient")
  */
-class Ingredient {
+class Ingredient
+{
 
-    const UNIT_UNITARY  = 0;
-    const UNIT_KG       = 1;
-    const UNIT_LITER    = 2;
+    const UNIT_UNITARY = 0;
+    const UNIT_KG = 1;
+    const UNIT_LITER = 2;
 
     /**
      * @ORM\Id
@@ -66,7 +67,7 @@ class Ingredient {
      */
     public function __construct(Ingredient $ingredient = null)
     {
-        if ($ingredient){
+        if ($ingredient) {
             $this->id = $ingredient->getId();
             $this->name = $ingredient->getName();
             $this->priceForUnit = $ingredient->getPriceForUnit();
@@ -81,7 +82,7 @@ class Ingredient {
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -89,9 +90,20 @@ class Ingredient {
     }
 
     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set name
      *
      * @param string $name
+     *
      * @return Ingredient
      */
     public function setName($name)
@@ -102,19 +114,20 @@ class Ingredient {
     }
 
     /**
-     * Get name
+     * Get priceByUnit
      *
-     * @return string 
+     * @return string
      */
-    public function getName()
+    public function getPriceForUnit()
     {
-        return $this->name;
+        return $this->priceForUnit;
     }
 
     /**
      * Set priceByUnit
      *
      * @param string $priceByUnit
+     *
      * @return Ingredient
      */
     public function setPriceForUnit($priceByUnit)
@@ -125,19 +138,20 @@ class Ingredient {
     }
 
     /**
-     * Get priceByUnit
+     * Get unit
      *
-     * @return string 
+     * @return integer
      */
-    public function getPriceForUnit()
+    public function getUnit()
     {
-        return $this->priceForUnit;
+        return $this->unit;
     }
 
     /**
      * Set unit
      *
      * @param integer $unit
+     *
      * @throws \InvalidArgumentException
      * @return Ingredient
      */
@@ -149,13 +163,24 @@ class Ingredient {
     }
 
     /**
-     * Get unit
-     *
-     * @return integer 
+     * @return mixed
      */
-    public function getUnit()
+    public function getRecipes()
     {
-        return $this->unit;
+        return $this->recipes;
+    }
+
+    /**
+     * @param mixed $recipes
+     */
+    public function setRecipes($recipes)
+    {
+        $this->recipes = $recipes;
+    }
+
+    public static function getUnitsValues()
+    {
+        return array_keys(self::getUnits());
     }
 
     /**
@@ -167,14 +192,9 @@ class Ingredient {
     {
         return array(
             Ingredient::UNIT_UNITARY => '/Unité',
-            Ingredient::UNIT_KG => '/Kg',
-            Ingredient::UNIT_LITER => '/L'
+            Ingredient::UNIT_KG      => '/Kg',
+            Ingredient::UNIT_LITER   => '/L'
         );
-    }
-
-    public static function getUnitsValues()
-    {
-        return array_keys(self::getUnits());
     }
 
     public function getAvailableUnits()
@@ -188,9 +208,20 @@ class Ingredient {
     }
 
     /**
+     * Get startMonthSeason
+     *
+     * @return \DateTime
+     */
+    public function getStartMonthSeason()
+    {
+        return $this->startMonthSeason;
+    }
+
+    /**
      * Set startMonthSeason
      *
      * @param \DateTime $startMonthSeason
+     *
      * @return Ingredient
      */
     public function setStartMonthSeason($startMonthSeason)
@@ -201,19 +232,20 @@ class Ingredient {
     }
 
     /**
-     * Get startMonthSeason
+     * Get endMonthSeason
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getStartMonthSeason()
+    public function getEndMonthSeason()
     {
-        return $this->startMonthSeason;
+        return $this->endMonthSeason;
     }
 
     /**
      * Set endMonthSeason
      *
      * @param \DateTime $endMonthSeason
+     *
      * @return Ingredient
      */
     public function setEndMonthSeason($endMonthSeason)
@@ -221,16 +253,6 @@ class Ingredient {
         $this->endMonthSeason = $endMonthSeason;
 
         return $this;
-    }
-
-    /**
-     * Get endMonthSeason
-     *
-     * @return \DateTime 
-     */
-    public function getEndMonthSeason()
-    {
-        return $this->endMonthSeason;
     }
 
     public function addIngredient(RecipeIngredient $recipeIngredient)
@@ -244,19 +266,11 @@ class Ingredient {
     }
 
     /**
-     * @param mixed $recipes
-     */
-    public function setRecipes($recipes)
-    {
-        $this->recipes = $recipes;
-    }
-
-    /**
      * @return mixed
      */
-    public function getRecipes()
+    public function getRestaurant()
     {
-        return $this->recipes;
+        return $this->restaurant;
     }
 
     /**
@@ -268,19 +282,10 @@ class Ingredient {
     }
 
     /**
-     * @return mixed
-     */
-    public function getRestaurant()
-    {
-        return $this->restaurant;
-    }
-
-
-
-    /**
      * Add recipes
      *
      * @param \RocketChef\DataBundle\Entity\RecipeIngredient $recipes
+     *
      * @return Ingredient
      */
     public function addRecipe(\RocketChef\DataBundle\Entity\RecipeIngredient $recipes)

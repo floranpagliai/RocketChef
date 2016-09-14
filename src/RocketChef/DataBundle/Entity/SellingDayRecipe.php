@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="sellingDayRecipe")
  */
-class SellingDayRecipe 
+class SellingDayRecipe
 {
     /**
      * @ORM\Column(type="integer")
@@ -104,4 +104,4 @@ class SellingDayRecipe
     {
         return $this->qte;
     }
-} 
+}

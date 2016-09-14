@@ -88,7 +88,7 @@ class Recipe
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -110,6 +110,7 @@ class Recipe
             $this->recipeIngredient->add($recipeIngredient);
             $recipeIngredient->setRecipe($this);
         }
+
         return $this;
     }
 
@@ -119,6 +120,7 @@ class Recipe
             $this->recipeIngredient->removeElement($recipeIngredient);
             $recipeIngredient->setRecipe(null);
         }
+
         return $this;
     }
 

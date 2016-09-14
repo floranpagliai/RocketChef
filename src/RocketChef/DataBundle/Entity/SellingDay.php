@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="sellingDay")
  * @UniqueEntity("date", message="selling.warn.dateUnique")
  */
-class SellingDay 
+class SellingDay
 {
     /**
      * @ORM\Column(type="integer")
@@ -60,6 +60,7 @@ class SellingDay
     {
         $this->recipes = new ArrayCollection();
     }
+
     /**
      * @param mixed $date
      */
@@ -113,6 +114,7 @@ class SellingDay
         if (!$this->recipes->contains($recipe)) {
             $this->recipes->add($recipe);
         }
+
         return $this;
     }
 
@@ -121,6 +123,7 @@ class SellingDay
         if ($this->recipes->contains($recipe)) {
             $this->recipes->removeElement($recipe);
         }
+
         return $this;
     }
 
@@ -171,6 +174,4 @@ class SellingDay
     {
         return $this->cost;
     }
-
-
-} 
+}

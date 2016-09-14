@@ -12,7 +12,8 @@ use RocketChef\DataBundle\Entity\Recipe;
 use RocketChef\DataBundle\Entity\RecipeIngredient;
 use RocketChef\DataBundle\Entity\RecipeRepository;
 
-class RecipeProvider {
+class RecipeProvider
+{
 
     private $em;
 
@@ -77,7 +78,7 @@ class RecipeProvider {
         $cost = 0;
 
         foreach ($recipeIngredients as $recipeIngredient)
-            $cost +=  $this->calculateRecipeIngredientCost($recipeIngredient);
+            $cost += $this->calculateRecipeIngredientCost($recipeIngredient);
 
         return $cost;
     }
@@ -88,7 +89,7 @@ class RecipeProvider {
         if ($recipeIngredient->getUnit() == RecipeIngredient::UNIT_UNITARY)
             $cost = $recipeIngredient->getQte() * $ingredient->getPriceForUnit();
         elseif ($recipeIngredient->getUnit() == RecipeIngredient::UNIT_GR || $recipeIngredient->getUnit() == RecipeIngredient::UNIT_CLITER)
-            $cost = ($recipeIngredient->getQte()/1000) * $ingredient->getPriceForUnit();
+            $cost = ($recipeIngredient->getQte() / 1000) * $ingredient->getPriceForUnit();
         else
             $cost = $recipeIngredient->getQte() * $ingredient->getPriceForUnit();
 
@@ -97,29 +98,7 @@ class RecipeProvider {
 
     public function getRestaurantAverageCost($restaurantId)
     {
-        $recipes =  $this->em->createQueryBuilder('r')
-        ->select('r')
-        ->where('r.restaurant = :restaurant_id')
-        ->setParameter('restaurant_id', $restaurantId)
-        ->getQuery()
-        ->getResult();
-
-        $cost = 0;
-        $i = 0;
-        foreach ($recipes as $recipe)
-        {
-            $cost += $this->calculateRecipeCost($recipe);
-            $i++;
-        }
-        if ($i == 0)
-            return null;
-        else
-            return $cost/$i;
-    }
-
-    public function getRestaurantAveragePortionCost($restaurantId)
-    {
-        $recipes =  $this->em->createQueryBuilder('r')
+        $recipes = $this->em->createQueryBuilder('r')
             ->select('r')
             ->where('r.restaurant = :restaurant_id')
             ->setParameter('restaurant_id', $restaurantId)
@@ -128,14 +107,34 @@ class RecipeProvider {
 
         $cost = 0;
         $i = 0;
-        foreach ($recipes as $recipe)
-        {
-            $cost += $this->calculateRecipeCost($recipe)/ $recipe->getPortions();
+        foreach ($recipes as $recipe) {
+            $cost += $this->calculateRecipeCost($recipe);
             $i++;
         }
         if ($i == 0)
             return null;
         else
-            return $cost/$i;
+            return $cost / $i;
+    }
+
+    public function getRestaurantAveragePortionCost($restaurantId)
+    {
+        $recipes = $this->em->createQueryBuilder('r')
+            ->select('r')
+            ->where('r.restaurant = :restaurant_id')
+            ->setParameter('restaurant_id', $restaurantId)
+            ->getQuery()
+            ->getResult();
+
+        $cost = 0;
+        $i = 0;
+        foreach ($recipes as $recipe) {
+            $cost += $this->calculateRecipeCost($recipe) / $recipe->getPortions();
+            $i++;
+        }
+        if ($i == 0)
+            return null;
+        else
+            return $cost / $i;
     }
 }

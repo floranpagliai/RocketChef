@@ -60,4 +60,4 @@ class RecipeType
     {
         return $this->name;
     }
-} 
+}
