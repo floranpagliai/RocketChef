@@ -5,8 +5,8 @@ imports:
 assetic:
     filters:
         less:
-            node: /bin/node
-            node_paths: [/lib/node_modules]
+            node: /.heroku/node
+            node_paths: [/.heroku/node/lib/node_modules]
             apply_to: "\.less$"
 
 monolog:
