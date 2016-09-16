@@ -4,7 +4,6 @@
     "node": "0.12.x"
   },
   "dependencies": {
-    "uglifycss": "*",
-    "uglify-js": "*"
+    "less": "*"
   }
 }
