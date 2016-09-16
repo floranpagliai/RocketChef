@@ -38,8 +38,7 @@ assetic:
         cssrewrite: ~
         less:
             node: /usr/local/bin/node
-            node_paths: ["/usr/local/lib/node_modules"]
-            apply_to: "\.less$"
+            node_paths: [/usr/local/lib/node_modules]
     assets:
         fontawesome_css:
             inputs:
@@ -56,7 +55,7 @@ assetic:
 
 braincrafted_bootstrap:
     assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
-    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.10.2.js
+    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.12.0.js
 
 # Doctrine Configuration
 doctrine:

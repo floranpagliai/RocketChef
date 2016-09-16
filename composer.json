@@ -22,7 +22,7 @@
         "braincrafted/bootstrap-bundle": "2.2.*",
         "twbs/bootstrap": "3.0.*",
         "components/font-awesome": "~4.1",
-        "jquery/jquery":  "1.10.*",
+        "jquery/jquery":  "1.12.0",
 		"coresphere/console-bundle": "0.4.*",
 		"leafo/lessphp": "0.4.*",
 		"mlpz/mailchimp-bundle": "1.*",
@@ -33,9 +33,9 @@
             "type": "package",
             "package": {
                 "name": "jquery/jquery",
-                "version": "1.10.2",
+                "version": "1.12",
                 "dist": {
-                    "url": "http://code.jquery.com/jquery-1.10.2.js",
+                    "url": "http://code.jquery.com/jquery-1.12.0.js",
                     "type": "file"
                 }
             }
