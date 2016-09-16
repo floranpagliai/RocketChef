@@ -5,8 +5,8 @@ imports:
 assetic:
     filters:
         less:
-            node: /usr/bin/node
-            node_paths: [/usr/lib/node_modules]
+            node: /bin/node
+            node_paths: [/lib/node_modules]
             apply_to: "\.less$"
 
 monolog:
