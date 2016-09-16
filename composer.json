@@ -60,7 +60,7 @@
         ],
         "compile": [
             "ls /",
-            "ls /heroku",
+            "pwd",
             "find . -name 'node*'",
             "app/console assetic:dump"
         ]
