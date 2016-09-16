@@ -59,7 +59,8 @@
             "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
         ],
         "compile": [
-            "app/console assetic:dump"
+            "app/console assetic:dump --env=prod",
+            "app/console assets:install --env=prod"
         ]
     },
     "config": {
