@@ -67,7 +67,10 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "env-map": {
+              "mailchimp_api_key": "MAILCHIMP_API_KEY"
+          }
         },
         "branch-alias": {
             "dev-master": "2.4-dev"
