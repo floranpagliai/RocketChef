@@ -59,9 +59,8 @@
             "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
         ],
         "compile": [
-            "ls /",
-            "pwd",
-            "find . -name 'node*'",
+            "ls /usr",
+            "ls /usr/local",
             "app/console assetic:dump"
         ]
     },
