@@ -59,7 +59,6 @@
             "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
         ],
         "compile": [
-            "ls /usr/local/bin",
             "app/console assetic:dump"
         ]
     },
