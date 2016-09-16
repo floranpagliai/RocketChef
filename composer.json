@@ -57,6 +57,9 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+        ],
+        "compile": [
+            "bin/console assetic:dump"
         ]
     },
     "config": {
