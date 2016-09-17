@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1defc8ae0e0d8108dfeb6cb44be697bb",
-    "content-hash": "26b8242fcf9cfd76a00e4458fc7abf25",
+    "hash": "1629aae58f7575adf2824be11c6038a7",
+    "content-hash": "cef7c0ecaa8dd9bf4b9175c7bb99d949",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -2780,7 +2780,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*"
     },
     "platform-dev": []
 }

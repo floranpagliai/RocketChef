@@ -8,6 +8,8 @@
     },
     "require": {
         "php": ">=5.3.3",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*",
         "symfony/symfony": "2.8.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.6",
@@ -73,6 +75,12 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml",
             "env-map": {
+              "database_driver": "DATABASE_DRIVER",
+              "database_host": "DATABASE_HOST",
+              "database_port": "DATABASE_PORT",
+              "database_name": "DATABASE_NAME",
+              "database_user": "DATABASE_USER",
+              "database_password": "DATABASE_PASSWORD",
               "mailchimp_api_key": "MAILCHIMP_API_KEY"
           }
         },
